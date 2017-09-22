@@ -10,14 +10,16 @@ nav ul, footer ul {
     padding: 0px;
     list-style: none;
     font-weight: bold;
+    color: rgb(69, 99, 122)
 }
 nav ul li, footer ul li {
     display: inline;
     margin-right: 20px;
+    color: rgb(69, 99, 122)
 }
 a {
     text-decoration: none;
-    color: #999;
+    color: rgb(69, 99, 122)
 }
 a:hover {
     text-decoration: underline;
