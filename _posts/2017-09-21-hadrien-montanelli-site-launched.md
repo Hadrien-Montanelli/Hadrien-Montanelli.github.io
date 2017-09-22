@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Hadrien Montanelli Launches Site"
+title: "New site"
 date: 2017-09-21
 ---
 
