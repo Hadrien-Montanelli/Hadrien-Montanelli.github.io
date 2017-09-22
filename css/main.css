@@ -52,13 +52,14 @@ footer {
     font-size: .8em;
     color: rgb(69, 99, 122);
 }
-
+ul { 
+    color: rgb(69, 99, 122);
+}
 ul.posts { 
     margin: 20px auto 40px; 
     font-size: 1.5em;
     color: rgb(69, 99, 122);
 }
-
 ul.posts li {
     list-style: none;
     color: rgb(69, 99, 122);
