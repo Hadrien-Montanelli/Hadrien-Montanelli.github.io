@@ -10,54 +10,56 @@ nav ul, footer ul {
     padding: 0px;
     list-style: none;
     font-weight: bold;
-    color: rgb(69, 99, 122)
+    color: rgb(69, 99, 122);
 }
 nav ul li, footer ul li {
     display: inline;
     margin-right: 20px;
-    color: rgb(69, 99, 122)
+    color: rgb(69, 99, 122);
 }
 a {
     text-decoration: none;
-    color: rgb(155, 203, 235)
+    color: rgb(155, 203, 235);
+    font-weight: bold;
 }
 a:hover {
     text-decoration: none;
-    color: rgb(0, 60, 113)
+    color: rgb(0, 60, 113);
+    font-weight: bold;
 }
 h1 {
     font-size: 3em;
     font-family:'Helvetica', 'Arial', 'Sans-Serif';
-    color: rgb(69, 99, 122)
+    color: rgb(69, 99, 122);
 }
 h2 {
     font-size: 2.25em;
     font-family:'Helvetica', 'Arial', 'Sans-Serif';
-    color: rgb(69, 99, 122)
+    color: rgb(69, 99, 122);
 }
 h3 {
     font-size: 1.75em;
     font-family:'Helvetica', 'Arial', 'Sans-Serif';
-    color: rgb(69, 99, 122)
+    color: rgb(69, 99, 122);
 }
 p {
     font-size: 1.1em;
     line-height: 1.25em;
-    color: rgb(69, 99, 122)
+    color: rgb(69, 99, 122);
 }
 footer {
     border-top: 1px solid #d5d5d5;
     font-size: .8em;
-    color: rgb(69, 99, 122)
+    color: rgb(69, 99, 122);
 }
 
 ul.posts { 
     margin: 20px auto 40px; 
     font-size: 1.5em;
-    color: rgb(69, 99, 122)
+    color: rgb(69, 99, 122);
 }
 
 ul.posts li {
     list-style: none;
-    color: rgb(69, 99, 122)
+    color: rgb(69, 99, 122);
 }
