@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "New site"
+title: "New website"
 date: 2017-09-21
 ---
 
