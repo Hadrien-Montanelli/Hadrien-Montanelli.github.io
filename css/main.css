@@ -22,7 +22,7 @@ a {
     color: rgb(155, 203, 235)
 }
 a:hover {
-    text-decoration: underline;
+    text-decoration: none;
     color: rgb(155, 203, 235)
 }
 h1 {
