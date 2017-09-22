@@ -23,6 +23,7 @@ a {
 }
 a:hover {
     text-decoration: underline;
+    color: rgb(69, 99, 122)
 }
 h1 {
     font-size: 3em;
@@ -58,4 +59,5 @@ ul.posts {
 
 ul.posts li {
     list-style: none;
+    color: rgb(69, 99, 122)
 }
