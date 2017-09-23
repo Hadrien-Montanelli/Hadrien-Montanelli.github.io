@@ -65,20 +65,30 @@ p {
 }
 ul { 
 	font-family: Futura, 'Trebuchet MS', Arial, sans-serif;
-	font-size: 1.1em;
-    	line-height: 2em;
-    	color: rgb(69, 99, 122);
+	font-size: 14px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 400;
+	line-height: 20px;
+	color: rgb(69, 99, 122);
 }
 ul.posts { 
 	font-family: Futura, 'Trebuchet MS', Arial, sans-serif;
-	margin: 20px auto 40px; 
-    	font-size: 1.5em;
-    	color: rgb(69, 99, 122);
+	font-size: 14px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 400;
+	line-height: 20px;
+	color: rgb(69, 99, 122);
 }
 ul.posts li {
-    	font-family: Futura, 'Trebuchet MS', Arial, sans-serif;
-    	list-style: none;
-    	color: rgb(69, 99, 122);
+	font-family: Futura, 'Trebuchet MS', Arial, sans-serif;
+	font-size: 14px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 400;
+	line-height: 20px;
+	color: rgb(69, 99, 122);
 }
 hr {
     	margin: 20px 0;
