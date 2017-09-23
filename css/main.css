@@ -1,31 +1,31 @@
-body {
-    div {
-    	height: auto; /*if more info comes on the page, it will stretch down*/
-        width: 1000px;
-        margin: 0 auto; /*this will cause the div to be in the center*/
+body {	
+	div {
+    		height: auto; /*if more info comes on the page, it will stretch down*/
+        	width: 1000px;
+       		margin: 0 auto; /*this will cause the div to be in the center*/
     }
 }
 nav ul, footer ul {
-    font-family: 'Apercu Pro', sans-serif;
-    padding: 0px;
-    list-style: none;
-    font-weight: bold;
-    color: rgb(69, 99, 122);
+ 	font-family: Futura, 'Trebuchet MS', Arial, sans-serif;
+	padding: 0px;
+	list-style: none;
+	font-weight: bold;
+	color: rgb(69, 99, 122);
 }
 nav ul li, footer ul li {
-    display: inline;
-    margin-right: 20px;
-    color: rgb(69, 99, 122);
+	display: inline;
+	margin-right: 20px;
+	color: rgb(69, 99, 122);
 }
 a {
-    text-decoration: none;
-    color: rgb(109, 172, 214);
-    font-weight: bold;
+    	text-decoration: none;
+    	color: rgb(109, 172, 214);
+    	font-weight: bold;
 }
 a:hover {
-    text-decoration: none;
-    color: rgb(0, 60, 113);
-    font-weight: bold;
+    	text-decoration: none;
+    	color: rgb(0, 60, 113);
+    	font-weight: bold;
 }
 h1 {
 	font-family: Futura, 'Trebuchet MS', Arial, sans-serif;
@@ -36,10 +36,14 @@ h1 {
 	line-height: 26px;
 	color: rgb(69, 99, 122);
 }
-h2 {
-    font-size: 2.25em;
-    font-family: 'Apercu Pro', sans-serif;
-    color: rgb(69, 99, 122);
+h2 {    
+	font-family: Futura, 'Trebuchet MS', Arial, sans-serif;
+	font-size: 18px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 500;
+	line-height: 20px;
+	color: rgb(69, 99, 122);
 }
 h3 {
 	font-family: Futura, 'Trebuchet MS', Arial, sans-serif;
@@ -60,28 +64,29 @@ p {
 	color: rgb(69, 99, 122);
 }
 ul { 
+	font-family: Futura, 'Trebuchet MS', Arial, sans-serif;
 	font-size: 1.1em;
-	font-family: 'Apercu Pro', sans-serif;
-    line-height: 2em;
-    color: rgb(69, 99, 122);
+    	line-height: 2em;
+    	color: rgb(69, 99, 122);
 }
 ul.posts { 
-    margin: 20px auto 40px; 
-    font-size: 1.5em;
-    font-family: 'Apercu Pro', sans-serif;
-    color: rgb(69, 99, 122);
+	font-family: Futura, 'Trebuchet MS', Arial, sans-serif;
+	margin: 20px auto 40px; 
+    	font-size: 1.5em;
+    	color: rgb(69, 99, 122);
 }
 ul.posts li {
-    font-family: 'Apercu Pro', sans-serif;
-    list-style: none;
-    color: rgb(69, 99, 122);
+    	font-family: Futura, 'Trebuchet MS', Arial, sans-serif;
+    	list-style: none;
+    	color: rgb(69, 99, 122);
 }
 hr {
-    margin: 20px 0;
-    border: 1px solid #ccc;
+    	margin: 20px 0;
+    	border: 1px solid #ccc;
 }
 footer {
-    border-top: 2px solid #ccc;
-    font-size: .8em;
-    color: rgb(69, 99, 122);
+	font-family: Futura, 'Trebuchet MS', Arial, sans-serif;
+    	border-top: 2px solid #ccc;
+    	font-size: .8em;
+    	color: rgb(69, 99, 122);
 }
