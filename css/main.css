@@ -86,7 +86,11 @@ hr {
 }
 footer {
 	font-family: Futura, 'Trebuchet MS', Arial, sans-serif;
-    	border-top: 2px solid #ccc;
-    	font-size: .8em;
-    	color: rgb(69, 99, 122);
+	font-size: 14px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 400;
+	line-height: 20px;
+	color: rgb(69, 99, 122);
+    	border-top: 2px solid #ccc;	
 }
