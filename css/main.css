@@ -61,6 +61,7 @@ ul.posts {
     color: rgb(69, 99, 122);
 }
 ul.posts li {
+    font-family: 'Apercu Pro', sans-serif;
     list-style: none;
     color: rgb(69, 99, 122);
 }
