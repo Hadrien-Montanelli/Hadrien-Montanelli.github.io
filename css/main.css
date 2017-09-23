@@ -42,9 +42,13 @@ h2 {
     color: rgb(69, 99, 122);
 }
 h3 {
-    font-size: 1.75em;
-    font-family: 'Apercu Pro', sans-serif;
-    color: rgb(69, 99, 122);
+	font-family: Futura, 'Trebuchet MS', Arial, sans-serif;
+	font-size: 14px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 500;
+	line-height: 15px;
+	color: rgb(69, 99, 122);
 }
 p {
 	font-family: Futura, 'Trebuchet MS', Arial, sans-serif;
