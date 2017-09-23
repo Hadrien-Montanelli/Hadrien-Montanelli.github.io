@@ -68,7 +68,7 @@ ul {
 	font-style: normal;
 	font-variant: normal;
 	font-weight: 400;
-	line-height: 20px;
+	line-height: 26px;
 	color: rgb(69, 99, 122);
 }
 ul.posts { 
@@ -77,7 +77,7 @@ ul.posts {
 	font-style: normal;
 	font-variant: normal;
 	font-weight: 400;
-	line-height: 20px;
+	line-height: 30px;
 	color: rgb(69, 99, 122);
 }
 ul.posts li {
@@ -86,7 +86,7 @@ ul.posts li {
 	font-style: normal;
 	font-variant: normal;
 	font-weight: 400;
-	line-height: 26px;
+	line-height: 30px;
 	color: rgb(69, 99, 122);
 }
 hr {
