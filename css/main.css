@@ -28,8 +28,12 @@ a:hover {
     font-weight: bold;
 }
 h1 {
-    font-size: 3em;
-    font-family: 'Apercu Pro', sans-serif;
+	font-family: Futura, 'Trebuchet MS', Arial, sans-serif;
+	font-size: 24px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 500;
+	line-height: 26px;
     color: rgb(69, 99, 122);
 }
 h2 {
