@@ -29,32 +29,35 @@ a:hover {
 }
 h1 {
     font-size: 3em;
-    font-family: Futura, 'Trebuchet MS', Arial, sans-serif;
+    font-family: 'Apercu Pro', sans-serif;
     color: rgb(69, 99, 122);
 }
 h2 {
     font-size: 2.25em;
-    font-family: Futura, 'Trebuchet MS', Arial, sans-serif;
+    font-family: 'Apercu Pro', sans-serif;
     color: rgb(69, 99, 122);
 }
 h3 {
     font-size: 1.75em;
-    font-family: Futura, 'Trebuchet MS', Arial, sans-serif;
+    font-family: 'Apercu Pro', sans-serif;
     color: rgb(69, 99, 122);
 }
 p {
     font-size: 1.1em;
+    font-family: 'Apercu Pro', sans-serif;
     line-height: 1.25em;
     color: rgb(69, 99, 122);
 }
 ul { 
     font-size: 1.1em;
+    font-family: 'Apercu Pro', sans-serif;
     line-height: 2em;
     color: rgb(69, 99, 122);
 }
 ul.posts { 
     margin: 20px auto 40px; 
     font-size: 1.5em;
+    font-family: 'Apercu Pro', sans-serif;
     color: rgb(69, 99, 122);
 }
 ul.posts li {
