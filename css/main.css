@@ -55,7 +55,7 @@ h3 {
 }
 p {
 	font-family: Futura, 'Trebuchet MS', Arial, sans-serif;
-	font-size: 16px;
+	font-size: 14px;
 	font-style: normal;
 	font-variant: normal;
 	font-weight: 400;
@@ -64,7 +64,7 @@ p {
 }
 ul { 
 	font-family: Futura, 'Trebuchet MS', Arial, sans-serif;
-	font-size: 16px;
+	font-size: 14px;
 	font-style: normal;
 	font-variant: normal;
 	font-weight: 400;
@@ -73,7 +73,7 @@ ul {
 }
 ul.posts { 
 	font-family: Futura, 'Trebuchet MS', Arial, sans-serif;
-	font-size: 16px;
+	font-size: 14px;
 	font-style: normal;
 	font-variant: normal;
 	font-weight: 400;
@@ -82,7 +82,7 @@ ul.posts {
 }
 ul.posts li {
 	font-family: Futura, 'Trebuchet MS', Arial, sans-serif;
-	font-size: 16px;
+	font-size: 14px;
 	font-style: normal;
 	font-variant: normal;
 	font-weight: 400;
@@ -95,7 +95,7 @@ hr {
 }
 footer {
 	font-family: Futura, 'Trebuchet MS', Arial, sans-serif;
-	font-size: 16px;
+	font-size: 14px;
 	font-style: normal;
 	font-variant: normal;
 	font-weight: 400;
