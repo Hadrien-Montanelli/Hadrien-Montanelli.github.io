@@ -11,18 +11,20 @@ Since straight lines can be parametrized by their distance $$s$$ to the origin a
 
 $$
 \begin{array}{l}
-f : \R^2 \rightarrow \R, \quad
-\mathcal{R}f : [0,2\pi]\times\R \rightarrow \R, \\\\
-\dsp \mathcal{R}f(\alpha, s) = \int_{-\infty}^\infty f(x(z), y(z)) dz,
+f : \mathbb{R}^2 \rightarrow \mathbb{R}, \quad
+\mathcal{R}f : [0,2\pi]\times\mathbb{R} \rightarrow \mathbb{R}, \\\\
+\dispaystyle \mathcal{R}f(\alpha, s) = \int_{-\infty}^\infty f(x(z), y(z)) dz,
 \end{array}
 $$
 
 with 
+
 $$
 x(z) = s\cos\alpha + z\sin\alpha, \quad y(z) = s\sin\alpha - z\cos\alpha.
 $$
 
 Alternatively, one could write 
+
 $$
 \mathcal{R}f(\boldsymbol{\alpha}, s) = \int_{-\infty}^\infty f(s\boldsymbol{\alpha} + z\boldsymbol{\alpha}^\perp)dz,
 $$
