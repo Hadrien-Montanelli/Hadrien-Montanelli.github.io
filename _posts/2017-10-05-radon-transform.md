@@ -60,20 +60,23 @@ For a function $$u:\mathbb{R}^n\rightarrow\mathbb{R}$$,
 $$
 \bigg(\mathcal{R}\frac{\partial u}{\partial x_i}\bigg)(\boldsymbol{\alpha},s) 
 = \alpha_i\frac{\partial}{\partial s}\Big(\mathcal{R}u(\boldsymbol{\alpha},s)\Big),
-$
+$$
 
 or
+
 $$
 \big(\mathcal{R}\nabla u\big)(\boldsymbol{\alpha},s) 
 = \boldsymbol{\alpha}\frac{\partial}{\partial s}\Big(\mathcal{R}u(\boldsymbol{\alpha},s)\Big).
 $$
 
 Using this property one can, e.g., transform a 2D transport equation
+
 $$
 u_t + \boldsymbol{\theta}\cdot\nabla u = 0, \quad \boldsymbol{\theta}\in S^1, \quad u = u(x,y,t),
-$
+$$
 
 to a family of 1D advection equations parametrized by $$\boldsymbol{\alpha}$$,
+
 $$
 (\mathcal{R}u)_t + (\boldsymbol{\theta}\cdot\boldsymbol{\alpha})(\mathcal{R}u)_s = 0, 
 \quad \mathcal{R}u = \mathcal{R}u_{\boldsymbol{\alpha}}(s,t).
