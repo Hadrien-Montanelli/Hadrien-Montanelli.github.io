@@ -6,7 +6,7 @@ date: 2017-10-05
 
 My colleague <a href="http://dsrim.github.io">Donsub Rim</a> has recently written a beautiful 
 <a href="http://arxiv.org/pdf/1705.03609.pdf">paper</a> about dimensional splitting for hyperbolic PDEs using the intertwining property of the Radon transform. 
-In this post, I review the Radon transform and explain briefly his idea.
+In this post, I review the Radon transform and explain briefly the main idea of his paper.
 
 Let $$f(\mathbf{x})=f(x,y)$$ be a real-valued function in $$\mathbb{R}^2$$.
 The <i>Radon transform</i> of $$f$$, $$\mathcal{R}f$$, is a function defined on the space of straight lines in $$\mathbb{R}^2$$ by the line integral along each such line.
@@ -55,7 +55,7 @@ tangent lines to the unit circle), two angles in 3D (points on the unit sphere o
 The number $$s$$ is the (signed) distance between these hyperplanes and the origin.
 
 The key property used by Donsub is the <i>intertwining property</i> of the Radon transform.
-For a function $$u:\R^n\rightarrow\R$$, 
+For a function $$u:\mathbb{R}^n\rightarrow\mathbb{R}$$, 
 
 $$
 \bigg(\mathcal{R}\frac{\partial u}{\partial x_i}\bigg)(\boldsymbol{\alpha},s) 
