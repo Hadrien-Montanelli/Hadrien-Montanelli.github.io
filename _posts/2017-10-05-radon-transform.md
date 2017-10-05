@@ -8,35 +8,18 @@ My colleague <a href="http://dsrim.github.io">Donsub Rim</a> has recently writte
 <a href="http://arxiv.org/pdf/1705.03609.pdf">paper</a> about dimensional splitting for hyperbolic PDEs using the intertwining property of the Radon transform. 
 In this post, I recall the definition of the Radon transform and explain briefly the main idea of his paper.
 
-Let $$f(\mathbf{x})=f(x,y)$$ be a real-valued function in $$\mathbb{R}^2$$.
-The <i>Radon transform</i> of $$f$$, $$\mathcal{R}f$$, is a function defined on the space of straight lines in $$\mathbb{R}^2$$ by the line integral along each such line.
-
-Since straight lines can be parametrized by their distance $$s$$ to the origin and the angle $$\alpha$$ that their normal vector $$\overrightarrow{n}=(\cos\alpha, \sin\alpha)$$ make with the $$x$$-axis, one can write 
+The Radon transform $$\mathcal{R}f$$ of a function $$f:\mathbb{R}^n\rightarrow\mathbb{R}$$ is a function defined on the space of straight lines in $$\mathbb{R}^2$$ by the line integral along each such line by
 
 $$
 \begin{array}{l}
-f : \mathbb{R}^2 \rightarrow \mathbb{R}, \quad
 \mathcal{R}f : [0,2\pi]\times\mathbb{R} \rightarrow \mathbb{R}, \\\\
-\displaystyle \mathcal{R}f(\alpha, s) = \int_{-\infty}^\infty f(x(z), y(z)) dz,
+\displaystyle \mathcal{R}f(\boldsymbol{\alpha}, s) = \int_{-\infty}^\infty f(s\boldsymbol{\alpha} + z\boldsymbol{\alpha}^\perp)dz,
 \end{array}
 $$
 
-with 
+where $$\boldsymbol{\alpha} = (\cos\alpha, \sin\alpha)$$ is the normal vector of the line and $$\boldsymbol{\alpha}^\perp$$ the tangent vector.
 
-$$
-x(z) = s\cos\alpha + z\sin\alpha, \quad y(z) = s\sin\alpha - z\cos\alpha.
-$$
-
-Alternatively, one could write 
-
-$$
-\mathcal{R}f(\boldsymbol{\alpha}, s) = \int_{-\infty}^\infty f(s\boldsymbol{\alpha} + z\boldsymbol{\alpha}^\perp)dz,
-$$
-
-with $$\boldsymbol{\alpha} = \overrightarrow{n} = (\cos\alpha, \sin\alpha)$$.
-
-More generally, for $$\mathbf{x}\in\mathbb{R}^n$$, the Radon transform of a function $$f:\mathbb{R}^n\rightarrow\mathbb{R}$$ 
-is a function defined on the space of all hyperplanes in $$\mathbb{R}^n$$.
+More generally, for $$\mathbf{x}\in\mathbb{R}^n$$, the Radon transform $$\mathcal{R}f$$ of a function $$f:\mathbb{R}^n\rightarrow\mathbb{R}$$ is a function defined on the space of all hyperplanes in $$\mathbb{R}^n$$.
 If we parametrize these hyperplanes via $$\{\mathbf{x}\in\mathbb{R}^n \, : \, \mathbf{x}\cdot\boldsymbol{\alpha} = s\}$$ 
 where $$\boldsymbol{\alpha}\in S^{n-1}$$ is a unit vector of $$\mathbb{R}^n$$ and $$s\in\mathbb{R}$$, one obtains a function defined on $$S^{n-1}\times\mathbb{R}$$ by
 
