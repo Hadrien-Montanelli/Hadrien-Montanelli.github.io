@@ -1,8 +1,12 @@
 ---
 layout: post
-title: "The Radon transform"
+title: "The intertwining property of the Radon transform"
 date: 2017-10-05
 ---
+
+My colleague <a href="http://dsrim.github.io">Donsub Rim</a> has recently written a beautiful 
+<a href="http://arxiv.org/pdf/1705.03609.pdf">paper</a> about dimensional splitting for hyperbolic PDEs using the intertwining property of the Radon transform. 
+In this post, I review the Radon transform and explain briefly his idea.
 
 Let $$f(\mathbf{x})=f(x,y)$$ be a real-valued function in $$\mathbb{R}^2$$.
 The <i>Radon transform</i> of $$f$$, $$\mathcal{R}f$$, is a function defined on the space of straight lines in $$\mathbb{R}^2$$ by the line integral along each such line.
@@ -49,3 +53,28 @@ $$
 One has to think about $$\boldsymbol{\alpha}$$ as angles: one angle in 2D (points on the unit circle or equivalently
 tangent lines to the unit circle), two angles in 3D (points on the unit sphere or equivalently tangent planes to the unit sphere), and so on.
 The number $$s$$ is the (signed) distance between these hyperplanes and the origin.
+
+The key property used by Donsub is the <i>intertwining property</i> of the Radon transform.
+For a function $$u:\R^n\rightarrow\R$$, 
+
+$$
+\bigg(\mathcal{R}\frac{\partial u}{\partial x_i}\bigg)(\boldsymbol{\alpha},s) 
+= \alpha_i\frac{\partial}{\partial s}\Big(\mathcal{R}u(\boldsymbol{\alpha},s)\Big),
+$
+
+or
+$$
+\big(\mathcal{R}\nabla u\big)(\boldsymbol{\alpha},s) 
+= \boldsymbol{\alpha}\frac{\partial}{\partial s}\Big(\mathcal{R}u(\boldsymbol{\alpha},s)\Big).
+$$
+
+Using this property one can, e.g., transform a 2D transport equation
+$$
+u_t + \boldsymbol{\theta}\cdot\nabla u = 0, \quad \boldsymbol{\theta}\in S^1, \quad u = u(x,y,t),
+$
+
+to a family of 1D advection equations parametrized by $$\boldsymbol{\alpha}$$,
+$$
+(\mathcal{R}u)_t + (\boldsymbol{\theta}\cdot\boldsymbol{\alpha})(\mathcal{R}u)_s = 0, 
+\quad \mathcal{R}u = \mathcal{R}u_{\boldsymbol{\alpha}}(s,t).
+$$
