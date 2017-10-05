@@ -31,18 +31,18 @@ $$
 
 with $$\boldsymbol{\alpha} = \overrightarrow{n} = (\cos\alpha, \sin\alpha)$$.
 
-More generally, for $$\bold{x}\in\mathbb{R}^n$$, the Radon transform of a function $$f:\R^n\rightarrow\R$$ 
+More generally, for $$\mathbf{x}\in\mathbb{R}^n$$, the Radon transform of a function $$f:\mathbb{R}^n\rightarrow\mathbb{R}$$ 
 is a function defined on the space of all hyperplanes in $$\mathbb{R}^n$$.
 If we parametrize these hyperplanes via $$\{\mathbf{x}\in\mathbb{R}^n \, : \, \mathbf{x}\cdot\boldsymbol{\alpha} = s\}$$ 
 where $$\boldsymbol{\alpha}\in S^{n-1}$$ is a unit vector of $$\mathbb{R}^n$$ and $$s\in\mathbb{R}$$, one obtains a function defined on $$S^{n-1}\times\mathbb{R}$$ by
 
 $$
 \begin{array}{l}
-f : \R^n \rightarrow \R, \quad
-\mathcal{R}f : S^{n-1}\times\R \rightarrow \R, \\\\
-\dsp \mathcal{R}f(\boldsymbol{\alpha}, s) 
-= \int_{\bold{x}\cdot\boldsymbol{\alpha} = s} f(\bold{x}) d\bold{x}
-= \int_{\boldsymbol{\alpha}^\perp} f(s\boldsymbol{\alpha} + \bold{y}) d\bold{y}.
+f : \mathbb{R}^n \rightarrow \mathbb{R}, \quad
+\mathcal{R}f : S^{n-1}\times\mathbb{R} \rightarrow \mathbb{R}, \\\\
+\displaystyle \mathcal{R}f(\boldsymbol{\alpha}, s) 
+= \int_{\mathbf{x}\cdot\boldsymbol{\alpha} = s} f(\mathbf{x}) d\mathbf{x}
+= \int_{\boldsymbol{\alpha}^\perp} f(s\boldsymbol{\alpha} + \mathbf{y}) d\mathbf{y}.
 \end{array}
 $$
 
