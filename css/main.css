@@ -104,12 +104,6 @@ footer {
     	border-top: 2px solid #ccc;	
 }
 
-.MathJax {
-	font-family: Futura, 'Trebuchet MS', Arial, sans-serif;
-	font-size: 14px;
-	font-style: normal;
-	font-variant: normal;
-	font-weight: 500;
-	line-height: 20px;
+MathJax_Display {
 	color: rgb(69, 99, 122);
 }
