@@ -6,7 +6,7 @@ date: 2017-10-05
 
 My colleague <a href="http://dsrim.github.io">Donsub Rim</a> has recently written a beautiful 
 <a href="http://arxiv.org/pdf/1705.03609.pdf">paper</a> about dimensional splitting for hyperbolic PDEs using the intertwining property of the Radon transform. 
-In this post, I review the Radon transform and explain briefly the main idea of his paper.
+In this post, I recall the definition of the Radon transform and explain briefly the main idea of his paper.
 
 Let $$f(\mathbf{x})=f(x,y)$$ be a real-valued function in $$\mathbb{R}^2$$.
 The <i>Radon transform</i> of $$f$$, $$\mathcal{R}f$$, is a function defined on the space of straight lines in $$\mathbb{R}^2$$ by the line integral along each such line.
@@ -42,7 +42,6 @@ where $$\boldsymbol{\alpha}\in S^{n-1}$$ is a unit vector of $$\mathbb{R}^n$$ an
 
 $$
 \begin{array}{l}
-f : \mathbb{R}^n \rightarrow \mathbb{R}, \quad
 \mathcal{R}f : S^{n-1}\times\mathbb{R} \rightarrow \mathbb{R}, \\\\
 \displaystyle \mathcal{R}f(\boldsymbol{\alpha}, s) 
 = \int_{\mathbf{x}\cdot\boldsymbol{\alpha} = s} f(\mathbf{x}) d\mathbf{x}
@@ -81,3 +80,5 @@ $$
 (\mathcal{R}u)_t + (\boldsymbol{\theta}\cdot\boldsymbol{\alpha})(\mathcal{R}u)_s = 0, 
 \quad \mathcal{R}u = \mathcal{R}u_{\boldsymbol{\alpha}}(s,t).
 $$
+
+More generally, high-dimensional hyperbolic PDEs can be split into many 1D hyperbolic PDEs---cute!
