@@ -1,11 +1,11 @@
 ---
 layout: post
-title: "The choreographies of the $n$-body problem"
+title: "Choreographies: when planets dance"
 date: 2017-10-09
 ---
 
-One of my first papers as a PhD student was about the <i>choreographies</i> of the $n$-body problem. 
-These are very simple periodic solutions of the $n$-body problem, in which the bodies share a common orbit 
+One of my first papers as a PhD student was about the <i>choreographies</i> of the $$n$$-body problem. 
+These are very simple periodic solutions of the $$n$$-body problem, in which the bodies share a common orbit 
 and are uniformly spread along it; 
 see, e.g., <a href="http://www.maths.manchester.ac.uk/~jm/Choreographies/">these animations</a>.
 
@@ -31,13 +31,13 @@ z_j(t) = q\Big(t + \frac{2\pi j}{n}	\Big), \quad 0\leq j\leq n-1,
 \label{choreographies}
 $$
 
-for some $$2\pi$$-periodic function $$q:[0,2\pi]\rightarrow\mathbb{C}$$. Such solutions were named choreographies by Sim\'{o},
-the $n$ bodies being ``seen to dance in a somewhat complicated way''.
+for some $$2\pi$$-periodic function $$q:[0,2\pi]\rightarrow\mathbb{C}$$. Such solutions were named choreographies by Simò,
+the $n$ bodies being `seen to dance in a somewhat complicated way'.
 The period can be chosen equal to $$2\pi$$ because if $$q(t)$$ is a $$T$$-periodic solution of \eqref{newton}, 
 then $$\lambda^{-2/3}q(\lambda t)$$, $$\lambda=T/(2\pi)$$, is a $$2\pi$$-periodic one.
-It has been well known since Poincar\'{e} that the \textit{principle of least action}, first introduced by Maupertuis in 1744 
-\cite{maupertuis1744}, can be used to characterize periodic solutions of \eqref{newton}:
-choreographies \eqref{choreographies} are minima of the \textit{action functional}, or simply \textit{action}, 
+It has been well known since Poincaré that the \textit{principle of least action}, first introduced by Maupertuis in 1744, 
+can be used to characterize periodic solutions of \eqref{newton}:
+choreographies \eqref{choreographies} are minima of the <i>action functional</i>, or simply <i>action</i>, 
 defined as the integral over one period of the kinetic minus the potential energy,
 
 $$
