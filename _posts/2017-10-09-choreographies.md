@@ -5,7 +5,7 @@ date: 2017-10-09
 ---
 
 <a href="http://arxiv.org/pdf/1505.04848.pdf">My first paper</a> as a PhD student, 
-written with my friend and former colleague at Oxford 
+in collaboration with my friend and former colleague at Oxford 
 <a href="http://scholar.google.com/citations?user=w-PVG8sAAAAJ&hl=en">Nikola Gushterov</a>, 
 was about the <i>choreographies</i> of the $$n$$-body problem. 
 These are very simple periodic solutions of the $$n$$-body problem, in which the bodies share a common orbit 
