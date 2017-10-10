@@ -13,8 +13,10 @@ and are uniformly spread along it;
 see, e.g., <a href="http://www.maths.manchester.ac.uk/~jm/Choreographies/">these animations</a>.
 The trivial ones are circles, and these were found by 
 <a href="http://en.wikipedia.org/wiki/Joseph-Louis_Lagrange">Lagrange</a> in 1772. 
-More than two centuries later, Moore (numerically in 1993), and then Chenciner and Montgomery (theoretically in 2000), discovered the first non-trivial choreography: the figure-eight of the three-body problem.
+Fore more than two centuries that was the full story, until Moore (numerically in 1993), and then Chenciner and Montgomery (theoretically in 2000), discovered the first non-trivial choreography: the figure-eight of the three-body problem.
 And then the magic happened: in the early 2000s, Carles Simò, Professor at the University of Barcelona, found many new choreographies using numerical optimization of the so-called <i>action</i>.
+And then the magic happened: in the early 2000s, Carles Simò, Professor at the University of Barcelona, found many new choreographies using numerical optimization of the so-called <i>action</i>.
+In this post, I explain the idea of Simò, which coined the name <i>choreographies</i> since the $$n$$ bodies being &#34;seen to dance in a somewhat complicated way.&#34;
 
 Let $$z_j(t)\in\mathbb{C}$$, $$0\leq j\leq n-1$$, denote the positions of $$n$$ bodies with unit mass in the complex plane. 
 The planar $$n$$-body problem describes the motion of these bodies under the action of Newton's law of gravitation, 
@@ -75,9 +77,9 @@ A = \frac{n}{2}\int_0^{2\pi} \big\vert q'(t) \big\vert^2 dt
 \label{action2}
 $$
 
-Planar choreographies correspond to functions $$q(t)$$ which minimize $$A$$.
+Planar choreographies correspond to functions $$q(t)$$ which minimize $$A$$. 
+Since choreographies are closed curves in the complex plane, these can be represendted by <i>Fourier series</i>.
+The function $$q(t)$$ becomes a function of Fourier coefficients, the action can be computed with the exponentially 
+accurate trapezoidal rule, and and optimization algorithm can be used to foud the minima.
 
-Such solutions were named choreographies by Simò, the $$n$$ bodies being &#34;seen to dance in a somewhat complicated way.&#34;
-
-
-was to use numerical optimization of to find choreographies. In our paper, we have recomputed the choreographies found by Simò to higher accuracy, and extended his ideas to spaces of cosntant positive curvature---check it out!
+In our paper, we have recomputed the choreographies found by Simò to higher accuracy, and extended his ideas to spaces of cosntant positive curvature---check it out!
