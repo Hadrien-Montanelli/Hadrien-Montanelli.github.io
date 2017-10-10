@@ -16,8 +16,9 @@ The trivial ones are circles, and these were found by
 Fore more than two centuries, this was the full story. 
 Everything changed at the end of the 20th century, when <a href="http://tuvalu.santafe.edu/~moore/pubs/braids-prl.pdf">Moore
 </a> (numerically in 1993), 
-and then <a href="https://arxiv.org/pdf/math/0011268.pdf">Chenciner and Montgomery</a> (theoretically in 2000), 
-discovered the first non-trivial choreography: the figure-eight of the three-body problem.
+and <a href="https://arxiv.org/pdf/math/0011268.pdf">Chenciner and Montgomery</a> (theoretically in 2000), 
+discovered the first non-trivial choreography: 
+the <a href="http://www.scholarpedia.org/article/N-body_choreographies"figure-eight</a> of the three-body problem.
 And then the magic happened: in the early 2000s, 
 <a href="http://www.math.uni-bielefeld.de/~rehmann/ECM/cdrom/3ecm/pdfs/pant3/simo.pdf">Simò</a> found many 
 new choreographies using numerical optimization of the so-called <i>action</i>.
