@@ -14,7 +14,6 @@ see, e.g., <a href="http://www.maths.manchester.ac.uk/~jm/Choreographies/">these
 The trivial ones are circles, and these were found by 
 <a href="http://en.wikipedia.org/wiki/Joseph-Louis_Lagrange">Lagrange</a> in 1772. 
 Fore more than two centuries, this was the full story. 
-
 Everything changed at the end of the 20th century, when Moore 
 (<a href="http://tuvalu.santafe.edu/~moore/pubs/braids-prl.pdf">numerically in 1993</a>), 
 and then Chenciner and Montgomery 
@@ -23,7 +22,7 @@ discovered the first non-trivial choreography: the figure-eight of the three-bod
 And then the magic happened: in the early 2000s, Carles Simò, Professor at the University of Barcelona, found many 
 <a href="http://www.math.uni-bielefeld.de/~rehmann/ECM/cdrom/3ecm/pdfs/pant3/simo.pdf">new choreographies</a> 
 using numerical optimization of the so-called <i>action</i>.
-In this post, I explain the idea of Simò, which coined the name <i>choreographies</i> since the $$n$$ bodies being &#34;seen to dance in a somewhat complicated way.&#34;
+In this post, I explain the idea of Simò, who coined the term <i>choreographies</i>, the $$n$$ bodies being &#34;seen to dance in a somewhat complicated way.&#34;
 
 Let $$z_j(t)\in\mathbb{C}$$, $$0\leq j\leq n-1$$, denote the positions of $$n$$ bodies with unit mass in the complex plane. 
 The planar $$n$$-body problem describes the motion of these bodies under the action of Newton's law of gravitation, 
