@@ -32,7 +32,9 @@ $$
 
 for some $$2\pi$$-periodic function $$q:[0,2\pi]\rightarrow\mathbb{C}$$. 
 Such solutions were named choreographies by Simò, the $$n$$ bodies being &#34;seen to dance in a somewhat complicated way.&#34;
-It has been well known since Poincaré that the <i>principle of least action</i>, first introduced by Maupertuis in 1744, 
+It has been well known since <a href="http://en.wikipedia.org/wiki/Henri_Poincaré">Poincaré</a> 
+that the <i>principle of least action</i>, first introduced by 
+<a href="https://en.wikipedia.org/wiki/Pierre_Louis_Maupertuis">Maupertuis<a/> in 1744, 
 can be used to characterize choreographies: these are minima of the <i>action functional</i>, or simply <i>action</i>, 
 defined as the integral over one period of the kinetic minus the potential energy,
 
@@ -75,3 +77,5 @@ Planar choreographies correspond to functions $$q(t)$$ which minimize $$A$$.
 The brilliant idea of Simò (in the early 2000s) was to use numerical optimization of to find choreographies. In our paper, we recompute the choreographies found by Simò to higher accuracy, and extend his ideas to spaces of cosntant positive curvature.
 
 Here are some pretty figures from our paper:
+<img src="figure2.eps" style="width:227px;height:283px;">
+<img src="figure6.eps" style="width:227px;height:283px;">
