@@ -9,7 +9,8 @@ My colleague <a href="http://dsrim.github.io">Donsub Rim</a> has recently writte
 <a href="http://en.wikipedia.org/wiki/Hyperbolic_partial_differential_equation">hyperbolic PDEs</a>
 using the 
 <a href="http://en.wikipedia.org/wiki/Radon_transform#Intertwining_property">intertwining property</a> 
-of the Radon transform. 
+of the 
+<a href="http://en.wikipedia.org/wiki/Radon_transform">Radon transform</a>. 
 In this post, I recall the definition of the Radon transform and explain briefly the main idea of his paper.
 
 The Radon transform $$\mathcal{R}f$$ of a function $$f:\mathbb{R}^2\rightarrow\mathbb{R}$$ is a function defined on the space of straight lines in $$\mathbb{R}^2$$ by the line integral along each such line,
