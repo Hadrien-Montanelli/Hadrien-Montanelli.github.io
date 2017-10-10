@@ -4,12 +4,12 @@ title: "Choreographies: when planets dance"
 date: 2017-10-09
 ---
 
-One of my first papers as a PhD student was about the <i>choreographies</i> of the $$n$$-body problem. 
+<a href="http://arxiv.org/pdf/1505.04848.pdf">My first paper</a> as a PhD student, 
+with my friend <a href="http://scholar.google.com/citations?user=w-PVG8sAAAAJ&hl=en">Nikola Gushterov</a>, 
+was about the <i>choreographies</i> of the $$n$$-body problem. 
 These are very simple periodic solutions of the $$n$$-body problem, in which the bodies share a common orbit 
 and are uniformly spread along it; 
 see, e.g., <a href="http://www.maths.manchester.ac.uk/~jm/Choreographies/">these animations</a>.
-<a href="http://scholar.google.com/citations?user=w-PVG8sAAAAJ&hl=en">Nikola Gushterov</a>
-<a href="http://arxiv.org/pdf/1505.04848.pdf">paper</a>
 
 Let $$z_j(t)\in\mathbb{C}$$, $$0\leq j\leq n-1$$, denote the positions of $$n$$ bodies with unit mass in the complex plane. 
 The planar $$n$$-body problem describes the motion of these bodies under the action of Newton's law of gravitation, 
