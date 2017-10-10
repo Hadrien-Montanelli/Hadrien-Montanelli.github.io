@@ -22,7 +22,7 @@ z_j^{''}(t) - \sum_{\underset{i\neq j}{i=0}}^{n-1} \frac{z_i(t) - z_j(t)}{\big\v
 \label{newton}
 $$
 
-Choreographies are periodic solutions in which the bodies share a single orbit and are uniformly spread along it, that is, solutions $$z_j(t)$$ such that
+Since choreographies share a single orbit and are uniformly spread along it, these can be written as
 
 $$
 z_j(t) = q\Big(t + \frac{2\pi j}{n}	\Big), \quad 0\leq j\leq n-1,
