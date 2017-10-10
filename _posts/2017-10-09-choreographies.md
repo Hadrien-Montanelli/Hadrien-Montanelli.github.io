@@ -44,9 +44,8 @@ $$
 for some $$2\pi$$-periodic function $$q:[0,2\pi]\rightarrow\mathbb{C}$$. 
 It has been well known since <a href="http://en.wikipedia.org/wiki/Henri_Poincaré">Poincaré</a> 
 that the <a href="http://en.wikipedia.org/wiki/Principle_of_least_action">principle of least action</a>, first introduced by 
-<a href="http://en.wikipedia.org/wiki/Pierre_Louis_Maupertuis">Maupertuis<a/> in 1744, can be used to characterize choreographies: 
-these are minima of the <a href="http://en.wikipedia.org/wiki/Action_(physics)">action</a>, 
-defined as the integral over one period of the <a href="http://en.wikipedia.org/wiki/Kinetic_energy">kinetic</a> minus the 
+<a href="http://en.wikipedia.org/wiki/Pierre_Louis_Maupertuis">Maupertuis<a/> in 1744, can be used to characterize choreographies: these are minima of the action, defined as the integral over one period of the 
+<a href="http://en.wikipedia.org/wiki/Kinetic_energy">kinetic</a> minus the 
 <a href="http://en.wikipedia.org/wiki/Potential_energy">potential</a> energy,
 
 $$
