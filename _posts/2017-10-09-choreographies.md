@@ -15,12 +15,12 @@ Let $$z_j(t)\in\mathbb{C}$$, $$0\leq j\leq n-1$$, denote the positions of $$n$$ 
 The planar $$n$$-body problem describes the motion of these bodies under the action of Newton's law of gravitation, 
 through the nonlinear coupled system of ODEs
 
-$$
+\begin{equation}
 \displaystyle 
 z_j''(t) - \sum_{\underset{i\neq j}{i=0}}^{n-1} \frac{z_i(t) - z_j(t)}{\big\vert z_i(t) - z_j(t) \big\vert^3} = 0, 
 \quad 0\leq j\leq n-1.
 \label{newton}
-$$
+\end{equation}
 
 We are interested in periodic solutions of $$\ref{newton}$$ in which the bodies share a single orbit and are 
 uniformly spread along it, that is, solutions $$z_j(t)$$ such that
