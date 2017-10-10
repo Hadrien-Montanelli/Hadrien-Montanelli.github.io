@@ -30,8 +30,8 @@ z_j(t) = q\Big(t + \frac{2\pi j}{n}	\Big), \quad 0\leq j\leq n-1,
 \label{choreographies}
 $$
 
-for some $$2\pi$$-periodic function $$q:[0,2\pi]\rightarrow\mathbb{C}$$. Such solutions were named choreographies by Simò,
-the $$n$$ bodies being &#34;seen to dance in a somewhat complicated way.&#34;
+for some $$2\pi$$-periodic function $$q:[0,2\pi]\rightarrow\mathbb{C}$$. 
+Such solutions were named choreographies by Simò, the $$n$$ bodies being &#34;seen to dance in a somewhat complicated way.&#34;
 It has been well known since Poincaré that the <i>principle of least action</i>, first introduced by Maupertuis in 1744, 
 can be used to characterize choreographies: these are minima of the <i>action functional</i>, or simply <i>action</i>, 
 defined as the integral over one period of the kinetic minus the potential energy,
@@ -71,3 +71,7 @@ A = \frac{n}{2}\int_0^{2\pi} \big\vert q'(t) \big\vert^2 dt
 $$
 
 Planar choreographies correspond to functions $$q(t)$$ which minimize $$A$$.
+
+The brilliant idea of Simò (in the early 2000s) was to use numerical optimization of to find choreographies. In our paper, we recompute the choreographies found by Simò to higher accuracy, and extend his ideas to spaces of cosntant positive curvature.
+
+Here are some pretty figures from our paper:
