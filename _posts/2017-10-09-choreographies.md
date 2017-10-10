@@ -20,7 +20,9 @@ and <a href="https://arxiv.org/pdf/math/0011268.pdf">Chenciner and Montgomery</a
 discovered the first non-trivial <a href="http://www.scholarpedia.org/article/N-body_choreographies">choreography</a>: the figure-eight of the three-body problem.
 And then the magic happened: in the early 2000s, 
 <a href="http://www.math.uni-bielefeld.de/~rehmann/ECM/cdrom/3ecm/pdfs/pant3/simo.pdf">Simò</a> found many 
-new <a href="http://www.scholarpedia.org/article/N-body_choreographies">choreographies</a> using numerical optimization of the so-called <i>action</i>.
+new <a href="http://www.scholarpedia.org/article/N-body_choreographies">choreographies</a> using 
+<a href="http://en.wikipedia.org/wiki/Mathematical_optimization">numerical optimization</a> of the so-called 
+<a href="http://en.wikipedia.org/wiki/Action_(physics)">action</a>.
 In this post, I explain the idea of Simò, who coined the term 
 <a href="http://www.scholarpedia.org/article/N-body_choreographies">choreographies</a>, the $$n$$ bodies being &#34;seen to dance in a somewhat complicated way.&#34;
 
@@ -48,7 +50,7 @@ that the
 <a href="http://en.wikipedia.org/wiki/Principle_of_least_action">principle of least action</a>, first introduced by 
 <a href="http://en.wikipedia.org/wiki/Pierre_Louis_Maupertuis">Maupertuis<a/> in 1744, 
 can be used to characterize <a href="http://www.scholarpedia.org/article/N-body_choreographies">choreographies</a>: 
-these are minima of the <a href="https://en.wikipedia.org/wiki/Action_(physics)">action</a>, 
+these are minima of the <a href="http://en.wikipedia.org/wiki/Action_(physics)">action</a>, 
 defined as the integral over one period of the <a href="http://en.wikipedia.org/wiki/Kinetic_energy">kinetic</a> minus the 
 <a href="http://en.wikipedia.org/wiki/Potential_energy">potential</a> energy,
 
@@ -75,9 +77,9 @@ U(t) = -\sum_{j=0}^{n-1}\sum_{i=0}^{j-1} \big\vert z_i(t) - z_j(t) \big\vert^{-1
 \label{newtonpotential}
 $$
 
-Note that the <a href="https://en.wikipedia.org/wiki/Action_(physics)">action</a> $$A$$ depends on $$q(t)$$ via $$U(t)$$ and on $$q'(t)$$ via $$K(t)$$. 
+Note that the <a href="http://en.wikipedia.org/wiki/Action_(physics)">action</a> $$A$$ depends on $$q(t)$$ via $$U(t)$$ and on $$q'(t)$$ via $$K(t)$$. 
 Since the integral of $$K(t)$$ does not depend on $$j$$ and the integral of $$U(t)$$
-only depends on $$i-j$$, the <a href="https://en.wikipedia.org/wiki/Action_(physics)">action</a> can be rewritten
+only depends on $$i-j$$, the <a href="http://en.wikipedia.org/wiki/Action_(physics)">action</a> can be rewritten
 
 $$
 \displaystyle 
