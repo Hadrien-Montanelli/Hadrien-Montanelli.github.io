@@ -59,7 +59,7 @@ A = \int_0^{2\pi} \big(K(t) - U(t)\big)\,dt,
 \label{action}
 $$
 
-with kinetic energy
+with <a href="http://en.wikipedia.org/wiki/Kinetic_energy">kinetic</a> energy
 
 $$
 \displaystyle 
@@ -68,7 +68,7 @@ K(t) = \frac{1}{2}\sum_{j=0}^{n-1} \big\vert z_j'(t) \big\vert^2 = \frac{1}{2}\s
 \label{kineticenergy}
 $$
 
-and potential energy
+and <a href="http://en.wikipedia.org/wiki/Potential_energy">potential</a> energy
 
 $$
 \displaystyle 
