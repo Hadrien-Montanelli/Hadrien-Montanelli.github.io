@@ -15,9 +15,9 @@ The trivial ones are circles, and these were found by
 <a href="http://en.wikipedia.org/wiki/Joseph-Louis_Lagrange">Lagrange</a> in 1772. 
 Fore more than two centuries, this was the full story. 
 Everything changed at the end of the 20th century, when Moore 
-(<a href="http://tuvalu.santafe.edu/~moore/pubs/braids-prl.pdf">numerically in 1993</a>), 
+(<a href="http://tuvalu.santafe.edu/~moore/pubs/braids-prl.pdf">numerically</a> in 1993), 
 and then Chenciner and Montgomery 
-(<a href="https://arxiv.org/pdf/math/0011268.pdf">theoretically in 2000</a>), 
+(<a href="https://arxiv.org/pdf/math/0011268.pdf">theoretically</a> in 2000), 
 discovered the first non-trivial choreography: the figure-eight of the three-body problem.
 And then the magic happened: in the early 2000s, Carles Simò, Professor at the University of Barcelona, found many 
 <a href="http://www.math.uni-bielefeld.de/~rehmann/ECM/cdrom/3ecm/pdfs/pant3/simo.pdf">new choreographies</a> 
@@ -86,6 +86,6 @@ $$
 Planar choreographies correspond to functions $$q(t)$$ which minimize $$A$$. 
 Since choreographies are closed curves in the complex plane, these can be represendted by <i>Fourier series</i>.
 The function $$q(t)$$ becomes a function of <i>Fourier coefficients</i>, the action can be computed with 
-the <a href="http://people.maths.ox.ac.uk/trefethen/publication/PDF/2014_149.pdf">exponentially accurate trapezoidal rule</a>, and an optimization algorithm can be used to foud the minima.
+the <a href="http://people.maths.ox.ac.uk/trefethen/publication/PDF/2014_149.pdf">exponentially accurate trapezoidal rule</a>, and an optimization algorithm can be used to found the minima.
 
 In our paper, we have recomputed the choreographies found by Simò to higher accuracy, and extended his ideas to spaces of cosntant positive curvature---check it out!
