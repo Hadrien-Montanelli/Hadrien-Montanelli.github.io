@@ -13,7 +13,8 @@ of the
 <a href="http://en.wikipedia.org/wiki/Radon_transform">Radon transform</a>. 
 In this post, I recall the definition of the Radon transform and explain briefly the main idea of his paper.
 
-The Radon transform $$\mathcal{R}f$$ of a function $$f:\mathbb{R}^2\rightarrow\mathbb{R}$$ is a function defined on the space of straight lines in $$\mathbb{R}^2$$ by the line integral along each such line,
+The <a href="http://en.wikipedia.org/wiki/Radon_transform">Radon transform</a> 
+$$\mathcal{R}f$$ of a function $$f:\mathbb{R}^2\rightarrow\mathbb{R}$$ is a function defined on the space of straight lines in $$\mathbb{R}^2$$ by the line integral along each such line,
 
 $$
 \begin{array}{l}
@@ -24,7 +25,8 @@ $$
 
 where $$\boldsymbol{\alpha} = (\cos\alpha, \sin\alpha)$$ is the normal vector of the line and $$\boldsymbol{\alpha}^\perp$$ the tangent vector.
 
-More generally, the Radon transform $$\mathcal{R}f$$ of a function $$f:\mathbb{R}^n\rightarrow\mathbb{R}$$ is a function defined on the space of all hyperplanes in $$\mathbb{R}^n$$.
+More generally, the <a href="http://en.wikipedia.org/wiki/Radon_transform">Radon transform</a> $$\mathcal{R}f$$ 
+of a function $$f:\mathbb{R}^n\rightarrow\mathbb{R}$$ is a function defined on the space of all hyperplanes in $$\mathbb{R}^n$$.
 If one parametrizes these hyperplanes by $$\{\mathbf{x}\in\mathbb{R}^n \, : \, \mathbf{x}\cdot\boldsymbol{\alpha} = s\}$$ 
 where $$\boldsymbol{\alpha}\in S^{n-1}$$ is a unit vector of $$\mathbb{R}^n$$ and $$s\in\mathbb{R}$$, one obtains a function defined on $$S^{n-1}\times\mathbb{R}$$ by
 
@@ -43,7 +45,8 @@ The number $$s$$ is the (signed) distance between these hyperplanes and the orig
 
 The key property used by Donsub is the 
 <a href="http://en.wikipedia.org/wiki/Radon_transform#Intertwining_property">intertwining property</a> 
-of the Radon transform. For a function $$u:\mathbb{R}^n\rightarrow\mathbb{R}$$, 
+of the <a href="http://en.wikipedia.org/wiki/Radon_transform">Radon transform</a>. 
+For a function $$u:\mathbb{R}^n\rightarrow\mathbb{R}$$, 
 
 $$
 \bigg(\mathcal{R}\frac{\partial u}{\partial x_i}\bigg)(\boldsymbol{\alpha},s) 
