@@ -4,7 +4,7 @@ title: "Choreographies: when planets dance"
 date: 2017-10-09
 ---
 
-<a href="http://arxiv.org/pdf/1505.04848.pdf">My first paper</a> as a PhD student, 
+<a href="http://arxiv.org/pdf/1505.04848.pdf">My second paper</a> as a PhD student, 
 in collaboration with my friend and former colleague at Oxford 
 <a href="http://scholar.google.com/citations?user=w-PVG8sAAAAJ&hl=en">Nikola Gushterov</a>, 
 was about the <a href="http://www.scholarpedia.org/article/N-body_choreographies">choreographies</a> 
