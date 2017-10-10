@@ -88,7 +88,7 @@ $$
 
 Planar choreographies correspond to functions $$q(t)$$ which minimize $$A$$. 
 Since choreographies are closed curves in the complex plane, these can be represendted by 
-<a href="http://en.wikipedia.org/wiki/Fourier_series>Fourier series</a>.
+<a href="http://en.wikipedia.org/wiki/Fourier_series">Fourier series</a>.
 The function $$q(t)$$ becomes a function of Fourier coefficients, the action can be computed with 
 the 
 <a href="http://people.maths.ox.ac.uk/trefethen/publication/PDF/2014_149.pdf">exponentially accurate trapezoidal rule</a>, 
