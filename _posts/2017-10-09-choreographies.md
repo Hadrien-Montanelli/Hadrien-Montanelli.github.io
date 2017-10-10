@@ -8,7 +8,6 @@ One of my first papers as a PhD student was about the <i>choreographies</i> of t
 These are very simple periodic solutions of the $$n$$-body problem, in which the bodies share a common orbit 
 and are uniformly spread along it; 
 see, e.g., <a href="http://www.maths.manchester.ac.uk/~jm/Choreographies/">these animations</a>.
-
 <a href="http://scholar.google.com/citations?user=w-PVG8sAAAAJ&hl=en">Nikola Gushterov</a>
 <a href="http://arxiv.org/pdf/1505.04848.pdf">paper</a>
 
@@ -23,7 +22,7 @@ z_j''(t) - \sum_{\underset{i\neq j}{i=0}}^{n-1} \frac{z_i(t) - z_j(t)}{\big\vert
 \label{newton}
 $$
 
-We are interested in periodic solutions of $$\eqref{newton}$$ in which the bodies share a single orbit and are 
+We are interested in periodic solutions of $$\ref{newton}$$ in which the bodies share a single orbit and are 
 uniformly spread along it, that is, solutions $$z_j(t)$$ such that
 
 $$
@@ -32,7 +31,7 @@ z_j(t) = q\Big(t + \frac{2\pi j}{n}	\Big), \quad 0\leq j\leq n-1,
 $$
 
 for some $$2\pi$$-periodic function $$q:[0,2\pi]\rightarrow\mathbb{C}$$. Such solutions were named choreographies by Simò,
-the $n$ bodies being `seen to dance in a somewhat complicated way'.
+the $$n$$ bodies being "seen to dance in a somewhat complicated way."
 The period can be chosen equal to $$2\pi$$ because if $$q(t)$$ is a $$T$$-periodic solution of \eqref{newton}, 
 then $$\lambda^{-2/3}q(\lambda t)$$, $$\lambda=T/(2\pi)$$, is a $$2\pi$$-periodic one.
 It has been well known since Poincaré that the \textit{principle of least action}, first introduced by Maupertuis in 1744, 
@@ -45,7 +44,7 @@ A = \int_0^{2\pi} \big(K(t) - U(t)\big)\,dt,
 \label{action}
 $$
 
-\noindent with kinetic energy
+with kinetic energy
 
 $$
 \displaystyle 
