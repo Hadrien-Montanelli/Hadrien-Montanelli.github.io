@@ -11,7 +11,7 @@ using the
 <a href="http://en.wikipedia.org/wiki/Radon_transform#Intertwining_property">intertwining property</a> 
 of the 
 <a href="http://en.wikipedia.org/wiki/Radon_transform">Radon transform</a>. 
-In this post, I recall the definition of the Radon transform and explain briefly the main idea of his paper.
+In this post, I recall the definition of the <a href="http://en.wikipedia.org/wiki/Radon_transform">Radon transform</a> and explain briefly the main idea of his paper.
 
 The <a href="http://en.wikipedia.org/wiki/Radon_transform">Radon transform</a> 
 $$\mathcal{R}f$$ of a function $$f:\mathbb{R}^2\rightarrow\mathbb{R}$$ is a function defined on the space of straight lines in $$\mathbb{R}^2$$ by the line integral along each such line,
