@@ -8,9 +8,8 @@ date: 2017-10-09
 in collaboration with my friend and former colleague at Oxford 
 <a href="http://scholar.google.com/citations?user=w-PVG8sAAAAJ&hl=en">Nikola Gushterov</a>, 
 was about the <a href="http://www.scholarpedia.org/article/N-body_choreographies">choreographies</a> 
-of the $$n$$-body problem. 
-These are very simple periodic solutions of the $$n$$-body problem, in which the bodies share a common orbit 
-and are uniformly spread along it; 
+of the <a href="http://en.wikipedia.org/wiki/N-body_problem">$$n$$-body problem</a>. 
+These are very simple periodic solutions of the <a href="http://en.wikipedia.org/wiki/N-body_problem">$$n$$-body problem</a>, in which the bodies share a common orbit and are uniformly spread along it; 
 see, e.g., <a href="http://www.maths.manchester.ac.uk/~jm/Choreographies/">these animations</a>.
 The trivial ones are circles, and these were found by 
 <a href="http://en.wikipedia.org/wiki/Joseph-Louis_Lagrange">Lagrange</a> in 1772. 
@@ -26,8 +25,8 @@ In this post, I explain the idea of Simò, who coined the term
 <a href="http://www.scholarpedia.org/article/N-body_choreographies">choreographies</a>, the $$n$$ bodies being &#34;seen to dance in a somewhat complicated way.&#34;
 
 Let $$z_j(t)\in\mathbb{C}$$, $$0\leq j\leq n-1$$, denote the positions of $$n$$ bodies with unit mass in the complex plane. 
-The planar $$n$$-body problem describes the motion of these bodies under the action of Newton's law of gravitation, 
-through the nonlinear coupled system of ODEs
+The <a href="http://en.wikipedia.org/wiki/N-body_problem">$$n$$-body problem</a> describes the motion of these bodies under the action of 
+<a href='http://en.wikipedia.org/wiki/Newton%27s_law_of_universal_gravitation">Newton's law of gravitation</a>, through the nonlinear coupled system of ODEs
 
 $$
 \displaystyle 
