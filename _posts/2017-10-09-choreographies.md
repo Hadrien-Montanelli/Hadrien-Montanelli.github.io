@@ -22,8 +22,7 @@ z_j^{''}(t) - \sum_{\underset{i\neq j}{i=0}}^{n-1} \frac{z_i(t) - z_j(t)}{\big\v
 \label{newton}
 $$
 
-We are interested in periodic solutions of $$\eqref{newton}$$ in which the bodies share a single orbit and are 
-uniformly spread along it, that is, solutions $$z_j(t)$$ such that
+Choreographies are periodic solutions in which the bodies share a single orbit and are uniformly spread along it, that is, solutions $$z_j(t)$$ such that
 
 $$
 z_j(t) = q\Big(t + \frac{2\pi j}{n}	\Big), \quad 0\leq j\leq n-1,
@@ -33,8 +32,7 @@ $$
 for some $$2\pi$$-periodic function $$q:[0,2\pi]\rightarrow\mathbb{C}$$. Such solutions were named choreographies by Simò,
 the $$n$$ bodies being &#34;seen to dance in a somewhat complicated way.&#34;
 It has been well known since Poincaré that the <i>principle of least action</i>, first introduced by Maupertuis in 1744, 
-can be used to characterize periodic solutions of \eqref{newton}:
-choreographies are minima of the <i>action functional</i>, or simply <i>action</i>, 
+can be used to characterize choreographies: these are minima of the <i>action functional</i>, or simply <i>action</i>, 
 defined as the integral over one period of the kinetic minus the potential energy,
 
 $$
@@ -61,7 +59,7 @@ U(t) = -\sum_{j=0}^{n-1}\sum_{i=0}^{j-1} \big\vert z_i(t) - z_j(t) \big\vert^{-1
 $$
 
 Note that the action $$A$$ depends on $$q(t)$$ via $$U(t)$$ and on $$q'(t)$$ via $$K(t)$$. 
-Since the integral of $$K(t)$ does not depend on $$j$$ and the integral of $$U(t)$$
+Since the integral of $$K(t)$$ does not depend on $$j$$ and the integral of $$U(t)$$
 only depends on $$i-j$$, the action functional can be rewritten
 
 $$
