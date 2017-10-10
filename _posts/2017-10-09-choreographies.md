@@ -13,7 +13,7 @@ and are uniformly spread along it;
 see, e.g., <a href="http://www.maths.manchester.ac.uk/~jm/Choreographies/">these animations</a>.
 The trivial ones are circles, and these were found by 
 <a href="http://en.wikipedia.org/wiki/Joseph-Louis_Lagrange">Lagrange</a> in 1772. 
-Fore more than two centuries that was the full story. 
+Fore more than two centuries, this was the full story. 
 
 Everything changed at the end of the 20th century, when Moore 
 (<a href="http://tuvalu.santafe.edu/~moore/pubs/braids-prl.pdf">numerically in 1993</a>), 
