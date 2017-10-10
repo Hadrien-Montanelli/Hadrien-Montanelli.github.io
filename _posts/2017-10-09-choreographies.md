@@ -88,4 +88,4 @@ The function $$q(t)$$ becomes a function of Fourier coefficients, the action can
 the <a href="http://people.maths.ox.ac.uk/trefethen/publication/PDF/2014_149.pdf">exponentially accurate trapezoidal rule</a>, 
 and an optimization algorithm can be used to found the minima.
 
-In our paper, we have recomputed the choreographies found by Simò to higher accuracy, and extended his ideas to spaces of cosntant positive curvature---check it out!
+In our paper, we have recomputed the choreographies found by Simò to higher accuracy, and extended his work to spaces of cosntant positive curvature---check it out!
