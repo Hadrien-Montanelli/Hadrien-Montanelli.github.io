@@ -11,6 +11,10 @@ was about the <i>choreographies</i> of the $$n$$-body problem.
 These are very simple periodic solutions of the $$n$$-body problem, in which the bodies share a common orbit 
 and are uniformly spread along it; 
 see, e.g., <a href="http://www.maths.manchester.ac.uk/~jm/Choreographies/">these animations</a>.
+The trivial ones are circles, and these were found by 
+<a href="http://en.wikipedia.org/wiki/Joseph-Louis_Lagrange">Lagrange</a> in 1772. 
+More than two centuries later, Moore (numerically in 1993), and then Chenciner and Montgomery (theoretically in 2000), discovered the first non-trivial choreography: the figure-eight of the three-body problem.
+And then the magic happened: in the early 2000s, Carles Simò, Professor at the University of Barcelona, found many new choreographies using numerical optimization of the so-called <i>action</i>.
 
 Let $$z_j(t)\in\mathbb{C}$$, $$0\leq j\leq n-1$$, denote the positions of $$n$$ bodies with unit mass in the complex plane. 
 The planar $$n$$-body problem describes the motion of these bodies under the action of Newton's law of gravitation, 
@@ -31,7 +35,6 @@ z_j(t) = q\Big(t + \frac{2\pi j}{n}	\Big), \quad 0\leq j\leq n-1,
 $$
 
 for some $$2\pi$$-periodic function $$q:[0,2\pi]\rightarrow\mathbb{C}$$. 
-Such solutions were named choreographies by Simò, the $$n$$ bodies being &#34;seen to dance in a somewhat complicated way.&#34;
 It has been well known since <a href="http://en.wikipedia.org/wiki/Henri_Poincaré">Poincaré</a> 
 that the <i>principle of least action</i>, first introduced by 
 <a href="https://en.wikipedia.org/wiki/Pierre_Louis_Maupertuis">Maupertuis<a/> in 1744, 
@@ -74,8 +77,7 @@ $$
 
 Planar choreographies correspond to functions $$q(t)$$ which minimize $$A$$.
 
-The brilliant idea of Simò (in the early 2000s) was to use numerical optimization of to find choreographies. In our paper, we recompute the choreographies found by Simò to higher accuracy, and extend his ideas to spaces of cosntant positive curvature.
+Such solutions were named choreographies by Simò, the $$n$$ bodies being &#34;seen to dance in a somewhat complicated way.&#34;
 
-Here are some pretty figures from our paper:
-<img src="figure2.eps" style="width:227px;height:283px;">
-<img src="figure6.eps" style="width:227px;height:283px;">
+
+was to use numerical optimization of to find choreographies. In our paper, we have recomputed the choreographies found by Simò to higher accuracy, and extended his ideas to spaces of cosntant positive curvature---check it out!
