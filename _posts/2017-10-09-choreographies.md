@@ -23,7 +23,8 @@ the <a href="http://www.scholarpedia.org/article/N-body_choreographies"figure-ei
 And then the magic happened: in the early 2000s, 
 <a href="http://www.math.uni-bielefeld.de/~rehmann/ECM/cdrom/3ecm/pdfs/pant3/simo.pdf">Simò</a> found many 
 new choreographies using numerical optimization of the so-called <i>action</i>.
-In this post, I explain the idea of Simò, who coined the term <i>choreographies</i>, the $$n$$ bodies being &#34;seen to dance in a somewhat complicated way.&#34;
+In this post, I explain the idea of Simò, who coined the term 
+<a href="http://www.scholarpedia.org/article/N-body_choreographies">choreographies</a>, the $$n$$ bodies being &#34;seen to dance in a somewhat complicated way.&#34;
 
 Let $$z_j(t)\in\mathbb{C}$$, $$0\leq j\leq n-1$$, denote the positions of $$n$$ bodies with unit mass in the complex plane. 
 The planar $$n$$-body problem describes the motion of these bodies under the action of Newton's law of gravitation, 
@@ -36,7 +37,7 @@ z_j^{''}(t) - \sum_{\underset{i\neq j}{i=0}}^{n-1} \frac{z_i(t) - z_j(t)}{\big\v
 \label{newton}
 $$
 
-Since choreographies share a single orbit and are uniformly spread along it, these can be written as
+Since <a href="http://www.scholarpedia.org/article/N-body_choreographies">choreographies</a> share a single orbit and are uniformly spread along it, these can be written as
 
 $$
 z_j(t) = q\Big(t + \frac{2\pi j}{n}	\Big), \quad 0\leq j\leq n-1,
@@ -50,7 +51,9 @@ that the
 <a href="http://en.wikipedia.org/wiki/Pierre_Louis_Maupertuis">Maupertuis<a/> in 1744, 
 can be used to characterize choreographies: these are minima of the 
 <a href="https://en.wikipedia.org/wiki/Action_(physics)">action</a>, 
-defined as the integral over one period of the kinetic minus the potential energy,
+defined as the integral over one period of the
+<a href="http://en.wikipedia.org/wiki/Kinetic_energy">kinetic</a> minus the 
+<a href="http://en.wikipedia.org/wiki/Potential_energy">potential</a> energy,
 
 $$
 A = \int_0^{2\pi} \big(K(t) - U(t)\big)\,dt,
@@ -75,9 +78,9 @@ U(t) = -\sum_{j=0}^{n-1}\sum_{i=0}^{j-1} \big\vert z_i(t) - z_j(t) \big\vert^{-1
 \label{newtonpotential}
 $$
 
-Note that the action $$A$$ depends on $$q(t)$$ via $$U(t)$$ and on $$q'(t)$$ via $$K(t)$$. 
+Note that the <a href="https://en.wikipedia.org/wiki/Action_(physics)">action</a> $$A$$ depends on $$q(t)$$ via $$U(t)$$ and on $$q'(t)$$ via $$K(t)$$. 
 Since the integral of $$K(t)$$ does not depend on $$j$$ and the integral of $$U(t)$$
-only depends on $$i-j$$, the action functional can be rewritten
+only depends on $$i-j$$, the <a href="https://en.wikipedia.org/wiki/Action_(physics)">action</a> can be rewritten
 
 $$
 \displaystyle 
@@ -86,14 +89,11 @@ A = \frac{n}{2}\int_0^{2\pi} \big\vert q'(t) \big\vert^2 dt
 \label{action2}
 $$
 
-Planar choreographies correspond to functions $$q(t)$$ which minimize $$A$$. 
-Since choreographies are closed curves in the complex plane, these can be represendted by 
+<a href="http://www.scholarpedia.org/article/N-body_choreographies">Choreographies</a> correspond to functions $$q(t)$$ which minimize $$A$$. Since these are closed curves in the complex plane, these can be represendted by 
 <a href="http://en.wikipedia.org/wiki/Fourier_series">Fourier series</a>.
 The function $$q(t)$$ becomes a function of Fourier coefficients, the action can be computed with 
-the 
-<a href="http://people.maths.ox.ac.uk/trefethen/publication/PDF/2014_149.pdf">exponentially accurate trapezoidal rule</a>, 
-and an 
-<a href="http://en.wikipedia.org/wiki/Mathematical_optimization">optimization algorithm</a> 
+the <a href="http://people.maths.ox.ac.uk/trefethen/publication/PDF/2014_149.pdf">exponentially accurate trapezoidal rule</a>, 
+and an <a href="http://en.wikipedia.org/wiki/Mathematical_optimization">optimization algorithm</a> 
 can be used to found the minima.
 
-In our paper, we have recomputed the choreographies found by Simò to higher accuracy, and extended his ideas to spaces of cosntant positive curvature---check it out!
+In our paper, we have recomputed the <a href="http://www.scholarpedia.org/article/N-body_choreographies">choreographies</a> found by Simò to higher accuracy, and extended his ideas to spaces of cosntant positive curvature---check it out!
