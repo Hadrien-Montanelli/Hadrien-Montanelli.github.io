@@ -7,7 +7,8 @@ date: 2017-10-09
 <a href="http://arxiv.org/pdf/1505.04848.pdf">My first paper</a> as a PhD student, 
 in collaboration with my friend and former colleague at Oxford 
 <a href="http://scholar.google.com/citations?user=w-PVG8sAAAAJ&hl=en">Nikola Gushterov</a>, 
-was about the <i>choreographies</i> of the $$n$$-body problem. 
+was about the <a href="http://www.scholarpedia.org/article/N-body_choreographies">choreographies</a> 
+of the $$n$$-body problem. 
 These are very simple periodic solutions of the $$n$$-body problem, in which the bodies share a common orbit 
 and are uniformly spread along it; 
 see, e.g., <a href="http://www.maths.manchester.ac.uk/~jm/Choreographies/">these animations</a>.
@@ -44,9 +45,11 @@ $$
 
 for some $$2\pi$$-periodic function $$q:[0,2\pi]\rightarrow\mathbb{C}$$. 
 It has been well known since <a href="http://en.wikipedia.org/wiki/Henri_Poincaré">Poincaré</a> 
-that the <i>principle of least action</i>, first introduced by 
-<a href="https://en.wikipedia.org/wiki/Pierre_Louis_Maupertuis">Maupertuis<a/> in 1744, 
-can be used to characterize choreographies: these are minima of the <i>action functional</i>, or simply <i>action</i>, 
+that the 
+<a href="http://en.wikipedia.org/wiki/Principle_of_least_action">principle of least action</a>, first introduced by 
+<a href="http://en.wikipedia.org/wiki/Pierre_Louis_Maupertuis">Maupertuis<a/> in 1744, 
+can be used to characterize choreographies: these are minima of the 
+<a href="https://en.wikipedia.org/wiki/Action_(physics)">action</a>, 
 defined as the integral over one period of the kinetic minus the potential energy,
 
 $$
@@ -84,8 +87,13 @@ A = \frac{n}{2}\int_0^{2\pi} \big\vert q'(t) \big\vert^2 dt
 $$
 
 Planar choreographies correspond to functions $$q(t)$$ which minimize $$A$$. 
-Since choreographies are closed curves in the complex plane, these can be represendted by <i>Fourier series</i>.
-The function $$q(t)$$ becomes a function of <i>Fourier coefficients</i>, the action can be computed with 
-the <a href="http://people.maths.ox.ac.uk/trefethen/publication/PDF/2014_149.pdf">exponentially accurate trapezoidal rule</a>, and an optimization algorithm can be used to found the minima.
+Since choreographies are closed curves in the complex plane, these can be represendted by 
+<a href="http://en.wikipedia.org/wiki/Fourier_series>Fourier series</a>.
+The function $$q(t)$$ becomes a function of Fourier coefficients, the action can be computed with 
+the 
+<a href="http://people.maths.ox.ac.uk/trefethen/publication/PDF/2014_149.pdf">exponentially accurate trapezoidal rule</a>, 
+and an 
+<a href="http://en.wikipedia.org/wiki/Mathematical_optimization">optimization algorithm</a> 
+can be used to found the minima.
 
 In our paper, we have recomputed the choreographies found by Simò to higher accuracy, and extended his ideas to spaces of cosntant positive curvature---check it out!
