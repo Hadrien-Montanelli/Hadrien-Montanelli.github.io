@@ -22,7 +22,7 @@ z_j''(t) - \sum_{\underset{i\neq j}{i=0}}^{n-1} \frac{z_i(t) - z_j(t)}{\big\vert
 \label{newton}
 \end{equation}
 
-We are interested in periodic solutions of $$\ref{newton}$$ in which the bodies share a single orbit and are 
+We are interested in periodic solutions of $$\eqref{newton}$$ in which the bodies share a single orbit and are 
 uniformly spread along it, that is, solutions $$z_j(t)$$ such that
 
 $$
