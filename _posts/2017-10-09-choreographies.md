@@ -17,7 +17,8 @@ Fore more than two centuries, this was the full story.
 Everything changed at the end of the 20th century, when <a href="http://tuvalu.santafe.edu/~moore/pubs/braids-prl.pdf">Moore
 </a> (numerically in 1993), 
 and <a href="https://arxiv.org/pdf/math/0011268.pdf">Chenciner and Montgomery</a> (theoretically in 2000), 
-discovered the first non-trivial <a href="http://www.scholarpedia.org/article/N-body_choreographies">choreography</a>: the figure-eight of the three-body problem.
+discovered the first non-trivial choreography: the 
+<a href="https://arxiv.org/pdf/math/0011268.pdf">figure-eight</a> of the three-body problem.
 And then the magic happened: in the early 2000s, 
 <a href="http://www.math.uni-bielefeld.de/~rehmann/ECM/cdrom/3ecm/pdfs/pant3/simo.pdf">Simò</a> found many 
 new <a href="http://www.scholarpedia.org/article/N-body_choreographies">choreographies</a> using 
