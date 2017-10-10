@@ -28,7 +28,7 @@ In this post, I explain the idea of Simò, who coined the term
 
 Let $$z_j(t)\in\mathbb{C}$$, $$0\leq j\leq n-1$$, denote the positions of $$n$$ bodies with unit mass in the complex plane. 
 The <a href="http://en.wikipedia.org/wiki/N-body_problem">$$n$$-body problem</a> describes the motion of these bodies under the action of 
-<a href='http://en.wikipedia.org/wiki/Newton%27s_law_of_universal_gravitation">Newton's law of gravitation</a>, through the nonlinear coupled system of ODEs
+<a href="http://en.wikipedia.org/wiki/Newton%27s_law_of_universal_gravitation">Newton's law of gravitation</a>, through the nonlinear coupled system of ODEs
 
 $$
 \displaystyle 
