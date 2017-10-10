@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "The choreographies of the <i>n</i>-body problem"
+title: "The choreographies of the $$n$$-body problem"
 date: 2017-10-09
 ---
 
