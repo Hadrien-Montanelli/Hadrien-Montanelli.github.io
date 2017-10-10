@@ -36,8 +36,9 @@ One has to think about $$\boldsymbol{\alpha}$$ as angles: one angle in 2D (point
 tangent lines to the unit circle), two angles in 3D (points on the unit sphere or equivalently tangent planes to the unit sphere), and so on.
 The number $$s$$ is the (signed) distance between these hyperplanes and the origin.
 
-The key property used by Donsub is the <i>intertwining property</i> of the Radon transform.
-For a function $$u:\mathbb{R}^n\rightarrow\mathbb{R}$$, 
+The key property used by Donsub is the 
+<a href="http://en.wikipedia.org/wiki/Radon_transform#Intertwining_property">intertwining property</a> 
+of the Radon transform. For a function $$u:\mathbb{R}^n\rightarrow\mathbb{R}$$, 
 
 $$
 \bigg(\mathcal{R}\frac{\partial u}{\partial x_i}\bigg)(\boldsymbol{\alpha},s) 
