@@ -43,7 +43,7 @@ One has to think about $$\boldsymbol{\alpha}$$ as angles: one angle in 2D (point
 tangent lines to the unit circle), two angles in 3D (points on the unit sphere or equivalently tangent planes to the unit sphere), and so on.
 The number $$s$$ is the (signed) distance between these hyperplanes and the origin.
 
-The key property used by Donsub is the 
+The key property used by <a href="http://dsrim.github.io">Donsub</a> is the 
 <a href="http://en.wikipedia.org/wiki/Radon_transform#Intertwining_property">intertwining property</a> 
 of the <a href="http://en.wikipedia.org/wiki/Radon_transform">Radon transform</a>. 
 For a function $$u:\mathbb{R}^n\rightarrow\mathbb{R}$$, 
@@ -73,4 +73,5 @@ $$
 \quad \mathcal{R}u = \mathcal{R}u_{\boldsymbol{\alpha}}(s,t).
 $$
 
-More generally, high-dimensional hyperbolic PDEs can be split into many 1D hyperbolic PDEs---as I said, beautiful!
+More generally, high-dimensional 
+<a href="http://en.wikipedia.org/wiki/Hyperbolic_partial_differential_equation">hyperbolic PDEs</a> can be split into many 1D <a href="http://en.wikipedia.org/wiki/Hyperbolic_partial_differential_equation">hyperbolic PDEs</a>---as I said, beautiful!
