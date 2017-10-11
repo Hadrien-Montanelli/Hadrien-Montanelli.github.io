@@ -1,6 +1,6 @@
 body {	
-    	height: auto; /*if more info comes on the page, it will stretch down*/
-        max-width: 1000px;
+    	/*height: auto; if more info comes on the page, it will stretch down*/
+        width: 1000px;
        	margin: 0 auto; /*this will cause the div to be in the center*/
 }
 nav ul, footer ul {
