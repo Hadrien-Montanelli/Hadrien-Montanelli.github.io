@@ -86,6 +86,6 @@ Choreographies correspond to functions $$q(t)$$ which minimize $$A$$. Since thes
 <a href="http://en.wikipedia.org/wiki/Fourier_series">Fourier series</a>.
 The function $$q(t)$$ becomes a function of Fourier coefficients, the action can be computed with 
 the <a href="http://people.maths.ox.ac.uk/trefethen/publication/PDF/2014_149.pdf">exponentially accurate trapezoidal rule</a>, 
-and an optimization algorithm can be used to found the minima.
+and an optimization algorithm (over a finite number of Fourier coefficients) can be used to found the minima.
 
 In our paper, we have recomputed the choreographies found by Simò to higher accuracy, and extended his work to spaces of cosntant positive curvature---check it out!
