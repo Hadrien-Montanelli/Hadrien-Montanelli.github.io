@@ -23,11 +23,11 @@ $$u_t = \epsilon\Delta u + u - u^3$$, the
 <a href="http://en.wikipedia.org/wiki/Nonlinear_Schrödinger_equation">nonlinear Schrödinger equation</a> 
 $$u_t=i\Delta u + iu|u|^2$$, the <a href="http://en.wikipedia.org/wiki/Ginzburg–Landau_theory">Ginzburg--Landau equation</a>, and all <a href="https://en.wikipedia.org/wiki/Reaction–diffusion_system">reaction-diffusion equations</a>.
 
-In the paper, we have designed algorithms for solving such PDEs with spectral accuracy in space and fourth-order accuracy in time. These are based on a variant of the <a href="http://en.wikipedia.org/wiki/Double_Fourier_sphere_method">double Fourier sphere method</a> in coefficient space with multiplication matrices that differ from the usual ones, and implicit-explicit time-stepping schemes.
+Our algorithms are based on a variant of the <a href="http://en.wikipedia.org/wiki/Double_Fourier_sphere_method">double Fourier sphere method</a> in coefficient space with multiplication matrices that differ from the usual ones, and implicit-explicit time-stepping schemes.
 Operating in coefficient space with these new matrices allows one to use a sparse direct solver, avoids the coordinate singularity and maintains smoothness at the poles, while implicit-explicit schemes circumvent severe restrictions on the time-steps due to stiffness.
-A comparison is made against exponential integrators and it is found that implicit-explicit schemes perform best.
-Implementations in <a href="http://www.mathworks.com/products/matlab.html">MATLAB</a> and <a href="http://www.chebfun.org">Chebfun</a> make it possible to compute the solution of many PDEs to high accuracy in a very convenient fashion---see the<a href="http://www.chebfun.org/docs/guide/guide19.html"> spinsphere code</a>.
+A comparison is made against <a href="http://en.wikipedia.org/wiki/Exponential_integrator">exponential integrators</a> 
+and it is found that implicit-explicit schemes perform best.
+Implementations in <a href="http://www.mathworks.com/products/matlab.html">MATLAB</a> and <a href="http://www.chebfun.org">Chebfun</a> make it possible to compute the solution of many PDEs to high accuracy in a very convenient fashion---check out the the<a href="http://www.chebfun.org/docs/guide/guide19.html"> spinsphere code</a>.
 
-I hope to use this code for investivatin <a href="http://en.wikipedia.org/wiki/Pattern_formation">pattern formation</a> on the sphere. I've started a couple of projects with <a href="http://www.ptrinh.com">Philippe Trinh</a> (at Bath) and
-<a href="http://www.math.ubc.ca/~ward/">Michael Ward</a> (at UBC), and
-<a href="http://shvartsmanlab.com">Stanislav Shvartsman</a> (at Princeton).
+I hope to use this code for investigating <a href="http://en.wikipedia.org/wiki/Pattern_formation">pattern formation</a> on the sphere. Potential collaborators include <a href="http://www.ptrinh.com">Philippe Trinh</a>,
+<a href="http://www.math.ubc.ca/~ward/">Michael Ward</a>, and <a href="http://shvartsmanlab.com">Stanislav Shvartsman</a>.
