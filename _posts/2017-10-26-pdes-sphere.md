@@ -24,7 +24,9 @@ $$u_t = \epsilon\Delta u + u - u^3$$, the
 $$u_t=i\Delta u + iu|u|^2$$, the <a href="http://en.wikipedia.org/wiki/Ginzburg–Landau_theory">Ginzburg--Landau equation</a>, and all <a href="https://en.wikipedia.org/wiki/Reaction–diffusion_system">reaction-diffusion equations</a>.
 
 Our algorithms are based on a variant of the <a href="http://en.wikipedia.org/wiki/Double_Fourier_sphere_method">double Fourier sphere method</a> in coefficient space with multiplication matrices that differ from the usual ones, and implicit-explicit time-stepping schemes.
-Operating in coefficient space with these new matrices allows one to use a sparse direct solver, avoids the coordinate singularity and maintains smoothness at the poles, while implicit-explicit schemes circumvent severe restrictions on the time-steps due to stiffness.
+Operating in coefficient space with these new matrices allows one to use a sparse direct solver, avoids the 
+<a href="http://en.wikipedia.org/wiki/Coordinate_singularity">coordinate singularity</a> and maintains smoothness at the poles, while implicit-explicit schemes circumvent severe restrictions on the time-steps due to 
+<a href="http://en.wikipedia.org/wiki/Stiff_equation">stiffness</a>.
 A comparison is made against <a href="http://en.wikipedia.org/wiki/Exponential_integrator">exponential integrators</a> 
 and it is found that implicit-explicit schemes perform best.
 Implementations in <a href="http://www.mathworks.com/products/matlab.html">MATLAB</a> and <a href="http://www.chebfun.org">Chebfun</a> make it possible to compute the solution of many PDEs to high accuracy in a very convenient fashion---check out the the<a href="http://www.chebfun.org/docs/guide/guide19.html"> spinsphere code</a>.
