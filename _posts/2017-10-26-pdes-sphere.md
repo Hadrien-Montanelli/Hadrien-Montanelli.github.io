@@ -11,19 +11,16 @@ date: 2017-10-26
 We are interested in computing smooth solutions of stiff PDEs on the unit sphere of the form 
 
 $$
-u_t = \mathcal{L}u + \mathcal{N}(u), \quad u(t=0,x,y,z)=u_0(x,y,z),
+u_t = \Delta u + \mathcal{N}(u), \quad u(t=0,x,y,z)=u_0(x,y,z),
 \label{PDE}
 $$
 
 where $$u(t,x,y,z)$$ is a function of time $$t$$ and Cartesian coordinates $$(x,y,z)$$ with $$x^2 + y^2 + z^2=1$$.
 The function $$u$$ can be real or complex and the the PDE can be a single equation, as well as a system of equations.
-In this paper, we restrict our attention to $$\mathcal{L} u = \alpha\Delta u$$ and to a nonlinear non-differential 
-operator $$\mathcal{N}$$ with constant coefficients, but the techniques we present can be applied to more general cases.
 A large number of PDEs of interest in science and engineering take this form.
-Examples include the
-<a href="http://en.wikipedia.org/wiki/Allen–Cahn_equation">Allen--Cahn equation</a> 
-$$u_t = \epsilon\Delta u + u - u^3$$, the (focusing)
-<a href="http://en.wikipedia.org/wiki/Nonlinear_Schrödinger_equation">nonlinear Schr\"{o}dinger equation</a> 
+Examples include the <a href="http://en.wikipedia.org/wiki/Allen–Cahn_equation">Allen--Cahn equation</a> 
+$$u_t = \epsilon\Delta u + u - u^3$$, the
+<a href="http://en.wikipedia.org/wiki/Nonlinear_Schrödinger_equation">nonlinear Schrödinger equation</a> 
 $$u_t=i\Delta u + iu|u|^2$$, the <a href="http://en.wikipedia.org/wiki/Ginzburg–Landau_theory">Ginzburg--Landau equation</a>, and all <a href="https://en.wikipedia.org/wiki/Reaction–diffusion_system">reaction-diffusion equations</a>.
 
 We have designed algorithms for solving such PDEs with spectral accuracy in space and fourth-order accuracy in time.
