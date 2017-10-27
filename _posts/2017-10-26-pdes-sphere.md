@@ -11,7 +11,7 @@ date: 2017-10-26
 We are interested in computing smooth solutions of stiff PDEs on the unit sphere of the form 
 
 $$
-u_t = \Delta u + \mathcal{N}(u), \quad u(t=0,x,y,z)=u_0(x,y,z),
+u_t = \alpha\Delta u + \mathcal{N}(u), \quad u(t=0,x,y,z)=u_0(x,y,z),
 \label{PDE}
 $$
 
