@@ -6,7 +6,7 @@ date: 2017-10-26
 
 <a href="http://arxiv.org/pdf/1701.06030.pdf">My last paper</a>, with my former colleague at Oxford
 <a href="http://www.opt.mist.i.u-tokyo.ac.jp/~nakatsukasa/">Yuji Nakatsukasa</a>, has just been accepted in 
-<a>http://www.siam.org/journals/sisc.php>SISC</a>. In this post, I review the main ideas of our paper. 
+<a> href=http://www.siam.org/journals/sisc.php">SISC</a>. In this post, I review the main ideas of our paper. 
 
 We are interested in computing smooth solutions of stiff PDEs on the unit sphere of the form 
 
@@ -24,7 +24,12 @@ Examples on the sphere include the (diffusive) Allen--Cahn equation $$u_t = \eps
 the (dispersive) focusing nonlinear Schr\"{o}dinger equation $$u_t=i\Delta u + iu|u|^2$$, 
 the Gierer--Meinhardt, Ginzburg--Landau and Brusselator equations, and many others.
 
-<a href=http://www.chebfun.org/docs/guide/guide19.html> spinsphere code</a>
-<a href=http://www.ptrinh.com> Philippe Trinh</a>
-<a href=http://www.math.ubc.ca/~ward/ Michael Ward</a> 
-<a href=http://shvartsmanlab.com Stanislav Shvartsman</a>
+The manuscript describes in detail an algorithm for solving stiff PDEs on the sphere combining DFS method with a variety of fourth-order time-stepping schemes.  We carefully revisit the Fourier spectral method using DFS and make minor corrections to previous work, and compare different time-stepping schemes 
+from a theoretical and practical viewpoint, 
+to find that the IMEX-based LIRK scheme is attractive  both in efficiency and applicability. 
+The manuscript also contains theoretical contributions, most notably the realness of the eigenvalues of the discretized Laplacian matrix as described in the appendix. 
+
+<a href="http://www.chebfun.org/docs/guide/guide19.html"> spinsphere code</a>
+<a href="http://www.ptrinh.com">Philippe Trinh</a>
+<a href="http://www.math.ubc.ca/~ward/">Michael Ward</a> 
+<a href="http://shvartsmanlab.com">Stanislav Shvartsman</a>
