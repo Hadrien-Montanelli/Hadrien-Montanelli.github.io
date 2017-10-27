@@ -31,6 +31,6 @@ A comparison is made against <a href="http://en.wikipedia.org/wiki/Exponential_i
 and it is found that implicit-explicit schemes perform best.
 Implementations in <a href="http://www.mathworks.com/products/matlab.html">MATLAB</a> and <a href="http://www.chebfun.org">Chebfun</a> make it possible to compute the solution of many PDEs to high accuracy in a very convenient fashion---check out the the<a href="http://www.chebfun.org/docs/guide/guide19.html"> spinsphere code</a>.
 
-I hope to use this code for investigating <a href="http://en.wikipedia.org/wiki/Pattern_formation">pattern formation</a> on the spherr with <a href="http://www.ptrinh.com">Philippe Trinh</a>,
+I hope to use this code for investigating <a href="http://en.wikipedia.org/wiki/Pattern_formation">pattern formation</a> on the sphere with <a href="http://www.ptrinh.com">Philippe Trinh</a>,
 <a href="http://www.math.ubc.ca/~ward/">Michael Ward</a>, and <a href="http://shvartsmanlab.com">Stanislav Shvartsman</a>.
 I'm visiting Stanislav at Princeton in a couple of weeks---looking forward to it!
