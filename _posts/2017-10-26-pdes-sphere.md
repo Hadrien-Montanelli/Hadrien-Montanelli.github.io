@@ -6,7 +6,7 @@ date: 2017-10-26
 
 <a href="http://arxiv.org/pdf/1701.06030.pdf">My last paper</a>, with my former colleague at Oxford
 <a href="http://www.opt.mist.i.u-tokyo.ac.jp/~nakatsukasa/">Yuji Nakatsukasa</a>, has just been accepted in 
-<a> href=http://www.siam.org/journals/sisc.php">SISC</a>. In this post, I review the main ideas of our paper. 
+<a> href="http://www.siam.org/journals/sisc.php">SISC</a>. In this post, I review the main ideas of our paper. 
 
 We are interested in computing smooth solutions of stiff PDEs on the unit sphere of the form 
 
@@ -20,9 +20,11 @@ The function $$u$$ can be real or complex and the the PDE can be a single equati
 In this paper, we restrict our attention to $$\mathcal{L} u = \alpha\Delta u$$ and to a nonlinear non-differential 
 operator $$\mathcal{N}$$ with constant coefficients, but the techniques we present can be applied to more general cases.
 A large number of PDEs of interest in science and engineering take this form.
-Examples on the sphere include the (diffusive) Allen--Cahn equation $$u_t = \epsilon\Delta u + u - u^3$$, 
-the (dispersive) focusing nonlinear Schr\"{o}dinger equation $$u_t=i\Delta u + iu|u|^2$$, 
-the Gierer--Meinhardt, Ginzburg--Landau and Brusselator equations, and many others.
+Examples include the
+<a href="http://en.wikipedia.org/wiki/Allen–Cahn_equation">Allen--Cahn equation</a> 
+$$u_t = \epsilon\Delta u + u - u^3$$, the (focusing)
+<a href="http://en.wikipedia.org/wiki/Nonlinear_Schrödinger_equation">nonlinear Schr\"{o}dinger equation</a> 
+$$u_t=i\Delta u + iu|u|^2$$, the <a href="http://en.wikipedia.org/wiki/Ginzburg–Landau_theory">Ginzburg--Landau equation</a>, and all <a href="https://en.wikipedia.org/wiki/Reaction–diffusion_system">reaction-diffusion equations</a>.
 
 The manuscript describes in detail an algorithm for solving stiff PDEs on the sphere combining DFS method with a variety of fourth-order time-stepping schemes.  We carefully revisit the Fourier spectral method using DFS and make minor corrections to previous work, and compare different time-stepping schemes 
 from a theoretical and practical viewpoint, 
