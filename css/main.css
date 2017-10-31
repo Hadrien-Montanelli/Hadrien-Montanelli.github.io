@@ -24,7 +24,7 @@ a:hover {
     	font-weight: bold;
 }
 h1 {
-	font-family: Futura, 'Trebuchet MS', Arial, sans-serif;
+	font-family: 'Trebuchet MS', sans-serif;
 	font-size: 24px;
 	font-style: normal;
 	font-variant: normal;
@@ -33,7 +33,7 @@ h1 {
 	color: rgb(69, 99, 122);
 }
 h2 {    
-	font-family: Futura, 'Trebuchet MS', Arial, sans-serif;
+	font-family: 'Trebuchet MS', sans-serif;
 	font-size: 18px;
 	font-style: normal;
 	font-variant: normal;
@@ -42,7 +42,7 @@ h2 {
 	color: rgb(69, 99, 122);
 }
 h3 {
-	font-family: Futura, 'Trebuchet MS', Arial, sans-serif;
+	font-family:'Trebuchet MS', sans-serif;
 	font-size: 14px;
 	font-style: normal;
 	font-variant: normal;
@@ -51,7 +51,7 @@ h3 {
 	color: rgb(69, 99, 122);
 }
 p {
-	font-family: Futura, 'Trebuchet MS', Arial, sans-serif;
+	font-family: 'Trebuchet MS', sans-serif;
 	font-size: 14px;
 	font-style: normal;
 	font-variant: normal;
@@ -60,7 +60,7 @@ p {
 	color: rgb(69, 99, 122);
 }
 ul { 
-	font-family: Futura, 'Trebuchet MS', Arial, sans-serif;
+	font-family: 'Trebuchet MS', sans-serif;
 	font-size: 14px;
 	font-style: normal;
 	font-variant: normal;
@@ -69,7 +69,7 @@ ul {
 	color: rgb(69, 99, 122);
 }
 ul.posts { 
-	font-family: Futura, 'Trebuchet MS', Arial, sans-serif;
+	font-family: 'Trebuchet MS', sans-serif;
 	font-size: 14px;
 	font-style: normal;
 	font-variant: normal;
@@ -78,7 +78,7 @@ ul.posts {
 	color: rgb(69, 99, 122);
 }
 ul.posts li {
-	font-family: Futura, 'Trebuchet MS', Arial, sans-serif;
+	font-family: 'Trebuchet MS', sans-serif;
 	font-size: 14px;
 	font-style: normal;
 	font-variant: normal;
@@ -91,7 +91,7 @@ hr {
     	border: 1px solid #ccc;
 }
 footer {
-	font-family: Futura, 'Trebuchet MS', Arial, sans-serif;
+	font-family: 'Trebuchet MS', sans-serif;
 	font-size: 14px;
 	font-style: normal;
 	font-variant: normal;
