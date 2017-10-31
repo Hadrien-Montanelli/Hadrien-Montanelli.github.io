@@ -42,7 +42,7 @@ h2 {
 	color: rgb(69, 99, 122);
 }
 h3 {
-	font-family:'Trebuchet MS', sans-serif;
+	font-family: 'Trebuchet MS', sans-serif;
 	font-size: 14px;
 	font-style: normal;
 	font-variant: normal;
@@ -51,7 +51,7 @@ h3 {
 	color: rgb(69, 99, 122);
 }
 p {
-	font-family: 'Trebuchet MS', sans-serif;
+	font-family: 'Trebuchet MS', Helvetica, sans-serif;
 	font-size: 14px;
 	font-style: normal;
 	font-variant: normal;
