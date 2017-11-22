@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+	<title>Hadrien Montanelli's Blog</title>
+	<link href="http://Hadrien-Montanelli.github.io/blog/atom.xml" rel="self"/>
+	<link href="http://Hadrien-Montanelli.github.io/blog"/>
+	<updated>2017-11-21T19:43:19-05:00</updated>
+	<id>http://Hadrien-Montanelli.github.io/blog</id>
+	<author>
+		<name>Hadrien Montanelli</name>
+		<email>hadrien.montanelli@gmail.com</email>
+	</author>
+
+	
+		<entry>
+			<title>Solving PDEs on the sphere</title>
+			<link href="http://Hadrien-Montanelli.github.io/blog/2017/10/26/pdes-sphere"/>
+			<updated>2017-10-26T00:00:00-04:00</updated>
+			<id>http://Hadrien-Montanelli.github.io/blog/2017/10/26/pdes-sphere</id>
+			<content type="html">&lt;p&gt;&lt;a href=&quot;http://arxiv.org/pdf/1701.06030.pdf&quot;&gt;My last paper&lt;/a&gt;, with my former colleague
+&lt;a href=&quot;http://www.opt.mist.i.u-tokyo.ac.jp/~nakatsukasa/&quot;&gt;Yuji Nakatsukasa&lt;/a&gt;, has just been accepted in 
+&lt;a href=&quot;http://www.siam.org/journals/sisc.php&quot;&gt;SISC&lt;/a&gt;. In this post, I review the main ideas of our work.&lt;/p&gt;
+
+&lt;p&gt;We are interested in computing smooth solutions of stiff PDEs on the unit sphere of the form&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;u_t = \alpha\Delta u + \mathcal{N}(u), \quad u(t=0,x,y,z)=u_0(x,y,z),
+\label{PDE}&lt;/script&gt;
+
+&lt;p&gt;where &lt;script type=&quot;math/tex&quot;&gt;u(t,x,y,z)&lt;/script&gt; is a function of time &lt;script type=&quot;math/tex&quot;&gt;t&lt;/script&gt; and Cartesian coordinates &lt;script type=&quot;math/tex&quot;&gt;(x,y,z)&lt;/script&gt; with &lt;script type=&quot;math/tex&quot;&gt;x^2 + y^2 + z^2=1&lt;/script&gt;.
+The function &lt;script type=&quot;math/tex&quot;&gt;u&lt;/script&gt; can be real or complex and the the PDE can be a single equation, as well as a system of equations.
+A large number of PDEs of interest in science and engineering take this form.
+Examples include the &lt;a href=&quot;http://en.wikipedia.org/wiki/Allen–Cahn_equation&quot;&gt;Allen–Cahn equation&lt;/a&gt; 
+&lt;script type=&quot;math/tex&quot;&gt;u_t = \epsilon\Delta u + u - u^3&lt;/script&gt;, the
+&lt;a href=&quot;http://en.wikipedia.org/wiki/Nonlinear_Schrödinger_equation&quot;&gt;nonlinear Schrödinger equation&lt;/a&gt; 
+&lt;script type=&quot;math/tex&quot;&gt;u_t=i\Delta u + iu|u|^2&lt;/script&gt;, the &lt;a href=&quot;http://en.wikipedia.org/wiki/Ginzburg–Landau_theory&quot;&gt;Ginzburg–Landau equation&lt;/a&gt;, and all &lt;a href=&quot;https://en.wikipedia.org/wiki/Reaction–diffusion_system&quot;&gt;reaction-diffusion equations&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Our algorithms are based on a variant of the &lt;a href=&quot;http://en.wikipedia.org/wiki/Double_Fourier_sphere_method&quot;&gt;double Fourier sphere method&lt;/a&gt; in coefficient space with multiplication matrices that differ from the usual ones, and implicit-explicit time-stepping schemes.
+Operating in coefficient space with these new matrices allows one to use a sparse direct solver, avoids the 
+&lt;a href=&quot;http://en.wikipedia.org/wiki/Coordinate_singularity&quot;&gt;coordinate singularity&lt;/a&gt; and maintains smoothness at the poles, while implicit-explicit schemes circumvent severe restrictions on the time-steps due to 
+&lt;a href=&quot;http://en.wikipedia.org/wiki/Stiff_equation&quot;&gt;stiffness&lt;/a&gt;.
+A comparison is made against &lt;a href=&quot;http://en.wikipedia.org/wiki/Exponential_integrator&quot;&gt;exponential integrators&lt;/a&gt; 
+and it is found that implicit-explicit schemes perform best.
+Implementations in &lt;a href=&quot;http://www.mathworks.com/products/matlab.html&quot;&gt;MATLAB&lt;/a&gt; and &lt;a href=&quot;http://www.chebfun.org&quot;&gt;Chebfun&lt;/a&gt; make it possible to compute the solution of many PDEs to high accuracy in a very convenient fashion—check out the the&lt;a href=&quot;http://www.chebfun.org/docs/guide/guide19.html&quot;&gt; spinsphere code&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;I hope to use this code for investigating &lt;a href=&quot;http://en.wikipedia.org/wiki/Pattern_formation&quot;&gt;pattern formation&lt;/a&gt; on the sphere with &lt;a href=&quot;http://www.ptrinh.com&quot;&gt;Philippe Trinh&lt;/a&gt;,
+&lt;a href=&quot;http://www.math.ubc.ca/~ward/&quot;&gt;Michael Ward&lt;/a&gt;, and &lt;a href=&quot;http://shvartsmanlab.com&quot;&gt;Stanislav Shvartsman&lt;/a&gt;.
+I’m visiting Stanislav at Princeton in a couple of weeks—looking forward to it!&lt;/p&gt;
+</content>
+		</entry>
+	
+		<entry>
+			<title>Choreographies: when planets dance</title>
+			<link href="http://Hadrien-Montanelli.github.io/blog/2017/10/09/choreographies"/>
+			<updated>2017-10-09T00:00:00-04:00</updated>
+			<id>http://Hadrien-Montanelli.github.io/blog/2017/10/09/choreographies</id>
+			<content type="html">&lt;p&gt;&lt;a href=&quot;http://arxiv.org/pdf/1505.04848.pdf&quot;&gt;My second paper&lt;/a&gt; as a PhD student, 
+in collaboration with my friend and former colleague at Oxford 
+&lt;a href=&quot;http://scholar.google.com/citations?user=w-PVG8sAAAAJ&amp;amp;hl=en&quot;&gt;Nikola Gushterov&lt;/a&gt;, 
+was about the &lt;a href=&quot;http://www.scholarpedia.org/article/N-body_choreographies&quot;&gt;choreographies&lt;/a&gt; 
+of the &lt;a href=&quot;http://en.wikipedia.org/wiki/N-body_problem&quot;&gt;&lt;script type=&quot;math/tex&quot;&gt;n&lt;/script&gt;-body problem&lt;/a&gt;. 
+These are very simple periodic solutions of the &lt;script type=&quot;math/tex&quot;&gt;n&lt;/script&gt;-body problem, in which the bodies share a common orbit and are uniformly spread along it; see, e.g., &lt;a href=&quot;http://www.maths.manchester.ac.uk/~jm/Choreographies/&quot;&gt;these animations&lt;/a&gt;.
+The trivial ones are circles, and these were found by 
+&lt;a href=&quot;http://en.wikipedia.org/wiki/Joseph-Louis_Lagrange&quot;&gt;Lagrange&lt;/a&gt; in 1772. 
+Fore more than two centuries, this was the full story. 
+Everything changed at the end of the 20th century, when &lt;a href=&quot;http://tuvalu.santafe.edu/~moore/pubs/braids-prl.pdf&quot;&gt;Moore
+&lt;/a&gt; (numerically in 1993), 
+and &lt;a href=&quot;https://arxiv.org/pdf/math/0011268.pdf&quot;&gt;Chenciner and Montgomery&lt;/a&gt; (theoretically in 2000), 
+discovered the first non-trivial choreography: the 
+&lt;a href=&quot;https://arxiv.org/pdf/math/0011268.pdf&quot;&gt;figure-eight&lt;/a&gt; of the three-body problem.
+And then the magic happened: in the early 2000s, 
+&lt;a href=&quot;http://www.math.uni-bielefeld.de/~rehmann/ECM/cdrom/3ecm/pdfs/pant3/simo.pdf&quot;&gt;Simò&lt;/a&gt; found many 
+new choreographies using &lt;a href=&quot;http://en.wikipedia.org/wiki/Mathematical_optimization&quot;&gt;numerical optimization&lt;/a&gt; of the so-called &lt;a href=&quot;http://en.wikipedia.org/wiki/Action_(physics)&quot;&gt;action&lt;/a&gt;.
+In this post, I explain the idea of Simò, who coined the term choreographies, the &lt;script type=&quot;math/tex&quot;&gt;n&lt;/script&gt; bodies being &quot;seen to dance in a somewhat complicated way.&quot;&lt;/p&gt;
+
+&lt;p&gt;Let &lt;script type=&quot;math/tex&quot;&gt;z_j(t)\in\mathbb{C}&lt;/script&gt;, &lt;script type=&quot;math/tex&quot;&gt;0\leq j\leq n-1&lt;/script&gt;, denote the positions of &lt;script type=&quot;math/tex&quot;&gt;n&lt;/script&gt; bodies with unit mass in the complex plane. 
+The &lt;script type=&quot;math/tex&quot;&gt;n&lt;/script&gt;-body problem describes the motion of these bodies under the action of 
+&lt;a href=&quot;http://en.wikipedia.org/wiki/Newton%27s_law_of_universal_gravitation&quot;&gt;Newton’s law of gravitation&lt;/a&gt;, through the nonlinear coupled system of ODEs&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\displaystyle 
+z_j^{''}(t) - \sum_{\underset{i\neq j}{i=0}}^{n-1} \frac{z_i(t) - z_j(t)}{\big\vert z_i(t) - z_j(t) \big\vert^3} = 0, 
+\quad 0\leq j\leq n-1.
+\label{newton}&lt;/script&gt;
+
+&lt;p&gt;Since choreographies share a single orbit and are uniformly spread along it, these can be written as&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;z_j(t) = q\Big(t + \frac{2\pi j}{n}	\Big), \quad 0\leq j\leq n-1,
+\label{choreographies}&lt;/script&gt;
+
+&lt;p&gt;for some &lt;script type=&quot;math/tex&quot;&gt;2\pi&lt;/script&gt;-periodic function &lt;script type=&quot;math/tex&quot;&gt;q:[0,2\pi]\rightarrow\mathbb{C}&lt;/script&gt;. 
+It has been well known since &lt;a href=&quot;http://en.wikipedia.org/wiki/Henri_Poincaré&quot;&gt;Poincaré&lt;/a&gt; 
+that the &lt;a href=&quot;http://en.wikipedia.org/wiki/Principle_of_least_action&quot;&gt;principle of least action&lt;/a&gt;, first introduced by 
+&lt;a href=&quot;http://en.wikipedia.org/wiki/Pierre_Louis_Maupertuis&quot;&gt;Maupertuis&lt;a&gt;&lt;/a&gt; in 1744, can be used to characterize choreographies: these are minima of the action, defined as the integral over one period of the 
+&lt;a href=&quot;http://en.wikipedia.org/wiki/Kinetic_energy&quot;&gt;kinetic&lt;/a&gt; minus the 
+&lt;a href=&quot;http://en.wikipedia.org/wiki/Potential_energy&quot;&gt;potential&lt;/a&gt; energy,&lt;/a&gt;&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;A = \int_0^{2\pi} \big(K(t) - U(t)\big)\,dt,
+\label{action}&lt;/script&gt;
+
+&lt;p&gt;with kinetic energy&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\displaystyle 
+K(t) = \frac{1}{2}\sum_{j=0}^{n-1} \big\vert z_j'(t) \big\vert^2 = \frac{1}{2}\sum_{j=0}^{n-1} 
+\Big\vert q'\Big(t + \frac{2\pi j}{n}\Big) \Big\vert^2
+\label{kineticenergy}&lt;/script&gt;
+
+&lt;p&gt;and potential energy&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\displaystyle 
+U(t) = -\sum_{j=0}^{n-1}\sum_{i=0}^{j-1} \big\vert z_i(t) - z_j(t) \big\vert^{-1} = -\sum_{j=0}^{n-1}\sum_{i=0}^{j-1}
+\Big\vert q\Big(t + \frac{2\pi i}{n}\Big) - q\Big(t + \frac{2\pi j}{n}\Big) \Big\vert^{-1}.
+\label{newtonpotential}&lt;/script&gt;
+
+&lt;p&gt;Note that the action &lt;script type=&quot;math/tex&quot;&gt;A&lt;/script&gt; depends on &lt;script type=&quot;math/tex&quot;&gt;q(t)&lt;/script&gt; via &lt;script type=&quot;math/tex&quot;&gt;U(t)&lt;/script&gt; and on &lt;script type=&quot;math/tex&quot;&gt;q'(t)&lt;/script&gt; via &lt;script type=&quot;math/tex&quot;&gt;K(t)&lt;/script&gt;. 
+Since the integral of &lt;script type=&quot;math/tex&quot;&gt;K(t)&lt;/script&gt; does not depend on &lt;script type=&quot;math/tex&quot;&gt;j&lt;/script&gt; and the integral of &lt;script type=&quot;math/tex&quot;&gt;U(t)&lt;/script&gt;
+only depends on &lt;script type=&quot;math/tex&quot;&gt;i-j&lt;/script&gt;, the action can be rewritten&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\displaystyle 
+A = \frac{n}{2}\int_0^{2\pi} \big\vert q'(t) \big\vert^2 dt
++ \frac{n}{2}\sum_{j=1}^{n-1} \int_0^{2\pi} \Big\vert q(t) - q\Big(t + \frac{2\pi j}{n}\Big) \Big\vert^{-1}dt.
+\label{action2}&lt;/script&gt;
+
+&lt;p&gt;Choreographies correspond to functions &lt;script type=&quot;math/tex&quot;&gt;q(t)&lt;/script&gt; which minimize &lt;script type=&quot;math/tex&quot;&gt;A&lt;/script&gt;. Since these are closed curves in the complex plane, these can be represendted by 
+&lt;a href=&quot;http://en.wikipedia.org/wiki/Fourier_series&quot;&gt;Fourier series&lt;/a&gt;.
+The action &lt;script type=&quot;math/tex&quot;&gt;A&lt;/script&gt; becomes a function of Fourier coefficients, can be computed with the
+&lt;a href=&quot;http://people.maths.ox.ac.uk/trefethen/publication/PDF/2014_149.pdf&quot;&gt;exponentially accurate trapezoidal rule&lt;/a&gt;, 
+and an optimization algorithm (over a finite number of Fourier coefficients) can be used to found the minima.&lt;/p&gt;
+
+&lt;p&gt;In our paper, we have recomputed the choreographies found by Simò to higher accuracy, and extended his work to spaces of cosntant positive curvature—check it out!&lt;/p&gt;
+</content>
+		</entry>
+	
+		<entry>
+			<title>The intertwining property of the Radon transform</title>
+			<link href="http://Hadrien-Montanelli.github.io/blog/2017/10/05/radon-transform"/>
+			<updated>2017-10-05T00:00:00-04:00</updated>
+			<id>http://Hadrien-Montanelli.github.io/blog/2017/10/05/radon-transform</id>
+			<content type="html">&lt;p&gt;My colleague &lt;a href=&quot;http://dsrim.github.io&quot;&gt;Donsub Rim&lt;/a&gt; has recently written a beautiful 
+&lt;a href=&quot;http://arxiv.org/pdf/1705.03609.pdf&quot;&gt;paper&lt;/a&gt; about dimensional splitting for 
+&lt;a href=&quot;http://en.wikipedia.org/wiki/Hyperbolic_partial_differential_equation&quot;&gt;hyperbolic PDEs&lt;/a&gt;
+using the 
+&lt;a href=&quot;http://en.wikipedia.org/wiki/Radon_transform#Intertwining_property&quot;&gt;intertwining property&lt;/a&gt; 
+of the 
+&lt;a href=&quot;http://en.wikipedia.org/wiki/Radon_transform&quot;&gt;Radon transform&lt;/a&gt;. 
+In this post, I recall the definition of the Radon transform and explain briefly the main idea of his paper.&lt;/p&gt;
+
+&lt;p&gt;The Radon transform &lt;script type=&quot;math/tex&quot;&gt;\mathcal{R}f&lt;/script&gt; of a function &lt;script type=&quot;math/tex&quot;&gt;f:\mathbb{R}^2\rightarrow\mathbb{R}&lt;/script&gt; is a function defined on the space of straight lines in &lt;script type=&quot;math/tex&quot;&gt;\mathbb{R}^2&lt;/script&gt; by the line integral along each such line,&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\begin{array}{l}
+\mathcal{R}f : [0,2\pi]\times\mathbb{R} \rightarrow \mathbb{R}, \\\\
+\displaystyle \mathcal{R}f(\boldsymbol{\alpha}, s) = \int_{-\infty}^\infty f(s\boldsymbol{\alpha} + z\boldsymbol{\alpha}^\perp)dz,
+\end{array}&lt;/script&gt;
+
+&lt;p&gt;where &lt;script type=&quot;math/tex&quot;&gt;\boldsymbol{\alpha} = (\cos\alpha, \sin\alpha)&lt;/script&gt; is the normal vector of the line and &lt;script type=&quot;math/tex&quot;&gt;\boldsymbol{\alpha}^\perp&lt;/script&gt; the tangent vector.&lt;/p&gt;
+
+&lt;p&gt;More generally, the Radon transform &lt;script type=&quot;math/tex&quot;&gt;\mathcal{R}f&lt;/script&gt; of a function &lt;script type=&quot;math/tex&quot;&gt;f:\mathbb{R}^n\rightarrow\mathbb{R}&lt;/script&gt; is a function defined on the space of all hyperplanes in &lt;script type=&quot;math/tex&quot;&gt;\mathbb{R}^n&lt;/script&gt;.
+If one parametrizes these hyperplanes by &lt;script type=&quot;math/tex&quot;&gt;\{\mathbf{x}\in\mathbb{R}^n \, : \, \mathbf{x}\cdot\boldsymbol{\alpha} = s\}&lt;/script&gt; 
+where &lt;script type=&quot;math/tex&quot;&gt;\boldsymbol{\alpha}\in S^{n-1}&lt;/script&gt; is a unit vector of &lt;script type=&quot;math/tex&quot;&gt;\mathbb{R}^n&lt;/script&gt; and &lt;script type=&quot;math/tex&quot;&gt;s\in\mathbb{R}&lt;/script&gt;, one obtains a function defined on &lt;script type=&quot;math/tex&quot;&gt;S^{n-1}\times\mathbb{R}&lt;/script&gt; by&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\begin{array}{l}
+\mathcal{R}f : S^{n-1}\times\mathbb{R} \rightarrow \mathbb{R}, \\\\
+\displaystyle \mathcal{R}f(\boldsymbol{\alpha}, s) 
+= \int_{\mathbf{x}\cdot\boldsymbol{\alpha} = s} f(\mathbf{x}) d\mathbf{x}
+= \int_{\boldsymbol{\alpha}^\perp} f(s\boldsymbol{\alpha} + \mathbf{y}) d\mathbf{y}.
+\end{array}&lt;/script&gt;
+
+&lt;p&gt;One has to think about &lt;script type=&quot;math/tex&quot;&gt;\boldsymbol{\alpha}&lt;/script&gt; as angles: one angle in 2D (points on the unit circle or equivalently
+tangent lines to the unit circle), two angles in 3D (points on the unit sphere or equivalently tangent planes to the unit sphere), and so on.
+The number &lt;script type=&quot;math/tex&quot;&gt;s&lt;/script&gt; is the (signed) distance between these hyperplanes and the origin.&lt;/p&gt;
+
+&lt;p&gt;The key property used by Donsub is the intertwining property of the Radon transform. 
+For a function &lt;script type=&quot;math/tex&quot;&gt;u:\mathbb{R}^n\rightarrow\mathbb{R}&lt;/script&gt;,&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\bigg(\mathcal{R}\frac{\partial u}{\partial x_i}\bigg)(\boldsymbol{\alpha},s) 
+= \alpha_i\frac{\partial}{\partial s}\Big(\mathcal{R}u(\boldsymbol{\alpha},s)\Big),&lt;/script&gt;
+
+&lt;p&gt;i.e.,&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\big(\mathcal{R}\nabla u\big)(\boldsymbol{\alpha},s) 
+= \boldsymbol{\alpha}\frac{\partial}{\partial s}\Big(\mathcal{R}u(\boldsymbol{\alpha},s)\Big).&lt;/script&gt;
+
+&lt;p&gt;Using this property one can, e.g., transform a 2D transport equation&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;u_t + \boldsymbol{\theta}\cdot\nabla u = 0, \quad \boldsymbol{\theta}\in S^1, \quad u = u(x,y,t),&lt;/script&gt;
+
+&lt;p&gt;to a family of 1D advection equations parametrized by &lt;script type=&quot;math/tex&quot;&gt;\boldsymbol{\alpha}&lt;/script&gt;,&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;(\mathcal{R}u)_t + (\boldsymbol{\theta}\cdot\boldsymbol{\alpha})(\mathcal{R}u)_s = 0, 
+\quad \mathcal{R}u = \mathcal{R}u_{\boldsymbol{\alpha}}(s,t).&lt;/script&gt;
+
+&lt;p&gt;More generally, high-dimensional hyperbolic PDEs can be split into many 1D hyperbolic PDEs—as I said, beautiful!&lt;/p&gt;
+</content>
+		</entry>
+	
+		<entry>
+			<title>New website</title>
+			<link href="http://Hadrien-Montanelli.github.io/blog/2017/09/21/hadrien-montanelli-site-launched"/>
+			<updated>2017-09-21T00:00:00-04:00</updated>
+			<id>http://Hadrien-Montanelli.github.io/blog/2017/09/21/hadrien-montanelli-site-launched</id>
+			<content type="html">&lt;p&gt;Well. Finally got around to putting this old website together. 
+Neat thing about it - powered by &lt;a href=&quot;http://jekyllrb.com&quot;&gt;Jekyll&lt;/a&gt; and I can use Markdown to author my posts.&lt;/p&gt;
+</content>
+		</entry>
+	
+
+</feed>

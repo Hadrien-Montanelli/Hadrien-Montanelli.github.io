@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 	<html>
 		<head>
-			<title>{{ page.title }}</title>
+			<title>New website</title>
 			<!-- link to main stylesheet -->
 			<link rel="stylesheet" type="text/css" href="/css/main.css">
 			<!-- Global site tag (gtag.js) - Google Analytics -->
@@ -16,39 +16,39 @@
 		<body>
 			<nav>
 	    		<ul>
-	    			{% assign current = page.url | downcase | split: '/' %}
+	    			
 
 					<li>
-						<a href="/" data-current="{{ current[1] }}" {% if current.size == 0 %} class="active" {% endif %}>
+						<a href="/" data-current="blog" >
 							Home
 						</a>
 					</li>
 					<li>
-						<a href="/about" {% if current[1] == 'about' %} class="active" {% endif %}>
+						<a href="/about" >
 							About
 						</a>
 					</li>
 					<li>
-						<a href="/awards" {% if current[1] == 'awards' %} class="active" {% endif %}>
+						<a href="/awards" >
 							Awards
 						</a>
 					</li>
 					<li>
-						<a href="/blog" {% if current[1] == 'blog' %} class="active" {% endif %}>
+						<a href="/blog"  class="active" >
 							Blog
 						</a>
 					</li>
 					<li>
-						<a href="/publications" {% if current[1] == 'publications' %} class="active" {% endif %}>		Publications
+						<a href="/publications" >		Publications
 						</a>
 					</li>
 					<li>
-						<a href="/talks" {% if current[1] == 'talks' %} class="active" {% endif %}>
+						<a href="/talks" >
 							Talks
 						</a>
 					</li>
 					<li>
-						<a href="/teaching" {% if current[1] == 'teaching' %} class="active" {% endif %}>
+						<a href="/teaching" >
 							Teaching
 						</a>
 					</li>
@@ -56,7 +56,22 @@
 			</nav>
 			<div class="container">
 			
-			{{ content }}
+			<div style="text-align: center;">
+  <h1>New website</h1>
+  <p class="meta">21 Sep 2017</p>
+</div>
+
+
+<div class="post">
+  <p>Well. Finally got around to putting this old website together. 
+Neat thing about it - powered by <a href="http://jekyllrb.com">Jekyll</a> and I can use Markdown to author my posts.</p>
+
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" 
+    type="text/javascript">
+</script>
+
 			
 			</div><!-- /.container -->
 			<footer>
