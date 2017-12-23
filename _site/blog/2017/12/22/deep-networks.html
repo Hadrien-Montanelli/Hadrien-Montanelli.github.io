@@ -113,14 +113,17 @@ one tries to find the asymptotic behavior of the approximation error as <script 
 For deep networks, one also wants to find the asymptotic behavior of the depth 
 as a function of the accuracy <script type="math/tex">\epsilon</script>.
 Results of this form are standard approximation results that suffer from the curse of dimensionality.
+These apply to, e.g., multivariate polynomial approximation.
 As the size of the network <script type="math/tex">N</script> increases, the approximation error goes to zero, <i><b>the smoother the function the faster</b></i>, but the convergence becomes <i><b>geometrically slower</b></i> as the dimension <script type="math/tex">d</script> increases.</p>
 
-<p>My theorem shows that functions in the so-called Korobov spaces <script type="math/tex">X^{2,p}(\Omega)</script> of mixed derivatives of order <script type="math/tex">2</script> can be represented to accuracy <script type="math/tex">\epsilon</script> by deep networks of depth <script type="math/tex">\mathcal{O}((d-1)\vert\log_2\epsilon\vert)</script> and size</p>
+<p>The picture is different for deep networks.
+My theorem shows that functions in the so-called Korobov spaces <script type="math/tex">X^{2,p}(\Omega)</script> of mixed derivatives of order <script type="math/tex">2</script> can be represented to accuracy <script type="math/tex">\epsilon</script> by deep networks of depth <script type="math/tex">\mathcal{O}((d-1)\vert\log_2\epsilon\vert)</script> and size</p>
 
 <script type="math/tex; mode=display">N=\mathcal{O}((d-1)\epsilon^{-\frac{1}{2}}\vert\log_2\epsilon\vert^{\frac{3}{2}(d-1)+1}).</script>
 
 <p>The curse of dimensionality is not totally overcome but is lessened since 
-<script type="math/tex">d</script> only affects logarithmic factors <script type="math/tex">\vert\log_2\epsilon\vert</script>.</p>
+<script type="math/tex">d</script> only affects logarithmic factors <script type="math/tex">\vert\log_2\epsilon\vert</script>.
+This result might explain why deep networks work so well.</p>
 
 </div>
 

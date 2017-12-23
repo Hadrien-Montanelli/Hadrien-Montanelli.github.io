@@ -58,9 +58,11 @@ for some norm $$\Vert\cdot\Vert$$.
 For deep networks, one also wants to find the asymptotic behavior of the depth 
 as a function of the accuracy $$\epsilon$$.
 Results of this form are standard approximation results that suffer from the curse of dimensionality.
+These apply to, e.g., multivariate polynomial approximation.
 As the size of the network $$N$$ increases, the approximation error goes to zero, <i><b>the smoother the function the faster</b></i>, but the convergence becomes <i><b>geometrically slower</b></i> as the dimension $$d$$ increases.
 
 
+The picture is different for deep networks.
 My theorem shows that functions in the so-called Korobov spaces $$X^{2,p}(\Omega)$$ of mixed derivatives of order $$2$$ can be represented to accuracy $$\epsilon$$ by deep networks of depth $$\mathcal{O}((d-1)\vert\log_2\epsilon\vert)$$ and size
 
 $$
@@ -69,3 +71,4 @@ $$
 
 The curse of dimensionality is not totally overcome but is lessened since 
 $$d$$ only affects logarithmic factors $$\vert\log_2\epsilon\vert$$.
+This result might explain why deep networks work so well. 
