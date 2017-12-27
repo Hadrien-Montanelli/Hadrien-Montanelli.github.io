@@ -4,7 +4,7 @@
 	<title>Hadrien Montanelli's Blog</title>
 	<link href="http://Hadrien-Montanelli.github.io/blog/atom.xml" rel="self"/>
 	<link href="http://Hadrien-Montanelli.github.io/blog"/>
-	<updated>2017-12-22T20:17:15-05:00</updated>
+	<updated>2017-12-26T20:37:31-05:00</updated>
 	<id>http://Hadrien-Montanelli.github.io/blog</id>
 	<author>
 		<name>Hadrien Montanelli</name>
@@ -17,11 +17,11 @@
 			<link href="http://Hadrien-Montanelli.github.io/blog/2017/12/22/deep-networks"/>
 			<updated>2017-12-22T00:00:00-05:00</updated>
 			<id>http://Hadrien-Montanelli.github.io/blog/2017/12/22/deep-networks</id>
-			<content type="html">&lt;p&gt;I have started working on &lt;a href=&quot;http://en.wikipedia.org/wiki/Deep_learning&quot;&gt;deep learning&lt;/a&gt; 
-models when I started at &lt;a href=&quot;http//www.columbia.edu&quot;&gt;Columbia University&lt;/a&gt; in September 2017. 
+			<content type="html">&lt;p&gt;I started working on &lt;a href=&quot;http://en.wikipedia.org/wiki/Deep_learning&quot;&gt;deep learning&lt;/a&gt; 
+models when I began my research at &lt;a href=&quot;http//www.columbia.edu&quot;&gt;Columbia University&lt;/a&gt; in September 2017. 
 Coming from the &lt;a href=&quot;http://en.wikipedia.org/wiki/Approximation_theory&quot;&gt;approximation theory&lt;/a&gt;
 world, I wanted to learn about their approximation propeties.
-A few months down the road I have proven a new theorem concerning the approximation of 
+A few months down the road I have proven a &lt;a href=&quot;http://arxiv.org/pdf/1712.08688.pdf&quot;&gt;new theorem&lt;/a&gt; concerning the approximation of 
 &lt;a href=&quot;http://en.wikipedia.org/wiki/Function_of_several_real_variables&quot;&gt;multivariate functions&lt;/a&gt; 
 by deep ReLU networks, which partly explained why deep networks are so powerfull.&lt;/p&gt;
 

@@ -4,11 +4,11 @@ title: "Deep networks and the curse of dimensionality"
 date: 2017-12-22
 ---
 
-I have started working on <a href="http://en.wikipedia.org/wiki/Deep_learning">deep learning</a> 
-models when I started at <a href="http//www.columbia.edu">Columbia University</a> in September 2017. 
+I started working on <a href="http://en.wikipedia.org/wiki/Deep_learning">deep learning</a> 
+models when I began my research at <a href="http//www.columbia.edu">Columbia University</a> in September 2017. 
 Coming from the <a href="http://en.wikipedia.org/wiki/Approximation_theory">approximation theory</a>
 world, I wanted to learn about their approximation propeties.
-A few months down the road I have proven a new theorem concerning the approximation of 
+A few months down the road I have proven a <a href="http://arxiv.org/pdf/1712.08688.pdf">new theorem</a> concerning the approximation of 
 <a href="http://en.wikipedia.org/wiki/Function_of_several_real_variables">multivariate functions</a> 
 by deep ReLU networks, which partly explained why deep networks are so powerfull.
 
