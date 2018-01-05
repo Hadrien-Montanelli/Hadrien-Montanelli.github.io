@@ -4,7 +4,7 @@
 	<title>Hadrien Montanelli's Blog</title>
 	<link href="http://Hadrien-Montanelli.github.io/blog/atom.xml" rel="self"/>
 	<link href="http://Hadrien-Montanelli.github.io/blog"/>
-	<updated>2018-01-05T00:00:31-05:00</updated>
+	<updated>2018-01-05T00:08:53-05:00</updated>
 	<id>http://Hadrien-Montanelli.github.io/blog</id>
 	<author>
 		<name>Hadrien Montanelli</name>
@@ -13,7 +13,7 @@
 
 	
 		<entry>
-			<title>Gibbs phenomenon and Cesàro means</title>
+			<title>Gibbs phenomenon and Cesàro mean</title>
 			<link href="http://Hadrien-Montanelli.github.io/blog/2018/01/04/gibbs-phenomenon"/>
 			<updated>2018-01-04T00:00:00-05:00</updated>
 			<id>http://Hadrien-Montanelli.github.io/blog/2018/01/04/gibbs-phenomenon</id>
@@ -98,7 +98,7 @@ the following figure illustrates:&lt;/p&gt;
 	&lt;img src=&quot;/blog/gibbs2.jpg&quot; style=&quot;width:516px;height:412px;&quot; /&gt;
 &lt;/div&gt;
 
-&lt;p&gt;With &lt;a href=&quot;http://home.cc.umanitoba.ca/~slevinrm/&quot;&gt;Miakel Slevinsky&lt;/a&gt;, 
+&lt;p&gt;With &lt;a href=&quot;http://home.cc.umanitoba.ca/~slevinrm/&quot;&gt;Mikael Slevinsky&lt;/a&gt;, 
 we are using the &lt;script type=&quot;math/tex&quot;&gt;(C,2)&lt;/script&gt; Cesaràro mean for 
 &lt;a href=&quot;http://en.wikipedia.org/wiki/Spherical_harmonics&quot;&gt;spherical harmonic&lt;/a&gt; 
 expansions on the sphere to post-process numerical solutions of nonlocal 

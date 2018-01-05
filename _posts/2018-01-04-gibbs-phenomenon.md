@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Gibbs phenomenon and Cesàro means"
+title: "Gibbs phenomenon and Cesàro mean"
 date: 2018-01-04
 ---
 
@@ -99,7 +99,7 @@ the following figure illustrates:
 	<img src="/blog/gibbs2.jpg" style="width:516px;height:412px;">
 </div>
 
-With <a href="http://home.cc.umanitoba.ca/~slevinrm/">Miakel Slevinsky</a>, 
+With <a href="http://home.cc.umanitoba.ca/~slevinrm/">Mikael Slevinsky</a>, 
 we are using the $$(C,2)$$ Cesaràro mean for 
 <a href="http://en.wikipedia.org/wiki/Spherical_harmonics">spherical harmonic</a> 
 expansions on the sphere to post-process numerical solutions of nonlocal 
