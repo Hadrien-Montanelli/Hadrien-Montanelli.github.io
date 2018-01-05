@@ -4,7 +4,7 @@
 	<title>Hadrien Montanelli's Blog</title>
 	<link href="http://Hadrien-Montanelli.github.io/blog/atom.xml" rel="self"/>
 	<link href="http://Hadrien-Montanelli.github.io/blog"/>
-	<updated>2018-01-05T00:08:53-05:00</updated>
+	<updated>2018-01-05T16:37:49-05:00</updated>
 	<id>http://Hadrien-Montanelli.github.io/blog</id>
 	<author>
 		<name>Hadrien Montanelli</name>
@@ -65,29 +65,29 @@ Its Fourier coefficients can be computed analytically and are given by&lt;/p&gt;
 	&lt;img src=&quot;/blog/gibbs1.jpg&quot; style=&quot;width:516px;height:412px;&quot; /&gt;
 &lt;/div&gt;
 
-&lt;p&gt;This is the so called &lt;i&gt;&lt;b&gt;Gibbs phenomenon&lt;/b&gt;&lt;/i&gt;, which involves both the fact 
+&lt;p&gt;This is the so-called &lt;i&gt;&lt;b&gt;Gibbs phenomenon&lt;/b&gt;&lt;/i&gt;, which involves both the fact 
 that the partial sums &lt;i&gt;&lt;b&gt;overshoot&lt;/b&gt;&lt;/i&gt; at a discontinuity and
-that this overshoot does not die out as more terms are added to the sums. 
+that this overshoot does not disappear as more terms are added to the sums. 
 The overshoot at &lt;script type=&quot;math/tex&quot;&gt;0&lt;/script&gt;, &lt;script type=&quot;math/tex&quot;&gt;\pi&lt;/script&gt; and &lt;script type=&quot;math/tex&quot;&gt;2\pi&lt;/script&gt; is known exactly and is given by&lt;/p&gt;
 
 &lt;script type=&quot;math/tex; mode=display&quot;&gt;\frac{1}{2}\int_0^{\pi}\frac{\sin(\theta)}{\theta}d\theta - \frac{\pi}{4} = \frac{\pi}{2}\times(0.089489872236\ldots),&lt;/script&gt;
 
 &lt;p&gt;or about &lt;script type=&quot;math/tex&quot;&gt;9\%&lt;/script&gt; of the jump. 
-Note that, as more terms are added, the position of the overshoot moves closer 
+Note that, as &lt;script type=&quot;math/tex&quot;&gt;n&lt;/script&gt; increases, the position of the overshoot moves closer 
 to the discontinuity. The Gibbs phenomenon is a very standard result that most 
-applied mathematicians know.&lt;/p&gt;
+(applied) mathematicians know.&lt;/p&gt;
 
 &lt;p&gt;What is perhaps less known is a simple cure using the &lt;script type=&quot;math/tex&quot;&gt;(C,1)&lt;/script&gt;
 &lt;a href=&quot;http://en.wikipedia.org/wiki/Ces%C3%A0ro_summation&quot;&gt;Cesàro mean&lt;/a&gt; of the
-partial sums, which is simply
+partial sums, which is simply the
 &lt;a href=&quot;http://en.wikipedia.org/wiki/Arithmetic_mean&quot;&gt;arithmetic mean&lt;/a&gt; 
-&lt;script type=&quot;math/tex&quot;&gt;\sigma_n(\theta)&lt;/script&gt; of the partial sums, i.e.,&lt;/p&gt;
+&lt;script type=&quot;math/tex&quot;&gt;\sigma_n(\theta)&lt;/script&gt;,&lt;/p&gt;
 
 &lt;script type=&quot;math/tex; mode=display&quot;&gt;\sigma_n(\theta) = \frac{1}{n+1}\sum_{k=0}^{n}f_k(\theta).&lt;/script&gt;
 
-&lt;p&gt;For integrable functions &lt;script type=&quot;math/tex&quot;&gt;f&lt;/script&gt;, one can show that the Cesàro mean &lt;script type=&quot;math/tex&quot;&gt;\sigma_n(\theta)&lt;/script&gt; 
+&lt;p&gt;For integrable functions &lt;script type=&quot;math/tex&quot;&gt;f&lt;/script&gt;, one can show that &lt;script type=&quot;math/tex&quot;&gt;\sigma_n(\theta)&lt;/script&gt; 
 converges to &lt;script type=&quot;math/tex&quot;&gt;\frac{1}{2}[f(\theta^-) + f(\theta^+)]&lt;/script&gt;; in particular, 
-it converges to &lt;script type=&quot;math/tex&quot;&gt;f(\theta)&lt;/script&gt; at every point of continuity, 
+this converges to &lt;script type=&quot;math/tex&quot;&gt;f(\theta)&lt;/script&gt; at every point of continuity, 
 and for continuous functions the convergence is uniform—this is 
 &lt;a href=&quot;http://en.wikipedia.org/wiki/Fej%C3%A9r%27s_theorem&quot;&gt;Fejér’s thereom&lt;/a&gt;.
 Moreover, if &lt;script type=&quot;math/tex&quot;&gt;m\leq f(\theta)\leq M&lt;/script&gt; then &lt;script type=&quot;math/tex&quot;&gt;m\leq \sigma_n(\theta)\leq M&lt;/script&gt;. 

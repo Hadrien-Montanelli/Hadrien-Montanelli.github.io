@@ -111,29 +111,29 @@ Its Fourier coefficients can be computed analytically and are given by</p>
 	<img src="/blog/gibbs1.jpg" style="width:516px;height:412px;" />
 </div>
 
-<p>This is the so called <i><b>Gibbs phenomenon</b></i>, which involves both the fact 
+<p>This is the so-called <i><b>Gibbs phenomenon</b></i>, which involves both the fact 
 that the partial sums <i><b>overshoot</b></i> at a discontinuity and
-that this overshoot does not die out as more terms are added to the sums. 
+that this overshoot does not disappear as more terms are added to the sums. 
 The overshoot at <script type="math/tex">0</script>, <script type="math/tex">\pi</script> and <script type="math/tex">2\pi</script> is known exactly and is given by</p>
 
 <script type="math/tex; mode=display">\frac{1}{2}\int_0^{\pi}\frac{\sin(\theta)}{\theta}d\theta - \frac{\pi}{4} = \frac{\pi}{2}\times(0.089489872236\ldots),</script>
 
 <p>or about <script type="math/tex">9\%</script> of the jump. 
-Note that, as more terms are added, the position of the overshoot moves closer 
+Note that, as <script type="math/tex">n</script> increases, the position of the overshoot moves closer 
 to the discontinuity. The Gibbs phenomenon is a very standard result that most 
-applied mathematicians know.</p>
+(applied) mathematicians know.</p>
 
 <p>What is perhaps less known is a simple cure using the <script type="math/tex">(C,1)</script>
 <a href="http://en.wikipedia.org/wiki/Ces%C3%A0ro_summation">Cesàro mean</a> of the
-partial sums, which is simply
+partial sums, which is simply the
 <a href="http://en.wikipedia.org/wiki/Arithmetic_mean">arithmetic mean</a> 
-<script type="math/tex">\sigma_n(\theta)</script> of the partial sums, i.e.,</p>
+<script type="math/tex">\sigma_n(\theta)</script>,</p>
 
 <script type="math/tex; mode=display">\sigma_n(\theta) = \frac{1}{n+1}\sum_{k=0}^{n}f_k(\theta).</script>
 
-<p>For integrable functions <script type="math/tex">f</script>, one can show that the Cesàro mean <script type="math/tex">\sigma_n(\theta)</script> 
+<p>For integrable functions <script type="math/tex">f</script>, one can show that <script type="math/tex">\sigma_n(\theta)</script> 
 converges to <script type="math/tex">\frac{1}{2}[f(\theta^-) + f(\theta^+)]</script>; in particular, 
-it converges to <script type="math/tex">f(\theta)</script> at every point of continuity, 
+this converges to <script type="math/tex">f(\theta)</script> at every point of continuity, 
 and for continuous functions the convergence is uniform—this is 
 <a href="http://en.wikipedia.org/wiki/Fej%C3%A9r%27s_theorem">Fejér’s thereom</a>.
 Moreover, if <script type="math/tex">m\leq f(\theta)\leq M</script> then <script type="math/tex">m\leq \sigma_n(\theta)\leq M</script>. 

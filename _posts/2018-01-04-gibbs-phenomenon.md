@@ -62,9 +62,9 @@ When we compute the partial sums for $$n=16,32,64,128$$ we obtain:
 	<img src="/blog/gibbs1.jpg" style="width:516px;height:412px;">
 </div>
 
-This is the so called <i><b>Gibbs phenomenon</b></i>, which involves both the fact 
+This is the so-called <i><b>Gibbs phenomenon</b></i>, which involves both the fact 
 that the partial sums <i><b>overshoot</b></i> at a discontinuity and
-that this overshoot does not die out as more terms are added to the sums. 
+that this overshoot does not disappear as more terms are added to the sums. 
 The overshoot at $$0$$, $$\pi$$ and $$2\pi$$ is known exactly and is given by
 
 $$
@@ -72,23 +72,23 @@ $$
 $$
 
 or about $$9\%$$ of the jump. 
-Note that, as more terms are added, the position of the overshoot moves closer 
+Note that, as $$n$$ increases, the position of the overshoot moves closer 
 to the discontinuity. The Gibbs phenomenon is a very standard result that most 
-applied mathematicians know. 
+(applied) mathematicians know. 
 
 What is perhaps less known is a simple cure using the $$(C,1)$$
 <a href="http://en.wikipedia.org/wiki/Ces%C3%A0ro_summation">Cesàro mean</a> of the
-partial sums, which is simply
+partial sums, which is simply the
 <a href="http://en.wikipedia.org/wiki/Arithmetic_mean">arithmetic mean</a> 
-$$\sigma_n(\theta)$$ of the partial sums, i.e.,
+$$\sigma_n(\theta)$$,
 
 $$
 \sigma_n(\theta) = \frac{1}{n+1}\sum_{k=0}^{n}f_k(\theta).
 $$
 
-For integrable functions $$f$$, one can show that the Cesàro mean $$\sigma_n(\theta)$$ 
+For integrable functions $$f$$, one can show that $$\sigma_n(\theta)$$ 
 converges to $$\frac{1}{2}[f(\theta^-) + f(\theta^+)]$$; in particular, 
-it converges to $$f(\theta)$$ at every point of continuity, 
+this converges to $$f(\theta)$$ at every point of continuity, 
 and for continuous functions the convergence is uniform---this is 
 <a href="http://en.wikipedia.org/wiki/Fej%C3%A9r%27s_theorem">Fejér's thereom</a>.
 Moreover, if $$m\leq f(\theta)\leq M$$ then $$m\leq \sigma_n(\theta)\leq M$$. 
