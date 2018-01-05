@@ -4,7 +4,7 @@
 	<title>Hadrien Montanelli's Blog</title>
 	<link href="http://Hadrien-Montanelli.github.io/blog/atom.xml" rel="self"/>
 	<link href="http://Hadrien-Montanelli.github.io/blog"/>
-	<updated>2017-12-29T11:32:37-05:00</updated>
+	<updated>2018-01-04T22:00:16-05:00</updated>
 	<id>http://Hadrien-Montanelli.github.io/blog</id>
 	<author>
 		<name>Hadrien Montanelli</name>
@@ -71,9 +71,10 @@ These apply to, e.g., multivariate polynomial approximation.
 As the size of the network &lt;script type=&quot;math/tex&quot;&gt;N&lt;/script&gt; increases, the approximation error goes to zero, &lt;i&gt;&lt;b&gt;the smoother the function the faster&lt;/b&gt;&lt;/i&gt;, but the convergence becomes &lt;i&gt;&lt;b&gt;geometrically slower&lt;/b&gt;&lt;/i&gt; as the dimension &lt;script type=&quot;math/tex&quot;&gt;d&lt;/script&gt; increases.&lt;/p&gt;
 
 &lt;p&gt;The picture is different for deep networks.
-My theorem shows that functions in the so-called Korobov spaces &lt;script type=&quot;math/tex&quot;&gt;X^{2,p}(\Omega)&lt;/script&gt; of mixed derivatives of order &lt;script type=&quot;math/tex&quot;&gt;2&lt;/script&gt; can be represented to accuracy &lt;script type=&quot;math/tex&quot;&gt;\epsilon&lt;/script&gt; by deep networks of depth &lt;script type=&quot;math/tex&quot;&gt;\mathcal{O}((d-1)\vert\log_2\epsilon\vert)&lt;/script&gt; and size&lt;/p&gt;
+My theorem shows that functions in the so-called Korobov spaces &lt;script type=&quot;math/tex&quot;&gt;X^{2,p}(\Omega)&lt;/script&gt; of mixed derivatives of order &lt;script type=&quot;math/tex&quot;&gt;2&lt;/script&gt; can be represented to accuracy &lt;script type=&quot;math/tex&quot;&gt;\epsilon&lt;/script&gt; by deep networks of depth 
+&lt;script type=&quot;math/tex&quot;&gt;\mathcal{O}(\vert\log_2\epsilon\vert\log_2d)&lt;/script&gt; and size&lt;/p&gt;
 
-&lt;script type=&quot;math/tex; mode=display&quot;&gt;N=\mathcal{O}((d-1)\epsilon^{-\frac{1}{2}}\vert\log_2\epsilon\vert^{\frac{3}{2}(d-1)+1}).&lt;/script&gt;
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;N=\mathcal{O}(\epsilon^{-\frac{1}{2}}\vert\log_2\epsilon\vert^{\frac{3}{2}(d-1)+1}\log_2d).&lt;/script&gt;
 
 &lt;p&gt;The curse of dimensionality is not totally overcome but is lessened since 
 &lt;script type=&quot;math/tex&quot;&gt;d&lt;/script&gt; only affects logarithmic factors &lt;script type=&quot;math/tex&quot;&gt;\vert\log_2\epsilon\vert&lt;/script&gt;.
