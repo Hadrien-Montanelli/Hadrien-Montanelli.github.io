@@ -4,6 +4,10 @@ title: "Gibbs phenomenon and Cesàro mean"
 date: 2018-01-04
 ---
 
+<div style="text-align: center;">
+	<img src="/blog/gibbs1.jpg" style="width:516px;height:412px;">
+</div>
+
 In this post I talk about a fascinating subject: the
 <a href="http://en.wikipedia.org/wiki/Convergence_of_Fourier_series#Uniform_convergence">convergence of 
 Fourier series</a> and the 
@@ -57,11 +61,7 @@ $$
 a_k = 0, \quad b_{2k} = 0, \quad b_{2k+1} = \frac{1}{2k+1}.
 $$
 
-When we compute the partial sums for $$n=16,32,64,128$$ we obtain:
-<div style="text-align: center;">
-	<img src="/blog/gibbs1.jpg" style="width:516px;height:412px;">
-</div>
-
+When we compute the partial sums for $$n=16,32,64,128$$ we obtain the picture at the top.
 This is the so-called <i><b>Gibbs phenomenon</b></i>, which involves both the fact 
 that the partial sums <i><b>overshoot</b></i> at a discontinuity and
 that this overshoot does not disappear as more terms are added to the sums. 

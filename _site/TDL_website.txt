@@ -1,3 +1,2 @@
-1. Add pictures to my previous blog posts
+1. Add pictures to my previous blog posts (check whether eps works)
 2. Learn how to add videos
-3. Read Gibbs pheno blog post again

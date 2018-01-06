@@ -4,6 +4,11 @@ title: "Deep networks and the curse of dimensionality"
 date: 2017-12-22
 ---
 
+<div style="text-align: center;">
+	<img src="/blog/deepnet.jpg" style="width:595px;height:300px;">
+</div>
+
+
 I started working on <a href="http://en.wikipedia.org/wiki/Deep_learning">deep learning</a> 
 models when I began my research at <a href="http//www.columbia.edu">Columbia University</a> in September 2017. 
 Coming from the <a href="http://en.wikipedia.org/wiki/Approximation_theory">approximation theory</a>

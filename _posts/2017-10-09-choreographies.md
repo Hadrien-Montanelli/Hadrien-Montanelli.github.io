@@ -4,6 +4,10 @@ title: "Choreographies: when planets dance"
 date: 2017-10-09
 ---
 
+<div style="text-align: center;">
+	<img src="/blog/choreo.jpg" style="width:733px;height:231px;">
+</div>
+
 <a href="http://arxiv.org/pdf/1505.04848.pdf">My second paper</a> as a PhD student, 
 in collaboration with my friend and former colleague at Oxford 
 <a href="http://scholar.google.com/citations?user=w-PVG8sAAAAJ&hl=en">Nikola Gushterov</a>, 

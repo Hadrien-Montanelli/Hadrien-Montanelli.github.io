@@ -4,6 +4,10 @@ title: "Solving PDEs on the sphere"
 date: 2017-10-26
 ---
 
+<div style="text-align: center;">
+	<img src="/blog/pdesphere.jpg" style="width:585px;height:150px;">
+</div>
+
 <a href="http://arxiv.org/pdf/1701.06030.pdf">My last paper</a>, with my former colleague
 <a href="http://www.opt.mist.i.u-tokyo.ac.jp/~nakatsukasa/">Yuji Nakatsukasa</a>, has just been accepted in 
 <a href="http://www.siam.org/journals/sisc.php">SISC</a>. In this post, I review the main ideas of our work.
@@ -21,7 +25,7 @@ A large number of PDEs of interest in science and engineering take this form.
 Examples include the <a href="http://en.wikipedia.org/wiki/Allen–Cahn_equation">Allen--Cahn equation</a> 
 $$u_t = \epsilon\Delta u + u - u^3$$, the
 <a href="http://en.wikipedia.org/wiki/Nonlinear_Schrödinger_equation">nonlinear Schrödinger equation</a> 
-$$u_t=i\Delta u + iu|u|^2$$, the <a href="http://en.wikipedia.org/wiki/Ginzburg–Landau_theory">Ginzburg--Landau equation</a>, and all <a href="https://en.wikipedia.org/wiki/Reaction–diffusion_system">reaction-diffusion equations</a>.
+$$u_t=i\Delta u + iu|u|^2$$, the <a href="http://en.wikipedia.org/wiki/Ginzburg–Landau_theory">Ginzburg--Landau equation</a> (the picture at the top is a solution), and all <a href="https://en.wikipedia.org/wiki/Reaction–diffusion_system">reaction-diffusion equations</a>.
 
 Our algorithms are based on a variant of the <a href="http://en.wikipedia.org/wiki/Double_Fourier_sphere_method">double Fourier sphere method</a> in coefficient space with multiplication matrices that differ from the usual ones, and implicit-explicit time-stepping schemes.
 Operating in coefficient space with these new matrices allows one to use a sparse direct solver, avoids the 
