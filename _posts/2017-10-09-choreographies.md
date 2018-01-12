@@ -8,7 +8,7 @@ date: 2017-10-09
 	<img src="/blog/choreo.jpg" style="width:733px;height:231px;">
 </div>
 
-<a href="http://arxiv.org/pdf/1505.04848.pdf">My second paper</a> as a PhD student, 
+<a href="http://epubs.siam.org/doi/abs/10.1137/15M1024652">My second paper</a> as a PhD student, 
 in collaboration with my friend and former colleague at Oxford 
 <a href="http://scholar.google.com/citations?user=w-PVG8sAAAAJ&hl=en">Nikola Gushterov</a>, 
 was about the <a href="http://www.scholarpedia.org/article/N-body_choreographies">choreographies</a> 
