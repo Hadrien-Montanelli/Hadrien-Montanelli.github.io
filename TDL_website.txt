@@ -1,1 +1,3 @@
 1. Learn how to add videos
+2. Blog post about nonlocal PDEs
+2. Update publications when articles submitted (with arxiv links)
