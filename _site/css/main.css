@@ -1,6 +1,6 @@
 body {	
 	font-family: Helvetica, sans-serif;
-    max-width: 800px;
+    max-width: 768px;
    	margin: 0 auto; /*this will cause the div to be in the center*/
 }
 nav {

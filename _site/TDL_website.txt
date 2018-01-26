@@ -1,4 +1,5 @@
 1. Learn how to add videos
-2. Blog post about nonlocal PDEs
-3. Blog post about Alexis Clairaut and French mathematicians
-4. Update list of talks (with PDFs)
+2. Blog post about Alexis Clairaut and French mathematicians
+3. Update list of talks (with PDFs)
+
+TODAY: Blog post about nonlocal PDEs + chebfun pull req

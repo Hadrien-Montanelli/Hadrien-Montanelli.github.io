@@ -4,13 +4,73 @@
 	<title>Hadrien Montanelli's Blog</title>
 	<link href="http://Hadrien-Montanelli.github.io/blog/atom.xml" rel="self"/>
 	<link href="http://Hadrien-Montanelli.github.io/blog"/>
-	<updated>2018-01-25T14:53:09-05:00</updated>
+	<updated>2018-01-25T22:15:20-05:00</updated>
 	<id>http://Hadrien-Montanelli.github.io/blog</id>
 	<author>
 		<name>Hadrien Montanelli</name>
 		<email>hadrien.montanelli@gmail.com</email>
 	</author>
 
+	
+		<entry>
+			<title>Solving nonlocal PDEs on the sphere</title>
+			<link href="http://Hadrien-Montanelli.github.io/blog/2018/01/25/nonlocal-sphere"/>
+			<updated>2018-01-25T00:00:00-05:00</updated>
+			<id>http://Hadrien-Montanelli.github.io/blog/2018/01/25/nonlocal-sphere</id>
+			<content type="html">&lt;div style=&quot;text-align: center;&quot;&gt;
+	&lt;img src=&quot;/blog/nonlocalpdesphere.jpg&quot; style=&quot;width:660px;height:287px;&quot; /&gt;
+&lt;/div&gt;
+
+&lt;p&gt;I have just submitted &lt;a href=&quot;http://arxiv.org/pdf/1801.04902.pdf&quot;&gt;a paper&lt;/a&gt; 
+about &lt;a href=&quot;http://www.ma.utexas.edu/mediawiki/index.php/Introduction_to_nonlocal_equations&quot;&gt;nonlocal PDEs&lt;/a&gt; 
+on the sphere with my colleagues 
+&lt;a href=&quot;http://home.cc.umanitoba.ca/~slevinrm/&quot;&gt;Mikael Slevinsky&lt;/a&gt; and 
+&lt;a href=&quot;http://www.columbia.edu/~qd2125/&quot;&gt;Qiang Du&lt;/a&gt;. 
+Here are the main ideas of our work.&lt;/p&gt;
+
+&lt;p&gt;We proposed a fast &lt;a href=&quot;http://en.wikipedia.org/wiki/Spectral_method&quot;&gt;spectral method&lt;/a&gt; 
+for computing solutions of nonlocal models of the form&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;u_t = \epsilon^2\mathcal{L}_\delta u + \mathcal{N}(u), \quad u(t=0,\mathbf{x}) = u_0(\mathbf{x}), \quad \epsilon&gt;0,&lt;/script&gt;
+
+&lt;p&gt;where &lt;script type=&quot;math/tex&quot;&gt;u(t,\mathbf{x})&lt;/script&gt; is a function of time &lt;script type=&quot;math/tex&quot;&gt;t\ge0&lt;/script&gt; and position &lt;script type=&quot;math/tex&quot;&gt;\mathbf{x}&lt;/script&gt; 
+on the unit sphere &lt;script type=&quot;math/tex&quot;&gt;\mathbb{S}^2\subset\mathbb{R}^3&lt;/script&gt;,
+&lt;script type=&quot;math/tex&quot;&gt;\mathcal{N}&lt;/script&gt; is a nonlinear operator with constant coefficients (e.g., &lt;script type=&quot;math/tex&quot;&gt;\mathcal{N}(u)=u-u^3&lt;/script&gt;), 
+and &lt;script type=&quot;math/tex&quot;&gt;\mathcal{L}_{\delta}&lt;/script&gt; is a nonlocal 
+&lt;a href=&quot;http://en.wikipedia.org/wiki/Laplace%E2%80%93Beltrami_operator&quot;&gt;Laplace–Beltrami operator&lt;/a&gt;,&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\mathcal{L}_\delta u(\mathbf{x}) = \int_{\mathbb{S}^2} \rho_\delta(\vert\mathbf{x}-\mathbf{y}\vert)
+[u(\mathbf{y}) - u(\mathbf{x})]\,d\Omega(\mathbf{y}).&lt;/script&gt;
+
+&lt;p&gt;In the definition above, &lt;script type=&quot;math/tex&quot;&gt;d\Omega(\mathbf{y})&lt;/script&gt; denotes the standard 
+&lt;a href=&quot;http://en.wikipedia.org/wiki/Measure_(mathematics)&quot;&gt;measure&lt;/a&gt; on 
+&lt;script type=&quot;math/tex&quot;&gt;\mathbb{S}^2&lt;/script&gt; and &lt;script type=&quot;math/tex&quot;&gt;\rho_\delta&lt;/script&gt; is a suitably defined nonlocal kernel with 
+horizon &lt;script type=&quot;math/tex&quot;&gt;% &lt;![CDATA[
+0&lt;\delta\le2 %]]&gt;&lt;/script&gt;, which determines the range of interactions.&lt;/p&gt;
+
+&lt;p&gt;There has been substantial work on the numerical approximation of this type of equations in 
+&lt;a href=&quot;http://en.wikipedia.org/wiki/Euclidean_geometry&quot;&gt;Euclidean geometries&lt;/a&gt;.
+However, no study has been attempted so far to investigate similar 
+&lt;a href=&quot;http://en.wikipedia.org/wiki/Discretization&quot;&gt;discretizations&lt;/a&gt; on the sphere. 
+It is of practical interests to study the extension to 
+&lt;a href=&quot;http://en.wikipedia.org/wiki/Non-Euclidean_geometry&quot;&gt;non-Euclidean geometries&lt;/a&gt; 
+(the sphere being a representative example) for the modelling of 
+&lt;a href=&quot;http://en.wikipedia.org/wiki/Anomalous_diffusion&quot;&gt;anomalous diffusion&lt;/a&gt;, 
+&lt;a href=&quot;http://en.wikipedia.org/wiki/Pattern_formation&quot;&gt;pattern formation&lt;/a&gt; 
+and &lt;a href=&quot;http://en.wikipedia.org/wiki/Image_analysis&quot;&gt;image analysis&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Our algorithms are based on the diagonalizability of nonlocal diffusion operators in the basis of 
+&lt;a href=&quot;http://en.wikipedia.org/wiki/Spherical_harmonics&quot;&gt;spherical harmonics&lt;/a&gt;, 
+the computation of their &lt;a href=&quot;http://en.wikipedia.org/wiki/Eigenvalues_and_eigenvectors&quot;&gt;eigenvalues&lt;/a&gt; 
+to high relative accuracy using &lt;a href=&quot;http://en.wikipedia.org/wiki/Numerical_integration&quot;&gt;quadrature&lt;/a&gt; 
+and &lt;a href=&quot;http://en.wikipedia.org/wiki/Asymptotic_analysis&quot;&gt;asymptotic formulas&lt;/a&gt;, 
+and a fast spherical harmonic transform.
+The picture at the top shows the numerical solutions of the local (first row) 
+and nonlocal (second row) 
+&lt;a href=&quot;https://en.wikipedia.org/wiki/Allen%E2%80%93Cahn_equation&quot;&gt;Allen–Cahn&lt;/a&gt; equation.
+If you want to konw more about our algorithms, check our paper out!&lt;/p&gt;
+</content>
+		</entry>
 	
 		<entry>
 			<title>Gibbs phenomenon and Cesàro mean</title>
