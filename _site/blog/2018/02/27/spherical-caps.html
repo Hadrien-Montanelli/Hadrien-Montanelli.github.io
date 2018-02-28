@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+	<html>
+		<head>
+			<title>Spherical caps in cell polarization (to be continued)</title>
+			<!-- link to main stylesheet -->
+			<link rel="stylesheet" type="text/css" href="/css/main.css">
+			<!-- Global site tag (gtag.js) - Google Analytics -->
+			<script async src="https://www.googletagmanager.com/gtag/js?id=UA-108246943-1"></script>
+			<script>
+			  window.dataLayer = window.dataLayer || [];
+			  function gtag(){dataLayer.push(arguments);}
+			  gtag('js', new Date());
+			  gtag('config', 'UA-108246943-1');
+			</script>
+		</head>
+		<body>
+			<nav>
+	    		<ul>
+	    			
+
+					<li>
+						<a href="/" data-current="blog" >
+							Home
+						</a>
+					</li>
+					<li>
+						<a href="/about" >
+							About
+						</a>
+					</li>
+					<li>
+						<a href="/awards" >
+							Awards
+						</a>
+					</li>
+					<li>
+						<a href="/blog"  class="active" >
+							Blog
+						</a>
+					</li>
+					<li>
+						<a href="/publications" >		Publications
+						</a>
+					</li>
+					<li>
+						<a href="/talks" >
+							Talks
+						</a>
+					</li>
+					<li>
+						<a href="/teaching" >
+							Teaching
+						</a>
+					</li>
+	    		</ul>
+			</nav>
+			<div class="container">
+			
+			<div style="text-align: center;">
+  <h1>Spherical caps in cell polarization (to be continued)</h1>
+  <p class="meta">27 Feb 2018</p>
+</div>
+
+
+<div class="post">
+  <div style="text-align: center;">
+	<img src="/blog/sphericalcaps1.png" style="width:614px;height:190px;" />
+</div>
+
+<p>I have just submitted a paper about the modelling of 
+<a href="https://en.wikipedia.org/wiki/Embryogenesis">embrygonesis</a> with the
+<a href="http://shvartsmanlab.com">Shvartsman group</a> at 
+<a href="http://www.princeton.edu">Princeton University</a>.</p>
+
+<p>Symmetry breaking is crucial for the development of virtually all living organisms.</p>
+
+<p>Equations:
+<script type="math/tex">\left\{
+\begin{array}{l}
+U_t = \frac{\epsilon_u^2}{r^2}\Delta U + k_bH(U - B)V - k_d U\quad\text{on $\partial\Omega$}, \\[5pt]
+V_t = \epsilon_v^2\Delta V\quad\text{in $\Omega$}, \\[5pt]
+\epsilon_v^2\nabla V\cdot n = -k_b H(U - B)V + k_d U
+\end{array}
+\right.</script></p>
+
+<p>Nondimensionalizing:
+<script type="math/tex">\begin{array}{l}
+u=k_dU/k_bV_{max}, \; \tau = k_d t, \\[5pt]
+\epsilon^2 = \epsilon^2_u/k_dr^2, \; \alpha=3k_b/2k_dr, \\[5pt]
+\beta = k_dB/k_bV_{max}
+\end{array}</script></p>
+
+<p>PDE: 
+<script type="math/tex">u_\tau = \epsilon^2\Delta u + \Big(1 - \frac{\alpha}{2\pi}\bar{u}\Big)H(u - \beta) - u</script></p>
+
+<div style="text-align: center;">
+	<img src="/blog/sphericalcaps2.png" style="width:506px;height:682px;" />
+</div>
+
+<p>A local perturbation will form a single spherical cap.
+Multiple competing perturbations will relax to a single cap.
+Random initial conditions will also relax to a single cap.</p>
+
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" 
+    type="text/javascript">
+</script>
+
+			
+			</div><!-- /.container -->
+			<footer>
+	    		<ul>	
+	    		<li><a href="http://github.com/Hadrien-Montanelli">GitHub</a></li>
+				<li><a href="http://www.linkedin.com/in/hadrien-montanelli-137b7958/">LinkedIn</a></li>
+				<li><a href="http://scholar.google.com/citations?user=Bjmkfe8AAAAJ&hl=en&oi=sra/">Scholar</a></li>
+			</ul>
+			</footer>
+		</body>
+	</html>
