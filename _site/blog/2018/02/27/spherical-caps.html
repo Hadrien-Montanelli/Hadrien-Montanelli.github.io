@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 	<html>
 		<head>
-			<title>Spherical caps in cell polarization (to be continued)</title>
+			<title>Spherical caps in cell polarization</title>
 			<!-- link to main stylesheet -->
 			<link rel="stylesheet" type="text/css" href="/css/main.css">
 			<!-- Global site tag (gtag.js) - Google Analytics -->
@@ -57,7 +57,7 @@
 			<div class="container">
 			
 			<div style="text-align: center;">
-  <h1>Spherical caps in cell polarization (to be continued)</h1>
+  <h1>Spherical caps in cell polarization</h1>
   <p class="meta">27 Feb 2018</p>
 </div>
 
@@ -70,36 +70,64 @@
 <p>I have just submitted a paper about the modelling of 
 <a href="https://en.wikipedia.org/wiki/Embryogenesis">embrygonesis</a> with the
 <a href="http://shvartsmanlab.com">Shvartsman group</a> at 
-<a href="http://www.princeton.edu">Princeton University</a>.</p>
+<a href="http://www.princeton.edu">Princeton University</a>.
+Let me review the main ideas of our work.</p>
 
-<p>Symmetry breaking is crucial for the development of virtually all living organisms.</p>
+<p>We proposed a new model for the formation of polarized patterns observed in
+early embryogenesis of 
+<a href="https://en.wikipedia.org/wiki/Caenorhabditis_elegans"> <i>C. elegans</i></a> 
+where <a href="http://en.wikipedia.org/wiki/Conservation_of_mass">mass conservation</a> 
+is the driving force.
+In our model, a species <script type="math/tex">V</script> moves freely in a <a href="http://en.wikipedia.org/wiki/Cell_(biology)">cell</a> 
+<script type="math/tex">\Omega</script> and reversibly adheres to the <a href="http://en.wikipedia.org/wiki/Cell_membrane">cell membrane</a> 
+<script type="math/tex">\partial\Omega</script>. 
+The membrane-bound species <script type="math/tex">U</script> diffuses on the surface and recruits
+more of itself to the membrane.
+For a sphere of radius <script type="math/tex">r</script>, <script type="math/tex">U</script> and <script type="math/tex">V</script> satisfy the following equations,</p>
 
-<p>Equations:
-<script type="math/tex">\left\{
+<script type="math/tex; mode=display">\left\{
 \begin{array}{l}
-U_t = \frac{\epsilon_u^2}{r^2}\Delta U + k_bH(U - B)V - k_d U\quad\text{on $\partial\Omega$}, \\[5pt]
-V_t = \epsilon_v^2\Delta V\quad\text{in $\Omega$}, \\[5pt]
-\epsilon_v^2\nabla V\cdot n = -k_b H(U - B)V + k_d U
+U_t = \frac{D_U}{r^2}\Delta U + k_bH(U - \Theta)V - k_d (U-U_0)
+\quad\text{on $\partial\Omega$}, \\[5pt]
+V_t = D_V\Delta V\quad\text{in $\Omega$}, \\[5pt]
+D_V\nabla V\cdot n = -k_b H(U - \Theta)V + k_d U,
 \end{array}
-\right.</script></p>
+\right.</script>
 
-<p>Nondimensionalizing:
-<script type="math/tex">\begin{array}{l}
-u=k_dU/k_bV_{max}, \; \tau = k_d t, \\[5pt]
-\epsilon^2 = \epsilon^2_u/k_dr^2, \; \alpha=3k_b/2k_dr, \\[5pt]
-\beta = k_dB/k_bV_{max}
-\end{array}</script></p>
+<p>for some constants <script type="math/tex">D_U</script>, <script type="math/tex">D_V</script>, <script type="math/tex">k_b</script>, <script type="math/tex">k_d</script>, <script type="math/tex">\Theta</script> and <script type="math/tex">U_0</script>.
+Upon nondimensionalization by <script type="math/tex">u=k_dU/k_bV_{max}</script>, we obtain a single PDE</p>
 
-<p>PDE: 
-<script type="math/tex">u_\tau = \epsilon^2\Delta u + \Big(1 - \frac{\alpha}{2\pi}\bar{u}\Big)H(u - \beta) - u</script></p>
+<script type="math/tex; mode=display">u_\tau = \delta^2\Delta u + \Big(1 - \frac{\alpha}{2\pi}\bar{u}\Big)H(u - \theta) - u + \beta,</script>
+
+<p>with</p>
+
+<script type="math/tex; mode=display">\begin{array}{l}
+\tau = k_d t, 
+\;\; \delta = D_u/k_dr^2, 
+\;\; \alpha=3k_b/2k_dr, \\[5pt]
+\theta = k_d\Theta/k_bV_{max},
+\;\; \beta = k_dU_0/k_bV_{max}, \\[5pt]
+\bar{u} = \text{average of $u$}.
+\end{array}</script>
+
+<p>Using the algorithms presented in a 
+<a href="http://localhost:4000/blog/2017/10/26/pdes-sphere">previous blog post</a>,
+we showed that for arbitraty initial conditions, the only non-uniform long-term
+behavior was a single axisymmetric sphereical cap:</p>
 
 <div style="text-align: center;">
-	<img src="/blog/sphericalcaps2.png" style="width:506px;height:682px;" />
+	<img src="/blog/sphericalcaps2.jpg" style="width:480px;height:380px;" />
 </div>
 
-<p>A local perturbation will form a single spherical cap.
-Multiple competing perturbations will relax to a single cap.
-Random initial conditions will also relax to a single cap.</p>
+<p>We also showed that, starting from a constant initial condition, transient
+convection is enough to start the polarization process:</p>
+
+<div style="text-align: center;">
+	<img src="/blog/sphericalcaps3.jpg" style="width:765px;height:161.5px;" />
+</div>
+
+<p>These findings reinforce the idea that symmetry breaking is crucial for 
+the development of all living organisms—paper available online soon!</p>
 
 </div>
 
