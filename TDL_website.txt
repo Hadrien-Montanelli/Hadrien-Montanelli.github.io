@@ -1,2 +1,2 @@
 1. Learn how to add videos
-2. Write blog post about multigrid
+2. Finish blog post
