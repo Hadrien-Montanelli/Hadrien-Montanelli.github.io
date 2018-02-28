@@ -74,4 +74,4 @@ convection is enough to start the polarization process:
 </div>
 
 These findings reinforce the idea that symmetry breaking is crucial for 
-the development of all living organisms---paper available online soon!
+the development of all living organisms---paper's available online soon!
