@@ -29,10 +29,10 @@ For a sphere of radius $$r$$, $$U$$ and $$V$$ satisfy the following equations,
 $$
 \left\{
 \begin{array}{l}
-U_t = \frac{D_U}{r^2}\Delta U + k_b[U_0 + H(U - \Gamma)]V - k_d U
+U_t = \frac{D_U}{r^2}\Delta U + k_b\big(U_0 + H(U - \Gamma)\big)V - k_d U
 \quad\text{on $\partial\Omega$}, \\[5pt]
 V_t = D_V\Delta V\quad\text{in $\Omega$}, \\[5pt]
-D_V\nabla V\cdot n = -k_b [U_0 + H(U - \Gamma)V] + k_d U,
+D_V\nabla V\cdot n = -k_b\big(U_0 + H(U - \Gamma)V\big) + k_d U,
 \end{array}
 \right. 
 $$
@@ -41,7 +41,7 @@ for some constants $$D_U$$, $$D_V$$, $$k_b$$, $$k_d$$, $$\Gamma$$ and $$U_0$$.
 Upon nondimensionalization by $$u=k_dU/k_bV_0$$, we obtain a single PDE
 
 $$
-u_\tau = \delta^2\Delta u + \Big(1 - \alpha\bar{u}\Big)\Big(\beta+H(u - \gamma)\Big) - u,
+u_\tau = \delta^2\Delta u + \big(1 - \alpha\bar{u}\big)\big(\beta+H(u - \gamma)\big) - u,
 $$
 
 with

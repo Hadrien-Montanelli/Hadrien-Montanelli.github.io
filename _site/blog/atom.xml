@@ -4,7 +4,7 @@
 	<title>Hadrien Montanelli's Blog</title>
 	<link href="http://Hadrien-Montanelli.github.io/blog/atom.xml" rel="self"/>
 	<link href="http://Hadrien-Montanelli.github.io/blog"/>
-	<updated>2018-03-29T21:29:55-04:00</updated>
+	<updated>2018-03-29T21:32:13-04:00</updated>
 	<id>http://Hadrien-Montanelli.github.io/blog</id>
 	<author>
 		<name>Hadrien Montanelli</name>
@@ -41,17 +41,17 @@ For a sphere of radius &lt;script type=&quot;math/tex&quot;&gt;r&lt;/script&gt;,
 
 &lt;script type=&quot;math/tex; mode=display&quot;&gt;\left\{
 \begin{array}{l}
-U_t = \frac{D_U}{r^2}\Delta U + k_b[U_0 + H(U - \Gamma)]V - k_d U
+U_t = \frac{D_U}{r^2}\Delta U + k_b\big(U_0 + H(U - \Gamma)\big)V - k_d U
 \quad\text{on $\partial\Omega$}, \\[5pt]
 V_t = D_V\Delta V\quad\text{in $\Omega$}, \\[5pt]
-D_V\nabla V\cdot n = -k_b [U_0 + H(U - \Gamma)V] + k_d U,
+D_V\nabla V\cdot n = -k_b\big(U_0 + H(U - \Gamma)V\big) + k_d U,
 \end{array}
 \right.&lt;/script&gt;
 
 &lt;p&gt;for some constants &lt;script type=&quot;math/tex&quot;&gt;D_U&lt;/script&gt;, &lt;script type=&quot;math/tex&quot;&gt;D_V&lt;/script&gt;, &lt;script type=&quot;math/tex&quot;&gt;k_b&lt;/script&gt;, &lt;script type=&quot;math/tex&quot;&gt;k_d&lt;/script&gt;, &lt;script type=&quot;math/tex&quot;&gt;\Gamma&lt;/script&gt; and &lt;script type=&quot;math/tex&quot;&gt;U_0&lt;/script&gt;.
 Upon nondimensionalization by &lt;script type=&quot;math/tex&quot;&gt;u=k_dU/k_bV_0&lt;/script&gt;, we obtain a single PDE&lt;/p&gt;
 
-&lt;script type=&quot;math/tex; mode=display&quot;&gt;u_\tau = \delta^2\Delta u + \Big(1 - \alpha\bar{u}\Big)\Big(\beta+H(u - \gamma)\Big) - u,&lt;/script&gt;
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;u_\tau = \delta^2\Delta u + \big(1 - \alpha\bar{u}\big)\big(\beta+H(u - \gamma)\big) - u,&lt;/script&gt;
 
 &lt;p&gt;with&lt;/p&gt;
 
