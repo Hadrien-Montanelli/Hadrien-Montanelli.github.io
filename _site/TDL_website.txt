@@ -1,4 +1,4 @@
 1. Learn how to add videos
 2. Write blog post about fluid dynamics
-3. Update papers on arxiv then on website (deep net and nonlocal papers)
-4. Post Princeton paper?
+3. Update deep net paper on arxiv then on website
+4. Link to Princeton paper
