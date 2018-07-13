@@ -4,7 +4,7 @@
 	<title>Hadrien Montanelli's Blog</title>
 	<link href="http://Hadrien-Montanelli.github.io/blog/atom.xml" rel="self"/>
 	<link href="http://Hadrien-Montanelli.github.io/blog"/>
-	<updated>2018-07-13T11:57:43+01:00</updated>
+	<updated>2018-07-13T11:59:03+01:00</updated>
 	<id>http://Hadrien-Montanelli.github.io/blog</id>
 	<author>
 		<name>Hadrien Montanelli</name>
@@ -435,7 +435,7 @@ The action &lt;script type=&quot;math/tex&quot;&gt;A&lt;/script&gt; becomes a fu
 &lt;a href=&quot;http://people.maths.ox.ac.uk/trefethen/publication/PDF/2014_149.pdf&quot;&gt;exponentially accurate trapezoidal rule&lt;/a&gt;, 
 and an optimization algorithm (over a finite number of Fourier coefficients) can be used to found the minima.&lt;/p&gt;
 
-&lt;p&gt;In our paper, we have recomputed the choreographies found by Simò to higher accuracy, and extended his work to spaces of cosntant positive curvature—check it out!&lt;/p&gt;
+&lt;p&gt;In our paper, we have recomputed the choreographies found by Simò to higher accuracy, and extended his work to spaces of constant positive curvature—check it out!&lt;/p&gt;
 </content>
 		</entry>
 	
