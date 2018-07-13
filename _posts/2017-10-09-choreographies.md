@@ -92,4 +92,4 @@ The action $$A$$ becomes a function of Fourier coefficients, can be computed wit
 <a href="http://people.maths.ox.ac.uk/trefethen/publication/PDF/2014_149.pdf">exponentially accurate trapezoidal rule</a>, 
 and an optimization algorithm (over a finite number of Fourier coefficients) can be used to found the minima.
 
-In our paper, we have recomputed the choreographies found by Simò to higher accuracy, and extended his work to spaces of cosntant positive curvature---check it out!
+In our paper, we have recomputed the choreographies found by Simò to higher accuracy, and extended his work to spaces of constant positive curvature---check it out!
