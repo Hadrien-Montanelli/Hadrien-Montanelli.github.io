@@ -4,7 +4,7 @@
 	<title>Hadrien Montanelli's Blog</title>
 	<link href="http://Hadrien-Montanelli.github.io/blog/atom.xml" rel="self"/>
 	<link href="http://Hadrien-Montanelli.github.io/blog"/>
-	<updated>2018-07-13T11:59:03+01:00</updated>
+	<updated>2018-07-21T15:52:51-04:00</updated>
 	<id>http://Hadrien-Montanelli.github.io/blog</id>
 	<author>
 		<name>Hadrien Montanelli</name>
@@ -15,7 +15,7 @@
 		<entry>
 			<title>Spherical caps in cell polarization</title>
 			<link href="http://Hadrien-Montanelli.github.io/blog/2018/02/27/spherical-caps"/>
-			<updated>2018-02-27T00:00:00+00:00</updated>
+			<updated>2018-02-27T00:00:00-05:00</updated>
 			<id>http://Hadrien-Montanelli.github.io/blog/2018/02/27/spherical-caps</id>
 			<content type="html">&lt;div style=&quot;text-align: center;&quot;&gt;
 	&lt;img src=&quot;/blog/sphericalcaps1.png&quot; style=&quot;width:614px;height:190px;&quot; /&gt;
@@ -88,7 +88,7 @@ the development of all living organisms—paper’s available online soon!&lt;/p
 		<entry>
 			<title>Solving nonlocal PDEs on the sphere</title>
 			<link href="http://Hadrien-Montanelli.github.io/blog/2018/01/25/nonlocal-sphere"/>
-			<updated>2018-01-25T00:00:00+00:00</updated>
+			<updated>2018-01-25T00:00:00-05:00</updated>
 			<id>http://Hadrien-Montanelli.github.io/blog/2018/01/25/nonlocal-sphere</id>
 			<content type="html">&lt;div style=&quot;text-align: center;&quot;&gt;
 	&lt;img src=&quot;/blog/nonlocalpdesphere.jpg&quot; style=&quot;width:660px;height:287px;&quot; /&gt;
@@ -148,7 +148,7 @@ If you want to konw more about our algorithms, check our paper out!&lt;/p&gt;
 		<entry>
 			<title>Gibbs phenomenon and Cesàro mean</title>
 			<link href="http://Hadrien-Montanelli.github.io/blog/2018/01/04/gibbs-phenomenon"/>
-			<updated>2018-01-04T00:00:00+00:00</updated>
+			<updated>2018-01-04T00:00:00-05:00</updated>
 			<id>http://Hadrien-Montanelli.github.io/blog/2018/01/04/gibbs-phenomenon</id>
 			<content type="html">&lt;div style=&quot;text-align: center;&quot;&gt;
 	&lt;img src=&quot;/blog/gibbs1.jpg&quot; style=&quot;width:516px;height:412px;&quot; /&gt;
@@ -243,7 +243,7 @@ coming soon!&lt;/p&gt;
 		<entry>
 			<title>Deep networks and the curse of dimensionality</title>
 			<link href="http://Hadrien-Montanelli.github.io/blog/2017/12/22/deep-networks"/>
-			<updated>2017-12-22T00:00:00+00:00</updated>
+			<updated>2017-12-22T00:00:00-05:00</updated>
 			<id>http://Hadrien-Montanelli.github.io/blog/2017/12/22/deep-networks</id>
 			<content type="html">&lt;div style=&quot;text-align: center;&quot;&gt;
 	&lt;img src=&quot;/blog/deepnet.jpg&quot; style=&quot;width:595px;height:300px;&quot; /&gt;
@@ -317,7 +317,7 @@ This result might explain why deep networks work so well.&lt;/p&gt;
 		<entry>
 			<title>Solving PDEs on the sphere</title>
 			<link href="http://Hadrien-Montanelli.github.io/blog/2017/10/26/pdes-sphere"/>
-			<updated>2017-10-26T00:00:00+01:00</updated>
+			<updated>2017-10-26T00:00:00-04:00</updated>
 			<id>http://Hadrien-Montanelli.github.io/blog/2017/10/26/pdes-sphere</id>
 			<content type="html">&lt;div style=&quot;text-align: center;&quot;&gt;
 	&lt;img src=&quot;/blog/pdesphere.jpg&quot; style=&quot;width:585px;height:150px;&quot; /&gt;
@@ -357,7 +357,7 @@ I’m visiting Stanislav at Princeton in a couple of weeks—looking forward to 
 		<entry>
 			<title>Choreographies: when planets dance</title>
 			<link href="http://Hadrien-Montanelli.github.io/blog/2017/10/09/choreographies"/>
-			<updated>2017-10-09T00:00:00+01:00</updated>
+			<updated>2017-10-09T00:00:00-04:00</updated>
 			<id>http://Hadrien-Montanelli.github.io/blog/2017/10/09/choreographies</id>
 			<content type="html">&lt;div style=&quot;text-align: center;&quot;&gt;
 	&lt;img src=&quot;/blog/choreo.jpg&quot; style=&quot;width:733px;height:231px;&quot; /&gt;
@@ -442,7 +442,7 @@ and an optimization algorithm (over a finite number of Fourier coefficients) can
 		<entry>
 			<title>The intertwining property of the Radon transform</title>
 			<link href="http://Hadrien-Montanelli.github.io/blog/2017/10/05/radon-transform"/>
-			<updated>2017-10-05T00:00:00+01:00</updated>
+			<updated>2017-10-05T00:00:00-04:00</updated>
 			<id>http://Hadrien-Montanelli.github.io/blog/2017/10/05/radon-transform</id>
 			<content type="html">&lt;p&gt;My colleague &lt;a href=&quot;http://dsrim.github.io&quot;&gt;Donsub Rim&lt;/a&gt; has recently written a beautiful 
 &lt;a href=&quot;http://arxiv.org/pdf/1705.03609.pdf&quot;&gt;paper&lt;/a&gt; about dimensional splitting for 
@@ -504,7 +504,7 @@ For a function &lt;script type=&quot;math/tex&quot;&gt;u:\mathbb{R}^n\rightarrow
 		<entry>
 			<title>New website</title>
 			<link href="http://Hadrien-Montanelli.github.io/blog/2017/09/21/hadrien-montanelli-site-launched"/>
-			<updated>2017-09-21T00:00:00+01:00</updated>
+			<updated>2017-09-21T00:00:00-04:00</updated>
 			<id>http://Hadrien-Montanelli.github.io/blog/2017/09/21/hadrien-montanelli-site-launched</id>
 			<content type="html">&lt;p&gt;Well. Finally got around to putting this old website together. 
 Neat thing about it - powered by &lt;a href=&quot;http://jekyllrb.com&quot;&gt;Jekyll&lt;/a&gt; and I can use Markdown to author my posts.&lt;/p&gt;
