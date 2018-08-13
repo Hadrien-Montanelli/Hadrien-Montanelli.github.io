@@ -4,7 +4,7 @@
 	<title>Hadrien Montanelli's Blog</title>
 	<link href="http://Hadrien-Montanelli.github.io/blog/atom.xml" rel="self"/>
 	<link href="http://Hadrien-Montanelli.github.io/blog"/>
-	<updated>2018-07-21T15:53:39-04:00</updated>
+	<updated>2018-08-13T19:54:29-04:00</updated>
 	<id>http://Hadrien-Montanelli.github.io/blog</id>
 	<author>
 		<name>Hadrien Montanelli</name>
@@ -254,24 +254,22 @@ models when I began my research at &lt;a href=&quot;http//www.columbia.edu&quot;
 Coming from the &lt;a href=&quot;http://en.wikipedia.org/wiki/Approximation_theory&quot;&gt;approximation theory&lt;/a&gt;
 world, I wanted to learn about their approximation propeties.
 A few months down the road I have proven a &lt;a href=&quot;http://arxiv.org/pdf/1712.08688.pdf&quot;&gt;new theorem&lt;/a&gt; concerning the approximation of 
-&lt;a href=&quot;http://en.wikipedia.org/wiki/Function_of_several_real_variables&quot;&gt;multivariate functions&lt;/a&gt; 
-by deep ReLU networks, which partly explained why deep networks are so powerfull.&lt;/p&gt;
+&lt;a href=&quot;http://en.wikipedia.org/wiki/Function_of_several_real_variables&quot;&gt;multivariate functions&lt;/a&gt; by deep ReLU networks.&lt;/p&gt;
 
 &lt;p&gt;Deep learning has been successfully applied to many fields including 
 &lt;a href=&quot;https://en.wikipedia.org/wiki/Computer_vision&quot;&gt;computer vision&lt;/a&gt;, 
 &lt;a href=&quot;https://en.wikipedia.org/wiki/Speech_recognition&quot;&gt;speech recognition&lt;/a&gt;, 
 and &lt;a href=&quot;http://en.wikipedia.org/wiki/Natural_language_processing&quot;&gt;natural language processing&lt;/a&gt;.
 It is based on approximations by &lt;i&gt;&lt;b&gt;deep networks&lt;/b&gt;&lt;/i&gt;, as opposed to &lt;i&gt;&lt;b&gt;shallow networks&lt;/b&gt;&lt;/i&gt;.
-The latter are neural networks with a single &lt;i&gt;&lt;b&gt;layer&lt;/b&gt;&lt;/i&gt; and correspond to approximations of the form&lt;/p&gt;
+The latter are neural networks with a single &lt;i&gt;&lt;b&gt;layer&lt;/b&gt;&lt;/i&gt; and correspond to approximations &lt;script type=&quot;math/tex&quot;&gt;f_N&lt;/script&gt; of multivariate functions &lt;script type=&quot;math/tex&quot;&gt;f:\mathbb{R}^d\rightarrow\mathbb{R}&lt;/script&gt; of the form&lt;/p&gt;
 
-&lt;script type=&quot;math/tex; mode=display&quot;&gt;f_N(\mathbf{x}) = \sum_{i=1}^N \alpha_i \sigma(\mathbf{w}_i^T\mathbf{x} + \theta_i), 
-\quad \alpha_i,\,\theta_i\in\mathbb{R}, \, \mathbf{w}_i\in\mathbb{R}^d,&lt;/script&gt;
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;f_N(\boldsymbol{x}) = \sum_{i=1}^N \alpha_i \sigma(\boldsymbol{w}_i^T\boldsymbol{x} + \theta_i), \quad \alpha_i,\,\theta_i\in\mathbb{R},\, \boldsymbol{x},\boldsymbol{w}_i\in\mathbb{R}^d,&lt;/script&gt;
 
-&lt;p&gt;for some &lt;i&gt;&lt;b&gt;activation function&lt;/b&gt;&lt;/i&gt; &lt;script type=&quot;math/tex&quot;&gt;\sigma:\mathbb{R}\rightarrow\mathbb{R}&lt;/script&gt;, 
-while the former are neural networks with one or more layers, where each unit of each layer 
-performs an operation of the form &lt;script type=&quot;math/tex&quot;&gt;\sigma(\mathbf{w}\cdot \mathbf{x} + \theta)&lt;/script&gt;.
-The &lt;i&gt;&lt;b&gt;depth&lt;/b&gt;&lt;/i&gt; of a network is its number of layers and its &lt;i&gt;&lt;b&gt;size&lt;/b&gt;&lt;/i&gt; 
-is its total number of units.
+&lt;p&gt;for some &lt;i&gt;&lt;b&gt;activation function&lt;/b&gt;&lt;/i&gt; &lt;script type=&quot;math/tex&quot;&gt;\sigma:\mathbb{R}\rightarrow\mathbb{R}&lt;/script&gt;.
+The former are neural networks with one or more layers, where each unit of each layer 
+performs an operation of the form &lt;script type=&quot;math/tex&quot;&gt;\sigma(\boldsymbol{w}\cdot\boldsymbol{x} + \theta)&lt;/script&gt;.
+The &lt;i&gt;&lt;b&gt;depth&lt;/b&gt;&lt;/i&gt; of a network is the number of layers, and the &lt;i&gt;&lt;b&gt;size&lt;/b&gt;&lt;/i&gt; 
+is the total number of units.
 Shallow networks have depth &lt;script type=&quot;math/tex&quot;&gt;1&lt;/script&gt; and their size is the number &lt;script type=&quot;math/tex&quot;&gt;N&lt;/script&gt; in the expansion above,
 while deep networks usually have depth &lt;script type=&quot;math/tex&quot;&gt;\gg 1&lt;/script&gt;.
 Deep &lt;i&gt;&lt;b&gt;ReLU&lt;/b&gt;&lt;/i&gt; networks use the activation function &lt;script type=&quot;math/tex&quot;&gt;\sigma(x) = \max(0,x)&lt;/script&gt;.&lt;/p&gt;
@@ -289,18 +287,17 @@ for which the curse of dimensionality is lessened by establishing a connection w
 
 &lt;p&gt;For a real-valued function &lt;script type=&quot;math/tex&quot;&gt;f&lt;/script&gt; in &lt;script type=&quot;math/tex&quot;&gt;\mathbb{R}^d&lt;/script&gt; whose 
 &lt;a href=&quot;http://en.wikipedia.org/wiki/Smoothness&quot;&gt;smoothness&lt;/a&gt; is characterized by some integer &lt;script type=&quot;math/tex&quot;&gt;m&lt;/script&gt;
-(e.g., the number of &lt;a href=&quot;https://en.wikipedia.org/wiki/Locally_integrable_function&quot;&gt;integrable&lt;/a&gt; derivatives), and for a neural network &lt;script type=&quot;math/tex&quot;&gt;f_N&lt;/script&gt; of size &lt;script type=&quot;math/tex&quot;&gt;N&lt;/script&gt;, 
-one tries to find the asymptotic behavior of the approximation error as &lt;script type=&quot;math/tex&quot;&gt;N\rightarrow+\infty&lt;/script&gt;,&lt;/p&gt;
+(typically the order of &lt;a href=&quot;https://en.wikipedia.org/wiki/Locally_integrable_function&quot;&gt;integrable&lt;/a&gt; derivatives), and for some prescribed accuracy &lt;script type=&quot;math/tex&quot;&gt;\epsilon&gt;0&lt;/script&gt;, 
+one tries to show that there exists a neural network &lt;script type=&quot;math/tex&quot;&gt;f_N&lt;/script&gt; of size &lt;script type=&quot;math/tex&quot;&gt;N&lt;/script&gt; that satisfies&lt;/p&gt;
 
-&lt;script type=&quot;math/tex; mode=display&quot;&gt;\Vert f - f_N \Vert = \mathcal{O}(N^{-\frac{m}{d}}) 
-\quad \Longleftrightarrow \quad \Vert f - f_N \Vert \leq \epsilon \quad \text{whenever} \quad N=\mathcal{O}(\epsilon^{-\frac{d}{m}}),&lt;/script&gt;
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\Vert f - f_N \Vert \leq \epsilon \quad \text{with} \quad N=\mathcal{O}(\epsilon^{-\frac{d}{m}}),&lt;/script&gt;
 
 &lt;p&gt;for some norm &lt;script type=&quot;math/tex&quot;&gt;\Vert\cdot\Vert&lt;/script&gt;. 
 For deep networks, one also wants to find the asymptotic behavior of the depth 
 as a function of the accuracy &lt;script type=&quot;math/tex&quot;&gt;\epsilon&lt;/script&gt;.
 Results of this form are standard approximation results that suffer from the curse of dimensionality.
-These apply to, e.g., multivariate polynomial approximation.
-As the size of the network &lt;script type=&quot;math/tex&quot;&gt;N&lt;/script&gt; increases, the approximation error goes to zero, &lt;i&gt;&lt;b&gt;the smoother the function the faster&lt;/b&gt;&lt;/i&gt;, but the convergence becomes &lt;i&gt;&lt;b&gt;geometrically slower&lt;/b&gt;&lt;/i&gt; as the dimension &lt;script type=&quot;math/tex&quot;&gt;d&lt;/script&gt; increases.&lt;/p&gt;
+For a small dimensions &lt;script type=&quot;math/tex&quot;&gt;d&lt;/script&gt;, the size &lt;script type=&quot;math/tex&quot;&gt;N&lt;/script&gt; of the network increases at a reasonable rate as &lt;script type=&quot;math/tex&quot;&gt;\epsilon&lt;/script&gt; goes to zero.
+However, &lt;script type=&quot;math/tex&quot;&gt;N&lt;/script&gt; grows &lt;i&gt;&lt;b&gt;geometrically&lt;/b&gt;&lt;/i&gt; with &lt;script type=&quot;math/tex&quot;&gt;d&lt;/script&gt;.&lt;/p&gt;
 
 &lt;p&gt;The picture is different for deep networks.
 My theorem shows that functions in the so-called Korobov spaces &lt;script type=&quot;math/tex&quot;&gt;X^{2,p}(\Omega)&lt;/script&gt; of mixed derivatives of order &lt;script type=&quot;math/tex&quot;&gt;2&lt;/script&gt; can be represented to accuracy &lt;script type=&quot;math/tex&quot;&gt;\epsilon&lt;/script&gt; by deep networks of depth 
@@ -309,8 +306,7 @@ My theorem shows that functions in the so-called Korobov spaces &lt;script type=
 &lt;script type=&quot;math/tex; mode=display&quot;&gt;N=\mathcal{O}(\epsilon^{-\frac{1}{2}}\vert\log_2\epsilon\vert^{\frac{3}{2}(d-1)+1}\log_2d).&lt;/script&gt;
 
 &lt;p&gt;The curse of dimensionality is not totally overcome but is lessened since 
-&lt;script type=&quot;math/tex&quot;&gt;d&lt;/script&gt; only affects logarithmic factors &lt;script type=&quot;math/tex&quot;&gt;\vert\log_2\epsilon\vert&lt;/script&gt;.
-This result might explain why deep networks work so well.&lt;/p&gt;
+&lt;script type=&quot;math/tex&quot;&gt;d&lt;/script&gt; only affects logarithmic factors &lt;script type=&quot;math/tex&quot;&gt;\vert\log_2\epsilon\vert&lt;/script&gt;.&lt;/p&gt;
 </content>
 		</entry>
 	
