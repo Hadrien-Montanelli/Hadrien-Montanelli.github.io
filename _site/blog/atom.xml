@@ -4,7 +4,7 @@
 	<title>Hadrien Montanelli's Blog</title>
 	<link href="http://Hadrien-Montanelli.github.io/blog/atom.xml" rel="self"/>
 	<link href="http://Hadrien-Montanelli.github.io/blog"/>
-	<updated>2018-08-13T19:56:07-04:00</updated>
+	<updated>2018-08-13T20:02:15-04:00</updated>
 	<id>http://Hadrien-Montanelli.github.io/blog</id>
 	<author>
 		<name>Hadrien Montanelli</name>
@@ -21,7 +21,7 @@
 	&lt;img src=&quot;/blog/sphericalcaps1.png&quot; style=&quot;width:614px;height:190px;&quot; /&gt;
 &lt;/div&gt;
 
-&lt;p&gt;I have just submitted a paper about the modelling of 
+&lt;p&gt;I have just submitted a &lt;a href=&quot;https://www.cell.com/biophysj/fulltext/S0006-3495(18)30672-6&quot;&gt;paper&lt;/a&gt; about the modelling of 
 &lt;a href=&quot;https://en.wikipedia.org/wiki/Embryogenesis&quot;&gt;embrygonesis&lt;/a&gt; with the
 &lt;a href=&quot;http://shvartsmanlab.com&quot;&gt;Shvartsman group&lt;/a&gt; at 
 &lt;a href=&quot;http://www.princeton.edu&quot;&gt;Princeton University&lt;/a&gt;.
@@ -81,7 +81,7 @@ convection is enough to start the polarization process:&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;p&gt;These findings reinforce the idea that symmetry breaking is crucial for 
-the development of all living organisms—paper’s available online soon!&lt;/p&gt;
+the development of all living organisms.&lt;/p&gt;
 </content>
 		</entry>
 	

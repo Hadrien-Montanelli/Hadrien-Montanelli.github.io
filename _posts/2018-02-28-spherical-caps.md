@@ -8,7 +8,7 @@ date: 2018-02-27
 	<img src="/blog/sphericalcaps1.png" style="width:614px;height:190px;">
 </div>
 
-I have just submitted a paper about the modelling of 
+I have just submitted a <a href="https://www.cell.com/biophysj/fulltext/S0006-3495(18)30672-6">paper</a> about the modelling of 
 <a href="https://en.wikipedia.org/wiki/Embryogenesis">embrygonesis</a> with the
 <a href="http://shvartsmanlab.com">Shvartsman group</a> at 
 <a href="http://www.princeton.edu">Princeton University</a>.
@@ -74,4 +74,4 @@ convection is enough to start the polarization process:
 </div>
 
 These findings reinforce the idea that symmetry breaking is crucial for 
-the development of all living organisms---paper's available online soon!
+the development of all living organisms.
