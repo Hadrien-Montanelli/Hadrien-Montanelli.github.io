@@ -4,13 +4,137 @@
 	<title>Hadrien Montanelli's Blog</title>
 	<link href="http://Hadrien-Montanelli.github.io/blog/atom.xml" rel="self"/>
 	<link href="http://Hadrien-Montanelli.github.io/blog"/>
-	<updated>2018-12-05T20:34:30-05:00</updated>
+	<updated>2018-12-05T21:04:52-05:00</updated>
 	<id>http://Hadrien-Montanelli.github.io/blog</id>
 	<author>
 		<name>Hadrien Montanelli</name>
 		<email>hadrien.montanelli@gmail.com</email>
 	</author>
 
+	
+		<entry>
+			<title>Computer-assisted proofs for PDEs</title>
+			<link href="http://Hadrien-Montanelli.github.io/blog/2018/12/05/assistedproofs"/>
+			<updated>2018-12-05T00:00:00-05:00</updated>
+			<id>http://Hadrien-Montanelli.github.io/blog/2018/12/05/assistedproofs</id>
+			<content type="html">&lt;p&gt;A couple of weeks ago, I spent a few days at 
+&lt;a href=&quot;https://mcgill.ca/&quot;&gt;McGill Univeristy&lt;/a&gt; 
+with &lt;a href=&quot;http://www.math.mcgill.ca/jplessard/Home.html&quot;&gt;Jean-Philippe Lessard&lt;/a&gt;.
+He introduced me to the world of computer-assisted proofs, which I briefly describe in this post.&lt;/p&gt;
+
+&lt;h2&gt;Theory&lt;/h2&gt;
+
+&lt;p&gt;Suppose we want to find steady-state solutions of nonlinear time-dependent PDEs of the form&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;u_t = F(u),&lt;/script&gt;
+
+&lt;p&gt;for some smooth &lt;a href=&quot;https://en.wikipedia.org/wiki/Differential_operator&quot;&gt;operator&lt;/a&gt; 
+&lt;script type=&quot;math/tex&quot;&gt;F:U\mapsto U'&lt;/script&gt; between two
+&lt;a href=&quot;https://en.wikipedia.org/wiki/Banach_space&quot;&gt;Banach spaces&lt;/a&gt; &lt;script type=&quot;math/tex&quot;&gt;U&lt;/script&gt; and &lt;script type=&quot;math/tex&quot;&gt;U'&lt;/script&gt;. 
+This amounts to solve the nonlinear equation &lt;script type=&quot;math/tex&quot;&gt;F(u) = 0&lt;/script&gt;.
+We typically use a &lt;a href=&quot;https://en.wikipedia.org/wiki/Spectral_method&quot;&gt;spectral method&lt;/a&gt; 
+and interpret &lt;script type=&quot;math/tex&quot;&gt;u&lt;/script&gt; as an infinite vector of spectral 
+coefficients and &lt;script type=&quot;math/tex&quot;&gt;F&lt;/script&gt; as an operator acting on those coefficients.&lt;/p&gt;
+
+&lt;p&gt;For finite &lt;script type=&quot;math/tex&quot;&gt;N&lt;/script&gt;-dimensional problems &lt;script type=&quot;math/tex&quot;&gt;F_N(u_N)=0&lt;/script&gt; one would typically use 
+&lt;a href=&quot;https://en.wikipedia.org/wiki/Newton%27s_method&quot;&gt;Newton’s method&lt;/a&gt; 
+where one iterates the map&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;T_N(u_N) = u_N - DF_N^{-1}(u_N)F_N(u_N).&lt;/script&gt;
+
+&lt;p&gt;When the &lt;a href=&quot;https://en.wikipedia.org/wiki/Jacobian_matrix_and_determinant&quot;&gt;Jacobian&lt;/a&gt; 
+&lt;script type=&quot;math/tex&quot;&gt;DF_N^{-1}(u_N)&lt;/script&gt; is invertible, &lt;script type=&quot;math/tex&quot;&gt;T_N&lt;/script&gt; is a 
+&lt;a href=&quot;https://en.wikipedia.org/wiki/Contraction_mapping&quot;&gt;contraction&lt;/a&gt; and 
+it allows us to prove that the numerical solution &lt;script type=&quot;math/tex&quot;&gt;\bar{u}_N&lt;/script&gt; 
+is close to the true solution &lt;script type=&quot;math/tex&quot;&gt;u_N&lt;/script&gt;. 
+(Typically, &lt;script type=&quot;math/tex&quot;&gt;u_N&lt;/script&gt; would be the vector of coefficients in a spectral expansion.)&lt;/p&gt;
+
+&lt;p&gt;In an infinite-dimensional setting, Newton’s method reads&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;T(u) = u - DF^{-1}(u)F(u).&lt;/script&gt;
+
+&lt;p&gt;However, working with the inverse &lt;script type=&quot;math/tex&quot;&gt;DF^{-1}(u)&lt;/script&gt; of the 
+&lt;a href=&quot;https://en.wikipedia.org/wiki/Fr%C3%A9chet_derivative&quot;&gt;Fréchet derivative&lt;/a&gt; might be hard. 
+Instead, one typically considers an approximation &lt;script type=&quot;math/tex&quot;&gt;A&lt;/script&gt; (independent of &lt;script type=&quot;math/tex&quot;&gt;u&lt;/script&gt;) of &lt;script type=&quot;math/tex&quot;&gt;DF^{-1}(u)&lt;/script&gt; 
+and looks at the &lt;a href=&quot;https://en.wikipedia.org/wiki/Banach_fixed-point_theorem&quot;&gt;fixed point&lt;/a&gt; problem&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;T(u) = u - AF(u).&lt;/script&gt;
+
+&lt;p&gt;The main challenge is to chose &lt;script type=&quot;math/tex&quot;&gt;A&lt;/script&gt; such that &lt;script type=&quot;math/tex&quot;&gt;T&lt;/script&gt; is a contraction on some neighborhood 
+of the unknown true solution.&lt;/p&gt;
+
+&lt;p&gt;The idea behind computer-assisted proofs goes like this. 
+First, compute a numerical solution &lt;script type=&quot;math/tex&quot;&gt;\bar{u}_N&lt;/script&gt; of the discretized &lt;script type=&quot;math/tex&quot;&gt;N&lt;/script&gt;-dimensional
+problem &lt;script type=&quot;math/tex&quot;&gt;F_N(u_N)=0&lt;/script&gt;.
+Second, reinterpret &lt;script type=&quot;math/tex&quot;&gt;\bar{u}_N&lt;/script&gt; as an element &lt;script type=&quot;math/tex&quot;&gt;\bar{u}&lt;/script&gt; of the infinite-dimensional space by 
+‘‘padding the vector of coefficients with an infinite number of zero.’’
+We expect the true solution &lt;script type=&quot;math/tex&quot;&gt;u&lt;/script&gt; to be close to &lt;script type=&quot;math/tex&quot;&gt;\bar{u}&lt;/script&gt; so we will chose &lt;script type=&quot;math/tex&quot;&gt;A&lt;/script&gt; 
+to be an approximation of &lt;script type=&quot;math/tex&quot;&gt;DF^{-1}(\bar{u})&lt;/script&gt;. 
+The following theorem justifies this approach.&lt;/p&gt;
+
+&lt;p&gt;&lt;b&gt;Theorem (Radii polynomial approach in Banach spaces).&lt;/b&gt;
+&lt;i&gt;Let &lt;script type=&quot;math/tex&quot;&gt;U&lt;/script&gt; and &lt;script type=&quot;math/tex&quot;&gt;U'&lt;/script&gt; be Banach spaces. Denote the norm on &lt;script type=&quot;math/tex&quot;&gt;U&lt;/script&gt; by &lt;script type=&quot;math/tex&quot;&gt;\Vert\cdot\Vert_U&lt;/script&gt;.
+Consider bounded linear operators &lt;script type=&quot;math/tex&quot;&gt;A^{\dagger}\in L(U,U')&lt;/script&gt; and &lt;script type=&quot;math/tex&quot;&gt;A\in L(U',U)&lt;/script&gt;.
+Assume that &lt;script type=&quot;math/tex&quot;&gt;F:U\mapsto U'&lt;/script&gt; is &lt;script type=&quot;math/tex&quot;&gt;C^1&lt;/script&gt;, &lt;script type=&quot;math/tex&quot;&gt;A&lt;/script&gt; is injective and &lt;script type=&quot;math/tex&quot;&gt;AF:U\mapsto U&lt;/script&gt;.
+Consider an approximate solution &lt;script type=&quot;math/tex&quot;&gt;\bar{u}&lt;/script&gt; of &lt;script type=&quot;math/tex&quot;&gt;F(u)=0&lt;/script&gt; (usually obtained using Newton’s method on a finite-dimensional discretization.) 
+Let &lt;script type=&quot;math/tex&quot;&gt;Y_0&lt;/script&gt;, &lt;script type=&quot;math/tex&quot;&gt;Z_0&lt;/script&gt;, &lt;script type=&quot;math/tex&quot;&gt;Z_1&lt;/script&gt; and &lt;script type=&quot;math/tex&quot;&gt;Z_2&lt;/script&gt; be positive constants satisfying&lt;/i&gt;&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\Vert AF(\bar{u})\Vert_U \leq Y_0, \\
+\hspace{-1cm}\Vert I - AA^\dagger\Vert_{B(U)}\leq Z_0, \\
+\hspace{-2.5cm}\Vert A[DF(\bar{u})-A^\dagger]\Vert_{B(U)}\leq Z_1, \\
+\hspace{2cm}\Vert A[DF(u)-DF(\bar{u})]\Vert_{B(U)}\leq Z_2r, \quad \textit{for all}\;\Vert u - \bar{u}\Vert_U\leq r,&lt;/script&gt;
+
+&lt;p&gt;&lt;i&gt;where &lt;script type=&quot;math/tex&quot;&gt;\Vert\cdot\Vert_{B(U)}&lt;/script&gt; is the induced operator norm for bounded linear operators
+from &lt;script type=&quot;math/tex&quot;&gt;U&lt;/script&gt; to itself. Define the radii polynomial&lt;/i&gt;&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;p(r) = Z_2 r^2 - (1-Z_1-Z_0)r + Y_0.&lt;/script&gt;
+
+&lt;p&gt;&lt;i&gt;If there exists &lt;script type=&quot;math/tex&quot;&gt;r_0&gt;0&lt;/script&gt; such that &lt;script type=&quot;math/tex&quot;&gt;% &lt;![CDATA[
+p(r_0)&lt;0 %]]&gt;&lt;/script&gt;, then there exists &lt;script type=&quot;math/tex&quot;&gt;u\in B_{r_0}(\bar{u})&lt;/script&gt;
+satisfying &lt;script type=&quot;math/tex&quot;&gt;F(u)=0&lt;/script&gt;.&lt;/i&gt;&lt;/p&gt;
+
+&lt;p&gt;One of the main challenges in this framework is to construct such an operator &lt;script type=&quot;math/tex&quot;&gt;A&lt;/script&gt;. 
+(Note that &lt;script type=&quot;math/tex&quot;&gt;A^\dagger&lt;/script&gt; is an approximation of the Fréchet derivative &lt;script type=&quot;math/tex&quot;&gt;DF(\bar{u})&lt;/script&gt;. 
+In practice we often start by selecting a good &lt;script type=&quot;math/tex&quot;&gt;A^\dagger&lt;/script&gt;.)&lt;/p&gt;
+
+&lt;h2&gt;An example in 1D&lt;/h2&gt;
+
+&lt;p&gt;Consider the Allen–Cahn equation with periodic boundary conditions,&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;u_t = F(u) = \epsilon^2 u_{xx} + u^3 - u.&lt;/script&gt;
+
+&lt;p&gt;In Fourier space, the linear part &lt;script type=&quot;math/tex&quot;&gt;Lu=\epsilon^2 u_{xx}-u&lt;/script&gt; is diagonal with entries 
+&lt;script type=&quot;math/tex&quot;&gt;-\epsilon^2k^2 - 1&lt;/script&gt;, &lt;script type=&quot;math/tex&quot;&gt;k\in\mathbb{Z}&lt;/script&gt;.&lt;/p&gt;
+
+&lt;p&gt;Let us denote by &lt;script type=&quot;math/tex&quot;&gt;\bar{u}_{N}&lt;/script&gt; the numerical solution obtained using wavenumbers &lt;script type=&quot;math/tex&quot;&gt;k&lt;/script&gt; 
+between &lt;script type=&quot;math/tex&quot;&gt;-N&lt;/script&gt; and &lt;script type=&quot;math/tex&quot;&gt;N&lt;/script&gt; (&lt;script type=&quot;math/tex&quot;&gt;2N+1&lt;/script&gt; grid points)
+and by &lt;script type=&quot;math/tex&quot;&gt;DF_N(\bar{u}_N)&lt;/script&gt; the &lt;script type=&quot;math/tex&quot;&gt;(2N+1) \times (2N+1)&lt;/script&gt; Jacobian matrix at &lt;script type=&quot;math/tex&quot;&gt;\bar{u}_N&lt;/script&gt;, which we can compute.
+In this case a good choice for &lt;script type=&quot;math/tex&quot;&gt;A^\dagger&lt;/script&gt; is&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;% &lt;![CDATA[
+A^\dagger =
+\begin{pmatrix}
+DF_N(\bar{u}_N) &amp; 0 &amp; 0 &amp; \ldots \\
+0 &amp; -\epsilon^2(N+1)^2 - 1 &amp; 0 &amp; \ldots \\
+0 &amp; 0 &amp; -\epsilon^2(N+2)^2 -1 &amp; \ldots \\
+\vdots &amp; \vdots &amp; \vdots &amp; \ddots
+\end{pmatrix}. %]]&gt;&lt;/script&gt;
+
+&lt;p&gt;The idea is that for large enough &lt;script type=&quot;math/tex&quot;&gt;N&lt;/script&gt; the Fréchet derivative of &lt;script type=&quot;math/tex&quot;&gt;L&lt;/script&gt; 
+will dominate the Fréchet derivative of &lt;script type=&quot;math/tex&quot;&gt;N&lt;/script&gt;. (Note that &lt;script type=&quot;math/tex&quot;&gt;DL(u)=L&lt;/script&gt;.)
+Therefore we can choose&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;% &lt;![CDATA[
+A =
+\begin{pmatrix}
+DF_N^{-1}(\bar{u}_N) &amp; 0 &amp; 0 &amp; \ldots \\
+0 &amp; \frac{1}{-\epsilon^2(N+1)^2-1} &amp; 0 &amp; \ldots \\
+0 &amp; 0 &amp; \frac{1}{-\epsilon^2(N+2)^2-1} &amp; \ldots \\
+\vdots &amp; \vdots &amp; \vdots &amp; \ddots
+\end{pmatrix}. %]]&gt;&lt;/script&gt;
+
+</content>
+		</entry>
 	
 		<entry>
 			<title>Spherical caps in cell polarization</title>

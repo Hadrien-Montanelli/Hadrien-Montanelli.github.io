@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+	<html>
+		<head>
+			<title>Computer-assisted proofs for PDEs</title>
+			<!-- link to main stylesheet -->
+			<link rel="stylesheet" type="text/css" href="/css/main.css">
+			<!-- Global site tag (gtag.js) - Google Analytics -->
+			<script async src="https://www.googletagmanager.com/gtag/js?id=UA-108246943-1"></script>
+			<script>
+			  window.dataLayer = window.dataLayer || [];
+			  function gtag(){dataLayer.push(arguments);}
+			  gtag('js', new Date());
+			  gtag('config', 'UA-108246943-1');
+			</script>
+		</head>
+		<body>
+			<nav>
+	    		<ul>
+	    			
+
+					<li>
+						<a href="/" data-current="blog" >
+							Home
+						</a>
+					</li>
+					<li>
+						<a href="/about" >
+							About
+						</a>
+					</li>
+					<li>
+						<a href="/awards" >
+							Awards
+						</a>
+					</li>
+					<li>
+						<a href="/blog"  class="active" >
+							Blog
+						</a>
+					</li>
+					<li>
+						<a href="/publications" >		Publications
+						</a>
+					</li>
+					<li>
+						<a href="/talks" >
+							Talks
+						</a>
+					</li>
+					<li>
+						<a href="/teaching" >
+							Teaching
+						</a>
+					</li>
+	    		</ul>
+			</nav>
+			<div class="container">
+			
+			<div style="text-align: center;">
+  <h1>Computer-assisted proofs for PDEs</h1>
+  <p class="meta">05 Dec 2018</p>
+</div>
+
+
+<div class="post">
+  <p>A couple of weeks ago, I spent a few days at 
+<a href="https://mcgill.ca/">McGill Univeristy</a> 
+with <a href="http://www.math.mcgill.ca/jplessard/Home.html">Jean-Philippe Lessard</a>.
+He introduced me to the world of computer-assisted proofs, which I briefly describe in this post.</p>
+
+<h2>Theory</h2>
+
+<p>Suppose we want to find steady-state solutions of nonlinear time-dependent PDEs of the form</p>
+
+<script type="math/tex; mode=display">u_t = F(u),</script>
+
+<p>for some smooth <a href="https://en.wikipedia.org/wiki/Differential_operator">operator</a> 
+<script type="math/tex">F:U\mapsto U'</script> between two
+<a href="https://en.wikipedia.org/wiki/Banach_space">Banach spaces</a> <script type="math/tex">U</script> and <script type="math/tex">U'</script>. 
+This amounts to solve the nonlinear equation <script type="math/tex">F(u) = 0</script>.
+We typically use a <a href="https://en.wikipedia.org/wiki/Spectral_method">spectral method</a> 
+and interpret <script type="math/tex">u</script> as an infinite vector of spectral 
+coefficients and <script type="math/tex">F</script> as an operator acting on those coefficients.</p>
+
+<p>For finite <script type="math/tex">N</script>-dimensional problems <script type="math/tex">F_N(u_N)=0</script> one would typically use 
+<a href="https://en.wikipedia.org/wiki/Newton%27s_method">Newton’s method</a> 
+where one iterates the map</p>
+
+<script type="math/tex; mode=display">T_N(u_N) = u_N - DF_N^{-1}(u_N)F_N(u_N).</script>
+
+<p>When the <a href="https://en.wikipedia.org/wiki/Jacobian_matrix_and_determinant">Jacobian</a> 
+<script type="math/tex">DF_N^{-1}(u_N)</script> is invertible, <script type="math/tex">T_N</script> is a 
+<a href="https://en.wikipedia.org/wiki/Contraction_mapping">contraction</a> and 
+it allows us to prove that the numerical solution <script type="math/tex">\bar{u}_N</script> 
+is close to the true solution <script type="math/tex">u_N</script>. 
+(Typically, <script type="math/tex">u_N</script> would be the vector of coefficients in a spectral expansion.)</p>
+
+<p>In an infinite-dimensional setting, Newton’s method reads</p>
+
+<script type="math/tex; mode=display">T(u) = u - DF^{-1}(u)F(u).</script>
+
+<p>However, working with the inverse <script type="math/tex">DF^{-1}(u)</script> of the 
+<a href="https://en.wikipedia.org/wiki/Fr%C3%A9chet_derivative">Fréchet derivative</a> might be hard. 
+Instead, one typically considers an approximation <script type="math/tex">A</script> (independent of <script type="math/tex">u</script>) of <script type="math/tex">DF^{-1}(u)</script> 
+and looks at the <a href="https://en.wikipedia.org/wiki/Banach_fixed-point_theorem">fixed point</a> problem</p>
+
+<script type="math/tex; mode=display">T(u) = u - AF(u).</script>
+
+<p>The main challenge is to chose <script type="math/tex">A</script> such that <script type="math/tex">T</script> is a contraction on some neighborhood 
+of the unknown true solution.</p>
+
+<p>The idea behind computer-assisted proofs goes like this. 
+First, compute a numerical solution <script type="math/tex">\bar{u}_N</script> of the discretized <script type="math/tex">N</script>-dimensional
+problem <script type="math/tex">F_N(u_N)=0</script>.
+Second, reinterpret <script type="math/tex">\bar{u}_N</script> as an element <script type="math/tex">\bar{u}</script> of the infinite-dimensional space by 
+‘‘padding the vector of coefficients with an infinite number of zero.’’
+We expect the true solution <script type="math/tex">u</script> to be close to <script type="math/tex">\bar{u}</script> so we will chose <script type="math/tex">A</script> 
+to be an approximation of <script type="math/tex">DF^{-1}(\bar{u})</script>. 
+The following theorem justifies this approach.</p>
+
+<p><b>Theorem (Radii polynomial approach in Banach spaces).</b>
+<i>Let <script type="math/tex">U</script> and <script type="math/tex">U'</script> be Banach spaces. Denote the norm on <script type="math/tex">U</script> by <script type="math/tex">\Vert\cdot\Vert_U</script>.
+Consider bounded linear operators <script type="math/tex">A^{\dagger}\in L(U,U')</script> and <script type="math/tex">A\in L(U',U)</script>.
+Assume that <script type="math/tex">F:U\mapsto U'</script> is <script type="math/tex">C^1</script>, <script type="math/tex">A</script> is injective and <script type="math/tex">AF:U\mapsto U</script>.
+Consider an approximate solution <script type="math/tex">\bar{u}</script> of <script type="math/tex">F(u)=0</script> (usually obtained using Newton’s method on a finite-dimensional discretization.) 
+Let <script type="math/tex">Y_0</script>, <script type="math/tex">Z_0</script>, <script type="math/tex">Z_1</script> and <script type="math/tex">Z_2</script> be positive constants satisfying</i></p>
+
+<script type="math/tex; mode=display">\Vert AF(\bar{u})\Vert_U \leq Y_0, \\
+\hspace{-1cm}\Vert I - AA^\dagger\Vert_{B(U)}\leq Z_0, \\
+\hspace{-2.5cm}\Vert A[DF(\bar{u})-A^\dagger]\Vert_{B(U)}\leq Z_1, \\
+\hspace{2cm}\Vert A[DF(u)-DF(\bar{u})]\Vert_{B(U)}\leq Z_2r, \quad \textit{for all}\;\Vert u - \bar{u}\Vert_U\leq r,</script>
+
+<p><i>where <script type="math/tex">\Vert\cdot\Vert_{B(U)}</script> is the induced operator norm for bounded linear operators
+from <script type="math/tex">U</script> to itself. Define the radii polynomial</i></p>
+
+<script type="math/tex; mode=display">p(r) = Z_2 r^2 - (1-Z_1-Z_0)r + Y_0.</script>
+
+<p><i>If there exists <script type="math/tex">r_0>0</script> such that <script type="math/tex">% <![CDATA[
+p(r_0)<0 %]]></script>, then there exists <script type="math/tex">u\in B_{r_0}(\bar{u})</script>
+satisfying <script type="math/tex">F(u)=0</script>.</i></p>
+
+<p>One of the main challenges in this framework is to construct such an operator <script type="math/tex">A</script>. 
+(Note that <script type="math/tex">A^\dagger</script> is an approximation of the Fréchet derivative <script type="math/tex">DF(\bar{u})</script>. 
+In practice we often start by selecting a good <script type="math/tex">A^\dagger</script>.)</p>
+
+<h2>An example in 1D</h2>
+
+<p>Consider the Allen–Cahn equation with periodic boundary conditions,</p>
+
+<script type="math/tex; mode=display">u_t = F(u) = \epsilon^2 u_{xx} + u^3 - u.</script>
+
+<p>In Fourier space, the linear part <script type="math/tex">Lu=\epsilon^2 u_{xx}-u</script> is diagonal with entries 
+<script type="math/tex">-\epsilon^2k^2 - 1</script>, <script type="math/tex">k\in\mathbb{Z}</script>.</p>
+
+<p>Let us denote by <script type="math/tex">\bar{u}_{N}</script> the numerical solution obtained using wavenumbers <script type="math/tex">k</script> 
+between <script type="math/tex">-N</script> and <script type="math/tex">N</script> (<script type="math/tex">2N+1</script> grid points)
+and by <script type="math/tex">DF_N(\bar{u}_N)</script> the <script type="math/tex">(2N+1) \times (2N+1)</script> Jacobian matrix at <script type="math/tex">\bar{u}_N</script>, which we can compute.
+In this case a good choice for <script type="math/tex">A^\dagger</script> is</p>
+
+<script type="math/tex; mode=display">% <![CDATA[
+A^\dagger =
+\begin{pmatrix}
+DF_N(\bar{u}_N) & 0 & 0 & \ldots \\
+0 & -\epsilon^2(N+1)^2 - 1 & 0 & \ldots \\
+0 & 0 & -\epsilon^2(N+2)^2 -1 & \ldots \\
+\vdots & \vdots & \vdots & \ddots
+\end{pmatrix}. %]]></script>
+
+<p>The idea is that for large enough <script type="math/tex">N</script> the Fréchet derivative of <script type="math/tex">L</script> 
+will dominate the Fréchet derivative of <script type="math/tex">N</script>. (Note that <script type="math/tex">DL(u)=L</script>.)
+Therefore we can choose</p>
+
+<script type="math/tex; mode=display">% <![CDATA[
+A =
+\begin{pmatrix}
+DF_N^{-1}(\bar{u}_N) & 0 & 0 & \ldots \\
+0 & \frac{1}{-\epsilon^2(N+1)^2-1} & 0 & \ldots \\
+0 & 0 & \frac{1}{-\epsilon^2(N+2)^2-1} & \ldots \\
+\vdots & \vdots & \vdots & \ddots
+\end{pmatrix}. %]]></script>
+
+
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" 
+    type="text/javascript">
+</script>
+
+			
+			</div><!-- /.container -->
+			<footer>
+	    		<ul>	
+	    			<li><a href="http://github.com/Hadrien-Montanelli">GitHub</a></li>
+					<li><a href="http://scholar.google.com/citations?user=Bjmkfe8AAAAJ&hl=en&oi=sra/">Google Scholar</a></li>
+					<li><a href="http://www.linkedin.com/in/hadrien-montanelli-137b7958/">LinkedIn</a></li>
+				</ul>
+			</footer>
+		</body>
+	</html>
