@@ -60,7 +60,7 @@ The main challenge is to chose $$A$$ such that $$T$$ is a contraction on some ne
 of the unknown true solution. 
 
 The idea behind computer-assisted proofs goes like this. 
-First, compute a numerical solution $$\bar{u}_N$$ of the discretized $$N$$-dimensional
+First, compute a numerical solution $$\bar{u}_N$$ of the discretized dimensional
 problem $$F_N(u_N)=0$$.
 Second, reinterpret $$\bar{u}_N$$ as an element $$\bar{u}$$ of the infinite-dimensional space by 
 ''padding the vector of coefficients with an infinite number of zero.''

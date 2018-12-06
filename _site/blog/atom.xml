@@ -4,7 +4,7 @@
 	<title>Hadrien Montanelli's Blog</title>
 	<link href="http://Hadrien-Montanelli.github.io/blog/atom.xml" rel="self"/>
 	<link href="http://Hadrien-Montanelli.github.io/blog"/>
-	<updated>2018-12-05T21:12:17-05:00</updated>
+	<updated>2018-12-06T11:55:35-05:00</updated>
 	<id>http://Hadrien-Montanelli.github.io/blog</id>
 	<author>
 		<name>Hadrien Montanelli</name>
@@ -64,7 +64,7 @@ and looks at the &lt;a href=&quot;https://en.wikipedia.org/wiki/Banach_fixed-poi
 of the unknown true solution.&lt;/p&gt;
 
 &lt;p&gt;The idea behind computer-assisted proofs goes like this. 
-First, compute a numerical solution &lt;script type=&quot;math/tex&quot;&gt;\bar{u}_N&lt;/script&gt; of the discretized &lt;script type=&quot;math/tex&quot;&gt;N&lt;/script&gt;-dimensional
+First, compute a numerical solution &lt;script type=&quot;math/tex&quot;&gt;\bar{u}_N&lt;/script&gt; of the discretized dimensional
 problem &lt;script type=&quot;math/tex&quot;&gt;F_N(u_N)=0&lt;/script&gt;.
 Second, reinterpret &lt;script type=&quot;math/tex&quot;&gt;\bar{u}_N&lt;/script&gt; as an element &lt;script type=&quot;math/tex&quot;&gt;\bar{u}&lt;/script&gt; of the infinite-dimensional space by 
 ‘‘padding the vector of coefficients with an infinite number of zero.’’
