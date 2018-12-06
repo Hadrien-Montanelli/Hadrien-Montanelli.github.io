@@ -7,11 +7,11 @@ date: 2018-12-05
 A couple of weeks ago, I spent a few days at 
 <a href="https://mcgill.ca/">McGill Univeristy</a> 
 with <a href="http://www.math.mcgill.ca/jplessard/Home.html">Jean-Philippe Lessard</a>.
-He introduced me to the world of computer-assisted proofs, which I briefly describe in this post. 
+He introduced me to the world of <a href="https://en.wikipedia.org/wiki/Computer-assisted_proof">computer-assisted proofs</a>, which I briefly describe in this post. 
 
 <h2>Theory</h2>
 
-Suppose we want to find steady-state solutions of nonlinear time-dependent PDEs of the form
+Suppose we want to find steady-state solutions of <a href="https://en.wikipedia.org/wiki/Partial_differential_equation">nonlinear time-dependent PDEs</a> of the form
 
 $$
 u_t = F(u),
@@ -99,16 +99,17 @@ In practice we often start by selecting a good $$A^\dagger$$.)
 
 <h2>An example in 1D</h2>
 
-Consider the Allen--Cahn equation with periodic boundary conditions,
+Consider the <a href="http://en.wikipedia.org/wiki/Allen%E2%80%93Cahn_equation">Allen--Cahn equation</a> with periodic boundary conditions,
 
 $$
 u_t = F(u) = \epsilon^2 u_{xx} + u^3 - u.
 $$
 
-In Fourier space, the linear part $$Lu=\epsilon^2 u_{xx}-u$$ is diagonal with entries 
+In <a href="http://en.wikipedia.org/wiki/Fourier_transform">Fourier space</a>, the linear part $$Lu=\epsilon^2 u_{xx}-u$$ is diagonal with entries 
 $$-\epsilon^2k^2 - 1$$, $$k\in\mathbb{Z}$$.
 
-Let us denote by $$\bar{u}_{N}$$ the numerical solution obtained using wavenumbers $$k$$ 
+Let us denote by $$\bar{u}_{N}$$ the numerical solution obtained using
+<a href="http://en.wikipedia.org/wiki/Wavenumber">wavenumbers</a> $$k$$ 
 between $$-N$$ and $$N$$ ($$2N+1$$ grid points)
 and by $$DF_N(\bar{u}_N)$$ the $$(2N+1) \times (2N+1)$$ Jacobian matrix at $$\bar{u}_N$$, which we can compute.
 In this case a good choice for $$A^\dagger$$ is

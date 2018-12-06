@@ -66,11 +66,11 @@
   <p>A couple of weeks ago, I spent a few days at 
 <a href="https://mcgill.ca/">McGill Univeristy</a> 
 with <a href="http://www.math.mcgill.ca/jplessard/Home.html">Jean-Philippe Lessard</a>.
-He introduced me to the world of computer-assisted proofs, which I briefly describe in this post.</p>
+He introduced me to the world of <a href="https://en.wikipedia.org/wiki/Computer-assisted_proof">computer-assisted proofs</a>, which I briefly describe in this post.</p>
 
 <h2>Theory</h2>
 
-<p>Suppose we want to find steady-state solutions of nonlinear time-dependent PDEs of the form</p>
+<p>Suppose we want to find steady-state solutions of <a href="https://en.wikipedia.org/wiki/Partial_differential_equation">nonlinear time-dependent PDEs</a> of the form</p>
 
 <script type="math/tex; mode=display">u_t = F(u),</script>
 
@@ -145,14 +145,15 @@ In practice we often start by selecting a good <script type="math/tex">A^\dagger
 
 <h2>An example in 1D</h2>
 
-<p>Consider the Allen–Cahn equation with periodic boundary conditions,</p>
+<p>Consider the <a href="http://en.wikipedia.org/wiki/Allen%E2%80%93Cahn_equation">Allen–Cahn equation</a> with periodic boundary conditions,</p>
 
 <script type="math/tex; mode=display">u_t = F(u) = \epsilon^2 u_{xx} + u^3 - u.</script>
 
-<p>In Fourier space, the linear part <script type="math/tex">Lu=\epsilon^2 u_{xx}-u</script> is diagonal with entries 
+<p>In <a href="http://en.wikipedia.org/wiki/Fourier_transform">Fourier space</a>, the linear part <script type="math/tex">Lu=\epsilon^2 u_{xx}-u</script> is diagonal with entries 
 <script type="math/tex">-\epsilon^2k^2 - 1</script>, <script type="math/tex">k\in\mathbb{Z}</script>.</p>
 
-<p>Let us denote by <script type="math/tex">\bar{u}_{N}</script> the numerical solution obtained using wavenumbers <script type="math/tex">k</script> 
+<p>Let us denote by <script type="math/tex">\bar{u}_{N}</script> the numerical solution obtained using
+<a href="http://en.wikipedia.org/wiki/Wavenumber">wavenumbers</a> <script type="math/tex">k</script> 
 between <script type="math/tex">-N</script> and <script type="math/tex">N</script> (<script type="math/tex">2N+1</script> grid points)
 and by <script type="math/tex">DF_N(\bar{u}_N)</script> the <script type="math/tex">(2N+1) \times (2N+1)</script> Jacobian matrix at <script type="math/tex">\bar{u}_N</script>, which we can compute.
 In this case a good choice for <script type="math/tex">A^\dagger</script> is</p>

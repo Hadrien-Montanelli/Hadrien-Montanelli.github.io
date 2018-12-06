@@ -4,7 +4,7 @@
 	<title>Hadrien Montanelli's Blog</title>
 	<link href="http://Hadrien-Montanelli.github.io/blog/atom.xml" rel="self"/>
 	<link href="http://Hadrien-Montanelli.github.io/blog"/>
-	<updated>2018-12-05T21:04:52-05:00</updated>
+	<updated>2018-12-05T21:12:17-05:00</updated>
 	<id>http://Hadrien-Montanelli.github.io/blog</id>
 	<author>
 		<name>Hadrien Montanelli</name>
@@ -20,11 +20,11 @@
 			<content type="html">&lt;p&gt;A couple of weeks ago, I spent a few days at 
 &lt;a href=&quot;https://mcgill.ca/&quot;&gt;McGill Univeristy&lt;/a&gt; 
 with &lt;a href=&quot;http://www.math.mcgill.ca/jplessard/Home.html&quot;&gt;Jean-Philippe Lessard&lt;/a&gt;.
-He introduced me to the world of computer-assisted proofs, which I briefly describe in this post.&lt;/p&gt;
+He introduced me to the world of &lt;a href=&quot;https://en.wikipedia.org/wiki/Computer-assisted_proof&quot;&gt;computer-assisted proofs&lt;/a&gt;, which I briefly describe in this post.&lt;/p&gt;
 
 &lt;h2&gt;Theory&lt;/h2&gt;
 
-&lt;p&gt;Suppose we want to find steady-state solutions of nonlinear time-dependent PDEs of the form&lt;/p&gt;
+&lt;p&gt;Suppose we want to find steady-state solutions of &lt;a href=&quot;https://en.wikipedia.org/wiki/Partial_differential_equation&quot;&gt;nonlinear time-dependent PDEs&lt;/a&gt; of the form&lt;/p&gt;
 
 &lt;script type=&quot;math/tex; mode=display&quot;&gt;u_t = F(u),&lt;/script&gt;
 
@@ -99,14 +99,15 @@ In practice we often start by selecting a good &lt;script type=&quot;math/tex&qu
 
 &lt;h2&gt;An example in 1D&lt;/h2&gt;
 
-&lt;p&gt;Consider the Allen–Cahn equation with periodic boundary conditions,&lt;/p&gt;
+&lt;p&gt;Consider the &lt;a href=&quot;http://en.wikipedia.org/wiki/Allen%E2%80%93Cahn_equation&quot;&gt;Allen–Cahn equation&lt;/a&gt; with periodic boundary conditions,&lt;/p&gt;
 
 &lt;script type=&quot;math/tex; mode=display&quot;&gt;u_t = F(u) = \epsilon^2 u_{xx} + u^3 - u.&lt;/script&gt;
 
-&lt;p&gt;In Fourier space, the linear part &lt;script type=&quot;math/tex&quot;&gt;Lu=\epsilon^2 u_{xx}-u&lt;/script&gt; is diagonal with entries 
+&lt;p&gt;In &lt;a href=&quot;http://en.wikipedia.org/wiki/Fourier_transform&quot;&gt;Fourier space&lt;/a&gt;, the linear part &lt;script type=&quot;math/tex&quot;&gt;Lu=\epsilon^2 u_{xx}-u&lt;/script&gt; is diagonal with entries 
 &lt;script type=&quot;math/tex&quot;&gt;-\epsilon^2k^2 - 1&lt;/script&gt;, &lt;script type=&quot;math/tex&quot;&gt;k\in\mathbb{Z}&lt;/script&gt;.&lt;/p&gt;
 
-&lt;p&gt;Let us denote by &lt;script type=&quot;math/tex&quot;&gt;\bar{u}_{N}&lt;/script&gt; the numerical solution obtained using wavenumbers &lt;script type=&quot;math/tex&quot;&gt;k&lt;/script&gt; 
+&lt;p&gt;Let us denote by &lt;script type=&quot;math/tex&quot;&gt;\bar{u}_{N}&lt;/script&gt; the numerical solution obtained using
+&lt;a href=&quot;http://en.wikipedia.org/wiki/Wavenumber&quot;&gt;wavenumbers&lt;/a&gt; &lt;script type=&quot;math/tex&quot;&gt;k&lt;/script&gt; 
 between &lt;script type=&quot;math/tex&quot;&gt;-N&lt;/script&gt; and &lt;script type=&quot;math/tex&quot;&gt;N&lt;/script&gt; (&lt;script type=&quot;math/tex&quot;&gt;2N+1&lt;/script&gt; grid points)
 and by &lt;script type=&quot;math/tex&quot;&gt;DF_N(\bar{u}_N)&lt;/script&gt; the &lt;script type=&quot;math/tex&quot;&gt;(2N+1) \times (2N+1)&lt;/script&gt; Jacobian matrix at &lt;script type=&quot;math/tex&quot;&gt;\bar{u}_N&lt;/script&gt;, which we can compute.
 In this case a good choice for &lt;script type=&quot;math/tex&quot;&gt;A^\dagger&lt;/script&gt; is&lt;/p&gt;
