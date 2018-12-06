@@ -1,4 +1,7 @@
 1. Learn how to add videos
 2. Write blog post about Barron
+3. Write blog post about computer-assisted proofs
+4. Add reviewer for SIAM Journal of Sci Comput, IMA Journal of 
+Numerical Analysis
 
 http://djalil.chafai.net/blog/2011/06/24/the-empirical-method-of-maurey/
