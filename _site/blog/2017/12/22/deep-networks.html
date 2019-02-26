@@ -79,14 +79,14 @@ A few months down the road I have proven a <a href="http://arxiv.org/pdf/1712.08
 <a href="https://en.wikipedia.org/wiki/Speech_recognition">speech recognition</a>, 
 and <a href="http://en.wikipedia.org/wiki/Natural_language_processing">natural language processing</a>.
 It is based on approximations by <i><b>deep networks</b></i>, as opposed to <i><b>shallow networks</b></i>.
-The latter are neural networks with a single <i><b>layer</b></i> and correspond to approximations <script type="math/tex">f_N</script> of multivariate functions <script type="math/tex">f:\mathbb{R}^d\rightarrow\mathbb{R}</script> of the form</p>
+The latter are neural networks with a single <i><b>hidden layer</b></i> and correspond to approximations <script type="math/tex">f_N</script> of multivariate functions <script type="math/tex">f:\mathbb{R}^d\rightarrow\mathbb{R}</script> of the form</p>
 
 <script type="math/tex; mode=display">f_N(\boldsymbol{x}) = \sum_{i=1}^N \alpha_i \sigma(\boldsymbol{w}_i^T\boldsymbol{x} + \theta_i), \quad \alpha_i,\,\theta_i\in\mathbb{R},\, \boldsymbol{x},\boldsymbol{w}_i\in\mathbb{R}^d,</script>
 
 <p>for some <i><b>activation function</b></i> <script type="math/tex">\sigma:\mathbb{R}\rightarrow\mathbb{R}</script>.
-The former are neural networks with one or more layers, where each unit of each layer 
+The former are neural networks with one or more hidden layers, where each unit of each layer 
 performs an operation of the form <script type="math/tex">\sigma(\boldsymbol{w}\cdot\boldsymbol{x} + \theta)</script>.
-The <i><b>depth</b></i> of a network is the number of layers, and the <i><b>size</b></i> 
+The <i><b>depth</b></i> of a network is the number of hidden layers, and the <i><b>size</b></i> 
 is the total number of units.
 Shallow networks have depth <script type="math/tex">1</script> and their size is the number <script type="math/tex">N</script> in the expansion above,
 while deep networks usually have depth <script type="math/tex">\gg 1</script>.
@@ -121,7 +121,7 @@ However, <script type="math/tex">N</script> grows <i><b>geometrically</b></i> wi
 My theorem shows that functions in the so-called Korobov spaces <script type="math/tex">X^{2,p}(\Omega)</script> of mixed derivatives of order <script type="math/tex">2</script> can be represented to accuracy <script type="math/tex">\epsilon</script> by deep networks of depth 
 <script type="math/tex">\mathcal{O}(\vert\log_2\epsilon\vert\log_2d)</script> and size</p>
 
-<script type="math/tex; mode=display">N=\mathcal{O}(\epsilon^{-\frac{1}{2}}\vert\log_2\epsilon\vert^{\frac{3}{2}(d-1)+1}\log_2d).</script>
+<script type="math/tex; mode=display">N=\mathcal{O}(\epsilon^{-\frac{1}{2}}\vert\log_2\epsilon\vert^{\frac{3}{2}(d-1)+1}(d-1)).</script>
 
 <p>The curse of dimensionality is not totally overcome but is lessened since 
 <script type="math/tex">d</script> only affects logarithmic factors <script type="math/tex">\vert\log_2\epsilon\vert</script>.</p>

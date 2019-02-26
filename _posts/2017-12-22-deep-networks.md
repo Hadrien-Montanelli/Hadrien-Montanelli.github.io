@@ -21,16 +21,16 @@ Deep learning has been successfully applied to many fields including
 <a href="https://en.wikipedia.org/wiki/Speech_recognition">speech recognition</a>, 
 and <a href="http://en.wikipedia.org/wiki/Natural_language_processing">natural language processing</a>.
 It is based on approximations by <i><b>deep networks</b></i>, as opposed to <i><b>shallow networks</b></i>.
-The latter are neural networks with a single <i><b>layer</b></i> and correspond to approximations $$f_N$$ of multivariate functions $$f:\mathbb{R}^d\rightarrow\mathbb{R}$$ of the form
+The latter are neural networks with a single <i><b>hidden layer</b></i> and correspond to approximations $$f_N$$ of multivariate functions $$f:\mathbb{R}^d\rightarrow\mathbb{R}$$ of the form
 
 $$
 f_N(\boldsymbol{x}) = \sum_{i=1}^N \alpha_i \sigma(\boldsymbol{w}_i^T\boldsymbol{x} + \theta_i), \quad \alpha_i,\,\theta_i\in\mathbb{R},\, \boldsymbol{x},\boldsymbol{w}_i\in\mathbb{R}^d,
 $$
 
 for some <i><b>activation function</b></i> $$\sigma:\mathbb{R}\rightarrow\mathbb{R}$$.
-The former are neural networks with one or more layers, where each unit of each layer 
+The former are neural networks with one or more hidden layers, where each unit of each layer 
 performs an operation of the form $$\sigma(\boldsymbol{w}\cdot\boldsymbol{x} + \theta)$$.
-The <i><b>depth</b></i> of a network is the number of layers, and the <i><b>size</b></i> 
+The <i><b>depth</b></i> of a network is the number of hidden layers, and the <i><b>size</b></i> 
 is the total number of units.
 Shallow networks have depth $$1$$ and their size is the number $$N$$ in the expansion above,
 while deep networks usually have depth $$\gg 1$$.
@@ -68,7 +68,7 @@ My theorem shows that functions in the so-called Korobov spaces $$X^{2,p}(\Omega
 $$\mathcal{O}(\vert\log_2\epsilon\vert\log_2d)$$ and size
 
 $$
-N=\mathcal{O}(\epsilon^{-\frac{1}{2}}\vert\log_2\epsilon\vert^{\frac{3}{2}(d-1)+1}\log_2d).
+N=\mathcal{O}(\epsilon^{-\frac{1}{2}}\vert\log_2\epsilon\vert^{\frac{3}{2}(d-1)+1}(d-1)).
 $$
 
 The curse of dimensionality is not totally overcome but is lessened since 

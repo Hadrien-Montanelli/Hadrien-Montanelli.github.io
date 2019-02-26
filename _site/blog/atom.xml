@@ -4,7 +4,7 @@
 	<title>Hadrien Montanelli's Blog</title>
 	<link href="http://Hadrien-Montanelli.github.io/blog/atom.xml" rel="self"/>
 	<link href="http://Hadrien-Montanelli.github.io/blog"/>
-	<updated>2019-01-14T18:39:06-05:00</updated>
+	<updated>2019-02-26T12:31:15-05:00</updated>
 	<id>http://Hadrien-Montanelli.github.io/blog</id>
 	<author>
 		<name>Hadrien Montanelli</name>
@@ -385,14 +385,14 @@ A few months down the road I have proven a &lt;a href=&quot;http://arxiv.org/pdf
 &lt;a href=&quot;https://en.wikipedia.org/wiki/Speech_recognition&quot;&gt;speech recognition&lt;/a&gt;, 
 and &lt;a href=&quot;http://en.wikipedia.org/wiki/Natural_language_processing&quot;&gt;natural language processing&lt;/a&gt;.
 It is based on approximations by &lt;i&gt;&lt;b&gt;deep networks&lt;/b&gt;&lt;/i&gt;, as opposed to &lt;i&gt;&lt;b&gt;shallow networks&lt;/b&gt;&lt;/i&gt;.
-The latter are neural networks with a single &lt;i&gt;&lt;b&gt;layer&lt;/b&gt;&lt;/i&gt; and correspond to approximations &lt;script type=&quot;math/tex&quot;&gt;f_N&lt;/script&gt; of multivariate functions &lt;script type=&quot;math/tex&quot;&gt;f:\mathbb{R}^d\rightarrow\mathbb{R}&lt;/script&gt; of the form&lt;/p&gt;
+The latter are neural networks with a single &lt;i&gt;&lt;b&gt;hidden layer&lt;/b&gt;&lt;/i&gt; and correspond to approximations &lt;script type=&quot;math/tex&quot;&gt;f_N&lt;/script&gt; of multivariate functions &lt;script type=&quot;math/tex&quot;&gt;f:\mathbb{R}^d\rightarrow\mathbb{R}&lt;/script&gt; of the form&lt;/p&gt;
 
 &lt;script type=&quot;math/tex; mode=display&quot;&gt;f_N(\boldsymbol{x}) = \sum_{i=1}^N \alpha_i \sigma(\boldsymbol{w}_i^T\boldsymbol{x} + \theta_i), \quad \alpha_i,\,\theta_i\in\mathbb{R},\, \boldsymbol{x},\boldsymbol{w}_i\in\mathbb{R}^d,&lt;/script&gt;
 
 &lt;p&gt;for some &lt;i&gt;&lt;b&gt;activation function&lt;/b&gt;&lt;/i&gt; &lt;script type=&quot;math/tex&quot;&gt;\sigma:\mathbb{R}\rightarrow\mathbb{R}&lt;/script&gt;.
-The former are neural networks with one or more layers, where each unit of each layer 
+The former are neural networks with one or more hidden layers, where each unit of each layer 
 performs an operation of the form &lt;script type=&quot;math/tex&quot;&gt;\sigma(\boldsymbol{w}\cdot\boldsymbol{x} + \theta)&lt;/script&gt;.
-The &lt;i&gt;&lt;b&gt;depth&lt;/b&gt;&lt;/i&gt; of a network is the number of layers, and the &lt;i&gt;&lt;b&gt;size&lt;/b&gt;&lt;/i&gt; 
+The &lt;i&gt;&lt;b&gt;depth&lt;/b&gt;&lt;/i&gt; of a network is the number of hidden layers, and the &lt;i&gt;&lt;b&gt;size&lt;/b&gt;&lt;/i&gt; 
 is the total number of units.
 Shallow networks have depth &lt;script type=&quot;math/tex&quot;&gt;1&lt;/script&gt; and their size is the number &lt;script type=&quot;math/tex&quot;&gt;N&lt;/script&gt; in the expansion above,
 while deep networks usually have depth &lt;script type=&quot;math/tex&quot;&gt;\gg 1&lt;/script&gt;.
@@ -427,7 +427,7 @@ However, &lt;script type=&quot;math/tex&quot;&gt;N&lt;/script&gt; grows &lt;i&gt
 My theorem shows that functions in the so-called Korobov spaces &lt;script type=&quot;math/tex&quot;&gt;X^{2,p}(\Omega)&lt;/script&gt; of mixed derivatives of order &lt;script type=&quot;math/tex&quot;&gt;2&lt;/script&gt; can be represented to accuracy &lt;script type=&quot;math/tex&quot;&gt;\epsilon&lt;/script&gt; by deep networks of depth 
 &lt;script type=&quot;math/tex&quot;&gt;\mathcal{O}(\vert\log_2\epsilon\vert\log_2d)&lt;/script&gt; and size&lt;/p&gt;
 
-&lt;script type=&quot;math/tex; mode=display&quot;&gt;N=\mathcal{O}(\epsilon^{-\frac{1}{2}}\vert\log_2\epsilon\vert^{\frac{3}{2}(d-1)+1}\log_2d).&lt;/script&gt;
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;N=\mathcal{O}(\epsilon^{-\frac{1}{2}}\vert\log_2\epsilon\vert^{\frac{3}{2}(d-1)+1}(d-1)).&lt;/script&gt;
 
 &lt;p&gt;The curse of dimensionality is not totally overcome but is lessened since 
 &lt;script type=&quot;math/tex&quot;&gt;d&lt;/script&gt; only affects logarithmic factors &lt;script type=&quot;math/tex&quot;&gt;\vert\log_2\epsilon\vert&lt;/script&gt;.&lt;/p&gt;
