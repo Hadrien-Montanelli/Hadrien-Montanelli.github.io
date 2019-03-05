@@ -4,7 +4,7 @@
 	<title>Hadrien Montanelli's Blog</title>
 	<link href="http://Hadrien-Montanelli.github.io/blog/atom.xml" rel="self"/>
 	<link href="http://Hadrien-Montanelli.github.io/blog"/>
-	<updated>2019-03-04T21:26:48-05:00</updated>
+	<updated>2019-03-04T21:28:55-05:00</updated>
 	<id>http://Hadrien-Montanelli.github.io/blog</id>
 	<author>
 		<name>Hadrien Montanelli</name>
@@ -17,7 +17,7 @@
 			<link href="http://Hadrien-Montanelli.github.io/blog/2019/03/02/deep-networks-2"/>
 			<updated>2019-03-02T00:00:00-05:00</updated>
 			<id>http://Hadrien-Montanelli.github.io/blog/2019/03/02/deep-networks-2</id>
-			<content type="html">&lt;p&gt;In a recent &lt;a href=&quot;http://arxiv.org/pdf/1903.00735.pdf&quot;&gt;recent paper&lt;/a&gt; I considered the &lt;a href=&quot;http://en.wikipedia.org/wiki/Deep_learning&quot;&gt;deep&lt;/a&gt; &lt;a href=&quot;http://en.wikipedia.org/wiki/Rectifier_(neural_networks)&quot;&gt;ReLU&lt;/a&gt; network approximation of &lt;a href=&quot;http://en.wikipedia.org/wiki/Bandlimiting&quot;&gt;bandlimited&lt;/a&gt; functions &lt;script type=&quot;math/tex&quot;&gt;f:[0,1]^d\rightarrow\mathbb{R}&lt;/script&gt; of the form&lt;/p&gt;
+			<content type="html">&lt;p&gt;In a recent &lt;a href=&quot;http://arxiv.org/pdf/1903.00735.pdf&quot;&gt;paper&lt;/a&gt; I considered the &lt;a href=&quot;http://en.wikipedia.org/wiki/Deep_learning&quot;&gt;deep&lt;/a&gt; &lt;a href=&quot;http://en.wikipedia.org/wiki/Rectifier_(neural_networks)&quot;&gt;ReLU&lt;/a&gt; network approximation of &lt;a href=&quot;http://en.wikipedia.org/wiki/Bandlimiting&quot;&gt;bandlimited&lt;/a&gt; functions &lt;script type=&quot;math/tex&quot;&gt;f:[0,1]^d\rightarrow\mathbb{R}&lt;/script&gt; of the form&lt;/p&gt;
 
 &lt;script type=&quot;math/tex; mode=display&quot;&gt;f(\boldsymbol{x}) = \int_{\mathbb{R}^d}F(\boldsymbol{w})K(\boldsymbol{w}\cdot\boldsymbol{x})d\boldsymbol{w}, 
 \quad\mathrm{supp}\,F(\boldsymbol{\omega})\subset [-M,M]^d, \quad M\geq1,&lt;/script&gt;
