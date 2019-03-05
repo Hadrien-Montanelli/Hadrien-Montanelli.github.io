@@ -4,15 +4,16 @@ title: "Deep networks and bandlimited functions"
 date: 2019-03-02
 ---
 
-In a recent <a href="http://arxiv.org/pdf/1903.00735.pdf">paper</a> I considered the <a href='http://en.wikipedia.org/wiki/Deep_learning'>deep</a> <a href='http://en.wikipedia.org/wiki/Rectifier_(neural_networks)'>ReLU</a> network approximation of <a href='http://en.wikipedia.org/wiki/Bandlimiting'>bandlimited</a> functions $$f:[0,1]^d\rightarrow\mathbb{R}$$ of the form
+In a recent <a href="http://arxiv.org/pdf/1903.00735.pdf">paper</a> I considered the <a href='http://en.wikipedia.org/wiki/Deep_learning'>deep</a> <a href='http://en.wikipedia.org/wiki/Rectifier_(neural_networks)'>ReLU</a> network approximation of <a href='http://en.wikipedia.org/wiki/Bandlimiting'>bandlimited</a> functions $$f:B=[0,1]^d\rightarrow\mathbb{R}$$ of the form
 
 $$
-f(\boldsymbol{x}) = \int_{\mathbb{R}^d}F(\boldsymbol{w})K(\boldsymbol{w}\cdot\boldsymbol{x})d\boldsymbol{w}, 
-\quad\mathrm{supp}\,F(\boldsymbol{\omega})\subset [-M,M]^d, \quad M\geq1,
+f(\boldsymbol{x}) = \int_{\mathbb{R}^d}F(\boldsymbol{w})K(\boldsymbol{w}\cdot\boldsymbol{x})d\boldsymbol{w}, \\
+\quad\mathrm{supp}\,F(\boldsymbol{\omega})\subset [-M,M]^d, 
+\quad\int_{[-M,M]^d}\vert F(\boldsymbol{\omega})\vert d\boldsymbol{\omega}=C_F<\infty,
 $$
 
 for some <a href='http://en.wikipedia.org/wiki/Locally_integrable_function'>integrable</a> function $$F:[-M,M]^d\rightarrow\mathbb{C}$$ and <a href='http://en.wikipedia.org/wiki/Analytic_function'>analytic</a> kernel $$K:\mathbb{R}\rightarrow\mathbb{C}$$.
-I showed that, for any <a href='http://en.wikipedia.org/wiki/Measure_(mathematics)'>measure</a> $$\mu$$, such functions can be approximated to accuracy $$\epsilon$$ in the $$L^2(B,\mu)$$-norm by deep ReLU networks of depth $$L=\mathcal{O}\left(\log_2^2\frac{1}{\epsilon}\right)$$ and size $$W=\mathcal{O}\left(\frac{1}{\epsilon^2}\log_2^2\frac{1}{\epsilon}\right)$$, up to some constants that depend on $$F$$, $$K$$ and $$\mu$$.
+I showed that, for any <a href='http://en.wikipedia.org/wiki/Measure_(mathematics)'>measure</a> $$\mu$$, such functions can be approximated to accuracy $$\epsilon$$ in the $$L^2(B,\mu)$$-norm by deep ReLU networks of depth $$L=\mathcal{O}\left(\log_2^2\frac{1}{\epsilon}\right)$$ and size $$W=\mathcal{O}\left(\frac{1}{\epsilon^2}\log_2^2\frac{1}{\epsilon}\right)$$, up to some constants that depend on $$F$$, $$K$$, $$\mu$$ and $$B$$.
 
 My theorem is based on a result by Maurey, and on the ability of deep ReLU networks to approximate <a href='https://en.wikipedia.org/wiki/Chebyshev_polynomials'>Chebyshev polynomials</a> and <a href='http://en.wikipedia.org/wiki/Analytic_function'>analytic</a> functions efficiently.
 

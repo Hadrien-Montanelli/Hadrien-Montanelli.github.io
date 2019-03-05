@@ -4,7 +4,7 @@
 	<title>Hadrien Montanelli's Blog</title>
 	<link href="http://Hadrien-Montanelli.github.io/blog/atom.xml" rel="self"/>
 	<link href="http://Hadrien-Montanelli.github.io/blog"/>
-	<updated>2019-03-04T21:30:24-05:00</updated>
+	<updated>2019-03-05T10:38:51-05:00</updated>
 	<id>http://Hadrien-Montanelli.github.io/blog</id>
 	<author>
 		<name>Hadrien Montanelli</name>
@@ -17,13 +17,15 @@
 			<link href="http://Hadrien-Montanelli.github.io/blog/2019/03/02/deep-networks-2"/>
 			<updated>2019-03-02T00:00:00-05:00</updated>
 			<id>http://Hadrien-Montanelli.github.io/blog/2019/03/02/deep-networks-2</id>
-			<content type="html">&lt;p&gt;In a recent &lt;a href=&quot;http://arxiv.org/pdf/1903.00735.pdf&quot;&gt;paper&lt;/a&gt; I considered the &lt;a href=&quot;http://en.wikipedia.org/wiki/Deep_learning&quot;&gt;deep&lt;/a&gt; &lt;a href=&quot;http://en.wikipedia.org/wiki/Rectifier_(neural_networks)&quot;&gt;ReLU&lt;/a&gt; network approximation of &lt;a href=&quot;http://en.wikipedia.org/wiki/Bandlimiting&quot;&gt;bandlimited&lt;/a&gt; functions &lt;script type=&quot;math/tex&quot;&gt;f:[0,1]^d\rightarrow\mathbb{R}&lt;/script&gt; of the form&lt;/p&gt;
+			<content type="html">&lt;p&gt;In a recent &lt;a href=&quot;http://arxiv.org/pdf/1903.00735.pdf&quot;&gt;paper&lt;/a&gt; I considered the &lt;a href=&quot;http://en.wikipedia.org/wiki/Deep_learning&quot;&gt;deep&lt;/a&gt; &lt;a href=&quot;http://en.wikipedia.org/wiki/Rectifier_(neural_networks)&quot;&gt;ReLU&lt;/a&gt; network approximation of &lt;a href=&quot;http://en.wikipedia.org/wiki/Bandlimiting&quot;&gt;bandlimited&lt;/a&gt; functions &lt;script type=&quot;math/tex&quot;&gt;f:B=[0,1]^d\rightarrow\mathbb{R}&lt;/script&gt; of the form&lt;/p&gt;
 
-&lt;script type=&quot;math/tex; mode=display&quot;&gt;f(\boldsymbol{x}) = \int_{\mathbb{R}^d}F(\boldsymbol{w})K(\boldsymbol{w}\cdot\boldsymbol{x})d\boldsymbol{w}, 
-\quad\mathrm{supp}\,F(\boldsymbol{\omega})\subset [-M,M]^d, \quad M\geq1,&lt;/script&gt;
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;% &lt;![CDATA[
+f(\boldsymbol{x}) = \int_{\mathbb{R}^d}F(\boldsymbol{w})K(\boldsymbol{w}\cdot\boldsymbol{x})d\boldsymbol{w}, \\
+\quad\mathrm{supp}\,F(\boldsymbol{\omega})\subset [-M,M]^d, 
+\quad\int_{[-M,M]^d}\vert F(\boldsymbol{\omega})\vert d\boldsymbol{\omega}=C_F&lt;\infty, %]]&gt;&lt;/script&gt;
 
 &lt;p&gt;for some &lt;a href=&quot;http://en.wikipedia.org/wiki/Locally_integrable_function&quot;&gt;integrable&lt;/a&gt; function &lt;script type=&quot;math/tex&quot;&gt;F:[-M,M]^d\rightarrow\mathbb{C}&lt;/script&gt; and &lt;a href=&quot;http://en.wikipedia.org/wiki/Analytic_function&quot;&gt;analytic&lt;/a&gt; kernel &lt;script type=&quot;math/tex&quot;&gt;K:\mathbb{R}\rightarrow\mathbb{C}&lt;/script&gt;.
-I showed that, for any &lt;a href=&quot;http://en.wikipedia.org/wiki/Measure_(mathematics)&quot;&gt;measure&lt;/a&gt; &lt;script type=&quot;math/tex&quot;&gt;\mu&lt;/script&gt;, such functions can be approximated to accuracy &lt;script type=&quot;math/tex&quot;&gt;\epsilon&lt;/script&gt; in the &lt;script type=&quot;math/tex&quot;&gt;L^2(B,\mu)&lt;/script&gt;-norm by deep ReLU networks of depth &lt;script type=&quot;math/tex&quot;&gt;L=\mathcal{O}\left(\log_2^2\frac{1}{\epsilon}\right)&lt;/script&gt; and size &lt;script type=&quot;math/tex&quot;&gt;W=\mathcal{O}\left(\frac{1}{\epsilon^2}\log_2^2\frac{1}{\epsilon}\right)&lt;/script&gt;, up to some constants that depend on &lt;script type=&quot;math/tex&quot;&gt;F&lt;/script&gt;, &lt;script type=&quot;math/tex&quot;&gt;K&lt;/script&gt; and &lt;script type=&quot;math/tex&quot;&gt;\mu&lt;/script&gt;.&lt;/p&gt;
+I showed that, for any &lt;a href=&quot;http://en.wikipedia.org/wiki/Measure_(mathematics)&quot;&gt;measure&lt;/a&gt; &lt;script type=&quot;math/tex&quot;&gt;\mu&lt;/script&gt;, such functions can be approximated to accuracy &lt;script type=&quot;math/tex&quot;&gt;\epsilon&lt;/script&gt; in the &lt;script type=&quot;math/tex&quot;&gt;L^2(B,\mu)&lt;/script&gt;-norm by deep ReLU networks of depth &lt;script type=&quot;math/tex&quot;&gt;L=\mathcal{O}\left(\log_2^2\frac{1}{\epsilon}\right)&lt;/script&gt; and size &lt;script type=&quot;math/tex&quot;&gt;W=\mathcal{O}\left(\frac{1}{\epsilon^2}\log_2^2\frac{1}{\epsilon}\right)&lt;/script&gt;, up to some constants that depend on &lt;script type=&quot;math/tex&quot;&gt;F&lt;/script&gt;, &lt;script type=&quot;math/tex&quot;&gt;K&lt;/script&gt;, &lt;script type=&quot;math/tex&quot;&gt;\mu&lt;/script&gt; and &lt;script type=&quot;math/tex&quot;&gt;B&lt;/script&gt;.&lt;/p&gt;
 
 &lt;p&gt;My theorem is based on a result by Maurey, and on the ability of deep ReLU networks to approximate &lt;a href=&quot;https://en.wikipedia.org/wiki/Chebyshev_polynomials&quot;&gt;Chebyshev polynomials&lt;/a&gt; and &lt;a href=&quot;http://en.wikipedia.org/wiki/Analytic_function&quot;&gt;analytic&lt;/a&gt; functions efficiently.&lt;/p&gt;
 
