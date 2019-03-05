@@ -4,7 +4,7 @@
 	<title>Hadrien Montanelli's Blog</title>
 	<link href="http://Hadrien-Montanelli.github.io/blog/atom.xml" rel="self"/>
 	<link href="http://Hadrien-Montanelli.github.io/blog"/>
-	<updated>2019-03-02T15:40:05-05:00</updated>
+	<updated>2019-03-04T21:26:48-05:00</updated>
 	<id>http://Hadrien-Montanelli.github.io/blog</id>
 	<author>
 		<name>Hadrien Montanelli</name>
@@ -17,15 +17,15 @@
 			<link href="http://Hadrien-Montanelli.github.io/blog/2019/03/02/deep-networks-2"/>
 			<updated>2019-03-02T00:00:00-05:00</updated>
 			<id>http://Hadrien-Montanelli.github.io/blog/2019/03/02/deep-networks-2</id>
-			<content type="html">&lt;p&gt;In a recent paper we considered the &lt;a href=&quot;http://en.wikipedia.org/wiki/Deep_learning&quot;&gt;deep&lt;/a&gt; &lt;a href=&quot;http://en.wikipedia.org/wiki/Rectifier_(neural_networks)&quot;&gt;ReLU&lt;/a&gt; network approximation of &lt;a href=&quot;http://en.wikipedia.org/wiki/Bandlimiting&quot;&gt;bandlimited&lt;/a&gt; functions &lt;script type=&quot;math/tex&quot;&gt;f:[0,1]^d\rightarrow\mathbb{R}&lt;/script&gt; of the form&lt;/p&gt;
+			<content type="html">&lt;p&gt;In a recent &lt;a href=&quot;http://arxiv.org/pdf/1903.00735.pdf&quot;&gt;recent paper&lt;/a&gt; I considered the &lt;a href=&quot;http://en.wikipedia.org/wiki/Deep_learning&quot;&gt;deep&lt;/a&gt; &lt;a href=&quot;http://en.wikipedia.org/wiki/Rectifier_(neural_networks)&quot;&gt;ReLU&lt;/a&gt; network approximation of &lt;a href=&quot;http://en.wikipedia.org/wiki/Bandlimiting&quot;&gt;bandlimited&lt;/a&gt; functions &lt;script type=&quot;math/tex&quot;&gt;f:[0,1]^d\rightarrow\mathbb{R}&lt;/script&gt; of the form&lt;/p&gt;
 
 &lt;script type=&quot;math/tex; mode=display&quot;&gt;f(\boldsymbol{x}) = \int_{\mathbb{R}^d}F(\boldsymbol{w})K(\boldsymbol{w}\cdot\boldsymbol{x})d\boldsymbol{w}, 
 \quad\mathrm{supp}\,F(\boldsymbol{\omega})\subset [-M,M]^d, \quad M\geq1,&lt;/script&gt;
 
 &lt;p&gt;for some &lt;a href=&quot;http://en.wikipedia.org/wiki/Locally_integrable_function&quot;&gt;integrable&lt;/a&gt; function &lt;script type=&quot;math/tex&quot;&gt;F:[-M,M]^d\rightarrow\mathbb{C}&lt;/script&gt; and &lt;a href=&quot;http://en.wikipedia.org/wiki/Analytic_function&quot;&gt;analytic&lt;/a&gt; kernel &lt;script type=&quot;math/tex&quot;&gt;K:\mathbb{R}\rightarrow\mathbb{C}&lt;/script&gt;.
-We showed that, for any &lt;a href=&quot;http://en.wikipedia.org/wiki/Measure_(mathematics)&quot;&gt;measure&lt;/a&gt; &lt;script type=&quot;math/tex&quot;&gt;\mu&lt;/script&gt;, such functions can be approximated to accuracy &lt;script type=&quot;math/tex&quot;&gt;\epsilon&lt;/script&gt; in the &lt;script type=&quot;math/tex&quot;&gt;L^2(B,\mu)&lt;/script&gt;-norm by deep ReLU networks of depth &lt;script type=&quot;math/tex&quot;&gt;L=\mathcal{O}\left(\log_2^2\frac{1}{\epsilon}\right)&lt;/script&gt; and size &lt;script type=&quot;math/tex&quot;&gt;W=\mathcal{O}\left(\frac{1}{\epsilon^2}\log_2^2\frac{1}{\epsilon}\right)&lt;/script&gt;, up to some constants that depend on &lt;script type=&quot;math/tex&quot;&gt;F&lt;/script&gt;, &lt;script type=&quot;math/tex&quot;&gt;K&lt;/script&gt; and &lt;script type=&quot;math/tex&quot;&gt;\mu&lt;/script&gt;.&lt;/p&gt;
+I showed that, for any &lt;a href=&quot;http://en.wikipedia.org/wiki/Measure_(mathematics)&quot;&gt;measure&lt;/a&gt; &lt;script type=&quot;math/tex&quot;&gt;\mu&lt;/script&gt;, such functions can be approximated to accuracy &lt;script type=&quot;math/tex&quot;&gt;\epsilon&lt;/script&gt; in the &lt;script type=&quot;math/tex&quot;&gt;L^2(B,\mu)&lt;/script&gt;-norm by deep ReLU networks of depth &lt;script type=&quot;math/tex&quot;&gt;L=\mathcal{O}\left(\log_2^2\frac{1}{\epsilon}\right)&lt;/script&gt; and size &lt;script type=&quot;math/tex&quot;&gt;W=\mathcal{O}\left(\frac{1}{\epsilon^2}\log_2^2\frac{1}{\epsilon}\right)&lt;/script&gt;, up to some constants that depend on &lt;script type=&quot;math/tex&quot;&gt;F&lt;/script&gt;, &lt;script type=&quot;math/tex&quot;&gt;K&lt;/script&gt; and &lt;script type=&quot;math/tex&quot;&gt;\mu&lt;/script&gt;.&lt;/p&gt;
 
-&lt;p&gt;Our theorem is based on a result by Maurey and on the ability of deep ReLU networks to approximate &lt;a href=&quot;https://en.wikipedia.org/wiki/Chebyshev_polynomials&quot;&gt;Chebyshev polynomials&lt;/a&gt; and &lt;a href=&quot;http://en.wikipedia.org/wiki/Analytic_function&quot;&gt;analytic&lt;/a&gt; functions efficiently.&lt;/p&gt;
+&lt;p&gt;My theorem is based on a result by Maurey and on the ability of deep ReLU networks to approximate &lt;a href=&quot;https://en.wikipedia.org/wiki/Chebyshev_polynomials&quot;&gt;Chebyshev polynomials&lt;/a&gt; and &lt;a href=&quot;http://en.wikipedia.org/wiki/Analytic_function&quot;&gt;analytic&lt;/a&gt; functions efficiently.&lt;/p&gt;
 
 &lt;h2&gt;Maurey's theorem&lt;/h2&gt;
 
@@ -37,7 +37,7 @@ Maurey’s theorem is an extension of Carathéodory’s result to the infinite-d
 Suppose there exists &lt;script type=&quot;math/tex&quot;&gt;G\subset H&lt;/script&gt; such that for every &lt;script type=&quot;math/tex&quot;&gt;g\in G&lt;/script&gt;, &lt;script type=&quot;math/tex&quot;&gt;\Vert g\Vert\leq b&lt;/script&gt; for some &lt;script type=&quot;math/tex&quot;&gt;b&gt;0&lt;/script&gt;. 
 Then for every &lt;script type=&quot;math/tex&quot;&gt;f&lt;/script&gt; in the convex hull of &lt;script type=&quot;math/tex&quot;&gt;G&lt;/script&gt; and every integer &lt;script type=&quot;math/tex&quot;&gt;n\geq 1&lt;/script&gt;, there is a &lt;script type=&quot;math/tex&quot;&gt;f_n&lt;/script&gt; in the convex hull of &lt;script type=&quot;math/tex&quot;&gt;n&lt;/script&gt; points in &lt;script type=&quot;math/tex&quot;&gt;G&lt;/script&gt; and a constant &lt;script type=&quot;math/tex&quot;&gt;c&gt;b^2-\Vert f\Vert^2&lt;/script&gt; such that &lt;script type=&quot;math/tex&quot;&gt;\Vert f - f_n\Vert^2\leq \frac{c}{n}&lt;/script&gt;.&lt;/i&gt;&lt;/p&gt;
 
-&lt;p&gt;In practice we used Maurey’s theorem to show that there exists&lt;/p&gt;
+&lt;p&gt;In practice I used Maurey’s theorem to show that there exists&lt;/p&gt;
 
 &lt;script type=&quot;math/tex; mode=display&quot;&gt;f_{\epsilon}(\boldsymbol{x}) 
 = \sum_{j=1}^{\lceil 1/\epsilon^2\rceil}b_jK(\boldsymbol{w}_j\cdot \boldsymbol{x}),\quad\sum_{j=1}^{\lceil 1/\epsilon^2\rceil}\vert b_j\vert \leq C_F,&lt;/script&gt;
@@ -47,7 +47,7 @@ Then for every &lt;script type=&quot;math/tex&quot;&gt;f&lt;/script&gt; in the c
 &lt;script type=&quot;math/tex; mode=display&quot;&gt;\Vert f_{\epsilon}(\boldsymbol{x}) - f(\boldsymbol{x})\Vert_{L^2(\mu, B)}
 \leq C_F\sqrt{\mu(B)}\epsilon.&lt;/script&gt;
 
-&lt;p&gt;In other words, the function &lt;script type=&quot;math/tex&quot;&gt;f&lt;/script&gt; is approximated by a linear combincations of analytic functions &lt;script type=&quot;math/tex&quot;&gt;K(\boldsymbol{w}_j\cdot \boldsymbol{x})&lt;/script&gt; to accuracy &lt;script type=&quot;math/tex&quot;&gt;C_F\sqrt{\mu(B)}\epsilon&lt;/script&gt; in the &lt;script type=&quot;math/tex&quot;&gt;L^2(B,\mu)&lt;/script&gt;-norm. The task of approximating &lt;script type=&quot;math/tex&quot;&gt;f&lt;/script&gt; by deep ReLU networks has been reduced to approximating analytic functions by deep networks.&lt;/p&gt;
+&lt;p&gt;In other words, the function &lt;script type=&quot;math/tex&quot;&gt;f&lt;/script&gt; is approximated by a linear combination of analytic functions &lt;script type=&quot;math/tex&quot;&gt;K(\boldsymbol{w}_j\cdot \boldsymbol{x})&lt;/script&gt; to accuracy &lt;script type=&quot;math/tex&quot;&gt;C_F\sqrt{\mu(B)}\epsilon&lt;/script&gt; in the &lt;script type=&quot;math/tex&quot;&gt;L^2(B,\mu)&lt;/script&gt;-norm. The task of approximating &lt;script type=&quot;math/tex&quot;&gt;f&lt;/script&gt; by deep ReLU networks has been reduced to approximating analytic functions by deep networks.&lt;/p&gt;
 
 &lt;h2&gt;Chebyshev polynomials, analytic functions and deep ReLU networks&lt;/h2&gt;
 
@@ -55,8 +55,7 @@ Then for every &lt;script type=&quot;math/tex&quot;&gt;f&lt;/script&gt; in the c
 
 &lt;script type=&quot;math/tex; mode=display&quot;&gt;T_n(x) = 2xT_{n-1}(x) - T_{n-2}(x), \quad n\geq 2,&lt;/script&gt;
 
-&lt;p&gt;with &lt;script type=&quot;math/tex&quot;&gt;T_0=1&lt;/script&gt; and &lt;script type=&quot;math/tex&quot;&gt;T_1(x) = x&lt;/script&gt;. We have shown that deep ReLU networks can implement the recurrence relation efficiently,
-and since analytic functions can be approximated exponentially well by Chebyshev polynomials, deep ReLU networks can also approximate analytic functions efficiently.&lt;/p&gt;
+&lt;p&gt;with &lt;script type=&quot;math/tex&quot;&gt;T_0=1&lt;/script&gt; and &lt;script type=&quot;math/tex&quot;&gt;T_1(x) = x&lt;/script&gt;. I showed that deep ReLU networks can implement the recurrence relation efficiently. Since truncated Chebyshev series can approximate analytic functions exponentially well, so can deep networks.&lt;/p&gt;
 
 </content>
 		</entry>
