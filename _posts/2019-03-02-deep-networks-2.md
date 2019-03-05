@@ -14,7 +14,7 @@ $$
 for some <a href='http://en.wikipedia.org/wiki/Locally_integrable_function'>integrable</a> function $$F:[-M,M]^d\rightarrow\mathbb{C}$$ and <a href='http://en.wikipedia.org/wiki/Analytic_function'>analytic</a> kernel $$K:\mathbb{R}\rightarrow\mathbb{C}$$.
 I showed that, for any <a href='http://en.wikipedia.org/wiki/Measure_(mathematics)'>measure</a> $$\mu$$, such functions can be approximated to accuracy $$\epsilon$$ in the $$L^2(B,\mu)$$-norm by deep ReLU networks of depth $$L=\mathcal{O}\left(\log_2^2\frac{1}{\epsilon}\right)$$ and size $$W=\mathcal{O}\left(\frac{1}{\epsilon^2}\log_2^2\frac{1}{\epsilon}\right)$$, up to some constants that depend on $$F$$, $$K$$ and $$\mu$$.
 
-My theorem is based on a result by Maurey and on the ability of deep ReLU networks to approximate <a href='https://en.wikipedia.org/wiki/Chebyshev_polynomials'>Chebyshev polynomials</a> and <a href='http://en.wikipedia.org/wiki/Analytic_function'>analytic</a> functions efficiently.
+My theorem is based on a result by Maurey, and on the ability of deep ReLU networks to approximate <a href='https://en.wikipedia.org/wiki/Chebyshev_polynomials'>Chebyshev polynomials</a> and <a href='http://en.wikipedia.org/wiki/Analytic_function'>analytic</a> functions efficiently.
 
 <h2>Maurey's theorem</h2>
 
