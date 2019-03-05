@@ -8,8 +8,8 @@ In a recent <a href="http://arxiv.org/pdf/1903.00735.pdf">paper</a> I considered
 
 $$
 f(\boldsymbol{x}) = \int_{\mathbb{R}^d}F(\boldsymbol{w})K(\boldsymbol{w}\cdot\boldsymbol{x})d\boldsymbol{w}, \\
-\quad\mathrm{supp}\,F(\boldsymbol{\omega})\subset [-M,M]^d, 
-\quad\int_{[-M,M]^d}\vert F(\boldsymbol{\omega})\vert d\boldsymbol{\omega}=C_F<\infty,
+\quad\mathrm{supp}\,F\subset [-M,M]^d, 
+\quad\int_{[-M,M]^d}\vert F(\boldsymbol{w})\vert d\boldsymbol{w}=C_F<\infty,
 $$
 
 for some <a href='http://en.wikipedia.org/wiki/Locally_integrable_function'>integrable</a> function $$F:[-M,M]^d\rightarrow\mathbb{C}$$ and <a href='http://en.wikipedia.org/wiki/Analytic_function'>analytic</a> kernel $$K:\mathbb{R}\rightarrow\mathbb{C}$$.
