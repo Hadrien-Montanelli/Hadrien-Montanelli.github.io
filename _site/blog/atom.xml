@@ -4,13 +4,50 @@
 	<title>Hadrien Montanelli's Blog</title>
 	<link href="http://Hadrien-Montanelli.github.io/blog/atom.xml" rel="self"/>
 	<link href="http://Hadrien-Montanelli.github.io/blog"/>
-	<updated>2019-03-05T10:41:58-05:00</updated>
+	<updated>2019-06-27T16:07:16-04:00</updated>
 	<id>http://Hadrien-Montanelli.github.io/blog</id>
 	<author>
 		<name>Hadrien Montanelli</name>
 		<email>hadrien.montanelli@gmail.com</email>
 	</author>
 
+	
+		<entry>
+			<title>Deep networks and the Kolmogorov&ndash;Arnold superposition theorem</title>
+			<link href="http://Hadrien-Montanelli.github.io/blog/2019/06/26/deep-networks-3"/>
+			<updated>2019-06-26T00:00:00-04:00</updated>
+			<id>http://Hadrien-Montanelli.github.io/blog/2019/06/26/deep-networks-3</id>
+			<content type="html">&lt;p&gt;In my latest paper, I proved a theorem about the &lt;a href=&quot;http://en.wikipedia.org/wiki/Approximation_theory&quot;&gt;approximation&lt;/a&gt; of &lt;a href=&quot;https://en.wikipedia.org/wiki/Function_of_several_real_variables&quot;&gt;multivariate&lt;/a&gt; continuous functions by &lt;a href=&quot;http://en.wikipedia.org/wiki/Deep_learning&quot;&gt;deep ReLU networks&lt;/a&gt;, for which the &lt;a href=&quot;http://en.wikipedia.org/wiki/Curse_of_dimensionality&quot;&gt;curse of dimensionality&lt;/a&gt; is lessened. My theorem is based on the &lt;a href=&quot;http://en.wikipedia.org/wiki/Kolmogorov%E2%80%93Arnold_representation_theorem&quot;&gt;Kolmogorov–Arnold superposition theorem&lt;/a&gt;, and on the approximation of the inner and outer functions that appear in the superposition by very deep ReLU networks.&lt;/p&gt;
+
+&lt;h2&gt;Kolmogorov&amp;ndash;Arnold superposition theorem&lt;/h2&gt;
+
+&lt;p&gt;At the second &lt;a href=&quot;http://en.wikipedia.org/wiki/International_Congress_of_Mathematicians&quot;&gt;International Congress of Mathematicians&lt;/a&gt; in Paris 1900, &lt;a href=&quot;http://en.wikipedia.org/wiki/David_Hilbert&quot;&gt;Hilbert&lt;/a&gt; presented ten of his &lt;a href=&quot;http://en.wikipedia.org/wiki/Hilbert%27s_problems&quot;&gt;23 problems&lt;/a&gt;, including the &lt;a href=&quot;http://en.wikipedia.org/wiki/Hilbert%27s_thirteenth_problem&quot;&gt;13th problem&lt;/a&gt; about equations of degree seven. He considered the following equation,&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;x^7 + ax^3 + bx^2 + cx + 1 = 0,&lt;/script&gt;
+
+&lt;p&gt;and asked whether its solution &lt;script type=&quot;math/tex&quot;&gt;x(a,b,c)&lt;/script&gt;, seen as a function of the three parameters &lt;script type=&quot;math/tex&quot;&gt;a&lt;/script&gt;, &lt;script type=&quot;math/tex&quot;&gt;b&lt;/script&gt; and &lt;script type=&quot;math/tex&quot;&gt;c&lt;/script&gt;, can be written as the &lt;a href=&quot;http://en.wikipedia.org/wiki/Function_composition&quot;&gt;composition&lt;/a&gt; of functions of only two variables.&lt;/p&gt;
+
+&lt;p&gt;Hilbert’s 13th problem was solved by &lt;a href=&quot;http://en.wikipedia.org/wiki/Andrey_Kolmogorov&quot;&gt;Kolmogorov&lt;/a&gt; and his 19 years old student &lt;a href=&quot;http://en.wikipedia.org/wiki/Vladimir_Arnold&quot;&gt;Arnold&lt;/a&gt; in a series of papers in the 1950s. Kolmogorov first proved in 1956 that any continuous function of several variables can be expressed as the composition of functions of three variables. His student Arnold extended his theorem in 1957; three variables were reduced to two. Kolmogorov finally showed later that year that only functions of one variable were needed. The latter result is known as the Kolmogorov–Arnold superposition theorem, and states that any continuous functions &lt;script type=&quot;math/tex&quot;&gt;f:[0,1]^n\rightarrow\mathbb{R}&lt;/script&gt; can be decomposed as&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;f(x_1,\ldots,x_n) = \sum_{j=0}^{2n}\phi_j\left(\sum_{i=1}^n\psi_{i,j}(x_i)\right),&lt;/script&gt;
+
+&lt;p&gt;with &lt;script type=&quot;math/tex&quot;&gt;2n+1&lt;/script&gt; continuous &lt;i&gt;&lt;b&gt;outer&lt;/b&gt;&lt;/i&gt; functions &lt;script type=&quot;math/tex&quot;&gt;\phi_j:\mathbb{R}\rightarrow\mathbb{R}&lt;/script&gt; (dependent of &lt;script type=&quot;math/tex&quot;&gt;f&lt;/script&gt;) and &lt;script type=&quot;math/tex&quot;&gt;n(2n+1)&lt;/script&gt; continuous &lt;i&gt;&lt;b&gt;inner&lt;/b&gt;&lt;/i&gt; functions &lt;script type=&quot;math/tex&quot;&gt;\psi_{i,j}:[0,1]\rightarrow\mathbb{R}&lt;/script&gt; (independent of &lt;script type=&quot;math/tex&quot;&gt;f&lt;/script&gt;).&lt;/p&gt;
+
+&lt;p&gt;The Kolmogorov–Arnold superposition theorem was further improved in the 1960s and the 1970s. Lorentz showed in 1962 that the outer functions &lt;script type=&quot;math/tex&quot;&gt;\phi_j&lt;/script&gt; might be chosen to be the same function &lt;script type=&quot;math/tex&quot;&gt;\phi&lt;/script&gt;, and replaced the inner functions &lt;script type=&quot;math/tex&quot;&gt;\psi_{i,j}&lt;/script&gt; by &lt;script type=&quot;math/tex&quot;&gt;\lambda_i\psi_j&lt;/script&gt;, for some positive rationally independent constants &lt;script type=&quot;math/tex&quot;&gt;\lambda_i\leq 1&lt;/script&gt;, while Sprecher replaced the inner functions &lt;script type=&quot;math/tex&quot;&gt;\psi_{i,j}&lt;/script&gt; by &lt;a href=&quot;https://en.wikipedia.org/wiki/H%C3%B6lder_condition&quot;&gt;Hölder continuous&lt;/a&gt; functions &lt;script type=&quot;math/tex&quot;&gt;x_i\mapsto\lambda^{ij}\psi(x_i+j\epsilon)&lt;/script&gt; in 1965. Two years later, Fridman demonstrated that the inner functions could be chosen to be &lt;a href=&quot;https://en.wikipedia.org/wiki/Lipschitz_continuity&quot;&gt;Lipschitz continuous&lt;/a&gt;, but his decomposition uses &lt;script type=&quot;math/tex&quot;&gt;2n+1&lt;/script&gt; outer functions and &lt;script type=&quot;math/tex&quot;&gt;n(2n+1)&lt;/script&gt; inner functions. Finally, Sprecher provided in 1972 a decomposition with Lipschitz continuous functions &lt;script type=&quot;math/tex&quot;&gt;x_i\mapsto\lambda^{i-1}\psi(x_i+j\epsilon)&lt;/script&gt;.&lt;/p&gt;
+
+&lt;h2&gt;Approximation theory for deep ReLU networks&lt;/h2&gt;
+
+&lt;p&gt;One of the most important theoretical problems in deep network approximation theory is to determine why and when deep networks lessen or break the curse of dimensionality, characterized by the &lt;script type=&quot;math/tex&quot;&gt;\mathcal{O}(\epsilon^{-n})&lt;/script&gt; growth of the network size &lt;script type=&quot;math/tex&quot;&gt;W&lt;/script&gt; as the error &lt;script type=&quot;math/tex&quot;&gt;\epsilon\rightarrow0&lt;/script&gt;, in dimension &lt;script type=&quot;math/tex&quot;&gt;n&lt;/script&gt;.&lt;/p&gt;
+
+&lt;p&gt;In my paper, I use a variant of Sprecher’s 1965 version of the theorem, which reads&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;f(x_1,\ldots,x_n) = \sum_{j=0}^{2n}\phi_j\left(\sum_{i=1}^n\lambda_i\psi(x_i+ja)\right),&lt;/script&gt;
+
+&lt;p&gt;for some constants &lt;script type=&quot;math/tex&quot;&gt;\lambda_1=1&gt;\lambda_2&gt;\ldots&gt;\lambda_n&lt;/script&gt; and &lt;script type=&quot;math/tex&quot;&gt;a=[(2n+1)(2n+2)]^{-1}&lt;/script&gt;, and with Hölder continuous inner function &lt;script type=&quot;math/tex&quot;&gt;\psi&lt;/script&gt;.&lt;/p&gt;
+
+&lt;p&gt;I first show that the outer functions may be approximated by Lipschitz continuous functions. Then, I prove that the inner and outer functions can be approximated with error &lt;script type=&quot;math/tex&quot;&gt;\epsilon&lt;/script&gt; by deep networks of size &lt;script type=&quot;math/tex&quot;&gt;\mathcal{O}(\epsilon^{-\log n})&lt;/script&gt; and &lt;script type=&quot;math/tex&quot;&gt;\mathcal{O}(\epsilon^{-1/2})&lt;/script&gt;, respectively. The resulting network that approximates &lt;script type=&quot;math/tex&quot;&gt;f&lt;/script&gt; has depth and size &lt;script type=&quot;math/tex&quot;&gt;\mathcal{O}(\epsilon^{-\log n})&lt;/script&gt;; the curse of dimensionality is lessened. However, the constants that appear in the esmiates may be considerably large, and the resulting network architecture is adaptive, since the network used in the proof depends on &lt;script type=&quot;math/tex&quot;&gt;f&lt;/script&gt; via the outer functions.&lt;/p&gt;
+</content>
+		</entry>
 	
 		<entry>
 			<title>Deep networks and bandlimited functions</title>
