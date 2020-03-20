@@ -4,7 +4,7 @@
 	<title>Hadrien Montanelli's Blog</title>
 	<link href="http://Hadrien-Montanelli.github.io/blog/atom.xml" rel="self"/>
 	<link href="http://Hadrien-Montanelli.github.io/blog"/>
-	<updated>2020-03-19T21:09:42-04:00</updated>
+	<updated>2020-03-19T21:17:25-04:00</updated>
 	<id>http://Hadrien-Montanelli.github.io/blog</id>
 	<author>
 		<name>Hadrien Montanelli</name>
@@ -80,7 +80,7 @@ Of course, it’d be possible to get a more realistic model by, &lt;i&gt;e.g.&lt
 	&lt;img src=&quot;/blog/free.png&quot; /&gt;
 &lt;/div&gt;
 
-&lt;p&gt;The following pictures show simulations ran with the same parameters as above but with 25 (top left), 50 (top right), 75 (bottom left) and 90 (bottom right) individuals adopting a strategy of social distancing. It shows how social distancing helps to flatten the curve, which is crucial to prevent overloading of the healthcare system. Spread the word, not the disease!&lt;/p&gt;
+&lt;p&gt;The following pictures show simulations ran with the same parameters as above but with 25 (top left), 50 (top right), 75 (bottom left) and 90 (bottom right) individuals adopting a strategy of social distancing. It shows how social distancing helps to flatten the curve, which is crucial in preventing the overload of the healthcare system. Spread the word, not the disease!&lt;/p&gt;
 
 &lt;div class=&quot;row&quot;&gt;
   &lt;div class=&quot;column&quot;&gt;
