@@ -1,69 +1,4 @@
-<!DOCTYPE html>
-	<html>
-		<head>
-			<title>Scientific Modelling and How to Flatten the Curve</title>
-			<!-- link to main stylesheet -->
-			<link rel="stylesheet" type="text/css" href="/css/main.css">
-			<!-- Global site tag (gtag.js) - Google Analytics -->
-			<script async src="https://www.googletagmanager.com/gtag/js?id=UA-108246943-1"></script>
-			<script>
-			  window.dataLayer = window.dataLayer || [];
-			  function gtag(){dataLayer.push(arguments);}
-			  gtag('js', new Date());
-			  gtag('config', 'UA-108246943-1');
-			</script>
-		</head>
-		<body>
-			<nav>
-	    		<ul>
-	    			
-
-					<li>
-						<a href="/" data-current="blog" >
-							Home
-						</a>
-					</li>
-					<li>
-						<a href="/about" >
-							About
-						</a>
-					</li>
-					<li>
-						<a href="/awards" >
-							Awards
-						</a>
-					</li>
-					<li>
-						<a href="/blog"  class="active" >
-							Blog
-						</a>
-					</li>
-					<li>
-						<a href="/publications" >		Publications
-						</a>
-					</li>
-					<li>
-						<a href="/talks" >
-							Talks
-						</a>
-					</li>
-					<li>
-						<a href="/teaching" >
-							Teaching
-						</a>
-					</li>
-	    		</ul>
-			</nav>
-			<div class="container">
-			
-			<div style="text-align: center;">
-  <h1>Scientific Modelling and How to Flatten the Curve</h1>
-  <p class="meta">19 Mar 2020</p>
-</div>
-
-
-<div class="post">
-  <h3><i><center>Edited by A. Rhee</center></i></h3>
+I"�!<h3><i><center>Edited by A. Rhee</center></i></h3>
 
 <h2>Scientific Modelling and the U.K. government's controversial plan of action</h2>
 
@@ -120,13 +55,15 @@ Of course, it’d be possible to get a more realistic model by, <i>e.g.</i>, div
   <li>there is initially one sick individual.</li>
 </ul>
 
-<p>I plot the below the number of cases versus time, illustrating the exponential growth of the spread of disease without social distancing.</p>
+<p>I plot the below the number of cases versus time, illustrating the exponential growth the spread of diseases.</p>
 
 <div style="text-align: center;">
 	<img src="/blog/free.png" />
 </div>
 
-<p>The following pictures show simulations ran with the same parameters as above but with 25 (top left), 50 (top right), 75 (bottom left) and 90 (bottom right) individuals adopting a strategy of social distancing. It shows how social distancing helps to flatten the curve, which is crucial to prevent overloading of the healthcare system. Spread the word, not the disease!</p>
+<h2>How to flatten the curve</h2>
+
+<p>The following pictures show simulations ran with the same parameters as above but with 25 (top left), 50 (top right), 75 (bottom left) and 90 (bottom right) indivuals adopt a strategy of social distancing. It shows how confinment helps to flatten the curve, which is crucial to not overload the healthcare system. Spread the word, not the disease!</p>
 
 <div class="row">
   <div class="column">
@@ -148,21 +85,4 @@ Of course, it’d be possible to get a more realistic model by, <i>e.g.</i>, div
 <h2> Python code</h2>
 
 <p>Finally, to be as transparent as possible—<a href="https://github.com/Hadrien-Montanelli/covid19">here</a> is the code.</p>
-
-</div>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" 
-    type="text/javascript">
-</script>
-
-			
-			</div><!-- /.container -->
-			<footer>
-	    		<ul>	
-	    			<li><a href="http://github.com/Hadrien-Montanelli">GitHub</a></li>
-					<li><a href="http://scholar.google.com/citations?user=Bjmkfe8AAAAJ&hl=en&oi=sra/">Google Scholar</a></li>
-					<li><a href="http://www.linkedin.com/in/hadrien-montanelli-137b7958/">LinkedIn</a></li>
-				</ul>
-			</footer>
-		</body>
-	</html>
+:ET

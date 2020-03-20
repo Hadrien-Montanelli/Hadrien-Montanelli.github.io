@@ -1,69 +1,4 @@
-<!DOCTYPE html>
-	<html>
-		<head>
-			<title>Scientific Modelling and How to Flatten the Curve</title>
-			<!-- link to main stylesheet -->
-			<link rel="stylesheet" type="text/css" href="/css/main.css">
-			<!-- Global site tag (gtag.js) - Google Analytics -->
-			<script async src="https://www.googletagmanager.com/gtag/js?id=UA-108246943-1"></script>
-			<script>
-			  window.dataLayer = window.dataLayer || [];
-			  function gtag(){dataLayer.push(arguments);}
-			  gtag('js', new Date());
-			  gtag('config', 'UA-108246943-1');
-			</script>
-		</head>
-		<body>
-			<nav>
-	    		<ul>
-	    			
-
-					<li>
-						<a href="/" data-current="blog" >
-							Home
-						</a>
-					</li>
-					<li>
-						<a href="/about" >
-							About
-						</a>
-					</li>
-					<li>
-						<a href="/awards" >
-							Awards
-						</a>
-					</li>
-					<li>
-						<a href="/blog"  class="active" >
-							Blog
-						</a>
-					</li>
-					<li>
-						<a href="/publications" >		Publications
-						</a>
-					</li>
-					<li>
-						<a href="/talks" >
-							Talks
-						</a>
-					</li>
-					<li>
-						<a href="/teaching" >
-							Teaching
-						</a>
-					</li>
-	    		</ul>
-			</nav>
-			<div class="container">
-			
-			<div style="text-align: center;">
-  <h1>Scientific Modelling and How to Flatten the Curve</h1>
-  <p class="meta">19 Mar 2020</p>
-</div>
-
-
-<div class="post">
-  <h3><i><center>Edited by A. Rhee</center></i></h3>
+I"� <h3><i><center>Edited by A. Rhee</center></i></h3>
 
 <h2>Scientific Modelling and the U.K. government's controversial plan of action</h2>
 
@@ -92,41 +27,42 @@ A politician or an individual blindly believing in science is dangerous, particu
 
 <h2>A simple model for the exponential spread of diseases</h2>
 
-<p>I present in this section a very simple model for the spread of a disease, and illustrate how social distancing helps to <i>flatten the curve</i>.
+<p>I present in this section a very simple model for the spread of a disease, and illustrate how confinment helps to <i>flatten the curve</i>.
 This was inspired by <a href="https://www.washingtonpost.com/graphics/2020/world/corona-simulator/">this excellent article</a> from the <a href="https://www.washingtonpost.com/">Washington Post</a>.</p>
 
 <p>Here are the assumptions of my toy model:</p>
 <ul>
-  <li>individuals are represented by points on a rectangular 2D domain;</li>
+  <li>indivuals are represented by points on a rectangular 2D domain;</li>
   <li>at regular time intervals, they move in a (normally distributed) random direction;</li>
   <li>healthy individuals become sick if they get close enough to sick individuals;</li>
   <li>once they're sick, they'll recover after some time;</li>
-  <li>once they've recovered, they cannot get sick again or carry the disease.</li>
+  <li>once they've recovered, they cannot get sick again or carry the disease;</li>
+  <li>there is initially a single sick indiviual.</li>
 </ul>
-<p>Following the Washington Post’s article, social distancing is modelled by some random individuals being frozen, <i>i.e.</i>, not moving around.</p>
 
 <p>These assumptions are indeed overly simplistic, but I guarantee you that even papers like Imperial College’s report use relatively simple models. 
-It’s impossible to realistically represent all the interactions between people in a city/country. 
-Of course, it’d be possible to get a more realistic model by, <i>e.g.</i>, diving the domain into subdomains with different densities of population or adding a probability of spreading/contracting the disease.</p>
+It’s impossible to model all the interactions between people in a city/country. 
+Of course, it’d be possible to get a more realistic model by <i>e.g.</i>, diving the domain into subdomains with different densities of population and adding a probability of spreading/contracting the disease.</p>
 
-<h2>Numerical experiments</h2>
-
-<p>For my first experiment I use the following parameters:</p>
+<p>For my experiments I use the following parameters:</p>
 <ul>
-  <li>100 individuals freely moving on a 10x10 2D domain;</li>
-  <li>healthy individuals will contract the disease if within a 0.5 radius from a sick individual;</li>
+  <li>100 indiviuals freely moving on a 10x10 2D domain;</li>
+  <li>indiviuals spread the disease in a disk of radius 0.5 centred at them;</li>
   <li>they move at speed 5 in a random direction every 0.1 unit of time;</li>
   <li>they recover after 5 units of time;</li>
-  <li>there is initially one sick individual.</li>
+  <li>there is initially a single sick indiviual.</li>
 </ul>
 
-<p>I plot the below the number of cases versus time, illustrating the exponential growth of the spread of disease without social distancing.</p>
+<p>Give two pictures of results.</p>
 
 <div style="text-align: center;">
 	<img src="/blog/free.png" />
 </div>
 
-<p>The following pictures show simulations ran with the same parameters as above but with 25 (top left), 50 (top right), 75 (bottom left) and 90 (bottom right) individuals adopting a strategy of social distancing. It shows how social distancing helps to flatten the curve, which is crucial to prevent overloading of the healthcare system. Spread the word, not the disease!</p>
+<h2>How to flatten the curve</h2>
+
+<p>Confinment is modelled by some indiviuals being frozen and not moving around. 
+The following pictures show simulations ran with the same parameters but with <script type="math/tex">25, 50, 75, 90</script> confined indivuals.</p>
 
 <div class="row">
   <div class="column">
@@ -147,22 +83,5 @@ Of course, it’d be possible to get a more realistic model by, <i>e.g.</i>, div
 
 <h2> Python code</h2>
 
-<p>Finally, to be as transparent as possible—<a href="https://github.com/Hadrien-Montanelli/covid19">here</a> is the code.</p>
-
-</div>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" 
-    type="text/javascript">
-</script>
-
-			
-			</div><!-- /.container -->
-			<footer>
-	    		<ul>	
-	    			<li><a href="http://github.com/Hadrien-Montanelli">GitHub</a></li>
-					<li><a href="http://scholar.google.com/citations?user=Bjmkfe8AAAAJ&hl=en&oi=sra/">Google Scholar</a></li>
-					<li><a href="http://www.linkedin.com/in/hadrien-montanelli-137b7958/">LinkedIn</a></li>
-				</ul>
-			</footer>
-		</body>
-	</html>
+<p>Finally, to be as transparent as possible—<a href="https://github.com/Hadrien-Montanelli/covid19">here</a> is the code. Spread the word, but not the disease!</p>
+:ET
