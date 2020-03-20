@@ -1,0 +1,72 @@
+I"�<h3><i><center>Edited by A. Rhee</center></i></h3>
+
+<h2>Scientific Modelling and the U.K. government's controversial plan of action</h2>
+
+<p>I’ve been paying careful attention to the various government policies implemented in response to the <a href="https://en.wikipedia.org/wiki/2019%E2%80%9320_coronavirus_pandemic">coronavirus pandemic</a>. Having many friends and colleagues in the U.K., I am particularly concerned with the <a href="https://www.gov.uk/government/publications/coronavirus-action-plan">British government’s plan of action</a>. 
+At first, the U.K.’s plan differed from other countries’ plans—the government imposing merely a few restrictions on the population, relying on so-called <a href="https://en.wikipedia.org/wiki/Herd_immunity">herd immunity</a>. For more information, see <a href="https://www.theatlantic.com/health/archive/2020/03/coronavirus-pandemic-herd-immunity-uk-boris-johnson/608065/">this article</a>. 
+(Luckily, the U.K. government has now recognized the situation’s alarming nature and <a href="https://www.washingtonpost.com/world/europe/a-chilling-scientific-paper-helped-upend-us-and-uk-coronavirus-strategies/2020/03/17/aaa84116-6851-11ea-b199-3a9799c54512_story.html">has changed its approach</a>, based on <a href="https://www.imperial.ac.uk/media/imperial-college/medicine/sph/ide/gida-fellowships/Imperial-College-COVID19-NPI-modelling-16-03-2020.pdf">this comprehensive report</a> from <a href="https://www.imperial.ac.uk/">Imperial College London</a>.)
+Following the presentation of the original plan based on herd immunity, I had a very heated argument with my friend who works for the U.K. government in London.
+Having studied English Literature in university, she does not have extensive scientific knowledge. Despite this, she strongly believed that her government ‘‘knew better’’ and that its decisions were ‘‘based on science.’’
+Well, as a mathematician and scientist, this <i>really</i> (<i>really</i>, <i>really</i>) puzzled me for three main reasons.</p>
+
+<p>First, the relevant science in this context (<i>e.g.</i>, applied mathematics and applied epidemiology) cannot model the spread of the disease in an exact, foolproof way. 
+Pure mathematics <i>is</i> an exact science, in the sense that everything can be either true or false.
+Here, what we have are <a href="https://en.wikipedia.org/wiki/Scientific_modelling">scientific models</a>, which utilize simple assumptions to try to represent reality. 
+Those models often use <a href="https://en.wikipedia.org/wiki/Statistics">data</a> combined with <a href="https://en.wikipedia.org/wiki/Computer_simulation">numerical simulations</a> to give us a snapshot of the future–<i>i.e.</i>, a prediction.
+This process of modelling introduces many sources of error, such as: modelling errors (<i>i.e.</i>, the model is a simplified version of the phenomenon we’re describing, thereby potentially omitting significant factors), <a href="https://en.wikipedia.org/wiki/Bias_(statistics)">sample selection bias</a> (<i>i.e.</i>, the data is not representative of the population), <a href="https://en.wikipedia.org/wiki/Numerical_error">numerical errors</a> (<i>i.e.</i>, the problem solved on the computer is de facto itself an approximation of the model), and <a href="https://en.wikipedia.org/wiki/Software_bug">software bugs</a>.
+My point is that modelling yields far from perfect results but still gives us <i>some</i> indication of what the future <i>may</i> be.</p>
+
+<p>Second, <a href="https://en.wikipedia.org/wiki/Research">research</a> in <a href="https://en.wikipedia.org/wiki/Academy">Academia</a> heavily relies on <a href="https://en.wikipedia.org/wiki/Peer_review">peer review</a>. 
+Once researchers believe they’ve come up with a new model and have obtained interesting results, they send their work to a <a href="https://en.wikipedia.org/wiki/Scientific_journal">scientific journal</a>.
+This is the crucial step—where experts chosen by the journal validate or invalidate the model, check the data and verify the algorithms, comment on the results, make suggestions, ask questions and ultimately decide whether the paper should or should not be published.
+The model and the numerical simulations that the U.K. government’s original plan relied on were <i>never</i> published, even though <a href="https://en.wikipedia.org/wiki/Chris_Whitty">Prof. Chris Witty</a> said that <a href="https://www.bbc.com/news/science-environment-51892402">they intended to publish</a>. More than 500 academics criticized the plan in <a href="http://maths.qmul.ac.uk/~vnicosia/UK_scientists_statement_on_coronavirus_measures.pdf">an open letter</a>.
+To bypass peer review for one’s model and simulations in this pressing time suggests complacency. And to withhold the paper itself from the public is arguably inconsiderate and irresponsible. 
+A politician or an individual blindly believing in science is dangerous, particularly if those beliefs have policy-making implications—as in the current context. In essence, science should not be a <a href="https://en.wikipedia.org/wiki/Dogma">dogma</a>.</p>
+
+<p>Third, when the lives of a considerable part of the population are at risk (the worst-case scenario predicted by Imperial College approximates 500,000 deaths in the U.K.), shouldn’t a government be especially cautious to protect its citizens? I would rather have a government that potentially overreacts in order to safeguard the health of its most vulnerable people.</p>
+
+<h2>A simple model for the exponential spread of diseases</h2>
+
+<p>I present in this section a very simple model for the spread of a disease, and illustrate how confinment helps to <i>flatten the curve</i>.
+This was inspired by <a href="https://www.washingtonpost.com/graphics/2020/world/corona-simulator/">this excellent article</a> from the <a href="https://www.washingtonpost.com/">Washington Post</a>.</p>
+
+<p>Here are the assumptions of my model:</p>
+<ul>
+  <li>indivuals are represented by points on a rectangular 2D domain;</li>
+  <li>at regular time interval, they move in a (normally distributed) random direction;</li>
+  <li>if a sick indiviual get close enough to an healthy individual, the latter becomes sick;</li>
+  <li>once they're sick, they'll recover after some time;</li>
+  <li>once they've recovered, they cannot get sick again or carry the disease;</li>
+  <li>there is initially a single sick indiviual.</li>
+</ul>
+
+<p>These assumptions are indeed overly simplistic, but let me tell you something, even papers like Imperial College’s report use simple models.</p>
+
+<p>For my experiments I use the following parameters:</p>
+<ul>
+  <li>100 indiviuals freely moving on a 10x10 2D domain;</li>
+  <li>indiviuals spread the disease in a disk of radius 0.5 centred at them;</li>
+  <li>they move at speed 5 in a random direction every 0.1 unit of time;</li>
+  <li>they recover after 5 units of time;</li>
+  <li>there is initially a single sick indiviual.</li>
+</ul>
+
+<p>Give two pictures of results.</p>
+
+<div style="text-align: center;">
+	<img src="/blog/free.png" />
+</div>
+
+<h2>How to flatten the curve</h2>
+
+<p>Confinment is modelled by some indiviuals being frozen and not moving around. 
+The following pictures show simulations ran with the same parameters but with <script type="math/tex">25, 50, 75, 90</script> confined indivuals.</p>
+
+<div style="text-align: center;">
+	<img src="/blog/free.png" />
+</div>
+
+<h2> Python code</h2>
+
+<p>Finally, to be as transparent as possible—here is the code. Spread the word, but not the disease!</p>
+:ET

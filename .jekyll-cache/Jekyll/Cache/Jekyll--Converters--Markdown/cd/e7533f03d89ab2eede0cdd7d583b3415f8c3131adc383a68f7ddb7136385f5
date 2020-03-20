@@ -1,0 +1,88 @@
+I"<div style="text-align: center;">
+	<img src="/blog/gibbs1.jpg" style="width:516px;height:412px;" />
+</div>
+
+<p>In this post I talk about a fascinating subject: the
+<a href="http://en.wikipedia.org/wiki/Convergence_of_Fourier_series#Uniform_convergence">convergence of 
+Fourier series</a> and the 
+<a href="http://en.wikipedia.org/wiki/Gibbs_phenomenon">Gibbs phenomenon</a>.</p>
+
+<p><a href="http://en.wikipedia.org/wiki/Periodic_function">Periodic</a> 
+<a href="http://en.wikipedia.org/wiki/Continuous_function">continuous</a>
+functions <script type="math/tex">f</script> 
+of <a href="http://en.wikipedia.org/wiki/Bounded_variation">bounded variation</a> 
+have a unique and 
+<a href="http://en.wikipedia.org/wiki/Uniform_convergence">uniformly convergent</a>
+<a href="http://en.wikipedia.org/wiki/Fourier_series">Fourier series</a>, 
+that is, the <i><b>partial sums</b></i></p>
+
+<script type="math/tex; mode=display">f_n(\theta) = \sum_{k=0}^{n}a_k\cos(k\theta) + \sum_{k=1}^{n}b_k\sin(k\theta),</script>
+
+<p>with <i><b>Fourier coefficients</b><i></i></i></p>
+
+<script type="math/tex; mode=display">a_k = \frac{1}{\pi}\int_0^{2\pi}f(\theta)\cos(k\theta)d\theta, \quad
+b_k = \frac{1}{\pi}\int_0^{2\pi} f(\theta) \sin(k\theta)d\theta,</script>
+
+<p>with <script type="math/tex">1/\pi</script> changed to <script type="math/tex">1/(2\pi)</script> for <script type="math/tex">a_0</script>, converge uniformly to <script type="math/tex">f</script>
+and we write</p>
+
+<script type="math/tex; mode=display">f(\theta) = \sum_{k=-\infty}^{\infty} c_ke^{ik\theta}.</script>
+
+<p>For functions <script type="math/tex">f</script> that are merely of bounded variation, the convergence is only 
+<a href="http://en.wikipedia.org/wiki/Pointwise_convergence">pointwise</a>:
+at every point <script type="math/tex">\theta</script>, the partial sums converge to <script type="math/tex">\frac{1}{2}[f(\theta^-) + f(\theta^+)]</script>; 
+in particular, these converge to <script type="math/tex">f(\theta)</script> at every point of continuity.
+What happens at points of 
+<a href="http://en.wikipedia.org/wiki/Classification_of_discontinuities">discontinuity</a>?</p>
+
+<p>A classical example is the square wave</p>
+
+<script type="math/tex; mode=display">f(\theta) = \frac{\pi}{4}\mathrm{sign}(\pi - \theta), \quad \theta\in[0,2\pi].</script>
+
+<p>This function is of bounded variation and discontinuous at <script type="math/tex">0</script>, <script type="math/tex">\pi</script> and 
+<script type="math/tex">2\pi</script>.
+Its Fourier coefficients can be computed analytically and are given by</p>
+
+<script type="math/tex; mode=display">a_k = 0, \quad b_{2k} = 0, \quad b_{2k+1} = \frac{1}{2k+1}.</script>
+
+<p>When we compute the partial sums for <script type="math/tex">n=16,32,64,128</script> we obtain the picture at the top.
+This is the so-called <i><b>Gibbs phenomenon</b></i>, which involves both the fact 
+that the partial sums <i><b>overshoot</b></i> at a discontinuity and
+that this overshoot does not disappear as more terms are added to the sums. 
+The overshoot at <script type="math/tex">0</script>, <script type="math/tex">\pi</script> and <script type="math/tex">2\pi</script> is known exactly and is given by</p>
+
+<script type="math/tex; mode=display">\frac{1}{2}\int_0^{\pi}\frac{\sin(\theta)}{\theta}d\theta - \frac{\pi}{4} = \frac{\pi}{2}\times(0.089489872236\ldots),</script>
+
+<p>or about <script type="math/tex">9\%</script> of the jump. 
+Note that, as <script type="math/tex">n</script> increases, the position of the overshoot moves closer 
+to the discontinuity. The Gibbs phenomenon is a very standard result that most 
+(applied) mathematicians know.</p>
+
+<p>What is perhaps less known is a simple cure using the <script type="math/tex">(C,1)</script>
+<a href="http://en.wikipedia.org/wiki/Ces%C3%A0ro_summation">Cesàro mean</a> of the
+partial sums, which is simply the
+<a href="http://en.wikipedia.org/wiki/Arithmetic_mean">arithmetic mean</a> 
+<script type="math/tex">\sigma_n(\theta)</script>,</p>
+
+<script type="math/tex; mode=display">\sigma_n(\theta) = \frac{1}{n+1}\sum_{k=0}^{n}f_k(\theta).</script>
+
+<p>For integrable functions <script type="math/tex">f</script>, one can show that <script type="math/tex">\sigma_n(\theta)</script> 
+converges to <script type="math/tex">\frac{1}{2}[f(\theta^-) + f(\theta^+)]</script>; in particular, 
+this converges to <script type="math/tex">f(\theta)</script> at every point of continuity, 
+and for continuous functions the convergence is uniform—this is 
+<a href="http://en.wikipedia.org/wiki/Fej%C3%A9r%27s_theorem">Fejér’s thereom</a>.
+Moreover, if <script type="math/tex">m\leq f(\theta)\leq M</script> then <script type="math/tex">m\leq \sigma_n(\theta)\leq M</script>. 
+Therefore, the <script type="math/tex">(C,1)</script> Cesàro mean does not show the Gibbs phenomenon, as 
+the following figure illustrates:</p>
+
+<div style="text-align: center;">
+	<img src="/blog/gibbs2.jpg" style="width:516px;height:412px;" />
+</div>
+
+<p>With <a href="http://home.cc.umanitoba.ca/~slevinrm/">Mikael Slevinsky</a>, 
+we are using the <script type="math/tex">(C,2)</script> Cesaràro mean for 
+<a href="http://en.wikipedia.org/wiki/Spherical_harmonics">spherical harmonic</a> 
+expansions on the sphere to post-process numerical solutions of nonlocal 
+<a href="http://en.wikipedia.org/wiki/Partial_differential_equation">PDEs</a>—paper’s 
+coming soon!</p>
+:ET

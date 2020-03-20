@@ -1,0 +1,48 @@
+I"�<p>I’ve been carefully paying attention to the policies that governments have chosen to apply in response to the current <a href="https://en.wikipedia.org/wiki/2019%E2%80%9320_coronavirus_pandemic">coronavirus pandemic</a>, and, having many friends and colleagues in the UK, in particular to the <a href="https://www.gov.uk/government/publications/coronavirus-action-plan">UK government’s action plan</a>. 
+Long story short, at first, the UK’s action plan varied from other countries’s plans by not imposing much restrictions on the population, and relied on the so-called <a href="https://en.wikipedia.org/wiki/Herd_immunity">herd immunity</a>; see, <i>e.g.</i>, <a href="https://www.theatlantic.com/health/archive/2020/03/coronavirus-pandemic-herd-immunity-uk-boris-johnson/608065/">this article</a>. 
+Following the presentation of the plan, I had a very heated argument with a friend of mine working for the UK government in London.
+She is not a scientist (she studied English literature), but claimed that her government ‘‘knew better’’ and 
+that their decisions were ‘‘based on <a href="https://en.wikipedia.org/wiki/Science">science.’’
+Well, as a mathematician and scientist, it <i>really</i> (<i>really</i>, <i>really</i>) puzzled me.</a></p>
+
+<p>First, in this context, there is no such thing as (a single and true) science.
+Mathematics, which I claim to know a little a bit about, <i>is</i> science, in the sense that everything can be either true or false.
+Here, what we have are <a href="https://en.wikipedia.org/wiki/Scientific_modelling">scientific models</a>, based on simplistic assumptions,
+which try and represent the reality.
+Those models often lead to numerical simulations that give us a snapshot of the future. 
+The results of the simulations should indeed help governments to make decisions, but decisions should not solely based on these models.</p>
+
+<p>Based on the results of</p>
+
+<p>However good our models are, we have made assumptions and those assumptions might or might not be realistic,</p>
+
+<p>Second, it somehows assumes that the UK has the best models.</p>
+
+<p>I went to Oxford like <a href="https://en.wikipedia.org/wiki/Chris_Whitty">Chris Witty</a> and admire the UK University system, but I’m not so naive to believe that the models developed there are so much better than those of Columbia, Harvard, Princeton, MIT, Caltech, etc.</p>
+
+<p>I’ll present a simple model for the exponential spread of diseases below, which is not too far from what experts in the field use.</p>
+
+<p>Second, <script type="math/tex">a</script></p>
+
+<p>There are many problems with a
+First, it’s extremly hard to model</p>
+
+<h2>A simple model for the exponential spread of diseases</h2>
+
+<p>I recommend <a href="https://www.washingtonpost.com/graphics/2020/world/corona-simulator/">this article</a>
+<a href="https://www.who.int/emergencies/diseases/novel-coronavirus-2019/situation-reports"> WHO situation reports</a>
+<a href="https://www.imperial.ac.uk/media/imperial-college/medicine/sph/ide/gida-fellowships/Imperial-College-COVID19-NPI-modelling-16-03-2020.pdf"> Imperial College’s report</a></p>
+
+<p>Here are the assumptions of my model:</p>
+<ul>
+  <li>indivuals are represented by points on a rectangular 2D domain;</li>
+  <li>at every regular time interval, they move in a (normally distributed) random direction;</li>
+  <li>if a sick indiviual get close enough to an healthy individual, the latter becomes sick;</li>
+  <li>once they're sick, they'll recover after some time;</li>
+  <li>once they've recovered, they cannot get sick again or carry the disease.</li>
+</ul>
+
+<p>These assumptions are indeed overly simplistic, but let me tell you something, even papers like this study from</p>
+
+<h2>How to flatten the curve</h2>
+:ET

@@ -4,13 +4,105 @@
 	<title>Hadrien Montanelli's Blog</title>
 	<link href="http://Hadrien-Montanelli.github.io/blog/atom.xml" rel="self"/>
 	<link href="http://Hadrien-Montanelli.github.io/blog"/>
-	<updated>2019-06-30T21:24:14-04:00</updated>
+	<updated>2020-03-19T20:32:58-04:00</updated>
 	<id>http://Hadrien-Montanelli.github.io/blog</id>
 	<author>
 		<name>Hadrien Montanelli</name>
 		<email>hadrien.montanelli@gmail.com</email>
 	</author>
 
+	
+		<entry>
+			<title>Scientific Modelling and How to Flatten the Curve</title>
+			<link href="http://Hadrien-Montanelli.github.io/blog/2020/03/19/covid19"/>
+			<updated>2020-03-19T00:00:00-04:00</updated>
+			<id>http://Hadrien-Montanelli.github.io/blog/2020/03/19/covid19</id>
+			<content type="html">&lt;h3&gt;&lt;i&gt;&lt;center&gt;Edited by A. Rhee&lt;/center&gt;&lt;/i&gt;&lt;/h3&gt;
+
+&lt;h2&gt;Scientific Modelling and the U.K. government's controversial plan of action&lt;/h2&gt;
+
+&lt;p&gt;I’ve been paying careful attention to the various government policies implemented in response to the &lt;a href=&quot;https://en.wikipedia.org/wiki/2019%E2%80%9320_coronavirus_pandemic&quot;&gt;coronavirus pandemic&lt;/a&gt;. Having many friends and colleagues in the U.K., I am particularly concerned with the &lt;a href=&quot;https://www.gov.uk/government/publications/coronavirus-action-plan&quot;&gt;British government’s plan of action&lt;/a&gt;. 
+At first, the U.K.’s plan differed from other countries’ plans—the government imposing merely a few restrictions on the population, relying on so-called &lt;a href=&quot;https://en.wikipedia.org/wiki/Herd_immunity&quot;&gt;herd immunity&lt;/a&gt;. For more information, see &lt;a href=&quot;https://www.theatlantic.com/health/archive/2020/03/coronavirus-pandemic-herd-immunity-uk-boris-johnson/608065/&quot;&gt;this article&lt;/a&gt;. 
+(Luckily, the U.K. government has now recognized the situation’s alarming nature and &lt;a href=&quot;https://www.washingtonpost.com/world/europe/a-chilling-scientific-paper-helped-upend-us-and-uk-coronavirus-strategies/2020/03/17/aaa84116-6851-11ea-b199-3a9799c54512_story.html&quot;&gt;has changed its approach&lt;/a&gt;, based on &lt;a href=&quot;https://www.imperial.ac.uk/media/imperial-college/medicine/sph/ide/gida-fellowships/Imperial-College-COVID19-NPI-modelling-16-03-2020.pdf&quot;&gt;this comprehensive report&lt;/a&gt; from &lt;a href=&quot;https://www.imperial.ac.uk/&quot;&gt;Imperial College London&lt;/a&gt;.)
+Following the presentation of the original plan based on herd immunity, I had a very heated argument with my friend who works for the U.K. government in London.
+Having studied English Literature in university, she does not have extensive scientific knowledge. Despite this, she strongly believed that her government ‘‘knew better’’ and that its decisions were ‘‘based on science.’’
+Well, as a mathematician and scientist, this &lt;i&gt;really&lt;/i&gt; (&lt;i&gt;really&lt;/i&gt;, &lt;i&gt;really&lt;/i&gt;) puzzled me for three main reasons.&lt;/p&gt;
+
+&lt;p&gt;First, the relevant science in this context (&lt;i&gt;e.g.&lt;/i&gt;, applied mathematics and applied epidemiology) cannot model the spread of the disease in an exact, foolproof way. 
+Pure mathematics &lt;i&gt;is&lt;/i&gt; an exact science, in the sense that everything can be either true or false.
+Here, what we have are &lt;a href=&quot;https://en.wikipedia.org/wiki/Scientific_modelling&quot;&gt;scientific models&lt;/a&gt;, which utilize simple assumptions to try to represent reality. 
+Those models often use &lt;a href=&quot;https://en.wikipedia.org/wiki/Statistics&quot;&gt;data&lt;/a&gt; combined with &lt;a href=&quot;https://en.wikipedia.org/wiki/Computer_simulation&quot;&gt;numerical simulations&lt;/a&gt; to give us a snapshot of the future–&lt;i&gt;i.e.&lt;/i&gt;, a prediction.
+This process of modelling introduces many sources of error, such as: modelling errors (&lt;i&gt;i.e.&lt;/i&gt;, the model is a simplified version of the phenomenon we’re describing, thereby potentially omitting significant factors), &lt;a href=&quot;https://en.wikipedia.org/wiki/Bias_(statistics)&quot;&gt;sample selection bias&lt;/a&gt; (&lt;i&gt;i.e.&lt;/i&gt;, the data is not representative of the population), &lt;a href=&quot;https://en.wikipedia.org/wiki/Numerical_error&quot;&gt;numerical errors&lt;/a&gt; (&lt;i&gt;i.e.&lt;/i&gt;, the problem solved on the computer is de facto itself an approximation of the model), and &lt;a href=&quot;https://en.wikipedia.org/wiki/Software_bug&quot;&gt;software bugs&lt;/a&gt;.
+My point is that modelling yields far from perfect results but still gives us &lt;i&gt;some&lt;/i&gt; indication of what the future &lt;i&gt;may&lt;/i&gt; be.&lt;/p&gt;
+
+&lt;p&gt;Second, &lt;a href=&quot;https://en.wikipedia.org/wiki/Research&quot;&gt;research&lt;/a&gt; in &lt;a href=&quot;https://en.wikipedia.org/wiki/Academy&quot;&gt;Academia&lt;/a&gt; heavily relies on &lt;a href=&quot;https://en.wikipedia.org/wiki/Peer_review&quot;&gt;peer review&lt;/a&gt;. 
+Once researchers believe they’ve come up with a new model and have obtained interesting results, they send their work to a &lt;a href=&quot;https://en.wikipedia.org/wiki/Scientific_journal&quot;&gt;scientific journal&lt;/a&gt;.
+This is the crucial step—where experts chosen by the journal validate or invalidate the model, check the data and verify the algorithms, comment on the results, make suggestions, ask questions and ultimately decide whether the paper should or should not be published.
+The model and the numerical simulations that the U.K. government’s original plan relied on were &lt;i&gt;never&lt;/i&gt; published, even though &lt;a href=&quot;https://en.wikipedia.org/wiki/Chris_Whitty&quot;&gt;Prof. Chris Witty&lt;/a&gt; said that &lt;a href=&quot;https://www.bbc.com/news/science-environment-51892402&quot;&gt;they intended to publish&lt;/a&gt;. More than 500 academics criticized the plan in &lt;a href=&quot;http://maths.qmul.ac.uk/~vnicosia/UK_scientists_statement_on_coronavirus_measures.pdf&quot;&gt;an open letter&lt;/a&gt;.
+To bypass peer review for one’s model and simulations in this pressing time suggests complacency. And to withhold the paper itself from the public is arguably inconsiderate and irresponsible. 
+A politician or an individual blindly believing in science is dangerous, particularly if those beliefs have policy-making implications—as in the current context. In essence, science should not be a &lt;a href=&quot;https://en.wikipedia.org/wiki/Dogma&quot;&gt;dogma&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Third, when the lives of a considerable part of the population are at risk (the worst-case scenario predicted by Imperial College approximates 500,000 deaths in the U.K.), shouldn’t a government be especially cautious to protect its citizens? I would rather have a government that potentially overreacts in order to safeguard the health of its most vulnerable people.&lt;/p&gt;
+
+&lt;h2&gt;A simple model for the exponential spread of diseases&lt;/h2&gt;
+
+&lt;p&gt;I present in this section a very simple model for the spread of a disease, and illustrate how confinment helps to &lt;i&gt;flatten the curve&lt;/i&gt;.
+This was inspired by &lt;a href=&quot;https://www.washingtonpost.com/graphics/2020/world/corona-simulator/&quot;&gt;this excellent article&lt;/a&gt; from the &lt;a href=&quot;https://www.washingtonpost.com/&quot;&gt;Washington Post&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Here are the assumptions of my model:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;indivuals are represented by points on a rectangular 2D domain;&lt;/li&gt;
+  &lt;li&gt;at regular time interval, they move in a (normally distributed) random direction;&lt;/li&gt;
+  &lt;li&gt;if a sick indiviual get close enough to an healthy individual, the latter becomes sick;&lt;/li&gt;
+  &lt;li&gt;once they're sick, they'll recover after some time;&lt;/li&gt;
+  &lt;li&gt;once they've recovered, they cannot get sick again or carry the disease;&lt;/li&gt;
+  &lt;li&gt;there is initially a single sick indiviual.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;These assumptions are indeed overly simplistic, but let me tell you something, even papers like Imperial College’s report use simple models.&lt;/p&gt;
+
+&lt;p&gt;For my experiments I use the following parameters:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;100 indiviuals freely moving on a 10x10 2D domain;&lt;/li&gt;
+  &lt;li&gt;indiviuals spread the disease in a disk of radius 0.5 centred at them;&lt;/li&gt;
+  &lt;li&gt;they move at speed 5 in a random direction every 0.1 unit of time;&lt;/li&gt;
+  &lt;li&gt;they recover after 5 units of time;&lt;/li&gt;
+  &lt;li&gt;there is initially a single sick indiviual.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Give two pictures of results.&lt;/p&gt;
+
+&lt;div style=&quot;text-align: center;&quot;&gt;
+	&lt;img src=&quot;/blog/free.png&quot; /&gt;
+&lt;/div&gt;
+
+&lt;h2&gt;How to flatten the curve&lt;/h2&gt;
+
+&lt;p&gt;Confinment is modelled by some indiviuals being frozen and not moving around. 
+The following pictures show simulations ran with the same parameters but with &lt;script type=&quot;math/tex&quot;&gt;25, 50, 75, 90&lt;/script&gt; confined indivuals.&lt;/p&gt;
+
+&lt;div class=&quot;row&quot;&gt;
+  &lt;div class=&quot;column&quot;&gt;
+    &lt;img src=&quot;/blog/confined25.png&quot; style=&quot;width:390px;height:260px;&quot; /&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;column&quot;&gt;
+    &lt;img src=&quot;/blog/confined50.png&quot; style=&quot;width:390px;height:260px;&quot; /&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;row&quot;&gt;
+  &lt;div class=&quot;column&quot;&gt;
+    &lt;img src=&quot;/blog/confined75.png&quot; style=&quot;width:390px;height:260px;&quot; /&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;column&quot;&gt;
+    &lt;img src=&quot;/blog/confined90.png&quot; style=&quot;width:390px;height:260px;&quot; /&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;h2&gt; Python code&lt;/h2&gt;
+
+&lt;p&gt;Finally, to be as transparent as possible—&lt;a href=&quot;https://github.com/Hadrien-Montanelli/covid19&quot;&gt;here&lt;/a&gt; is the code. Spread the word, but not the disease!&lt;/p&gt;
+</content>
+		</entry>
 	
 		<entry>
 			<title>Deep networks and the Kolmogorov&ndash;Arnold superposition theorem</title>
