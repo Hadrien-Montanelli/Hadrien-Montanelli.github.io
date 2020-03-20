@@ -4,7 +4,7 @@
 	<title>Hadrien Montanelli's Blog</title>
 	<link href="http://Hadrien-Montanelli.github.io/blog/atom.xml" rel="self"/>
 	<link href="http://Hadrien-Montanelli.github.io/blog"/>
-	<updated>2020-03-19T22:49:02-04:00</updated>
+	<updated>2020-03-20T11:30:11-04:00</updated>
 	<id>http://Hadrien-Montanelli.github.io/blog</id>
 	<author>
 		<name>Hadrien Montanelli</name>
@@ -19,12 +19,14 @@
 			<id>http://Hadrien-Montanelli.github.io/blog/2020/03/19/covid19</id>
 			<content type="html">&lt;h3&gt;&lt;i&gt;&lt;center&gt;Edited by A. Rhee&lt;/center&gt;&lt;/i&gt;&lt;/h3&gt;
 
-&lt;h2&gt;Scientific Modelling and the U.K. government's controversial plan of action&lt;/h2&gt;
+&lt;h2&gt;The U.K. government's original controversial plan of action&lt;/h2&gt;
 
 &lt;p&gt;I’ve been paying careful attention to the various government policies implemented in response to the &lt;a href=&quot;https://en.wikipedia.org/wiki/2019%E2%80%9320_coronavirus_pandemic&quot;&gt;coronavirus pandemic&lt;/a&gt;. Having many friends and colleagues in the U.K., I am particularly concerned with the &lt;a href=&quot;https://www.gov.uk/government/publications/coronavirus-action-plan&quot;&gt;British government’s plan of action&lt;/a&gt;. 
-At first, the U.K.’s plan differed from other countries’ plans—the government imposing merely a few restrictions on the population, relying on so-called &lt;a href=&quot;https://en.wikipedia.org/wiki/Herd_immunity&quot;&gt;herd immunity&lt;/a&gt;. For more information, see &lt;a href=&quot;https://www.theatlantic.com/health/archive/2020/03/coronavirus-pandemic-herd-immunity-uk-boris-johnson/608065/&quot;&gt;this article&lt;/a&gt;. 
-(Luckily, the U.K. government has now recognized the situation’s alarming nature and &lt;a href=&quot;https://www.washingtonpost.com/world/europe/a-chilling-scientific-paper-helped-upend-us-and-uk-coronavirus-strategies/2020/03/17/aaa84116-6851-11ea-b199-3a9799c54512_story.html&quot;&gt;has changed its approach&lt;/a&gt;, based on &lt;a href=&quot;https://www.imperial.ac.uk/media/imperial-college/medicine/sph/ide/gida-fellowships/Imperial-College-COVID19-NPI-modelling-16-03-2020.pdf&quot;&gt;this comprehensive report&lt;/a&gt; from &lt;a href=&quot;https://www.imperial.ac.uk/&quot;&gt;Imperial College London&lt;/a&gt;.)
-Following the presentation of the original plan based on herd immunity, I spoke to my friend who works for the U.K. government in London.
+At first, the U.K.’s plan differed from other countries’ plans—the government imposing merely a few restrictions on the population, relying on so-called &lt;a href=&quot;https://en.wikipedia.org/wiki/Herd_immunity&quot;&gt;herd immunity&lt;/a&gt;. This was a terrible plan; for more information, see &lt;a href=&quot;https://www.theatlantic.com/health/archive/2020/03/coronavirus-pandemic-herd-immunity-uk-boris-johnson/608065/&quot;&gt;this article&lt;/a&gt;. 
+Luckily, the U.K. government has now recognized the situation’s alarming nature and &lt;a href=&quot;https://www.washingtonpost.com/world/europe/a-chilling-scientific-paper-helped-upend-us-and-uk-coronavirus-strategies/2020/03/17/aaa84116-6851-11ea-b199-3a9799c54512_story.html&quot;&gt;has changed its approach&lt;/a&gt;, based on &lt;a href=&quot;https://www.imperial.ac.uk/media/imperial-college/medicine/sph/ide/gida-fellowships/Imperial-College-COVID19-NPI-modelling-16-03-2020.pdf&quot;&gt;this comprehensive report&lt;/a&gt; from &lt;a href=&quot;https://www.imperial.ac.uk/&quot;&gt;Imperial College London&lt;/a&gt;.
+The current plan implements a strategy of social distancing, which is essential for avoiding the overload of the healthcare system.&lt;/p&gt;
+
+&lt;p&gt;Following the presentation of the original plan based on herd immunity, I spoke to my friend who works for the U.K. government in London.
 She strongly believed that her government ‘‘knew better’’ and that its decisions were ‘‘based on science.’’
 Well, as a mathematician and scientist, this &lt;i&gt;really&lt;/i&gt; puzzled me for three main reasons.&lt;/p&gt;
 

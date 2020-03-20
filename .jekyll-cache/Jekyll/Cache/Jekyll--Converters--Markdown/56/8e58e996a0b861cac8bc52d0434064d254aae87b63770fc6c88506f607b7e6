@@ -1,78 +1,11 @@
-<!DOCTYPE html>
-	<html>
-		<head>
-			<title>Flatten the Curve</title>
-			<!-- link to main stylesheet -->
-			<link rel="stylesheet" type="text/css" href="/css/main.css">
-			<!-- Global site tag (gtag.js) - Google Analytics -->
-			<script async src="https://www.googletagmanager.com/gtag/js?id=UA-108246943-1"></script>
-			<script>
-			  window.dataLayer = window.dataLayer || [];
-			  function gtag(){dataLayer.push(arguments);}
-			  gtag('js', new Date());
-			  gtag('config', 'UA-108246943-1');
-			</script>
-		</head>
-		<body>
-			<nav>
-	    		<ul>
-	    			
-
-					<li>
-						<a href="/" data-current="blog" >
-							Home
-						</a>
-					</li>
-					<li>
-						<a href="/about" >
-							About
-						</a>
-					</li>
-					<li>
-						<a href="/awards" >
-							Awards
-						</a>
-					</li>
-					<li>
-						<a href="/blog"  class="active" >
-							Blog
-						</a>
-					</li>
-					<li>
-						<a href="/publications" >		Publications
-						</a>
-					</li>
-					<li>
-						<a href="/talks" >
-							Talks
-						</a>
-					</li>
-					<li>
-						<a href="/teaching" >
-							Teaching
-						</a>
-					</li>
-	    		</ul>
-			</nav>
-			<div class="container">
-			
-			<div style="text-align: center;">
-  <h1>Flatten the Curve</h1>
-  <p class="meta">19 Mar 2020</p>
-</div>
-
-
-<div class="post">
-  <h3><i><center>Edited by A. Rhee</center></i></h3>
+I"p!<h3><i><center>Edited by A. Rhee</center></i></h3>
 
 <h2>The U.K. government's original controversial plan of action</h2>
 
 <p>I’ve been paying careful attention to the various government policies implemented in response to the <a href="https://en.wikipedia.org/wiki/2019%E2%80%9320_coronavirus_pandemic">coronavirus pandemic</a>. Having many friends and colleagues in the U.K., I am particularly concerned with the <a href="https://www.gov.uk/government/publications/coronavirus-action-plan">British government’s plan of action</a>. 
 At first, the U.K.’s plan differed from other countries’ plans—the government imposing merely a few restrictions on the population, relying on so-called <a href="https://en.wikipedia.org/wiki/Herd_immunity">herd immunity</a>. This was a terrible plan; for more information, see <a href="https://www.theatlantic.com/health/archive/2020/03/coronavirus-pandemic-herd-immunity-uk-boris-johnson/608065/">this article</a>. 
-Luckily, the U.K. government has now recognized the situation’s alarming nature and <a href="https://www.washingtonpost.com/world/europe/a-chilling-scientific-paper-helped-upend-us-and-uk-coronavirus-strategies/2020/03/17/aaa84116-6851-11ea-b199-3a9799c54512_story.html">has changed its approach</a>, based on <a href="https://www.imperial.ac.uk/media/imperial-college/medicine/sph/ide/gida-fellowships/Imperial-College-COVID19-NPI-modelling-16-03-2020.pdf">this comprehensive report</a> from <a href="https://www.imperial.ac.uk/">Imperial College London</a>.
-The current plan implements a strategy of social distancing, which is essential for avoiding the overload of the healthcare system.</p>
-
-<p>Following the presentation of the original plan based on herd immunity, I spoke to my friend who works for the U.K. government in London.
+Luckily, the U.K. government has now recognized the situation’s alarming nature and <a href="https://www.washingtonpost.com/world/europe/a-chilling-scientific-paper-helped-upend-us-and-uk-coronavirus-strategies/2020/03/17/aaa84116-6851-11ea-b199-3a9799c54512_story.html">has changed its approach</a>, based on <a href="https://www.imperial.ac.uk/media/imperial-college/medicine/sph/ide/gida-fellowships/Imperial-College-COVID19-NPI-modelling-16-03-2020.pdf">this comprehensive report</a> from <a href="https://www.imperial.ac.uk/">Imperial College London</a>.)
+Following the presentation of the original plan based on herd immunity, I spoke to my friend who works for the U.K. government in London.
 She strongly believed that her government ‘‘knew better’’ and that its decisions were ‘‘based on science.’’
 Well, as a mathematician and scientist, this <i>really</i> puzzled me for three main reasons.</p>
 
@@ -152,21 +85,4 @@ Of course, it’d be possible to get a more realistic model by, <i>e.g.</i>, div
 <h2> Python code</h2>
 
 <p>Finally, to be as transparent as possible—<a href="https://github.com/Hadrien-Montanelli/covid19">here</a> is the code.</p>
-
-</div>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" 
-    type="text/javascript">
-</script>
-
-			
-			</div><!-- /.container -->
-			<footer>
-	    		<ul>	
-	    			<li><a href="http://github.com/Hadrien-Montanelli">GitHub</a></li>
-					<li><a href="http://scholar.google.com/citations?user=Bjmkfe8AAAAJ&hl=en&oi=sra/">Google Scholar</a></li>
-					<li><a href="http://www.linkedin.com/in/hadrien-montanelli-137b7958/">LinkedIn</a></li>
-				</ul>
-			</footer>
-		</body>
-	</html>
+:ET
