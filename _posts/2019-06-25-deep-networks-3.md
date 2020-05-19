@@ -4,7 +4,9 @@ title: "Deep networks and the Kolmogorov&ndash;Arnold superposition theorem"
 date: 2019-06-26
 ---
 
-In my latest <a href="http://arxiv.org/pdf/1906.11945.pdf">paper</a>, I prove a theorem about the <a href='http://en.wikipedia.org/wiki/Approximation_theory'>approximation</a> of <a href='https://en.wikipedia.org/wiki/Function_of_several_real_variables'>multivariate</a> continuous functions by <a href='http://en.wikipedia.org/wiki/Deep_learning'>deep ReLU networks</a>, for which the <a href='http://en.wikipedia.org/wiki/Curse_of_dimensionality'>curse of dimensionality</a> is lessened. My theorem is based on the <a href='http://en.wikipedia.org/wiki/Kolmogorov%E2%80%93Arnold_representation_theorem'>Kolmogorov&ndash;Arnold superposition theorem</a>, and on the approximation of the inner and outer functions that appear in the superposition by very deep ReLU networks.
+<center><h3><i>(edited May 2020)</i></h3></center>
+
+In my latest <a href="http://arxiv.org/pdf/1906.11945.pdf">paper</a>, I prove a theorem about the <a href='http://en.wikipedia.org/wiki/Approximation_theory'>approximation</a> of <a href='https://en.wikipedia.org/wiki/Function_of_several_real_variables'>multivariate</a> functions by <a href='http://en.wikipedia.org/wiki/Deep_learning'>deep ReLU networks</a>, for which the <a href='http://en.wikipedia.org/wiki/Curse_of_dimensionality'>curse of dimensionality</a> is lessened. My theorem is based on a constructive proof of the <a href='http://en.wikipedia.org/wiki/Kolmogorov%E2%80%93Arnold_representation_theorem'>Kolmogorov&ndash;Arnold superposition theorem</a>, and on a subset of multivariate continuous functions whose outer superposition functions can be efficiently approximated by deep ReLU networks.
 
 <h2>Kolmogorov&ndash;Arnold superposition theorem</h2>
 
@@ -28,7 +30,7 @@ The Kolmogorov&ndash;Arnold superposition theorem was further improved in the 19
 
 <h2>Approximation theory for deep ReLU networks</h2>
 
-One of the most important theoretical problems in deep network approximation theory is to determine why and when deep networks lessen or break the <a href='http://en.wikipedia.org/wiki/Curse_of_dimensionality'>curse of dimensionality</a>, characterized by the $$\mathcal{O}(\epsilon^{-n})$$ growth of the network size $$W$$ as the error $$\epsilon\rightarrow0$$, in dimension $$n$$. 
+One of the most important theoretical problems in deep network approximation theory is to determine why and when deep networks lessen or break the <a href='http://en.wikipedia.org/wiki/Curse_of_dimensionality'>curse of dimensionality</a> for multivariate continuous functions, characterized by the $$\mathcal{O}(\epsilon^{-n})$$ growth of the network size, as the error $$\epsilon\rightarrow0$$.
 
 In my paper, I use a variant of Sprecher's 1965 version of the theorem, which reads
 
@@ -38,4 +40,4 @@ $$
 
 for some constants $$\lambda_1=1>\lambda_2>\ldots>\lambda_n$$ and $$a=[(2n+1)(2n+2)]^{-1}$$, and with H&#246;lder continuous inner function $$\psi$$.
 
-I first show that the outer functions may be approximated by Lipschitz continuous functions. Then, I prove that the inner and outer functions can be approximated with error $$\epsilon$$ by deep networks of size $$\mathcal{O}(\epsilon^{-\log n})$$ and $$\mathcal{O}(\epsilon^{-1/2})$$, respectively. The resulting network that approximates $$f$$ has depth and size $$\mathcal{O}(\epsilon^{-\log n})$$; the curse of dimensionality is lessened. However, the constants that appear in the esmiates may be considerably large, and the resulting network architecture is adaptive, since the network used in the proof depends on $$f$$, via the outer functions. <a href="http://arxiv.org/pdf/1906.11945.pdf">Check it out</a> if you are interested!
+I first show that the outer functions may be approximated by Lipschitz continuous functions. Then, I prove that---for a particular subet of the continuous functions---the inner and outer functions can be approximated with error $$\epsilon$$ by deep networks of size $$\mathcal{O}(\epsilon^{-\log n})$$ and $$\mathcal{O}(\epsilon^{-1/2})$$. The resulting network that approximates $$f$$ has depth and size $$\mathcal{O}(\epsilon^{-\log n})$$; the curse of dimensionality is lessened. <a href="http://arxiv.org/pdf/1906.11945.pdf">Check it out</a> if you are interested!

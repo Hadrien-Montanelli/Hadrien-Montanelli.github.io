@@ -49,7 +49,7 @@ $$
 = \alpha_i\frac{\partial}{\partial s}\Big(\mathcal{R}u(\boldsymbol{\alpha},s)\Big),
 $$
 
-i.e.,
+<i>i.e.</i>,
 
 $$
 \big(\mathcal{R}\nabla u\big)(\boldsymbol{\alpha},s) 

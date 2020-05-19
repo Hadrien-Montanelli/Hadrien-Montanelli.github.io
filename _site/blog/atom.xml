@@ -4,7 +4,7 @@
 	<title>Hadrien Montanelli's Blog</title>
 	<link href="http://Hadrien-Montanelli.github.io/blog/atom.xml" rel="self"/>
 	<link href="http://Hadrien-Montanelli.github.io/blog"/>
-	<updated>2020-03-26T15:32:29-04:00</updated>
+	<updated>2020-05-19T14:13:43-04:00</updated>
 	<id>http://Hadrien-Montanelli.github.io/blog</id>
 	<author>
 		<name>Hadrien Montanelli</name>
@@ -112,7 +112,9 @@ Of course, it’d be possible to get a more realistic model by, &lt;i&gt;e.g.&lt
 			<link href="http://Hadrien-Montanelli.github.io/blog/2019/06/26/deep-networks-3"/>
 			<updated>2019-06-26T00:00:00-04:00</updated>
 			<id>http://Hadrien-Montanelli.github.io/blog/2019/06/26/deep-networks-3</id>
-			<content type="html">&lt;p&gt;In my latest &lt;a href=&quot;http://arxiv.org/pdf/1906.11945.pdf&quot;&gt;paper&lt;/a&gt;, I prove a theorem about the &lt;a href=&quot;http://en.wikipedia.org/wiki/Approximation_theory&quot;&gt;approximation&lt;/a&gt; of &lt;a href=&quot;https://en.wikipedia.org/wiki/Function_of_several_real_variables&quot;&gt;multivariate&lt;/a&gt; continuous functions by &lt;a href=&quot;http://en.wikipedia.org/wiki/Deep_learning&quot;&gt;deep ReLU networks&lt;/a&gt;, for which the &lt;a href=&quot;http://en.wikipedia.org/wiki/Curse_of_dimensionality&quot;&gt;curse of dimensionality&lt;/a&gt; is lessened. My theorem is based on the &lt;a href=&quot;http://en.wikipedia.org/wiki/Kolmogorov%E2%80%93Arnold_representation_theorem&quot;&gt;Kolmogorov–Arnold superposition theorem&lt;/a&gt;, and on the approximation of the inner and outer functions that appear in the superposition by very deep ReLU networks.&lt;/p&gt;
+			<content type="html">&lt;center&gt;&lt;h3&gt;&lt;i&gt;(edited May 2020)&lt;/i&gt;&lt;/h3&gt;&lt;/center&gt;
+
+&lt;p&gt;In my latest &lt;a href=&quot;http://arxiv.org/pdf/1906.11945.pdf&quot;&gt;paper&lt;/a&gt;, I prove a theorem about the &lt;a href=&quot;http://en.wikipedia.org/wiki/Approximation_theory&quot;&gt;approximation&lt;/a&gt; of &lt;a href=&quot;https://en.wikipedia.org/wiki/Function_of_several_real_variables&quot;&gt;multivariate&lt;/a&gt; functions by &lt;a href=&quot;http://en.wikipedia.org/wiki/Deep_learning&quot;&gt;deep ReLU networks&lt;/a&gt;, for which the &lt;a href=&quot;http://en.wikipedia.org/wiki/Curse_of_dimensionality&quot;&gt;curse of dimensionality&lt;/a&gt; is lessened. My theorem is based on a constructive proof of the &lt;a href=&quot;http://en.wikipedia.org/wiki/Kolmogorov%E2%80%93Arnold_representation_theorem&quot;&gt;Kolmogorov–Arnold superposition theorem&lt;/a&gt;, and on a subset of multivariate continuous functions whose outer superposition functions can be efficiently approximated by deep ReLU networks.&lt;/p&gt;
 
 &lt;h2&gt;Kolmogorov&amp;ndash;Arnold superposition theorem&lt;/h2&gt;
 
@@ -132,7 +134,7 @@ Of course, it’d be possible to get a more realistic model by, &lt;i&gt;e.g.&lt
 
 &lt;h2&gt;Approximation theory for deep ReLU networks&lt;/h2&gt;
 
-&lt;p&gt;One of the most important theoretical problems in deep network approximation theory is to determine why and when deep networks lessen or break the &lt;a href=&quot;http://en.wikipedia.org/wiki/Curse_of_dimensionality&quot;&gt;curse of dimensionality&lt;/a&gt;, characterized by the &lt;script type=&quot;math/tex&quot;&gt;\mathcal{O}(\epsilon^{-n})&lt;/script&gt; growth of the network size &lt;script type=&quot;math/tex&quot;&gt;W&lt;/script&gt; as the error &lt;script type=&quot;math/tex&quot;&gt;\epsilon\rightarrow0&lt;/script&gt;, in dimension &lt;script type=&quot;math/tex&quot;&gt;n&lt;/script&gt;.&lt;/p&gt;
+&lt;p&gt;One of the most important theoretical problems in deep network approximation theory is to determine why and when deep networks lessen or break the &lt;a href=&quot;http://en.wikipedia.org/wiki/Curse_of_dimensionality&quot;&gt;curse of dimensionality&lt;/a&gt; for multivariate continuous functions, characterized by the &lt;script type=&quot;math/tex&quot;&gt;\mathcal{O}(\epsilon^{-n})&lt;/script&gt; growth of the network size, as the error &lt;script type=&quot;math/tex&quot;&gt;\epsilon\rightarrow0&lt;/script&gt;.&lt;/p&gt;
 
 &lt;p&gt;In my paper, I use a variant of Sprecher’s 1965 version of the theorem, which reads&lt;/p&gt;
 
@@ -140,7 +142,7 @@ Of course, it’d be possible to get a more realistic model by, &lt;i&gt;e.g.&lt
 
 &lt;p&gt;for some constants &lt;script type=&quot;math/tex&quot;&gt;\lambda_1=1&gt;\lambda_2&gt;\ldots&gt;\lambda_n&lt;/script&gt; and &lt;script type=&quot;math/tex&quot;&gt;a=[(2n+1)(2n+2)]^{-1}&lt;/script&gt;, and with Hölder continuous inner function &lt;script type=&quot;math/tex&quot;&gt;\psi&lt;/script&gt;.&lt;/p&gt;
 
-&lt;p&gt;I first show that the outer functions may be approximated by Lipschitz continuous functions. Then, I prove that the inner and outer functions can be approximated with error &lt;script type=&quot;math/tex&quot;&gt;\epsilon&lt;/script&gt; by deep networks of size &lt;script type=&quot;math/tex&quot;&gt;\mathcal{O}(\epsilon^{-\log n})&lt;/script&gt; and &lt;script type=&quot;math/tex&quot;&gt;\mathcal{O}(\epsilon^{-1/2})&lt;/script&gt;, respectively. The resulting network that approximates &lt;script type=&quot;math/tex&quot;&gt;f&lt;/script&gt; has depth and size &lt;script type=&quot;math/tex&quot;&gt;\mathcal{O}(\epsilon^{-\log n})&lt;/script&gt;; the curse of dimensionality is lessened. However, the constants that appear in the esmiates may be considerably large, and the resulting network architecture is adaptive, since the network used in the proof depends on &lt;script type=&quot;math/tex&quot;&gt;f&lt;/script&gt;, via the outer functions. &lt;a href=&quot;http://arxiv.org/pdf/1906.11945.pdf&quot;&gt;Check it out&lt;/a&gt; if you are interested!&lt;/p&gt;
+&lt;p&gt;I first show that the outer functions may be approximated by Lipschitz continuous functions. Then, I prove that—for a particular subet of the continuous functions—the inner and outer functions can be approximated with error &lt;script type=&quot;math/tex&quot;&gt;\epsilon&lt;/script&gt; by deep networks of size &lt;script type=&quot;math/tex&quot;&gt;\mathcal{O}(\epsilon^{-\log n})&lt;/script&gt; and &lt;script type=&quot;math/tex&quot;&gt;\mathcal{O}(\epsilon^{-1/2})&lt;/script&gt;. The resulting network that approximates &lt;script type=&quot;math/tex&quot;&gt;f&lt;/script&gt; has depth and size &lt;script type=&quot;math/tex&quot;&gt;\mathcal{O}(\epsilon^{-\log n})&lt;/script&gt;; the curse of dimensionality is lessened. &lt;a href=&quot;http://arxiv.org/pdf/1906.11945.pdf&quot;&gt;Check it out&lt;/a&gt; if you are interested!&lt;/p&gt;
 </content>
 		</entry>
 	
@@ -149,7 +151,7 @@ Of course, it’d be possible to get a more realistic model by, &lt;i&gt;e.g.&lt
 			<link href="http://Hadrien-Montanelli.github.io/blog/2019/03/02/deep-networks-2"/>
 			<updated>2019-03-02T00:00:00-05:00</updated>
 			<id>http://Hadrien-Montanelli.github.io/blog/2019/03/02/deep-networks-2</id>
-			<content type="html">&lt;p&gt;In a recent &lt;a href=&quot;http://arxiv.org/pdf/1903.00735.pdf&quot;&gt;paper&lt;/a&gt; I considered the &lt;a href=&quot;http://en.wikipedia.org/wiki/Deep_learning&quot;&gt;deep&lt;/a&gt; &lt;a href=&quot;http://en.wikipedia.org/wiki/Rectifier_(neural_networks)&quot;&gt;ReLU&lt;/a&gt; network approximation of &lt;a href=&quot;http://en.wikipedia.org/wiki/Bandlimiting&quot;&gt;bandlimited&lt;/a&gt; functions &lt;script type=&quot;math/tex&quot;&gt;f:B=[0,1]^d\rightarrow\mathbb{R}&lt;/script&gt; of the form&lt;/p&gt;
+			<content type="html">&lt;p&gt;In a recent &lt;a href=&quot;http://arxiv.org/pdf/1903.00735.pdf&quot;&gt;paper&lt;/a&gt;, I considered the &lt;a href=&quot;http://en.wikipedia.org/wiki/Deep_learning&quot;&gt;deep&lt;/a&gt; &lt;a href=&quot;http://en.wikipedia.org/wiki/Rectifier_(neural_networks)&quot;&gt;ReLU&lt;/a&gt; network approximation of &lt;a href=&quot;http://en.wikipedia.org/wiki/Bandlimiting&quot;&gt;bandlimited&lt;/a&gt; functions &lt;script type=&quot;math/tex&quot;&gt;f:B=[0,1]^d\rightarrow\mathbb{R}&lt;/script&gt; of the form&lt;/p&gt;
 
 &lt;script type=&quot;math/tex; mode=display&quot;&gt;% &lt;![CDATA[
 f(\boldsymbol{x}) = \int_{\mathbb{R}^d}F(\boldsymbol{w})K(\boldsymbol{w}\cdot\boldsymbol{x})d\boldsymbol{w}, \\
@@ -625,7 +627,7 @@ My theorem shows that functions in the so-called Korobov spaces &lt;script type=
 	&lt;img src=&quot;/blog/pdesphere.jpg&quot; style=&quot;width:585px;height:150px;&quot; /&gt;
 &lt;/div&gt;
 
-&lt;p&gt;&lt;a href=&quot;http://arxiv.org/pdf/1701.06030.pdf&quot;&gt;My last paper&lt;/a&gt;, with my former colleague
+&lt;p&gt;&lt;a href=&quot;http://arxiv.org/pdf/1701.06030.pdf&quot;&gt;My latest paper&lt;/a&gt;, with my former colleague
 &lt;a href=&quot;http://www.opt.mist.i.u-tokyo.ac.jp/~nakatsukasa/&quot;&gt;Yuji Nakatsukasa&lt;/a&gt;, has just been accepted in 
 &lt;a href=&quot;http://www.siam.org/journals/sisc.php&quot;&gt;SISC&lt;/a&gt;. In this post, I review the main ideas of our work.&lt;/p&gt;
 
@@ -785,7 +787,7 @@ For a function &lt;script type=&quot;math/tex&quot;&gt;u:\mathbb{R}^n\rightarrow
 &lt;script type=&quot;math/tex; mode=display&quot;&gt;\bigg(\mathcal{R}\frac{\partial u}{\partial x_i}\bigg)(\boldsymbol{\alpha},s) 
 = \alpha_i\frac{\partial}{\partial s}\Big(\mathcal{R}u(\boldsymbol{\alpha},s)\Big),&lt;/script&gt;
 
-&lt;p&gt;i.e.,&lt;/p&gt;
+&lt;p&gt;&lt;i&gt;i.e.&lt;/i&gt;,&lt;/p&gt;
 
 &lt;script type=&quot;math/tex; mode=display&quot;&gt;\big(\mathcal{R}\nabla u\big)(\boldsymbol{\alpha},s) 
 = \boldsymbol{\alpha}\frac{\partial}{\partial s}\Big(\mathcal{R}u(\boldsymbol{\alpha},s)\Big).&lt;/script&gt;
@@ -808,8 +810,7 @@ For a function &lt;script type=&quot;math/tex&quot;&gt;u:\mathbb{R}^n\rightarrow
 			<link href="http://Hadrien-Montanelli.github.io/blog/2017/09/21/hadrien-montanelli-site-launched"/>
 			<updated>2017-09-21T00:00:00-04:00</updated>
 			<id>http://Hadrien-Montanelli.github.io/blog/2017/09/21/hadrien-montanelli-site-launched</id>
-			<content type="html">&lt;p&gt;Well. Finally got around to putting this old website together. 
-Neat thing about it - powered by &lt;a href=&quot;http://jekyllrb.com&quot;&gt;Jekyll&lt;/a&gt; and I can use Markdown to author my posts.&lt;/p&gt;
+			<content type="html">&lt;p&gt;Well. Finally got around to putting this old website together. Neat thing about it—powered by &lt;a href=&quot;http://jekyllrb.com&quot;&gt;Jekyll&lt;/a&gt; and I can use Markdown to author my posts.&lt;/p&gt;
 </content>
 		</entry>
 	

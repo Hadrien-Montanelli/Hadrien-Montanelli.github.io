@@ -1,69 +1,4 @@
-<!DOCTYPE html>
-	<html>
-		<head>
-			<title>The intertwining property of the Radon transform</title>
-			<!-- link to main stylesheet -->
-			<link rel="stylesheet" type="text/css" href="/css/main.css">
-			<!-- Global site tag (gtag.js) - Google Analytics -->
-			<script async src="https://www.googletagmanager.com/gtag/js?id=UA-108246943-1"></script>
-			<script>
-			  window.dataLayer = window.dataLayer || [];
-			  function gtag(){dataLayer.push(arguments);}
-			  gtag('js', new Date());
-			  gtag('config', 'UA-108246943-1');
-			</script>
-		</head>
-		<body>
-			<nav>
-	    		<ul>
-	    			
-
-					<li>
-						<a href="/" data-current="blog" >
-							Home
-						</a>
-					</li>
-					<li>
-						<a href="/about" >
-							About
-						</a>
-					</li>
-					<li>
-						<a href="/awards" >
-							Awards
-						</a>
-					</li>
-					<li>
-						<a href="/blog"  class="active" >
-							Blog
-						</a>
-					</li>
-					<li>
-						<a href="/publications" >		Publications
-						</a>
-					</li>
-					<li>
-						<a href="/talks" >
-							Talks
-						</a>
-					</li>
-					<li>
-						<a href="/teaching" >
-							Teaching
-						</a>
-					</li>
-	    		</ul>
-			</nav>
-			<div class="container">
-			
-			<div style="text-align: center;">
-  <h1>The intertwining property of the Radon transform</h1>
-  <p class="meta">05 Oct 2017</p>
-</div>
-
-
-<div class="post">
-  <p>My colleague <a href="http://dsrim.github.io">Donsub Rim</a> has recently written a beautiful 
+I"%<p>My colleague <a href="http://dsrim.github.io">Donsub Rim</a> has recently written a beautiful 
 <a href="http://arxiv.org/pdf/1705.03609.pdf">paper</a> about dimensional splitting for 
 <a href="http://en.wikipedia.org/wiki/Hyperbolic_partial_differential_equation">hyperbolic PDEs</a>
 using the 
@@ -117,21 +52,4 @@ For a function <script type="math/tex">u:\mathbb{R}^n\rightarrow\mathbb{R}</scri
 \quad \mathcal{R}u = \mathcal{R}u_{\boldsymbol{\alpha}}(s,t).</script>
 
 <p>More generally, high-dimensional hyperbolic PDEs can be split into many 1D hyperbolic PDEs—as I said, beautiful!</p>
-
-</div>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" 
-    type="text/javascript">
-</script>
-
-			
-			</div><!-- /.container -->
-			<footer>
-	    		<ul>	
-	    			<li><a href="http://github.com/Hadrien-Montanelli">GitHub</a></li>
-					<li><a href="http://scholar.google.com/citations?user=Bjmkfe8AAAAJ&hl=en&oi=sra/">Google Scholar</a></li>
-					<li><a href="http://www.linkedin.com/in/hadrien-montanelli-137b7958/">LinkedIn</a></li>
-				</ul>
-			</footer>
-		</body>
-	</html>
+:ET

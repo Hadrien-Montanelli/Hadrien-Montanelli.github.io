@@ -1,69 +1,4 @@
-<!DOCTYPE html>
-	<html>
-		<head>
-			<title>Deep networks and bandlimited functions</title>
-			<!-- link to main stylesheet -->
-			<link rel="stylesheet" type="text/css" href="/css/main.css">
-			<!-- Global site tag (gtag.js) - Google Analytics -->
-			<script async src="https://www.googletagmanager.com/gtag/js?id=UA-108246943-1"></script>
-			<script>
-			  window.dataLayer = window.dataLayer || [];
-			  function gtag(){dataLayer.push(arguments);}
-			  gtag('js', new Date());
-			  gtag('config', 'UA-108246943-1');
-			</script>
-		</head>
-		<body>
-			<nav>
-	    		<ul>
-	    			
-
-					<li>
-						<a href="/" data-current="blog" >
-							Home
-						</a>
-					</li>
-					<li>
-						<a href="/about" >
-							About
-						</a>
-					</li>
-					<li>
-						<a href="/awards" >
-							Awards
-						</a>
-					</li>
-					<li>
-						<a href="/blog"  class="active" >
-							Blog
-						</a>
-					</li>
-					<li>
-						<a href="/publications" >		Publications
-						</a>
-					</li>
-					<li>
-						<a href="/talks" >
-							Talks
-						</a>
-					</li>
-					<li>
-						<a href="/teaching" >
-							Teaching
-						</a>
-					</li>
-	    		</ul>
-			</nav>
-			<div class="container">
-			
-			<div style="text-align: center;">
-  <h1>Deep networks and bandlimited functions</h1>
-  <p class="meta">02 Mar 2019</p>
-</div>
-
-
-<div class="post">
-  <p>In a recent <a href="http://arxiv.org/pdf/1903.00735.pdf">paper</a>, I considered the <a href="http://en.wikipedia.org/wiki/Deep_learning">deep</a> <a href="http://en.wikipedia.org/wiki/Rectifier_(neural_networks)">ReLU</a> network approximation of <a href="http://en.wikipedia.org/wiki/Bandlimiting">bandlimited</a> functions <script type="math/tex">f:B=[0,1]^d\rightarrow\mathbb{R}</script> of the form</p>
+I"‘<p>In a recent <a href="http://arxiv.org/pdf/1903.00735.pdf">paper</a>, I considered the <a href="http://en.wikipedia.org/wiki/Deep_learning">deep</a> <a href="http://en.wikipedia.org/wiki/Rectifier_(neural_networks)">ReLU</a> network approximation of <a href="http://en.wikipedia.org/wiki/Bandlimiting">bandlimited</a> functions <script type="math/tex">f:B=[0,1]^d\rightarrow\mathbb{R}</script> of the form</p>
 
 <script type="math/tex; mode=display">% <![CDATA[
 f(\boldsymbol{x}) = \int_{\mathbb{R}^d}F(\boldsymbol{w})K(\boldsymbol{w}\cdot\boldsymbol{x})d\boldsymbol{w}, \\
@@ -105,21 +40,4 @@ Then for every <script type="math/tex">f</script> in the convex hull of <script 
 
 <p>with <script type="math/tex">T_0=1</script> and <script type="math/tex">T_1(x) = x</script>. I showed that deep ReLU networks can implement the recurrence relation efficiently. Since truncated Chebyshev series can approximate analytic functions exponentially well, so can deep networks.</p>
 
-
-</div>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" 
-    type="text/javascript">
-</script>
-
-			
-			</div><!-- /.container -->
-			<footer>
-	    		<ul>	
-	    			<li><a href="http://github.com/Hadrien-Montanelli">GitHub</a></li>
-					<li><a href="http://scholar.google.com/citations?user=Bjmkfe8AAAAJ&hl=en&oi=sra/">Google Scholar</a></li>
-					<li><a href="http://www.linkedin.com/in/hadrien-montanelli-137b7958/">LinkedIn</a></li>
-				</ul>
-			</footer>
-		</body>
-	</html>
+:ET

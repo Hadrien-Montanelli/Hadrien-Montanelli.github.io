@@ -1,69 +1,4 @@
-<!DOCTYPE html>
-	<html>
-		<head>
-			<title>Solving PDEs on the sphere</title>
-			<!-- link to main stylesheet -->
-			<link rel="stylesheet" type="text/css" href="/css/main.css">
-			<!-- Global site tag (gtag.js) - Google Analytics -->
-			<script async src="https://www.googletagmanager.com/gtag/js?id=UA-108246943-1"></script>
-			<script>
-			  window.dataLayer = window.dataLayer || [];
-			  function gtag(){dataLayer.push(arguments);}
-			  gtag('js', new Date());
-			  gtag('config', 'UA-108246943-1');
-			</script>
-		</head>
-		<body>
-			<nav>
-	    		<ul>
-	    			
-
-					<li>
-						<a href="/" data-current="blog" >
-							Home
-						</a>
-					</li>
-					<li>
-						<a href="/about" >
-							About
-						</a>
-					</li>
-					<li>
-						<a href="/awards" >
-							Awards
-						</a>
-					</li>
-					<li>
-						<a href="/blog"  class="active" >
-							Blog
-						</a>
-					</li>
-					<li>
-						<a href="/publications" >		Publications
-						</a>
-					</li>
-					<li>
-						<a href="/talks" >
-							Talks
-						</a>
-					</li>
-					<li>
-						<a href="/teaching" >
-							Teaching
-						</a>
-					</li>
-	    		</ul>
-			</nav>
-			<div class="container">
-			
-			<div style="text-align: center;">
-  <h1>Solving PDEs on the sphere</h1>
-  <p class="meta">26 Oct 2017</p>
-</div>
-
-
-<div class="post">
-  <div style="text-align: center;">
+I"�<div style="text-align: center;">
 	<img src="/blog/pdesphere.jpg" style="width:585px;height:150px;" />
 </div>
 
@@ -95,21 +30,4 @@ Implementations in <a href="http://www.mathworks.com/products/matlab.html">MATLA
 <p>I hope to use this code for investigating <a href="http://en.wikipedia.org/wiki/Pattern_formation">pattern formation</a> on the sphere with <a href="http://www.ptrinh.com">Philippe Trinh</a>,
 <a href="http://www.math.ubc.ca/~ward/">Michael Ward</a>, and <a href="http://shvartsmanlab.com">Stanislav Shvartsman</a>.
 I’m visiting Stanislav at Princeton in a couple of weeks—looking forward to it!</p>
-
-</div>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" 
-    type="text/javascript">
-</script>
-
-			
-			</div><!-- /.container -->
-			<footer>
-	    		<ul>	
-	    			<li><a href="http://github.com/Hadrien-Montanelli">GitHub</a></li>
-					<li><a href="http://scholar.google.com/citations?user=Bjmkfe8AAAAJ&hl=en&oi=sra/">Google Scholar</a></li>
-					<li><a href="http://www.linkedin.com/in/hadrien-montanelli-137b7958/">LinkedIn</a></li>
-				</ul>
-			</footer>
-		</body>
-	</html>
+:ET

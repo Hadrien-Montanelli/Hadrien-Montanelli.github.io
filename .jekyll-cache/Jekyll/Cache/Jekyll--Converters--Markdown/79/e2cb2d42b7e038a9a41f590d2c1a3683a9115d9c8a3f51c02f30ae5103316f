@@ -1,69 +1,4 @@
-<!DOCTYPE html>
-	<html>
-		<head>
-			<title>Deep networks and the Kolmogorov&ndash;Arnold superposition theorem</title>
-			<!-- link to main stylesheet -->
-			<link rel="stylesheet" type="text/css" href="/css/main.css">
-			<!-- Global site tag (gtag.js) - Google Analytics -->
-			<script async src="https://www.googletagmanager.com/gtag/js?id=UA-108246943-1"></script>
-			<script>
-			  window.dataLayer = window.dataLayer || [];
-			  function gtag(){dataLayer.push(arguments);}
-			  gtag('js', new Date());
-			  gtag('config', 'UA-108246943-1');
-			</script>
-		</head>
-		<body>
-			<nav>
-	    		<ul>
-	    			
-
-					<li>
-						<a href="/" data-current="blog" >
-							Home
-						</a>
-					</li>
-					<li>
-						<a href="/about" >
-							About
-						</a>
-					</li>
-					<li>
-						<a href="/awards" >
-							Awards
-						</a>
-					</li>
-					<li>
-						<a href="/blog"  class="active" >
-							Blog
-						</a>
-					</li>
-					<li>
-						<a href="/publications" >		Publications
-						</a>
-					</li>
-					<li>
-						<a href="/talks" >
-							Talks
-						</a>
-					</li>
-					<li>
-						<a href="/teaching" >
-							Teaching
-						</a>
-					</li>
-	    		</ul>
-			</nav>
-			<div class="container">
-			
-			<div style="text-align: center;">
-  <h1>Deep networks and the Kolmogorov&ndash;Arnold superposition theorem</h1>
-  <p class="meta">26 Jun 2019</p>
-</div>
-
-
-<div class="post">
-  <center><h3><i>(edited May 2020)</i></h3></center>
+I"8<center><h3><i>(edited May 2020)</i></h3></center>
 
 <p>In my latest <a href="http://arxiv.org/pdf/1906.11945.pdf">paper</a>, I prove a theorem about the <a href="http://en.wikipedia.org/wiki/Approximation_theory">approximation</a> of <a href="https://en.wikipedia.org/wiki/Function_of_several_real_variables">multivariate</a> functions by <a href="http://en.wikipedia.org/wiki/Deep_learning">deep ReLU networks</a>, for which the <a href="http://en.wikipedia.org/wiki/Curse_of_dimensionality">curse of dimensionality</a> is lessened. My theorem is based on a constructive proof of the <a href="http://en.wikipedia.org/wiki/Kolmogorov%E2%80%93Arnold_representation_theorem">Kolmogorov–Arnold superposition theorem</a>, and on a subset of multivariate continuous functions whose outer superposition functions can be efficiently approximated by deep ReLU networks.</p>
 
@@ -94,21 +29,4 @@
 <p>for some constants <script type="math/tex">\lambda_1=1>\lambda_2>\ldots>\lambda_n</script> and <script type="math/tex">a=[(2n+1)(2n+2)]^{-1}</script>, and with Hölder continuous inner function <script type="math/tex">\psi</script>.</p>
 
 <p>I first show that the outer functions may be approximated by Lipschitz continuous functions. Then, I prove that—for a particular subet of the continuous functions—the inner and outer functions can be approximated with error <script type="math/tex">\epsilon</script> by deep networks of size <script type="math/tex">\mathcal{O}(\epsilon^{-\log n})</script> and <script type="math/tex">\mathcal{O}(\epsilon^{-1/2})</script>. The resulting network that approximates <script type="math/tex">f</script> has depth and size <script type="math/tex">\mathcal{O}(\epsilon^{-\log n})</script>; the curse of dimensionality is lessened. <a href="http://arxiv.org/pdf/1906.11945.pdf">Check it out</a> if you are interested!</p>
-
-</div>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" 
-    type="text/javascript">
-</script>
-
-			
-			</div><!-- /.container -->
-			<footer>
-	    		<ul>	
-	    			<li><a href="http://github.com/Hadrien-Montanelli">GitHub</a></li>
-					<li><a href="http://scholar.google.com/citations?user=Bjmkfe8AAAAJ&hl=en&oi=sra/">Google Scholar</a></li>
-					<li><a href="http://www.linkedin.com/in/hadrien-montanelli-137b7958/">LinkedIn</a></li>
-				</ul>
-			</footer>
-		</body>
-	</html>
+:ET

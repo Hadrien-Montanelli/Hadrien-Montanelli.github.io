@@ -4,7 +4,7 @@ title: "Deep networks and bandlimited functions"
 date: 2019-03-02
 ---
 
-In a recent <a href="http://arxiv.org/pdf/1903.00735.pdf">paper</a> I considered the <a href='http://en.wikipedia.org/wiki/Deep_learning'>deep</a> <a href='http://en.wikipedia.org/wiki/Rectifier_(neural_networks)'>ReLU</a> network approximation of <a href='http://en.wikipedia.org/wiki/Bandlimiting'>bandlimited</a> functions $$f:B=[0,1]^d\rightarrow\mathbb{R}$$ of the form
+In a recent <a href="http://arxiv.org/pdf/1903.00735.pdf">paper</a>, I considered the <a href='http://en.wikipedia.org/wiki/Deep_learning'>deep</a> <a href='http://en.wikipedia.org/wiki/Rectifier_(neural_networks)'>ReLU</a> network approximation of <a href='http://en.wikipedia.org/wiki/Bandlimiting'>bandlimited</a> functions $$f:B=[0,1]^d\rightarrow\mathbb{R}$$ of the form
 
 $$
 f(\boldsymbol{x}) = \int_{\mathbb{R}^d}F(\boldsymbol{w})K(\boldsymbol{w}\cdot\boldsymbol{x})d\boldsymbol{w}, \\

@@ -8,7 +8,7 @@ date: 2017-10-26
 	<img src="/blog/pdesphere.jpg" style="width:585px;height:150px;">
 </div>
 
-<a href="http://arxiv.org/pdf/1701.06030.pdf">My last paper</a>, with my former colleague
+<a href="http://arxiv.org/pdf/1701.06030.pdf">My latest paper</a>, with my former colleague
 <a href="http://www.opt.mist.i.u-tokyo.ac.jp/~nakatsukasa/">Yuji Nakatsukasa</a>, has just been accepted in 
 <a href="http://www.siam.org/journals/sisc.php">SISC</a>. In this post, I review the main ideas of our work.
 
