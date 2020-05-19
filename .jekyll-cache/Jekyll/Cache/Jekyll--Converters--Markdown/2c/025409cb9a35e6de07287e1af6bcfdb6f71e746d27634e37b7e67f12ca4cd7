@@ -1,0 +1,37 @@
+I"<div style="text-align: center;">
+  <img src="/blog/iconic.png" style="width:505px;height:324px;" />
+</div>
+
+<p><a href="https://arxiv.org/pdf/1604.08900.pdf">One of the papers</a> I wrote during my Ph.D. at Oxford was just accepted in <a href="https://www.journals.elsevier.com/mathematics-and-computers-in-simulation">Mathematics and Computers in Simulation</a>. In this post, I review the main ideas of the paper.</p>
+
+<h2>Stiff periodic PDEs</h2>
+
+<p>We are interested in computing smooth solutions of stiff PDEs of the form</p>
+
+<script type="math/tex; mode=display">u_t = \mathcal{S}(u) = \mathcal{L}u + \mathcal{N}(u), \quad u(0,X)=u_0(X), \quad \text{periodic boundary conditions,}
+\label{PDE}</script>
+
+<p>where <script type="math/tex">u(t,X)</script> is a function of time <script type="math/tex">t</script> and space <script type="math/tex">X</script>, <script type="math/tex">\mathcal{L}</script> is a linear differential operator with constant coefficients on a domain in one, 
+two or three space dimensions and <script type="math/tex">\mathcal{N}</script> is a nonlinear differential (or non-differential) operator of lower order with constant coefficients and on the same domain.</p>
+
+<p>In applications, PDEs of this kind typically arise when two or more different physical processes are combined, and many PDEs of interest in 
+science and engineering take this form. For example, the <a href="https://en.wikipedia.org/wiki/Korteweg%E2%80%93de_Vries_equation">Korteweg–de Vries equation</a> <script type="math/tex">u_t = -u_{xxx} - uu_x</script>, the starting point of the study of nonlinear waves and solitons, couples third-order linear dispersion with first-order convection, and the <a href="http://en.wikipedia.org/wiki/Allen–Cahn_equation">Allen–Cahn equation</a> <script type="math/tex">u_t = \epsilon u_{xx} + u - u^3</script> couples second-order linear 
+diffusion with a nondifferentiated cubic reaction term.</p>
+
+<p>Often a system of equations rather than a single scalar equation is involved, for example in <a href="https://en.wikipedia.org/wiki/Reaction%E2%80%93diffusion_system">reaction-diffusion systems</a> such as the Gray–Scott and Schnakenberg equations, which involve two components coupled together. (The importance of coupling of nonequal diffusion constants in science was made famous by <a href="https://en.wikipedia.org/wiki/Alan_Turing">Alan Turing</a> in 1952 in the most highly-cited of all his papers.) Fourth-order terms also arise, for example in the <a href="https://en.wikipedia.org/wiki/Cahn%E2%80%93Hilliard_equation">Cahn–Hilliard equation</a>, whose solutions describe structures of alloys, and in the 
+<a href="https://en.wikipedia.org/wiki/Kuramoto%E2%80%93Sivashinsky_equation">Kuramoto–Sivashinsky equation</a>, related to combustion problems among others, whose solutions are chaotic. The figure at the top of this post shows six examples of solutions of such PDEs.</p>
+
+<h2>
+
+We have tested 30 exponential integrators on 11 model problems in 1D, 2D and 3D, and have observed considerable differences in stability and efficiency.
+As expected, the schemes did not exhibit any order reduction (periodic boundary conditions).
+The main conclusion is that it is difficult to find a method that outperforms ETDRK4 for all the PDEs we have considered.
+
+Our numerical experiments were performed using MATLAB and have been embedded within Chebfun.
+More specifically, the \texttt{spin}, \texttt{spin2} and \texttt{spin3} codes implement a Fourier spectral method and exponential integrators to solve PDEs in 1D, 2D and 3D periodic domains.
+(Note that \texttt{spin} stands for \textbf{s}tiff \textbf{P}DE \textbf{in}tegrator.)
+These have been one of the most major additions to Chebfun in recent years from a user point of view.
+The simplest way to see \texttt{spin} in action is to type simply \texttt{spin('ks')} (for the Kuramoto--Sivashinsky equation) or \texttt{spin2('gl2')} (for the 2D Ginzburg--Landau equation) to invoke an example computation.
+It is also possible to define your own PDE using the \texttt{spinop} class.
+</h2>
+:ET

@@ -1,0 +1,29 @@
+I"'
+<div style="text-align: center;">
+  <img src="/blog/iconic.png" style="width:505px;height:324px;" />
+</div>
+
+<p><a href="https://arxiv.org/pdf/1604.08900.pdf">One of the papers</a> I wrote during my Ph.D. at Oxford was just accepted in <a href="https://www.journals.elsevier.com/mathematics-and-computers-in-simulation">Mathematics and Computers in Simulation</a>. In this post, I review the main ideas of the paper.</p>
+
+<p>We are interested in computing smooth solutions of stiff PDEs of the form
+<script type="math/tex">u_t = \mathcal{S}(u) = \mathcal{L}u + \mathcal{N}(u), \quad u(0,X)=u_0(X), \quad \text{periodic boundary conditions,}
+\label{PDE}</script></p>
+
+<p>\noindent where <script type="math/tex">u(t,X)</script> is a function of time $t$ and space $X$, $\mathcal{L}$ is a linear differential operator with constant coefficients on a domain in one, 
+two or three space dimensions and $\mathcal{N}$ is a nonlinear differential (or non-differential) operator of lower order with constant coefficients and on the same domain.\footnote{$X$ 
+denotes a space variable in 1D, 2D or 3D. Throughout this paper, we will use the variables $x$ in 1D, $(x,y)$ in 2D and $(x,y,z)$ in 3D. The domain will
+be an interval in 1D, a square in 2D and a cube in 3D.}
+In applications, PDEs of this kind typically arise when two or more different physical processes are combined, and many PDEs of interest in 
+science and engineering take this form.<br />
+For example, the Korteweg–de Vries equation $u_t = -u_{xxx} - uu_x$, the starting point of the study of nonlinear waves and solitons, 
+couples third-order linear dispersion with first-order convection, and the Allen–Cahn equation $u_t = \epsilon u_{xx} + u - u^3$ couples second-order linear 
+diffusion with a nondifferentiated cubic reaction term.<br />
+Often a system of equations rather than a single scalar equation is involved, for example in the Gray–Scott and Schnakenberg equations, which 
+involve two components coupled together.<br />
+(The importance of coupling of nonequal diffusion constants in science was made famous by Alan Turing in the most highly-cited of all 
+his papers~\cite{turing1952}.)
+Fourth-order terms also arise, for example in the Cahn–Hilliard  equation, whose solutions describe structures of alloys, and in the 
+Kuramoto–Sivashinsky equation, related to combustion problems among others, whose solutions are chaotic. 
+Other examples of stiff PDEs include the Ginzburg–Landau, nonlinear Schr"odinger (NLS) and Swift–Hohenberg equations.
+Figure~\ref{iconic} shows six examples of solutions of such PDEs.</p>
+:ET

@@ -1,0 +1,90 @@
+I"n$<div style="text-align: center;">
+  <img src="/blog/iconic.png" style="width:505px;height:324px;" />
+</div>
+
+<p><a href="https://arxiv.org/pdf/1604.08900.pdf">One of the papers</a> I wrote during my Ph.D. at Oxford was just accepted in <a href="https://www.journals.elsevier.com/mathematics-and-computers-in-simulation">Mathematics and Computers in Simulation</a>. In this post, I review the main ideas of the paper.</p>
+
+<h2>Periodic stiff PDEs</h2>
+
+<p>We are interested in computing smooth solutions of stiff PDEs of the form</p>
+
+<script type="math/tex; mode=display">u_t = \mathcal{S}(u) = \mathcal{L}u + \mathcal{N}(u), \quad u(0,X)=u_0(X), \quad \text{periodic boundary conditions,}</script>
+
+<p>where <script type="math/tex">u(t,X)</script> is a function of time <script type="math/tex">t</script> and space <script type="math/tex">X</script>, <script type="math/tex">\mathcal{L}</script> is a linear differential operator with constant coefficients on a domain in one, 
+two or three space dimensions and <script type="math/tex">\mathcal{N}</script> is a nonlinear differential (or non-differential) operator of lower order with constant coefficients and on the same domain.</p>
+
+<p>In applications, PDEs of this kind typically arise when two or more different physical processes are combined, and many PDEs of interest in 
+science and engineering take this form. For example, the <a href="https://en.wikipedia.org/wiki/Korteweg%E2%80%93de_Vries_equation">Korteweg–de Vries equation</a> <script type="math/tex">u_t = -u_{xxx} - uu_x</script>, the starting point of the study of nonlinear waves and solitons, couples third-order linear dispersion with first-order convection, and the <a href="http://en.wikipedia.org/wiki/Allen–Cahn_equation">Allen–Cahn equation</a> <script type="math/tex">u_t = \epsilon u_{xx} + u - u^3</script> couples second-order linear 
+diffusion with a nondifferentiated cubic reaction term.</p>
+
+<p>Often a system of equations rather than a single scalar equation is involved, for example in <a href="https://en.wikipedia.org/wiki/Reaction%E2%80%93diffusion_system">reaction-diffusion systems</a> such as the Gray–Scott and Schnakenberg equations, which involve two components coupled together. (The importance of coupling of nonequal diffusion constants in science was made famous by <a href="https://en.wikipedia.org/wiki/Alan_Turing">Alan Turing</a> in 1952 in the most highly-cited of all his papers.) Fourth-order terms also arise, for example in the <a href="https://en.wikipedia.org/wiki/Cahn%E2%80%93Hilliard_equation">Cahn–Hilliard equation</a>, whose solutions describe structures of alloys, and in the 
+<a href="https://en.wikipedia.org/wiki/Kuramoto%E2%80%93Sivashinsky_equation">Kuramoto–Sivashinsky equation</a>, related to combustion problems among others, whose solutions are chaotic. The figure at the top of this post shows six examples of solutions of such PDEs.</p>
+
+<h2>Discretization in Fourier space</h2>
+
+<p>Our paper describes and compares specialized methods that take advantage of two special features of the family of PDEs above. The first one is the periodic boundary conditions.
+This allows us to discretize the spatial component with a Fourier spectral method on <script type="math/tex">N</script> points; the PDE becomes a system of <script type="math/tex">N</script> ODEs,</p>
+
+<script type="math/tex; mode=display">\hat{u}' = \mathbf{L}\hat{u} + \mathbf{N}(\hat{u}), \quad \hat{u}(0)=\hat{u}_0,</script>
+
+<p>where <script type="math/tex">\hat{u}(t)</script> is the vector of <script type="math/tex">N</script> Fourier coefficients of the trigonometric interpolant of <script type="math/tex">u(t,X)</script> at time <script type="math/tex">t</script>, and <script type="math/tex">\mathbf{L}</script> (a <script type="math/tex">N\times N</script> matrix) and <script type="math/tex">\mathbf{N}</script> are the discretized versions of <script type="math/tex">\mathcal{L}</script> and <script type="math/tex">\mathcal{N}</script> in Fourier space.</p>
+
+<p>For example, in 1D on <script type="math/tex">[0, 2\pi]</script> with <script type="math/tex">\mathcal{L}u=u_{xx}</script> and an even number <script type="math/tex">N</script> of equispaced grid points <script type="math/tex">\{x_j=2\pi j/N\}_{j=0}^{N-1}</script>, we look for a solution <script type="math/tex">u(t,x)</script> of the form</p>
+
+<script type="math/tex; mode=display">u(t,x) \approx \sum_{k=-N/2}^{N/2}{\hspace{-0.3cm}}'{\;\,} \hat{u}_k(t) e^{ikx}</script>
+
+<p>with Fourier coefficients</p>
+
+<script type="math/tex; mode=display">\hat{u}_k(t) = \frac{1}{N}\sum_{j=0}^{N-1}u(t,x_j)e^{-ikx_j}, \quad -\frac{N}{2}\leq k\leq \frac{N}{2}-1, \quad \hat{u}_{N/2}(t) = \hat{u}_{-N/2}(t).</script>
+
+<p>(The prime on the summation sign signifies that the terms <script type="math/tex">k=\pm N/2</script> are halved.) Since FFT codes only store <script type="math/tex">N</script> coefficients, the vector <script type="math/tex">\hat{u}(t)</script> is defined as</p>
+
+<script type="math/tex; mode=display">\hat{u}(t) = \Big(\frac{\hat{u}_{-N/2}}{2}+\frac{\hat{u}_{N/2}}{2}, \hat{u}_{-N/2+1}(t),\ldots,\hat{u}_{N/2-1}(t)\Big)^T.</script>
+
+<p>For this PDE, <script type="math/tex">\mathbf{L}=\mathbf{D}_N^{(2)}</script> is the (diagonal) <i>second-order Fourier differentiation matrix</i> with entries <script type="math/tex">-k^2</script>, <script type="math/tex">-N/2\leq k\leq N/2-1</script>. Note that stiffness is related to <script type="math/tex">\mathbf{L}</script> having large eigenvalues since stability of spectral methods for time-dependent PDEs requires that the eigenvalues, scaled by the time-step, lie in the stability region of the time-stepping formula.</p>
+
+<h2>Expoential integrators</h2>
+
+<p>The second special feature of those PDEs is that it is semilinear, <i>i.e.</i>, the higher-order terms of the equation are linear. Exponential integrators are a class of numerical methods for systems of ODEs that are aimed at taking advantage of this. The linear part <script type="math/tex">\mathbf{L}</script>, responsible for the stiffness, is integrated exactly using the matrix exponential while a numerical scheme is applied 
+to $\mathbf{N}$.</p>
+
+<p>One of the simplest exponential integrators, commonly known as the Exponential Time Differencing (ETD) Euler method, is given by</p>
+
+<script type="math/tex; mode=display">\hat{u}^{n+1} = e^{h\Lbf}\hat{u}^n + h\ph_1(h\Lbf)\Nbf(\hat{u}^n),</script>
+
+<p>where $h=t_{n+1}-t_n$ is the time-step and</p>
+
+<script type="math/tex; mode=display">\ph_1(z) = \frac{e^z-1}{z}.</script>
+
+<p>This method has been rediscovered from many different viewpoints and has been known by several other names. It can be derived by considering the linearized version of \reff{ODE} on $[t_n,t_{n+1}]$,</p>
+
+<p><script type="math/tex">\hat{u}' = \Sbf(\hat{u}^n) + \Sbf_{\hat{u}}(\hat{u}^n)(\hat{u} - \hat{u}^n), \quad \hat{u}(t_n)=\hat{u}^n,</script>
+\end{equation}</p>
+
+<p>with exact solution at $t_{n+1} = t_n + h$,</p>
+
+<script type="math/tex; mode=display">\hat{u}^{n+1} = \hat{u}^n + h\ph_1(h\Sbf_{\hat{u}}(\hat{u}^n))\Sbf(\hat{u}^n).</script>
+
+<p>Approximating $\Sbf_{\hat{u}}(\hat{u}^n)$ by $\Lbf$ in \reff{ExpEuler} leads to \reff{ETDEuler}.
+Note that \reff{ExpEuler} defines a time-stepping scheme too, known as the exponential Euler method.
+The problem with \reff{ExpEuler} is that the exact Jacobian $\Sbf_{\hat{u}}$, and its value under the exponential-like function $\ph_1$, need to be 
+computed at each time-step.
+This would involve a high computational cost, so typically one either does not compute $\ph_1$ but rather an approximation,
+such as a Pad'e approximation, or else one uses an approximation to the Jacobian as opposed to the exact Jacobian.
+The former approach contains the Rosenbrock methods~\cite{hairer1982, hairer1991, hochbruck2009, luan2014b, rosenbrock1963, vanderhouwen1977} 
+and the Exponential Propagation Iterative methods of Runge-Kutta type (EPIRK)~\cite{rainwater2014, rainwater2015, tokman2006, tokman2011, tokman2012a}.
+The latter approach is what we consider in our paper.</p>
+
+<h2>Results of our numerical experiments and Chebfun</h2>
+
+<p>We have tested 30 exponential integrators on 11 model problems in 1D, 2D and 3D, and have observed considerable differences in stability and efficiency.
+As expected, the schemes did not exhibit any order reduction (periodic boundary conditions).
+The main conclusion is that it is difficult to find a method that outperforms ETDRK4 for all the PDEs we have considered.</p>
+
+<p>Our numerical experiments were performed using MATLAB and have been embedded within Chebfun.
+More specifically, the \texttt{spin}, \texttt{spin2} and \texttt{spin3} codes implement a Fourier spectral method and exponential integrators to solve PDEs in 1D, 2D and 3D periodic domains.
+(Note that \texttt{spin} stands for \textbf{s}tiff \textbf{P}DE \textbf{in}tegrator.)
+These have been one of the most major additions to Chebfun in recent years from a user point of view.
+The simplest way to see \texttt{spin} in action is to type simply \texttt{spin(‘ks’)} (for the Kuramoto–Sivashinsky equation) or \texttt{spin2(‘gl2’)} (for the 2D Ginzburg–Landau equation) to invoke an example computation.
+It is also possible to define your own PDE using the \texttt{spinop} class.</p>
+:ET

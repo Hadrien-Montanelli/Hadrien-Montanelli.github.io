@@ -65,7 +65,7 @@
 <div class="post">
   <center><h3><i>(edited May 2020)</i></h3></center>
 
-<p>In my latest <a href="http://arxiv.org/pdf/1906.11945.pdf">paper</a>, I prove a theorem about the <a href="http://en.wikipedia.org/wiki/Approximation_theory">approximation</a> of <a href="https://en.wikipedia.org/wiki/Function_of_several_real_variables">multivariate</a> functions by <a href="http://en.wikipedia.org/wiki/Deep_learning">deep ReLU networks</a>, for which the <a href="http://en.wikipedia.org/wiki/Curse_of_dimensionality">curse of dimensionality</a> is lessened. My theorem is based on a constructive proof of the <a href="http://en.wikipedia.org/wiki/Kolmogorov%E2%80%93Arnold_representation_theorem">Kolmogorov–Arnold superposition theorem</a>, and on a subset of multivariate continuous functions whose outer superposition functions can be efficiently approximated by deep ReLU networks.</p>
+<p>In my latest <a href="http://arxiv.org/pdf/1906.11945.pdf">paper</a>, my colleague and I prove a theorem about the <a href="http://en.wikipedia.org/wiki/Approximation_theory">approximation</a> of <a href="https://en.wikipedia.org/wiki/Function_of_several_real_variables">multivariate</a> functions by <a href="http://en.wikipedia.org/wiki/Deep_learning">deep ReLU networks</a>, for which the <a href="http://en.wikipedia.org/wiki/Curse_of_dimensionality">curse of dimensionality</a> is lessened. Our theorem is based on a constructive proof of the <a href="http://en.wikipedia.org/wiki/Kolmogorov%E2%80%93Arnold_representation_theorem">Kolmogorov–Arnold superposition theorem</a>, and on a subset of multivariate continuous functions whose outer superposition functions can be efficiently approximated by deep ReLU networks.</p>
 
 <h2>Kolmogorov&ndash;Arnold superposition theorem</h2>
 
@@ -87,13 +87,13 @@
 
 <p>One of the most important theoretical problems in deep network approximation theory is to determine why and when deep networks lessen or break the <a href="http://en.wikipedia.org/wiki/Curse_of_dimensionality">curse of dimensionality</a> for multivariate continuous functions, characterized by the <script type="math/tex">\mathcal{O}(\epsilon^{-n})</script> growth of the network size, as the error <script type="math/tex">\epsilon\rightarrow0</script>.</p>
 
-<p>In my paper, I use a variant of Sprecher’s 1965 version of the theorem, which reads</p>
+<p>In our paper, we use a variant of Sprecher’s 1965 version of the theorem, which reads</p>
 
 <script type="math/tex; mode=display">f(x_1,\ldots,x_n) = \sum_{j=0}^{2n}\phi_j\left(\sum_{i=1}^n\lambda_i\psi(x_i+ja)\right),</script>
 
 <p>for some constants <script type="math/tex">\lambda_1=1>\lambda_2>\ldots>\lambda_n</script> and <script type="math/tex">a=[(2n+1)(2n+2)]^{-1}</script>, and with Hölder continuous inner function <script type="math/tex">\psi</script>.</p>
 
-<p>I first show that the outer functions may be approximated by Lipschitz continuous functions. Then, I prove that—for a particular subet of the continuous functions—the inner and outer functions can be approximated with error <script type="math/tex">\epsilon</script> by deep networks of size <script type="math/tex">\mathcal{O}(\epsilon^{-\log n})</script> and <script type="math/tex">\mathcal{O}(\epsilon^{-1/2})</script>. The resulting network that approximates <script type="math/tex">f</script> has depth and size <script type="math/tex">\mathcal{O}(\epsilon^{-\log n})</script>; the curse of dimensionality is lessened. <a href="http://arxiv.org/pdf/1906.11945.pdf">Check it out</a> if you are interested!</p>
+<p>We first show that the outer functions may be approximated by Lipschitz continuous functions. Then, we prove that—for a particular subet of the continuous functions—the inner and outer functions can be approximated with error <script type="math/tex">\epsilon</script> by deep networks of size <script type="math/tex">\mathcal{O}(\epsilon^{-\log n})</script> and <script type="math/tex">\mathcal{O}(\epsilon^{-1/2})</script>. The resulting network that approximates <script type="math/tex">f</script> has depth and size <script type="math/tex">\mathcal{O}(\epsilon^{-\log n})</script>; the curse of dimensionality is lessened. <a href="http://arxiv.org/pdf/1906.11945.pdf">Check it out</a> if you are interested!</p>
 
 </div>
 
