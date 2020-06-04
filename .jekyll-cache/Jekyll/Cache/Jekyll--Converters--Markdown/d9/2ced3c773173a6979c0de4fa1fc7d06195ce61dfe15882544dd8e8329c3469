@@ -1,0 +1,45 @@
+I"�<center><h3><i>(edited June 2020)</i></h3></center>
+
+<p>In a recent <a href="http://arxiv.org/pdf/1903.00735.pdf">paper</a>, my colleagues and I considered the <a href="http://en.wikipedia.org/wiki/Deep_learning">deep</a> <a href="http://en.wikipedia.org/wiki/Rectifier_(neural_networks)">ReLU</a> network approximation of <a href="http://en.wikipedia.org/wiki/Bandlimiting">bandlimited</a> functions <script type="math/tex">f:B=[0,1]^d\rightarrow\mathbb{R}</script> of the form</p>
+
+<script type="math/tex; mode=display">% <![CDATA[
+f(\boldsymbol{x}) = \int_{\mathbb{R}^d}F(\boldsymbol{w})K(\boldsymbol{w}\cdot\boldsymbol{x})d\boldsymbol{w}, \\
+\quad\mathrm{supp}\,F\subset [-M,M]^d, 
+\quad\int_{[-M,M]^d}\vert F(\boldsymbol{w})\vert d\boldsymbol{w}=C_F<\infty, %]]></script>
+
+<p>for some <a href="http://en.wikipedia.org/wiki/Locally_integrable_function">square-integrable</a> function <script type="math/tex">F:[-M,M]^d\rightarrow\mathbb{C}</script> and <a href="http://en.wikipedia.org/wiki/Analytic_function">analytic</a> kernel <script type="math/tex">K:\mathbb{R}\rightarrow\mathbb{C}</script>.
+We showed that, for any <a href="http://en.wikipedia.org/wiki/Measure_(mathematics)">measure</a> <script type="math/tex">\mu</script>, such functions can be approximated to accuracy <script type="math/tex">\epsilon</script> in the <script type="math/tex">L^2(B,\mu)</script>-norm by deep ReLU networks of depth <script type="math/tex">L=\mathcal{O}\left(\log_2^2\frac{1}{\epsilon}\right)</script> and size <script type="math/tex">W=\mathcal{O}\left(\frac{1}{\epsilon^2}\log_2^2\frac{1}{\epsilon}\right)</script>, up to some constants that depend on <script type="math/tex">F</script>, <script type="math/tex">K</script>, <script type="math/tex">\mu</script> and <script type="math/tex">B</script>.</p>
+
+<p>Our theorem is based on a result by Maurey, and on the ability of deep ReLU networks to approximate <a href="https://en.wikipedia.org/wiki/Chebyshev_polynomials">Chebyshev polynomials</a> and <a href="http://en.wikipedia.org/wiki/Analytic_function">analytic</a> functions efficiently.</p>
+
+<h2>Maurey's theorem</h2>
+
+<p>A famous <a href="http://en.wikipedia.org/wiki/Carath%C3%A9odory%27s_theorem_(convex_hull)">theorem</a> of <a href="http://en.wikipedia.org/wiki/Constantin_Carath%C3%A9odory">Carathéodory</a> states that if a point <script type="math/tex">x\in\mathbb{R}^d</script> lies in the <a href="http://en.wikipedia.org/wiki/Convex_hull">convex hull</a> of a set <script type="math/tex">P</script> then <script type="math/tex">x</script> can be written as the <a href="https://en.wikipedia.org/wiki/Convex_combination">convex combination</a> of at most <script type="math/tex">d+1</script> points in <script type="math/tex">P</script>.
+Maurey’s theorem is an extension of Carathéodory’s result to the infinite-dimensional case of <a href="http://en.wikipedia.org/wiki/Hilbert_space">Hilbert spaces</a>.</p>
+
+<p><b>Theorem (Maurey).</b>
+<i>Let <script type="math/tex">H</script> be a Hilbert space with norm <script type="math/tex">\Vert\cdot\Vert</script>. 
+Suppose there exists <script type="math/tex">G\subset H</script> such that for every <script type="math/tex">g\in G</script>, <script type="math/tex">\Vert g\Vert\leq b</script> for some <script type="math/tex">b>0</script>. 
+Then for every <script type="math/tex">f</script> in the convex hull of <script type="math/tex">G</script> and every integer <script type="math/tex">n\geq 1</script>, there is a <script type="math/tex">f_n</script> in the convex hull of <script type="math/tex">n</script> points in <script type="math/tex">G</script> and a constant <script type="math/tex">c>b^2-\Vert f\Vert^2</script> such that <script type="math/tex">\Vert f - f_n\Vert^2\leq \frac{c}{n}</script>.</i></p>
+
+<p>In practice we used Maurey’s theorem to show that there exists</p>
+
+<script type="math/tex; mode=display">f_{\epsilon}(\boldsymbol{x}) 
+= \sum_{j=1}^{\lceil 1/\epsilon^2\rceil}b_jK(\boldsymbol{w}_j\cdot \boldsymbol{x}),\quad\sum_{j=1}^{\lceil 1/\epsilon^2\rceil}\vert b_j\vert \leq C_F,</script>
+
+<p>such that</p>
+
+<script type="math/tex; mode=display">\Vert f_{\epsilon}(\boldsymbol{x}) - f(\boldsymbol{x})\Vert_{L^2(\mu, B)}
+\leq C_F\sqrt{\mu(B)}\epsilon.</script>
+
+<p>In other words, the function <script type="math/tex">f</script> is approximated by a linear combination of analytic functions <script type="math/tex">K(\boldsymbol{w}_j\cdot \boldsymbol{x})</script> to accuracy <script type="math/tex">C_F\sqrt{\mu(B)}\epsilon</script> in the <script type="math/tex">L^2(B,\mu)</script>-norm. The task of approximating <script type="math/tex">f</script> by deep ReLU networks has been reduced to approximating analytic functions by deep networks.</p>
+
+<h2>Chebyshev polynomials, analytic functions and deep ReLU networks</h2>
+
+<p>The <a href="http://en.wikipedia.org/wiki/Chebyshev_polynomials">Chebyshev polynomials</a> of the first kind play a central role in <a href="http://en.wikipedia.org/wiki/Approximation_theory">approximation theory</a>. They are defined on <script type="math/tex">[-1,1]</script> via the three-term <a href="http://en.wikipedia.org/wiki/Recurrence_relation">recurrence relation</a></p>
+
+<script type="math/tex; mode=display">T_n(x) = 2xT_{n-1}(x) - T_{n-2}(x), \quad n\geq 2,</script>
+
+<p>with <script type="math/tex">T_0=1</script> and <script type="math/tex">T_1(x) = x</script>. We showed that deep ReLU networks can implement the recurrence relation efficiently. Since truncated Chebyshev series can approximate analytic functions exponentially well, so can deep networks.</p>
+
+:ET

@@ -1,11 +1,13 @@
-I"§<p>In a recent <a href="http://arxiv.org/pdf/1903.00735.pdf">paper</a>, my colleagues and I considered the <a href="http://en.wikipedia.org/wiki/Deep_learning">deep</a> <a href="http://en.wikipedia.org/wiki/Rectifier_(neural_networks)">ReLU</a> network approximation of <a href="http://en.wikipedia.org/wiki/Bandlimiting">bandlimited</a> functions <script type="math/tex">f:B=[0,1]^d\rightarrow\mathbb{R}</script> of the form</p>
+I"â<center><h3><i>(edited June 2020)</i></h3></center>
+
+<p>In a recent <a href="http://arxiv.org/pdf/1903.00735.pdf">paper</a>, my colleagues and I considered the <a href="http://en.wikipedia.org/wiki/Deep_learning">deep</a> <a href="http://en.wikipedia.org/wiki/Rectifier_(neural_networks)">ReLU</a> network approximation of <a href="http://en.wikipedia.org/wiki/Bandlimiting">bandlimited</a> functions <script type="math/tex">f:B=[0,1]^d\rightarrow\mathbb{R}</script> of the form</p>
 
 <script type="math/tex; mode=display">% <![CDATA[
 f(\boldsymbol{x}) = \int_{\mathbb{R}^d}F(\boldsymbol{w})K(\boldsymbol{w}\cdot\boldsymbol{x})d\boldsymbol{w}, \\
 \quad\mathrm{supp}\,F\subset [-M,M]^d, 
 \quad\int_{[-M,M]^d}\vert F(\boldsymbol{w})\vert d\boldsymbol{w}=C_F<\infty, %]]></script>
 
-<p>for some <a href="http://en.wikipedia.org/wiki/Locally_integrable_function">integrable</a> function <script type="math/tex">F:[-M,M]^d\rightarrow\mathbb{C}</script> and <a href="http://en.wikipedia.org/wiki/Analytic_function">analytic</a> kernel <script type="math/tex">K:\mathbb{R}\rightarrow\mathbb{C}</script>.
+<p>for some <a href="http://en.wikipedia.org/wiki/Square-integrable_function">square-integrable</a> function <script type="math/tex">F:[-M,M]^d\rightarrow\mathbb{C}</script> and <a href="http://en.wikipedia.org/wiki/Analytic_function">analytic</a> kernel <script type="math/tex">K:\mathbb{R}\rightarrow\mathbb{C}</script>.
 We showed that, for any <a href="http://en.wikipedia.org/wiki/Measure_(mathematics)">measure</a> <script type="math/tex">\mu</script>, such functions can be approximated to accuracy <script type="math/tex">\epsilon</script> in the <script type="math/tex">L^2(B,\mu)</script>-norm by deep ReLU networks of depth <script type="math/tex">L=\mathcal{O}\left(\log_2^2\frac{1}{\epsilon}\right)</script> and size <script type="math/tex">W=\mathcal{O}\left(\frac{1}{\epsilon^2}\log_2^2\frac{1}{\epsilon}\right)</script>, up to some constants that depend on <script type="math/tex">F</script>, <script type="math/tex">K</script>, <script type="math/tex">\mu</script> and <script type="math/tex">B</script>.</p>
 
 <p>Our theorem is based on a result by Maurey, and on the ability of deep ReLU networks to approximate <a href="https://en.wikipedia.org/wiki/Chebyshev_polynomials">Chebyshev polynomials</a> and <a href="http://en.wikipedia.org/wiki/Analytic_function">analytic</a> functions efficiently.</p>
