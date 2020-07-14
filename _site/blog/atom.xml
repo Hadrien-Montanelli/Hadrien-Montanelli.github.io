@@ -4,7 +4,7 @@
 	<title>Hadrien Montanelli's Blog</title>
 	<link href="http://Hadrien-Montanelli.github.io/blog/atom.xml" rel="self"/>
 	<link href="http://Hadrien-Montanelli.github.io/blog"/>
-	<updated>2020-06-23T17:12:53-04:00</updated>
+	<updated>2020-07-14T12:33:18-04:00</updated>
 	<id>http://Hadrien-Montanelli.github.io/blog</id>
 	<author>
 		<name>Hadrien Montanelli</name>
@@ -18,7 +18,7 @@
 			<updated>2020-05-19T00:00:00-04:00</updated>
 			<id>http://Hadrien-Montanelli.github.io/blog/2020/05/19/spin</id>
 			<content type="html">&lt;div style=&quot;text-align: center;&quot;&gt;
-  &lt;img src=&quot;/blog/iconic.png&quot; style=&quot;width:505px;height:324px;&quot; /&gt;
+  &lt;img src=&quot;/blog/iconic.png&quot; style=&quot;width:606px;height:389px;&quot; /&gt;
 &lt;/div&gt;
 
 &lt;p&gt;&lt;a href=&quot;https://arxiv.org/pdf/1604.08900.pdf&quot;&gt;One of the papers&lt;/a&gt; I wrote during my Ph.D. at Oxford was just accepted in &lt;a href=&quot;https://www.journals.elsevier.com/mathematics-and-computers-in-simulation&quot;&gt;Mathematics and Computers in Simulation&lt;/a&gt;. In this post, I review the main ideas of the paper.&lt;/p&gt;
