@@ -4,7 +4,7 @@
 	<title>Hadrien Montanelli's Blog</title>
 	<link href="http://Hadrien-Montanelli.github.io/blog/atom.xml" rel="self"/>
 	<link href="http://Hadrien-Montanelli.github.io/blog"/>
-	<updated>2020-07-14T12:33:18-04:00</updated>
+	<updated>2020-10-12T16:06:56+02:00</updated>
 	<id>http://Hadrien-Montanelli.github.io/blog</id>
 	<author>
 		<name>Hadrien Montanelli</name>
@@ -15,7 +15,7 @@
 		<entry>
 			<title>Exponential integrators for periodic stiff PDEs</title>
 			<link href="http://Hadrien-Montanelli.github.io/blog/2020/05/19/spin"/>
-			<updated>2020-05-19T00:00:00-04:00</updated>
+			<updated>2020-05-19T00:00:00+02:00</updated>
 			<id>http://Hadrien-Montanelli.github.io/blog/2020/05/19/spin</id>
 			<content type="html">&lt;div style=&quot;text-align: center;&quot;&gt;
   &lt;img src=&quot;/blog/iconic.png&quot; style=&quot;width:606px;height:389px;&quot; /&gt;
@@ -88,7 +88,7 @@ It is also possible to define your own PDE using the &lt;code&gt;spinop&lt;/code
 		<entry>
 			<title>Flatten the Curve</title>
 			<link href="http://Hadrien-Montanelli.github.io/blog/2020/03/19/covid19"/>
-			<updated>2020-03-19T00:00:00-04:00</updated>
+			<updated>2020-03-19T00:00:00+01:00</updated>
 			<id>http://Hadrien-Montanelli.github.io/blog/2020/03/19/covid19</id>
 			<content type="html">&lt;h2&gt;The U.K. government's original controversial plan of action&lt;/h2&gt;
 
@@ -183,7 +183,7 @@ Of course, it’d be possible to get a more realistic model by, &lt;i&gt;e.g.&lt
 		<entry>
 			<title>Deep networks and the Kolmogorov&ndash;Arnold superposition theorem</title>
 			<link href="http://Hadrien-Montanelli.github.io/blog/2019/06/26/deep-networks-3"/>
-			<updated>2019-06-26T00:00:00-04:00</updated>
+			<updated>2019-06-26T00:00:00+02:00</updated>
 			<id>http://Hadrien-Montanelli.github.io/blog/2019/06/26/deep-networks-3</id>
 			<content type="html">&lt;center&gt;&lt;h3&gt;&lt;i&gt;(edited May 2020)&lt;/i&gt;&lt;/h3&gt;&lt;/center&gt;
 
@@ -222,7 +222,7 @@ Of course, it’d be possible to get a more realistic model by, &lt;i&gt;e.g.&lt
 		<entry>
 			<title>Deep networks and bandlimited functions</title>
 			<link href="http://Hadrien-Montanelli.github.io/blog/2019/03/02/deep-networks-2"/>
-			<updated>2019-03-02T00:00:00-05:00</updated>
+			<updated>2019-03-02T00:00:00+01:00</updated>
 			<id>http://Hadrien-Montanelli.github.io/blog/2019/03/02/deep-networks-2</id>
 			<content type="html">&lt;center&gt;&lt;h3&gt;&lt;i&gt;(edited June 2020)&lt;/i&gt;&lt;/h3&gt;&lt;/center&gt;
 
@@ -273,7 +273,7 @@ Then, for every &lt;script type=&quot;math/tex&quot;&gt;f&lt;/script&gt; in the 
 		<entry>
 			<title>Computer-assisted proofs for PDEs</title>
 			<link href="http://Hadrien-Montanelli.github.io/blog/2018/12/05/assistedproofs"/>
-			<updated>2018-12-05T00:00:00-05:00</updated>
+			<updated>2018-12-05T00:00:00+01:00</updated>
 			<id>http://Hadrien-Montanelli.github.io/blog/2018/12/05/assistedproofs</id>
 			<content type="html">&lt;p&gt;A couple of weeks ago, I spent a few days at 
 &lt;a href=&quot;https://mcgill.ca/&quot;&gt;McGill Univeristy&lt;/a&gt; 
@@ -397,7 +397,7 @@ DF_N^{-1}(\bar{u}_N) &amp; 0 &amp; 0 &amp; \ldots \\
 		<entry>
 			<title>Spherical caps in cell polarization</title>
 			<link href="http://Hadrien-Montanelli.github.io/blog/2018/02/27/spherical-caps"/>
-			<updated>2018-02-27T00:00:00-05:00</updated>
+			<updated>2018-02-27T00:00:00+01:00</updated>
 			<id>http://Hadrien-Montanelli.github.io/blog/2018/02/27/spherical-caps</id>
 			<content type="html">&lt;div style=&quot;text-align: center;&quot;&gt;
 	&lt;img src=&quot;/blog/sphericalcaps1.png&quot; style=&quot;width:614px;height:190px;&quot; /&gt;
@@ -470,7 +470,7 @@ the development of all living organisms.&lt;/p&gt;
 		<entry>
 			<title>Solving nonlocal PDEs on the sphere</title>
 			<link href="http://Hadrien-Montanelli.github.io/blog/2018/01/25/nonlocal-sphere"/>
-			<updated>2018-01-25T00:00:00-05:00</updated>
+			<updated>2018-01-25T00:00:00+01:00</updated>
 			<id>http://Hadrien-Montanelli.github.io/blog/2018/01/25/nonlocal-sphere</id>
 			<content type="html">&lt;div style=&quot;text-align: center;&quot;&gt;
 	&lt;img src=&quot;/blog/nonlocalpdesphere.jpg&quot; style=&quot;width:660px;height:287px;&quot; /&gt;
@@ -530,7 +530,7 @@ If you want to konw more about our algorithms, check our paper out!&lt;/p&gt;
 		<entry>
 			<title>Gibbs phenomenon and Cesàro mean</title>
 			<link href="http://Hadrien-Montanelli.github.io/blog/2018/01/04/gibbs-phenomenon"/>
-			<updated>2018-01-04T00:00:00-05:00</updated>
+			<updated>2018-01-04T00:00:00+01:00</updated>
 			<id>http://Hadrien-Montanelli.github.io/blog/2018/01/04/gibbs-phenomenon</id>
 			<content type="html">&lt;div style=&quot;text-align: center;&quot;&gt;
 	&lt;img src=&quot;/blog/gibbs1.jpg&quot; style=&quot;width:516px;height:412px;&quot; /&gt;
@@ -625,7 +625,7 @@ coming soon!&lt;/p&gt;
 		<entry>
 			<title>Deep networks and the curse of dimensionality</title>
 			<link href="http://Hadrien-Montanelli.github.io/blog/2017/12/22/deep-networks"/>
-			<updated>2017-12-22T00:00:00-05:00</updated>
+			<updated>2017-12-22T00:00:00+01:00</updated>
 			<id>http://Hadrien-Montanelli.github.io/blog/2017/12/22/deep-networks</id>
 			<content type="html">&lt;div style=&quot;text-align: center;&quot;&gt;
 	&lt;img src=&quot;/blog/deepnet.jpg&quot; style=&quot;width:595px;height:300px;&quot; /&gt;
@@ -695,7 +695,7 @@ My theorem shows that functions in the so-called Korobov spaces &lt;script type=
 		<entry>
 			<title>Solving PDEs on the sphere</title>
 			<link href="http://Hadrien-Montanelli.github.io/blog/2017/10/26/pdes-sphere"/>
-			<updated>2017-10-26T00:00:00-04:00</updated>
+			<updated>2017-10-26T00:00:00+02:00</updated>
 			<id>http://Hadrien-Montanelli.github.io/blog/2017/10/26/pdes-sphere</id>
 			<content type="html">&lt;div style=&quot;text-align: center;&quot;&gt;
 	&lt;img src=&quot;/blog/pdesphere.jpg&quot; style=&quot;width:585px;height:150px;&quot; /&gt;
@@ -735,7 +735,7 @@ I’m visiting Stanislav at Princeton in a couple of weeks—looking forward to 
 		<entry>
 			<title>Choreographies: when planets dance</title>
 			<link href="http://Hadrien-Montanelli.github.io/blog/2017/10/09/choreographies"/>
-			<updated>2017-10-09T00:00:00-04:00</updated>
+			<updated>2017-10-09T00:00:00+02:00</updated>
 			<id>http://Hadrien-Montanelli.github.io/blog/2017/10/09/choreographies</id>
 			<content type="html">&lt;div style=&quot;text-align: center;&quot;&gt;
 	&lt;img src=&quot;/blog/choreo.jpg&quot; style=&quot;width:733px;height:231px;&quot; /&gt;
@@ -820,7 +820,7 @@ and an optimization algorithm (over a finite number of Fourier coefficients) can
 		<entry>
 			<title>The intertwining property of the Radon transform</title>
 			<link href="http://Hadrien-Montanelli.github.io/blog/2017/10/05/radon-transform"/>
-			<updated>2017-10-05T00:00:00-04:00</updated>
+			<updated>2017-10-05T00:00:00+02:00</updated>
 			<id>http://Hadrien-Montanelli.github.io/blog/2017/10/05/radon-transform</id>
 			<content type="html">&lt;p&gt;My colleague &lt;a href=&quot;http://dsrim.github.io&quot;&gt;Donsub Rim&lt;/a&gt; has recently written a beautiful 
 &lt;a href=&quot;http://arxiv.org/pdf/1705.03609.pdf&quot;&gt;paper&lt;/a&gt; about dimensional splitting for 
@@ -882,7 +882,7 @@ For a function &lt;script type=&quot;math/tex&quot;&gt;u:\mathbb{R}^n\rightarrow
 		<entry>
 			<title>New website</title>
 			<link href="http://Hadrien-Montanelli.github.io/blog/2017/09/21/hadrien-montanelli-site-launched"/>
-			<updated>2017-09-21T00:00:00-04:00</updated>
+			<updated>2017-09-21T00:00:00+02:00</updated>
 			<id>http://Hadrien-Montanelli.github.io/blog/2017/09/21/hadrien-montanelli-site-launched</id>
 			<content type="html">&lt;p&gt;Well. Finally got around to putting this old website together. Neat thing about it—powered by &lt;a href=&quot;http://jekyllrb.com&quot;&gt;Jekyll&lt;/a&gt; and I can use Markdown to author my posts.&lt;/p&gt;
 </content>
