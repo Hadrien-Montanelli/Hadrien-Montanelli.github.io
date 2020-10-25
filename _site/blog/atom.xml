@@ -4,7 +4,7 @@
 	<title>Hadrien Montanelli's Blog</title>
 	<link href="http://Hadrien-Montanelli.github.io/blog/atom.xml" rel="self"/>
 	<link href="http://Hadrien-Montanelli.github.io/blog"/>
-	<updated>2020-10-26T00:00:03+01:00</updated>
+	<updated>2020-10-26T00:08:09+01:00</updated>
 	<id>http://Hadrien-Montanelli.github.io/blog</id>
 	<author>
 		<name>Hadrien Montanelli</name>
@@ -28,7 +28,7 @@ de la &lt;a href=&quot;https://climate.nasa.gov/&quot;&gt;NASA&lt;/a&gt;. Pour l
 
 &lt;h2&gt;Comment en est-on arrivé là ?&lt;/h2&gt;
 
-&lt;p&gt;Tout a commencé avec &lt;a href=&quot;https://www.nature.com/articles/s41422-020-0282-0&quot;&gt;cet article&lt;/a&gt; d’un groupe de recherche en Chine, publié le 4 Février 2020. L’article présente des expériences &lt;a href=&quot;in vitro&quot;&gt;in vitro&lt;/a&gt; (en laboratoire) pour lesquelles l’hydroxychloroquine et le &lt;a href=&quot;https://fr.wikipedia.org/wiki/Remd%C3%A9sivir&quot;&gt;remdésivir&lt;/a&gt; bloquent le &lt;a href=&quot;https://fr.wikipedia.org/wiki/SARS-CoV-2&quot;&gt;SARS-CoV-2&lt;/a&gt;, le coronavirus responsable de la Covid-19. Ce type d’exprériences consiste à utiliser des cellules (non humaines) en laboratoire, type &lt;a href=&quot;https://fr.wikipedia.org/wiki/Vero_(cellule)&quot;&gt;Vero&lt;/a&gt;, à y injecter le virus, la substance active du médicament à tester, et à mesurer le taux de reproduction du virus après 48h. Ces tests-là ont été concluants pour l’hydroxychloroquine et le remdésivir, ce qui a stimulé la recherche &lt;a href=&quot;https://fr.wikipedia.org/wiki/In_vivo&quot;&gt;in vivo&lt;/a&gt; (sur des patients) pour les deux. À ce stade, tout ce qui est prouvé, c’est que l’hydroxychloroquine et le remdésivir semblent efficaces quand le SARS-CoV-2 est injecté en laboratoire dans des populations de cellules qui proviennent de cellules de rein extraites d’un singe vert africain. Bref, on est très loin d’un médicament efficace dans le corps humain.&lt;/p&gt;
+&lt;p&gt;Tout a commencé avec &lt;a href=&quot;https://www.nature.com/articles/s41422-020-0282-0&quot;&gt;cet article&lt;/a&gt; d’un groupe de recherche en Chine, publié le 4 Février 2020. L’article présente des expériences &lt;a href=&quot;in vitro&quot;&gt;in vitro&lt;/a&gt; (en laboratoire) pour lesquelles l’hydroxychloroquine et le &lt;a href=&quot;https://fr.wikipedia.org/wiki/Remd%C3%A9sivir&quot;&gt;remdésivir&lt;/a&gt; bloquent le &lt;a href=&quot;https://fr.wikipedia.org/wiki/SARS-CoV-2&quot;&gt;SARS-CoV-2&lt;/a&gt;, le coronavirus responsable de la Covid-19. Ce type d’expériences consiste à utiliser des cellules (non humaines) en laboratoire, type &lt;a href=&quot;https://fr.wikipedia.org/wiki/Vero_(cellule)&quot;&gt;Vero&lt;/a&gt;, à y injecter le virus, la substance active du médicament à tester, et à mesurer le taux de reproduction du virus après 48h. Ces tests-là ont été concluants pour l’hydroxychloroquine et le remdésivir, ce qui a stimulé la recherche &lt;a href=&quot;https://fr.wikipedia.org/wiki/In_vivo&quot;&gt;in vivo&lt;/a&gt; (sur des patients) pour les deux. À ce stade, tout ce qui est prouvé, c’est que l’hydroxychloroquine et le remdésivir semblent efficaces quand le SARS-CoV-2 est injecté en laboratoire dans des populations de cellules qui proviennent de cellules de rein extraites d’un singe vert africain. Bref, on est très loin d’un médicament efficace dans le corps humain.&lt;/p&gt;
 
 &lt;p&gt;Ensuite, il y a eu &lt;a href=&quot;http://www.mediterranee-infection.com/wp-content/uploads/2020/03/Hydroxychloroquine_final_DOI_IJAA.pdf&quot;&gt;cet article&lt;/a&gt; du Professeur Raoult et de son équipe, en ligne depuis le 17 Mars 2020 et publié en Juillet 2020. C’est un essai de très petite taille (20+16 participants), sur des patients hospitalisés, dont le résultat est un test PCR chaque jour lors des 6 jours de soin. Les patients sont relativement jeunes et ont tous survécu &lt;a href=&quot;#section3&quot;&gt;[3]&lt;/a&gt;. Les résultats sont répertoriés dans le tableau ci-dessous.&lt;/p&gt;
 
@@ -71,9 +71,9 @@ de la &lt;a href=&quot;https://climate.nasa.gov/&quot;&gt;NASA&lt;/a&gt;. Pour l
 
 &lt;h2&gt;Comment teste-t-on l'efficacité d'un médicament ?&lt;/h2&gt;
 
-&lt;p&gt;D’abord, il faut utiliser un grand nombre de patients pour réduire au plus possible le facteur chance, au moins 500, et généralement plusieurs milliers. Ensuite, il faut diviser ces patients en deux groupes aux caractértiques similaires (âge, sexe, ethnicité et antécédents médicaux) : un groupe auquel sera donné le médicamemt, en plus des soins habituels, et un autre groupe qui ne recevra que les soins habituels. Pour éviter &lt;a href=&quot;https://fr.wikipedia.org/wiki/Effet_placebo&quot;&gt;l’effet placebo&lt;/a&gt;, il est essentiel que les patients ne sachent pas s’ils sont administrés le médicament ou non. Les essais cliniques vont même plus loin, et sont « doublement aveugles » : l’équipe médicale qui apporte les soins habituels aux patients ne sait pas non plus si le patient a reçu le médicament, l’idée étant de se défaire de tous les &lt;a href=&quot;https://fr.wikipedia.org/wiki/Biais_(statistique)&quot;&gt;biais&lt;/a&gt; possibles.&lt;/p&gt;
+&lt;p&gt;D’abord, il faut utiliser un grand nombre de patients pour réduire au plus possible le facteur chance, au moins 500, et généralement plusieurs milliers. Ensuite, il faut diviser ces patients en deux groupes aux caractéristiques similaires (âge, sexe, ethnicité et antécédents médicaux) : un groupe auquel sera donné le médicament, en plus des soins habituels, et un autre groupe qui ne recevra que les soins habituels. Pour éviter &lt;a href=&quot;https://fr.wikipedia.org/wiki/Effet_placebo&quot;&gt;l’effet placebo&lt;/a&gt;, il est essentiel que les patients ne sachent pas s’ils sont administrés le médicament ou non. Les essais cliniques vont même plus loin, et sont « doublement aveugles » : l’équipe médicale qui apporte les soins habituels aux patients ne sait pas non plus si le patient a reçu le médicament, l’idée étant de se défaire de tous les &lt;a href=&quot;https://fr.wikipedia.org/wiki/Biais_(statistique)&quot;&gt;biais&lt;/a&gt; possibles.&lt;/p&gt;
 
-&lt;p&gt;On voit bien ici les limites des essais de l’équipe du Professeur Raoult : nombre de patients bien trop faible, groupes aux carctéristiques différentes, manques d’informations sur le profil des patients (ethnicité et antécédents médicaux), et pas de « double aveugle ». En bref, l’essai clinique du Professeur Raoult n’a aucune valeur scientifique.&lt;/p&gt;
+&lt;p&gt;On voit bien ici les limites des essais de l’équipe du Professeur Raoult : nombre de patients bien trop faible, groupes aux caractéristiques différentes, manques d’informations sur le profil des patients (ethnicité et antécédents médicaux), et pas de « double aveugle ». En bref, l’essai clinique du Professeur Raoult n’a aucune valeur scientifique.&lt;/p&gt;
 
 &lt;h2&gt;Trois essais cliniques qui montrent que l'hydroxychloroquine ne marche pas&lt;/h2&gt;
 
@@ -118,7 +118,7 @@ de la &lt;a href=&quot;https://climate.nasa.gov/&quot;&gt;NASA&lt;/a&gt;. Pour l
     &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;p&gt;Le tableau ci-dessous détaille les résultats de l’essai Solidarity de l’OMS ; voir cet &lt;a href=&quot;https://www.medrxiv.org/content/10.1101/2020.10.15.20209817v1&quot;&gt;article&lt;/a&gt;, en ligne depuis le 15 Octobre 2020, dont on attendait les résultats depuis le mois de Juilliet lorsque l’OMS &lt;a href=&quot;https://www.who.int/fr/news/item/04-07-2020-who-discontinues-hydroxychloroquine-and-lopinavir-ritonavir-treatment-arms-for-covid-19&quot;&gt;avait annoncé&lt;/a&gt; qu’elle stoppait les essais sur l’hydroxychloroquine par manque de résultats.&lt;/p&gt;
+&lt;p&gt;Le tableau ci-dessous détaille les résultats de l’essai Solidarity de l’OMS ; voir cet &lt;a href=&quot;https://www.medrxiv.org/content/10.1101/2020.10.15.20209817v1&quot;&gt;article&lt;/a&gt;, en ligne depuis le 15 Octobre 2020, dont on attendait les résultats depuis le mois de Juillet lorsque l’OMS &lt;a href=&quot;https://www.who.int/fr/news/item/04-07-2020-who-discontinues-hydroxychloroquine-and-lopinavir-ritonavir-treatment-arms-for-covid-19&quot;&gt;avait annoncé&lt;/a&gt; qu’elle stoppait les essais sur l’hydroxychloroquine par manque de résultats.&lt;/p&gt;
 
 &lt;table class=&quot;styled-table&quot;&gt;
     &lt;thead&gt;
@@ -157,7 +157,7 @@ de la &lt;a href=&quot;https://climate.nasa.gov/&quot;&gt;NASA&lt;/a&gt;. Pour l
     &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;p&gt;Le troisième et dernier essai est de moyenne taille (414+407), sur des patients « contacts » et non hospitalisés, dont le résultat est un test PCR après 14 jours. L’essai a été mené aux États-Unis et au Canda. Les résults sont ci-dessous ; voir cet &lt;a href=&quot;https://www.nejm.org/doi/full/10.1056/NEJMoa2016638&quot;&gt;article&lt;/a&gt;, publié le 3 Juin 2020.&lt;/p&gt;
+&lt;p&gt;Le troisième et dernier essai est de moyenne taille (414+407), sur des patients « contacts » et non hospitalisés, dont le résultat est un test PCR après 14 jours. L’essai a été mené aux États-Unis et au Canada. Les résultats sont ci-dessous ; voir cet &lt;a href=&quot;https://www.nejm.org/doi/full/10.1056/NEJMoa2016638&quot;&gt;article&lt;/a&gt;, publié le 3 Juin 2020.&lt;/p&gt;
 
 &lt;table class=&quot;styled-table&quot;&gt;
     &lt;thead&gt;
