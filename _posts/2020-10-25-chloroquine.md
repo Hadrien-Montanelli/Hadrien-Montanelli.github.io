@@ -22,7 +22,7 @@ Tout a commencé avec <a href='https://www.nature.com/articles/s41422-020-0282-0
 
 À ce stade, tout ce qui est prouvé, c'est que l'hydroxychloroquine et le remdésivir sont efficaces quand le SARS-CoV-2 est injecté en laboratoire dans des populations de cellules qui proviennent de cellules de rein extraites d'un singe vert africain. Bref, on est très loin d'un médicament efficace dans le corps humain.
 
-Ensuite, il y a eu <a href='http://www.mediterranee-infection.com/wp-content/uploads/2020/03/Hydroxychloroquine_final_DOI_IJAA.pdf'>cet article</a> du Professeur Raoult et de son équipe, en ligne depuis le 17 Mars 2020 et publié en Juillet 2020. C'est un essai de très petite taille (20+16 participants), sur des patients hospitalisés, dont le résultat est un test PCR chaque jour lors des 6 jours de soin. Les patients sont relativement jeunes et ont tous survécu <a href="#section3">[3]</a>. Les résultats sont répertoriés dans le tableau ci-dessous.
+Ensuite, il y a eu <a href='http://www.mediterranee-infection.com/wp-content/uploads/2020/03/Hydroxychloroquine_final_DOI_IJAA.pdf'>cet article</a> du Professeur Raoult et de son équipe, en ligne depuis le 17 Mars 2020 et publié en Juillet 2020. C'est un essai de très petite taille (20+16 participants), sur des patients hospitalisés, dont le résultat est un test PCR chaque jour lors des six jours de soin. Les patients sont relativement jeunes, présentent des cas peu graves, et ont tous survécu <a href="#section3">[3]</a>. Les résultats sont répertoriés dans le tableau ci-dessous.
 
 <table class="styled-table">
     <thead>
