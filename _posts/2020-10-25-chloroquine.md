@@ -64,7 +64,7 @@ Ensuite, il y a eu <a href='http://www.mediterranee-infection.com/wp-content/upl
 
 Ce sont des résultats encourageants, mais qui ont de nombreuses limites ; l'essai du Professeur Raoult ne suit pas la méthode scientifique qui permet de garantir l'efficacité d'un médicament, que j'explique brièvement maintenant.
 
- <h2>Comment teste-t-on scientifiquement l'efficacité d'un médicament ?</h2>
+ <h2>Comment teste-t-on l'efficacité d'un médicament ?</h2>
 
 D'abord, il faut utiliser un grand nombre de patients pour réduire au plus possible le facteur chance, au moins 500, et généralement plusieurs milliers. 
 
