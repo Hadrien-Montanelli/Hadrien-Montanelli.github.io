@@ -204,7 +204,7 @@ Le traitement à base d’hydroxychloroquine n'a pas d'influence statistiquement
 
 <h2>Conclusion</h2>
 
-Après plusieurs mois de recherche intensive, les scientifique se sont mis d'accord : l'hydroxychloroquine ne permet pas de soigner ou de prévenir la Covid-19. D'ailleurs, son autorisation de mise en urgence sur le marché <a href ='https://www.reuters.com/article/health-coronavirus-hydroxychloroquine-fr/eu-governments-ban-malaria-drug-for-covid-19-trial-paused-as-safety-fears-grow-idUSKBN2340A6'>a été retirée</a> dès la fin du mois de Mai 2020 dans l'Union Européenne, au Royaume-Uni et aux États-Unis. 
+Après plusieurs mois de recherche intensive, les scientifiques se sont mis d'accord : l'hydroxychloroquine ne permet pas de soigner ou de prévenir la Covid-19. D'ailleurs, son autorisation de mise en urgence sur le marché <a href ='https://www.reuters.com/article/health-coronavirus-hydroxychloroquine-fr/eu-governments-ban-malaria-drug-for-covid-19-trial-paused-as-safety-fears-grow-idUSKBN2340A6'>a été retirée</a> dès la fin du mois de Mai 2020 dans l'Union Européenne, au Royaume-Uni et aux États-Unis. 
 
 J'étais aux États-Unis jusqu'au début de l'automne, et j'avoue que la passion française derrière l'hydroxychloroquine est toujours un mystère pour moi. Les seules explications que je vois sont (1) le manque de visibilité des médias anglo-saxons et des revues scientifiques spécialisées (qui sont exclusivement en anglais) en France, (2) une sorte de patriotisme qui a poussé l'opinion publique à défendre de façon irrationnelle un chercheur Français, et (3) une défiance vis-à-vis du gouvernement et de la science.
 
