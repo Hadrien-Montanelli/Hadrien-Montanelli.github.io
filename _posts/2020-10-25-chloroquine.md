@@ -119,7 +119,7 @@ Le tableau ci-dessous regroupe les résultats de l'essai Recovery d'Oxford, pré
 
 Le traitement à base d'hydroxychloroquine ne permet pas de baisser le taux de mortalité.
 
-Regardons maintenant un autre tableau, qui détaille les résultats de l'essai Solidarity de l'OMS, exposés dans cet <a href='https://www.medrxiv.org/content/10.1101/2020.10.15.20209817v1'>article</a> et en ligne depuis le 15 Octobre 2020, dont on attendait les résultats depuis le mois de Mai, lorsque l'OMS <a href='https://www.who.int/fr/dg/speeches/detail/who-director-general-s-opening-remarks-at-the-media-briefing-on-covid-19---25-may-2020'> avait annoncé</a> qu'elle stoppait les essais sur l'hydroxychloroquine, <a href='https://www.who.int/fr/news/item/04-07-2020-who-discontinues-hydroxychloroquine-and-lopinavir-ritonavir-treatment-arms-for-covid-19'>décision confirmée</a> au mois de Juillet.
+Regardons maintenant un autre tableau, qui détaille les résultats de l'essai Solidarity de l'OMS, exposés dans cet <a href='https://www.medrxiv.org/content/10.1101/2020.10.15.20209817v1'>article</a> en ligne depuis le 15 Octobre 2020, dont on attendait les résultats depuis le mois de Mai, lorsque l'OMS <a href='https://www.who.int/fr/dg/speeches/detail/who-director-general-s-opening-remarks-at-the-media-briefing-on-covid-19---25-may-2020'> avait annoncé</a> qu'elle stoppait les essais sur l'hydroxychloroquine, <a href='https://www.who.int/fr/news/item/04-07-2020-who-discontinues-hydroxychloroquine-and-lopinavir-ritonavir-treatment-arms-for-covid-19'>décision confirmée</a> au mois de Juillet.
 
 <table class="styled-table">
     <thead>
@@ -200,7 +200,6 @@ Le troisième et dernier essai est un essai de moyenne taille (414+407), sur des
 </table>
 
 Le traitement à base d’hydroxychloroquine n'a pas d'influence statistiquement significative sur la contraction de la maladie.
-
 
 <h2>Conclusion</h2>
 
