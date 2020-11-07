@@ -733,7 +733,7 @@ footer .footer-copyright {
 
 @media screen and (max-width: 650px) {
 
-    #parallax {
+    #parallax-section {
         background-attachment: scroll;
     }
 
