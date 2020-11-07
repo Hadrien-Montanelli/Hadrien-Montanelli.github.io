@@ -731,6 +731,14 @@ footer .footer-copyright {
    Mobile Responsive         
 -----------------------------------------*/
 
+@media screen and (max-width: 650px) {
+
+    #parallax {
+        background-attachment: scroll;
+    }
+
+}
+
 @media (max-width: 980px) {
 
   .main-about,
@@ -738,10 +746,6 @@ footer .footer-copyright {
   .main-gallery,
   .main-contact {
     height: 35vh;
-  }
-
-  .parallax-section {
-  background-attachment: scroll;
   }
 
 }
