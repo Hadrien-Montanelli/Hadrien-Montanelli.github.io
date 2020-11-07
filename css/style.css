@@ -731,9 +731,9 @@ footer .footer-copyright {
    Mobile Responsive         
 -----------------------------------------*/
 
-@media screen and (max-width: 650px) {
+@media (max-width: 650px) {
 
-    #parallax-section {
+    #about {
         background-attachment: scroll;
     }
 
