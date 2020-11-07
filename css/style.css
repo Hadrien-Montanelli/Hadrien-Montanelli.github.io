@@ -127,9 +127,16 @@ a:hover, a:active, a:focus {
 }
 
 .parallax-section {
-  /*background-attachment: fixed !important;*/
+  background-attachment: fixed !important;
   background-size: cover !important;
   overflow: hidden;
+  z-index: -1;
+  position: fixed;
+  top: 0;
+  left: 0;
+  /*height: 100%;
+  width: 100%;*/
+  background-size: 100%;
 }
 
 
@@ -731,17 +738,13 @@ footer .footer-copyright {
    Mobile Responsive         
 -----------------------------------------*/
 
-@media (max-width: 980px) {
+@media and screen (max-width: 980px) {
 
   .main-about,
   .main-single-post,  
   .main-gallery,
   .main-contact {
     height: 35vh;
-  }
-
-  #about {
-    background-attachment: scroll;
   }
 
 }
@@ -769,10 +772,6 @@ footer .footer-copyright {
     padding-top: 22px;
   }
 
-  #about {
-    background-attachment: scroll;
-  }
-
 }
 
 
@@ -787,10 +786,6 @@ footer .footer-copyright {
   #blog, #blog-single-post {
     padding-top: 60px;
     padding-bottom: 60px;
-  }
-
-  #about {
-    background-attachment: scroll;
   }
 
 }
