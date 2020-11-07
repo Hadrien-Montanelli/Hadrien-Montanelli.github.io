@@ -731,6 +731,12 @@ footer .footer-copyright {
    Mobile Responsive         
 -----------------------------------------*/
 
+@media screen and (max-width: 80px) {
+    #parallax {
+        background-attachment: scroll;
+    }
+}
+
 @media (max-width: 980px) {
 
   .main-about,
