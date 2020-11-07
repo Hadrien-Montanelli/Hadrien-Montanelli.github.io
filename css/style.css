@@ -770,6 +770,11 @@ footer .footer-copyright {
     padding-top: 22px;
   }
 
+  #home, #about,
+  #blog-singe-post {
+    background-attachment: scroll;
+  }
+
 }
 
 
@@ -784,6 +789,11 @@ footer .footer-copyright {
   #blog, #blog-single-post {
     padding-top: 60px;
     padding-bottom: 60px;
+  }
+
+  #home, #about,
+  #blog-singe-post {
+    background-attachment: scroll;
   }
 
 }
