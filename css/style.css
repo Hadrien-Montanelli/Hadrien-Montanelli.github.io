@@ -731,14 +731,6 @@ footer .footer-copyright {
    Mobile Responsive         
 -----------------------------------------*/
 
-@media (max-width: 650px) {
-
-    #about {
-        background-attachment: scroll;
-    }
-
-}
-
 @media (max-width: 980px) {
 
   .main-about,
@@ -746,6 +738,10 @@ footer .footer-copyright {
   .main-gallery,
   .main-contact {
     height: 35vh;
+  }
+
+  #about {
+    background-attachment: scroll;
   }
 
 }
@@ -773,6 +769,10 @@ footer .footer-copyright {
     padding-top: 22px;
   }
 
+  #about {
+    background-attachment: scroll;
+  }
+
 }
 
 
@@ -787,6 +787,10 @@ footer .footer-copyright {
   #blog, #blog-single-post {
     padding-top: 60px;
     padding-bottom: 60px;
+  }
+
+  #about {
+    background-attachment: scroll;
   }
 
 }
