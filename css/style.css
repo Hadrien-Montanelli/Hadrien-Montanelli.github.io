@@ -195,10 +195,7 @@ a:hover, a:active, a:focus {
 
 .parallax-section {
   background-attachment: fixed !important;
-  /*background-size: cover !important;*/
-  background-size: contain;
-  background-size:100%;
-  width:100%;
+  background-size: cover !important;
   overflow: hidden;
 }
 
@@ -808,6 +805,10 @@ footer .footer-copyright {
   .main-gallery,
   .main-contact {
     height: 35vh;
+  }
+
+  .parallax-section {
+    background-attachment: scroll !important;
   }
 
 }
