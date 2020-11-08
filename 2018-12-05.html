@@ -181,15 +181,27 @@ http://www.tooplate.com/view/2085-neuron
                     In this case a good choice for \(A^\dagger\) is
                     <small>
                     $$
-                    A^\dagger=\mathrm{diag}\left(DF_N(\bar{u}_N), -\epsilon^2(N+1)^2-1, -\epsilon^2(N+2)^2-1, \ldots\right).
+                    A^\dagger =
+                    \begin{pmatrix}
+                    \scriptsize{DF_N(\bar{u}_N)} & 0 & 0 & \ldots \\
+                    0 & \scriptsize{-\epsilon^2(N+1)^2 -1} & 0 & \ldots \\
+                    0 & 0 & \scriptsize{-\epsilon^2(N+2)^2 -1} & \ldots \\
+                    \vdots & \vdots & \vdots & \ddots
+                    \end{pmatrix}.
                     $$
                     </small>
                     The idea is that for large enough \(N\) the Fr&eacute;chet derivative of \(L\) 
-                    will dominate the Fr&eacute;chet derivative of \(N\). (Note that \(DL(u)=L\).)
+                    will dominate the Fr&eacute;chet derivative of \(F\). (Note that \(DL(u)=L\).)
                     Therefore we can choose
                     <small>
                     $$
-                    A=\mathrm{diag}\left(DF^{-1}_N(\bar{u}_N), (-\epsilon^2(N+1)^2-1)^{-1}, (-\epsilon^2(N+2)^2-1)^{-1}, \ldots\right).
+                    A =
+                    \begin{pmatrix}
+                    \scriptsize{DF_N^{-1}(\bar{u}_N)} & 0 & 0 & \ldots \\
+                    0 & \frac{1}{-\epsilon^2(N+1)^2-1} & 0 & \ldots \\
+                    0 & 0 & \frac{1}{-\epsilon^2(N+2)^2-1} & \ldots \\
+                    \vdots & \vdots & \vdots & \ddots
+                    \end{pmatrix}.
                     $$
                     </small>
                     </p>
