@@ -808,8 +808,13 @@ footer .footer-copyright {
   }
 
   .parallax-section {
+    /*background-attachment: scroll !important;
+    background-size: 100% 100%;*/
     background-attachment: scroll !important;
-    background-size: 100% auto;
+    background-position: top;
+    -webkit-background-size: auto;
+    -moz-background-size: auto;
+    background-size: auto;
   }
 
 }
