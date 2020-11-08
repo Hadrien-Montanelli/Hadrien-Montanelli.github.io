@@ -798,7 +798,7 @@ footer .footer-copyright {
    Mobile Responsive         
 -----------------------------------------*/
 
-@media (max-width: 2000px) {
+@media (max-width: 1048px) {
 
   .main-about,
   .main-single-post,  
@@ -809,7 +809,7 @@ footer .footer-copyright {
 
   .parallax-section {
     background-attachment: scroll !important;
-    /*background-size: 100% 100%;*/
+    background-size: 100% 100%;
   }
 
 }
