@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<meta name="description" content="">
+<meta name="keywords" content="">
+<meta name="author" content="">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+<title>Blog</title>
+<!--
+
+Template 2085 Neuron
+
+http://www.tooplate.com/view/2085-neuron
+
+-->
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" href="css/font-awesome.min.css">
+<link rel="stylesheet" href="css/magnific-popup.css">
+
+<!-- Main css -->
+<link rel="stylesheet" href="css/style.css">
+<link href="https://fonts.googleapis.com/css?family=Lora|Merriweather:300,400" rel="stylesheet">
+
+</head>
+<body>
+
+<!-- PRE LOADER -->
+
+<div class="preloader">
+     <div class="sk-spinner sk-spinner-wordpress">
+          <span class="sk-inner-circle"></span>
+     </div>
+</div>
+
+<!-- Navigation section  -->
+
+<div class="navbar navbar-default navbar-static-top" role="navigation">
+     <div class="container">
+
+          <div class="navbar-header">
+               <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon icon-bar"></span>
+                    <span class="icon icon-bar"></span>
+                    <span class="icon icon-bar"></span>
+               </button>
+               <a href="index.html" class="navbar-brand">H. Montanelli</a>
+          </div>
+          <div class="collapse navbar-collapse">
+               <ul class="nav navbar-nav navbar-right">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="publications.html">Publications</a></li>
+                    <li><a href="talks.html">Talks</a></li>
+                    <li><a href="teaching.html">Teaching</a></li>
+               </ul>
+          </div>
+
+  </div>
+</div>
+
+<!-- Home Section -->
+
+<section id="home" class="main-about parallax-section">
+     <div class="overlay"></div>
+     <div class="container">
+          <div class="row">
+
+               <div class="col-md-12 col-sm-12">
+                    <h1>Solving nonlocal PDEs on the sphere</h1>
+               </div>
+
+          </div>
+     </div>
+</section>
+
+<!-- Blog Single Post Section -->
+
+<section id="about">
+     <div class="container">
+          <div class="row">
+
+               <div class="col-md-offset-1 col-md-10 col-sm-12">     
+               <img src="/blog/nonlocalpdesphere.jpg" class="img-responsive">
+
+               <p>I have just submitted <a href="http://arxiv.org/pdf/1801.04902.pdf">a paper</a> 
+               about <a href="http://www.ma.utexas.edu/mediawiki/index.php/Introduction_to_nonlocal_equations">nonlocal PDEs</a> 
+               on the sphere with my colleagues 
+               <a href="http://home.cc.umanitoba.ca/~slevinrm/">Mikael Slevinsky</a> and 
+               <a href="http://www.columbia.edu/~qd2125/">Qiang Du</a>. 
+               Here are the main ideas of our work.</p>
+
+               <p>We proposed a fast <a href="http://en.wikipedia.org/wiki/Spectral_method">spectral method</a> 
+               for computing solutions of nonlocal models of the form
+               $$
+               u_t = \epsilon^2\mathcal{L}_\delta u + \mathcal{N}(u), \quad u(t=0,\mathbf{x}) = u_0(\mathbf{x}), \quad \epsilon>0,
+               $$
+               where \(u(t,\mathbf{x})\) is a function of time \(t\ge0\) and position 
+               \(\mathbf{x}\) 
+               on the unit sphere \(\mathbb{S}^2\subset\mathbb{R}^3\),
+               \(\mathcal{N}\) is a nonlinear operator with constant coefficients (<i>e.g.</i>, \(\mathcal{N}(u)=u-u^3\)), 
+               and \(\mathcal{L}_{\delta}\) is a nonlocal 
+               <a href="http://en.wikipedia.org/wiki/Laplace%E2%80%93Beltrami_operator">Laplace&ndash;Beltrami operator</a>,
+               $$
+               \mathcal{L}_\delta u(\mathbf{x}) = \int_{\mathbb{S}^2} \rho_\delta(\vert\mathbf{x}-\mathbf{y}\vert)
+               [u(\mathbf{y}) - u(\mathbf{x})]\,d\Omega(\mathbf{y}).
+               $$
+               In the definition above, \(d\Omega(\mathbf{y})\) denotes the standard 
+               <a href="http://en.wikipedia.org/wiki/Measure_(mathematics)">measure</a> on 
+               \(\mathbb{S}^2\) and \(\rho_\delta\) is a suitably defined nonlocal kernel with horizon \(0<\delta\le2\), which determines the range of interactions.</p>
+
+               <p>There has been substantial work on the numerical approximation of this type of equations in 
+               <a href="http://en.wikipedia.org/wiki/Euclidean_geometry">Euclidean geometries</a>.
+               However, no study has been attempted so far to investigate similar 
+               <a href="http://en.wikipedia.org/wiki/Discretization">discretizations</a> on the sphere. 
+               It is of practical interests to study the extension to 
+               <a href="http://en.wikipedia.org/wiki/Non-Euclidean_geometry">non-Euclidean geometries</a> 
+               (the sphere being a representative example) for the modelling of 
+               <a href="http://en.wikipedia.org/wiki/Anomalous_diffusion">anomalous diffusion</a>, 
+               <a href="http://en.wikipedia.org/wiki/Pattern_formation">pattern formation</a> 
+               and <a href="http://en.wikipedia.org/wiki/Image_analysis">image analysis</a>.</p>
+
+               <p>Our algorithms are based on the diagonalizability of nonlocal diffusion operators in the basis of 
+               <a href="http://en.wikipedia.org/wiki/Spherical_harmonics">spherical harmonics</a>, 
+               the computation of their <a href="http://en.wikipedia.org/wiki/Eigenvalues_and_eigenvectors">eigenvalues</a> 
+               to high relative accuracy using <a href="http://en.wikipedia.org/wiki/Numerical_integration">quadrature</a> 
+               and <a href="http://en.wikipedia.org/wiki/Asymptotic_analysis">asymptotic formulas</a>, 
+               and a fast spherical harmonic transform.
+               The picture at the top shows the numerical solutions of the local (first row) 
+               and nonlocal (second row) 
+               <a href="https://en.wikipedia.org/wiki/Allen%E2%80%93Cahn_equation">Allen&ndash;Cahn</a> equation.
+               If you want to konw more about our algorithms, check our paper out!</p>
+               </div>
+
+          </div>
+     </div>
+</section>
+
+<!-- Footer Section -->
+
+<footer>
+     <div class="container">
+          <div class="row">
+
+               <div class="col-md-4 col-md-offset-1 col-sm-6">
+                    <h3>Contact</h3>
+                    <p><i class="fa fa-send-o"></i> hadrien.montanelli@gmail.com</p>
+               </div>
+
+               <div class="col-md-5 col-md-offset-1 col-sm-6">
+                    <a href="https://epubs.siam.org/doi/abs/10.1137/18M1189336">
+                    <img src="images/deepnet.jpg" class="img-responsive">
+                    </a>
+                    <div class="footer-copyright">
+                         <p>Copyright &copy; 2020 Hadrien Montanelli</p>
+                    </div>
+               </div>
+
+               <div class="clearfix col-md-12 col-sm-12">
+                    <hr>
+               </div>
+
+               <div class="col-md-12 col-sm-12">
+                    <ul class="social-icon">
+                         <li><a href="http://github.com/Hadrien-Montanelli" class="fa fa-github"></a></li>
+                         <li><a href="https://scholar.google.com/citations?user=Bjmkfe8AAAAJ&hl=en&oi=sra/" class="fa fa-google"></a></li>
+                         <li><a href="https://www.linkedin.com/in/hadrien-montanelli/" class="fa fa-linkedin"></a></li>
+                    </ul>
+               </div>
+               
+          </div>
+     </div>
+</footer>
+
+<!-- Back top -->
+<a href="#back-top" class="go-top"><i class="fa fa-angle-up"></i></a>
+
+<!-- SCRIPTS -->
+
+<script src="js/jquery.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/jquery.parallax.js"></script>
+<script src="js/custom.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+
+</body>
+</html>
