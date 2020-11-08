@@ -808,6 +808,7 @@ footer .footer-copyright {
   }
 
   .parallax-section {
+    background-attachment: scroll !important;
     background-size: 100% 100%;
   }
 
