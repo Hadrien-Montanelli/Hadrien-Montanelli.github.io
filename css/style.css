@@ -139,6 +139,7 @@ ul {
 html{
   -webkit-font-smoothing: antialiased;
   scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
 }
 
 a {
@@ -808,13 +809,6 @@ footer .footer-copyright {
   }
 
   .parallax-section {
-    /*background-attachment: scroll !important;
-    background-size: 100% 100%;*/
-    /*background-attachment: scroll !important;
-    background-position: top !important;
-    -webkit-background-size: auto !important;
-    -moz-background-size: auto !important;
-    background-size: auto !important;*/
     background-size: contain !important;
     -webkit-background-size: cover !important;
     background-position: center !important;
