@@ -139,9 +139,6 @@ ul {
 html{
   -webkit-font-smoothing: antialiased;
   scroll-behavior: smooth;
-  overflow: scroll;
-  -webkit-overflow-scrolling: touch;
-  overflow-y: scroll;
 }
 
 a {
@@ -734,7 +731,7 @@ footer .footer-copyright {
 .go-top {
   background-color: #ffffff;
   box-shadow: 1px 1.732px 12px 0px rgba( 0, 0, 0, .14 ), 1px 1.732px 3px 0px rgba( 0, 0, 0, .12 );
-  transition : all 1s ease;
+  transition: all 1s ease;
   bottom: 2em;
   right: 2em;
   color: #333;
