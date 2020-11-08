@@ -104,10 +104,13 @@ http://www.tooplate.com/view/2085-neuron
                $$
                with <i><b>Fourier coefficients</b></i>
                $$
-               a_k = \frac{1}{\pi}\int_0^{2\pi}f(\theta)\cos(k\theta)d\theta, \quad
+               a_k = \frac{1}{\pi}\int_0^{2\pi}f(\theta)\cos(k\theta)d\theta,
+               $$
+               and
+               $$
                b_k = \frac{1}{\pi}\int_0^{2\pi} f(\theta) \sin(k\theta)d\theta,
                $$
-               with \(1/\pi\) changed to \(1/(2\pi)\) for \(a_0\), converge uniformly to \(f\), and we write
+               converge uniformly to \(f\). (Note that \(1/\pi\) is changed to \(1/(2\pi)\) for \(a_0\).) We write
                $$
                f(\theta) = \sum_{k=-\infty}^{\infty} c_ke^{ik\theta}.
                $$
@@ -131,7 +134,7 @@ http://www.tooplate.com/view/2085-neuron
                When we compute the partial sums for \(n=16,32,64,128\) we obtain the picture at the top.
                This is the so-called <i><b>Gibbs phenomenon</b></i>, which involves both the fact that the partial sums <i><b>overshoot</b></i> at a discontinuity and that this overshoot does not disappear as more terms are added to the sums. The overshoot at \(0\), \(\pi\) and \(2\pi\) is known exactly and is given by
                $$
-               \frac{1}{2}\int_0^{\pi}\frac{\sin(\theta)}{\theta}d\theta - \frac{\pi}{4} = \frac{\pi}{2}\times(0.089489872236\ldots),
+               \frac{1}{2}\int_0^{\pi}\frac{\sin(\theta)}{\theta}d\theta - \frac{\pi}{4} = \frac{\pi}{2}\times(0.0895\ldots),
                $$
                or about \(9\%\) of the jump. Note that, as \(n\) increases, the position of the overshoot moves closer 
                to the discontinuity. The Gibbs phenomenon is a very standard result that most (applied) mathematicians know.</p>
