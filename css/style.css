@@ -43,7 +43,6 @@ body {
     letter-spacing: 0.2px;
     min-width: 400px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
-    overflow-x: auto;
 }
 
 .styled-table thead tr {
