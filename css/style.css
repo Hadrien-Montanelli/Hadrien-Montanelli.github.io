@@ -118,6 +118,14 @@ p {
     letter-spacing: 0.2px;
 }
 
+ul {
+    color: #777;
+    font-size: 15px;
+    font-weight: 300;
+    line-height: 26px;
+    letter-spacing: 0.2px;
+}
+
 .btn-success:focus {
   background-color: #000;
   border-color: transparent;
