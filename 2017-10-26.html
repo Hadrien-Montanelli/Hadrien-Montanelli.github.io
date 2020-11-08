@@ -70,7 +70,7 @@ http://www.tooplate.com/view/2085-neuron
           <div class="row">
 
                <div class="col-md-12 col-sm-12">
-                    <h1>Solving nonlocal PDEs on the sphere</h1>
+                    <h1>Solving PDEs on the sphere</h1>
                </div>
 
           </div>
@@ -84,55 +84,36 @@ http://www.tooplate.com/view/2085-neuron
           <div class="row">
 
                <div class="col-md-offset-1 col-md-10 col-sm-12">     
-                    <img src="/blog/nonlocalpdesphere.jpg" class="img-responsive">
+                    <img src="/blog/pdesphere.jpg" class="img-responsive">
 
-                    <p>I have just submitted <a href="http://arxiv.org/pdf/1801.04902.pdf">a paper</a> 
-                    about <a href="http://www.ma.utexas.edu/mediawiki/index.php/Introduction_to_nonlocal_equations">nonlocal PDEs</a> 
-                    on the sphere with my colleagues 
-                    <a href="http://home.cc.umanitoba.ca/~slevinrm/">Mikael Slevinsky</a> and 
-                    <a href="http://www.columbia.edu/~qd2125/">Qiang Du</a>. 
-                    Here are the main ideas of our work.</p>
+                    <p><a href="http://arxiv.org/pdf/1701.06030.pdf">My latest paper</a>, with my former colleague
+                    <a href="http://www.opt.mist.i.u-tokyo.ac.jp/~nakatsukasa/">Yuji Nakatsukasa</a>, has just been accepted in 
+                    <a href="http://www.siam.org/journals/sisc.php">SISC</a>. In this post, I review the main ideas of our work.</p>
 
-                    <p>We proposed a fast <a href="http://en.wikipedia.org/wiki/Spectral_method">spectral method</a> 
-                    for computing solutions of nonlocal models of the form
+                    <p>We are interested in computing smooth solutions of stiff PDEs on the unit sphere of the form 
                     $$
-                    u_t = \epsilon^2\mathcal{L}_\delta u + \mathcal{N}(u), \;\; u(t=0,\mathbf{x}) = u_0(\mathbf{x}),
+                    u_t = \alpha\Delta u + \mathcal{N}(u), \quad u(t=0,x,y,z)=u_0(x,y,z),
+                    \label{PDE}
                     $$
-                    where \(u(t,\mathbf{x})\) is a function of time \(t\ge0\) and position 
-                    \(\mathbf{x}\) 
-                    on the unit sphere \(\mathbb{S}^2\subset\mathbb{R}^3\),
-                    \(\mathcal{N}\) is a nonlinear operator with constant coefficients (<i>e.g.</i>, \(\mathcal{N}(u)=u-u^3\)), 
-                    and \(\mathcal{L}_{\delta}\) is a nonlocal 
-                    <a href="http://en.wikipedia.org/wiki/Laplace%E2%80%93Beltrami_operator">Laplace&ndash;Beltrami operator</a>,
-                    $$
-                    \mathcal{L}_\delta u(\mathbf{x}) = \int_{\mathbb{S}^2} \rho_\delta(\vert\mathbf{x}-\mathbf{y}\vert)
-                    [u(\mathbf{y}) - u(\mathbf{x})]\,d\Omega(\mathbf{y}).
-                    $$
-                    In the definition above, \(d\Omega(\mathbf{y})\) denotes the standard 
-                    <a href="http://en.wikipedia.org/wiki/Measure_(mathematics)">measure</a> on 
-                    \(\mathbb{S}^2\) and \(\rho_\delta\) is a suitably defined nonlocal kernel with horizon \(0<\delta\le2\), which determines the range of interactions.</p>
+                    where \(u(t,x,y,z)\) is a function of time \(t\) and Cartesian coordinates \((x,y,z)\) with \(x^2 + y^2 + z^2=1\).
+                    The function \(u\) can be real or complex and the the PDE can be a single equation, as well as a system of equations.
+                    A large number of PDEs of interest in science and engineering take this form.
+                    Examples include the <a href="http://en.wikipedia.org/wiki/Allen–Cahn_equation">Allen&ndash;Cahn equation</a> 
+                    \(u_t = \epsilon\Delta u + u - u^3\), the
+                    <a href="http://en.wikipedia.org/wiki/Nonlinear_Schrödinger_equation">nonlinear Schrödinger equation</a> 
+                    \(u_t=i\Delta u + iu|u|^2\), the <a href="http://en.wikipedia.org/wiki/Ginzburg–Landau_theory">Ginzburg&ndash;Landau equation</a> (the picture at the top is a solution), and all <a href="https://en.wikipedia.org/wiki/Reaction–diffusion_system">reaction-diffusion equations</a>.</p>
 
-                    <p>There has been substantial work on the numerical approximation of this type of equations in 
-                    <a href="http://en.wikipedia.org/wiki/Euclidean_geometry">Euclidean geometries</a>.
-                    However, no study has been attempted so far to investigate similar 
-                    <a href="http://en.wikipedia.org/wiki/Discretization">discretizations</a> on the sphere. 
-                    It is of practical interests to study the extension to 
-                    <a href="http://en.wikipedia.org/wiki/Non-Euclidean_geometry">non-Euclidean geometries</a> 
-                    (the sphere being a representative example) for the modelling of 
-                    <a href="http://en.wikipedia.org/wiki/Anomalous_diffusion">anomalous diffusion</a>, 
-                    <a href="http://en.wikipedia.org/wiki/Pattern_formation">pattern formation</a> 
-                    and <a href="http://en.wikipedia.org/wiki/Image_analysis">image analysis</a>.</p>
+                    <p>Our algorithms are based on a variant of the <a href="http://en.wikipedia.org/wiki/Double_Fourier_sphere_method">double Fourier sphere method</a> in coefficient space with multiplication matrices that differ from the usual ones, and implicit-explicit time-stepping schemes.
+                    Operating in coefficient space with these new matrices allows one to use a sparse direct solver, avoids the 
+                    <a href="http://en.wikipedia.org/wiki/Coordinate_singularity">coordinate singularity</a> and maintains smoothness at the poles, while implicit-explicit schemes circumvent severe restrictions on the time-steps due to 
+                    <a href="http://en.wikipedia.org/wiki/Stiff_equation">stiffness</a>.
+                    A comparison is made against <a href="http://en.wikipedia.org/wiki/Exponential_integrator">exponential integrators</a> 
+                    and it is found that implicit-explicit schemes perform best.
+                    Implementations in <a href="http://www.mathworks.com/products/matlab.html">MATLAB</a> and <a href="http://www.chebfun.org">Chebfun</a> make it possible to compute the solution of many PDEs to high accuracy in a very convenient fashion&mdash;check out the<a href="http://www.chebfun.org/docs/guide/guide19.html"> spinsphere code</a>.</p>
 
-                    <p>Our algorithms are based on the diagonalizability of nonlocal diffusion operators in the basis of 
-                    <a href="http://en.wikipedia.org/wiki/Spherical_harmonics">spherical harmonics</a>, 
-                    the computation of their <a href="http://en.wikipedia.org/wiki/Eigenvalues_and_eigenvectors">eigenvalues</a> 
-                    to high relative accuracy using <a href="http://en.wikipedia.org/wiki/Numerical_integration">quadrature</a> 
-                    and <a href="http://en.wikipedia.org/wiki/Asymptotic_analysis">asymptotic formulas</a>, 
-                    and a fast spherical harmonic transform.
-                    The picture at the top shows the numerical solutions of the local (first row) 
-                    and nonlocal (second row) 
-                    <a href="https://en.wikipedia.org/wiki/Allen%E2%80%93Cahn_equation">Allen&ndash;Cahn</a> equation.
-                    If you want to konw more about our algorithms, check our paper out!</p>
+                    <p>I hope to use this code for investigating <a href="http://en.wikipedia.org/wiki/Pattern_formation">pattern formation</a> on the sphere with <a href="http://www.ptrinh.com">Philippe Trinh</a>,
+                    <a href="http://www.math.ubc.ca/~ward/">Michael Ward</a>, and <a href="http://shvartsmanlab.com">Stanislav Shvartsman</a>.
+                    I'm visiting Stanislav at Princeton in a couple of weeks&mdash;looking forward to it!</p>
                </div>
 
           </div>
