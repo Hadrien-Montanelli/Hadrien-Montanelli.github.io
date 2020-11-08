@@ -112,22 +112,22 @@ http://www.tooplate.com/view/2085-neuron
                     <p>Our paper describes and compares specialized methods that take advantage of two special features of the family of PDEs above. The first one is the periodic boundary conditions.
                     This allows us to discretize the spatial component with a <a href="https://en.wikipedia.org/wiki/Spectral_method">Fourier spectral method</a> on \(N\) points; the PDE becomes a system of \(N\) ODEs,
                     $$
-                    \hat{u}' = \mathbf{L}\widehat{u} + \mathbf{N}(\hat{u}), \quad \hat{u}(0)=\hat{u}_0,
+                    \widehat{u}' = \mathbf{L}\widehat{u} + \mathbf{N}(\widehat{u}), \quad \widehat{u}(0)=\widehat{u}_0,
                     $$
-                    where \(\hat{u}(t)\) is the vector of \(N\) Fourier coefficients of the <a href="https://en.wikipedia.org/wiki/Trigonometric_interpolation">trigonometric interpolant</a> of \(u(t,X)\) at time \(t\), and \(\mathbf{L}\) (a \(N\times N\) matrix) and \(\mathbf{N}\) are the discretized versions of \(\mathcal{L}\) and \(\mathcal{N}\) in Fourier space.</p>
+                    where \(\widehat{u}(t)\) is the vector of \(N\) Fourier coefficients of the <a href="https://en.wikipedia.org/wiki/Trigonometric_interpolation">trigonometric interpolant</a> of \(u(t,X)\) at time \(t\), and \(\mathbf{L}\) (a \(N\times N\) matrix) and \(\mathbf{N}\) are the discretized versions of \(\mathcal{L}\) and \(\mathcal{N}\) in Fourier space.</p>
 
                     <p>For example, in 1D on \([0, 2\pi]\) with \(\mathcal{L}u=u_{xx}\) and an even number \(N\) of equispaced grid points \(\{x_j=2\pi j/N\}_{j=0}^{N-1}\), we look for a solution \(u(t,x)\) of the form
                     $$
-                    u(t,x) \approx \sum_{k=-N/2}^{N/2}{\hspace{-0.3cm}}'{\;\,} \hat{u}_k(t) e^{ikx}
+                    u(t,x) \approx \sum_{k=-N/2}^{N/2}{\hspace{-0.3cm}}'{\;\,} \widehat{u}_k(t) e^{ikx}
                     $$
                     with <a href="https://en.wikipedia.org/wiki/Fourier_series">Fourier coefficients</a>
                     $$
-                    \hat{u}_k(t) = \frac{1}{N}\sum_{j=0}^{N-1}u(t,x_j)e^{-ikx_j},\;\; -\frac{N}{2}\leq k\leq \frac{N}{2}-1,
+                    \widehat{u}_k(t) = \frac{1}{N}\sum_{j=0}^{N-1}u(t,x_j)e^{-ikx_j},\;\; -\frac{N}{2}\leq k\leq \frac{N}{2}-1,
                     $$
-                    and with \(\hat{u}_{N/2}(t) = \hat{u}_{-N/2}(t)\).
-                    (The prime on the summation sign signifies that the terms \(k=\pm N/2\) are halved.) Since <a href="https://en.wikipedia.org/wiki/Fast_Fourier_transform">FFT</a> codes only store \(N\) coefficients, the vector \(\hat{u}(t)\) is defined as
+                    and with \(\widehat{u}_{N/2}(t) = \widehat{u}_{-N/2}(t)\).
+                    (The prime on the summation sign signifies that the terms \(k=\pm N/2\) are halved.) Since <a href="https://en.wikipedia.org/wiki/Fast_Fourier_transform">FFT</a> codes only store \(N\) coefficients, the vector \(\widehat{u}(t)\) is defined as
                     $$
-                    \hat{u}(t) = \Big(\frac{\hat{u}_{-N/2}}{2}+\frac{\hat{u}_{N/2}}{2}, \hat{u}_{-N/2+1}(t),\ldots,\hat{u}_{N/2-1}(t)\Big)^T.
+                    \widehat{u}(t) = \Big(\frac{\widehat{u}_{-N/2}}{2}+\frac{\widehat{u}_{N/2}}{2}, \widehat{u}_{-N/2+1}(t),\ldots,\widehat{u}_{N/2-1}(t)\Big)^T.
                     $$
                     For this PDE, \(\mathbf{L}=\mathbf{D}_N^{(2)}\) is the (diagonal) <i>second-order Fourier differentiation matrix</i> with entries \(-k^2\), \(-N/2\leq k\leq N/2-1\). Note that stiffness is related to \(\mathbf{L}\) having large <a href="https://en.wikipedia.org/wiki/Eigenvalues_and_eigenvectors">eigenvalues</a> since stability of spectral methods for time-dependent PDEs requires that the eigenvalues, scaled by the time-step, lie in the stability region of the time-stepping formula.</p>
 
@@ -138,13 +138,13 @@ http://www.tooplate.com/view/2085-neuron
 
                     <p>One of the simplest exponential integrators, commonly known as the Exponential Time Differencing (ETD) Euler method, is given by
                     $$
-                    \hat{u}^{n+1} = e^{h\mathbf{L}}\hat{u}^n + h\varphi_1(h\mathbf{L})\mathbf{N}(\hat{u}^n),
+                    \widehat{u}^{n+1} = e^{h\mathbf{L}}\widehat{u}^n + h\varphi_1(h\mathbf{L})\mathbf{N}(\widehat{u}^n),
                     $$
                     where \(h=t_{n+1}-t_n\) is the time-step and
                     $$
                     \varphi_1(z) = \frac{e^z-1}{z}.
                     $$
-                    Note that, in practice, the nonlinear evaluations \(\mathbf{N}(\hat{u}^n)\) is carried out in value space, that is, \(\mathbf{N}(\hat{u}^n)\) means \(\mathbf{F}(\mathbf{N}(\mathbf{F}^{-1}\hat{u}^n))\), with discrete Fourier transform \(\mathbf{F}\). Since the matrix \(\mathbf{L}\) diagonal, computing the matrix exponential and matrix-vector products cost only \(\mathcal{O}(N)\) operations. The dominant cost per time-step is therefore the cost of an FFT, <i>i.e.</i>, \(\mathcal{O}(N\log N)\) operations.</p>
+                    Note that, in practice, the nonlinear evaluations \(\mathbf{N}(\widehat{u}^n)\) is carried out in value space, that is, \(\mathbf{N}(\widehat{u}^n)\) means \(\mathbf{F}(\mathbf{N}(\mathbf{F}^{-1}\widehat{u}^n))\), with discrete Fourier transform \(\mathbf{F}\). Since the matrix \(\mathbf{L}\) diagonal, computing the matrix exponential and matrix-vector products cost only \(\mathcal{O}(N)\) operations. The dominant cost per time-step is therefore the cost of an FFT, <i>i.e.</i>, \(\mathcal{O}(N\log N)\) operations.</p>
 
                     <h2>Results of our numerical experiments and Chebfun</h2>
 
