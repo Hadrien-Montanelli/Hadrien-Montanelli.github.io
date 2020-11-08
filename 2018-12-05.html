@@ -145,12 +145,14 @@ http://www.tooplate.com/view/2085-neuron
                     Consider an approximate solution \(\bar{u}\) of \(F(u)=0\) (usually obtained using Newton's method on a finite-dimensional discretization.) 
                     Let \(Y_0\), \(Z_0\), \(Z_1\) and \(Z_2\) be positive constants satisfying</i>
                     $$
-                    \Vert AF(\bar{u})\Vert_U \leq Y_0, \\
-                    \hspace{-1cm}\Vert I - AA^\dagger\Vert_{B(U)}\leq Z_0, \\
-                    \hspace{-2.5cm}\Vert A[DF(\bar{u})-A^\dagger]\Vert_{B(U)}\leq Z_1, \\
-                    \hspace{2cm}\Vert A[DF(u)-DF(\bar{u})]\Vert_{B(U)}\leq Z_2r, \quad \textit{for all}\;\Vert u - \bar{u}\Vert_U\leq r,
+                    \begin{align*}
+                    \Vert AF(\bar{u})\Vert_U & \leq Y_0, \\
+                    \Vert I - AA^\dagger\Vert_{B(U)} & \leq Z_0, \\
+                    \Vert A[DF(\bar{u})-A^\dagger]\Vert_{B(U)} & \leq Z_1, \\
+                    \Vert A[DF(u)-DF(\bar{u})]\Vert_{B(U)}& \leq Z_2r,
+                    \end{align*}
                     $$
-                    <i>where \(\Vert\cdot\Vert_{B(U)}\) is the induced operator norm for bounded linear operators
+                    <i>for all \(\Vert u - \bar{u}\Vert_U\leq r\), where \(\Vert\cdot\Vert_{B(U)}\) is the induced operator norm for bounded linear operators
                     from \(U\) to itself. Define the radii polynomial</i>
                     $$
                     p(r) = Z_2 r^2 - (1-Z_1-Z_0)r + Y_0.
@@ -177,6 +179,7 @@ http://www.tooplate.com/view/2085-neuron
                     between \(-N\) and \(N\) (\(2N+1\) grid points)
                     and by \(DF_N(\bar{u}_N)\) the \((2N+1) \times (2N+1)\) Jacobian matrix at \(\bar{u}_N\), which we can compute.
                     In this case a good choice for \(A^\dagger\) is
+                    <small>
                     $$
                     A^\dagger =
                     \begin{pmatrix}
@@ -186,9 +189,11 @@ http://www.tooplate.com/view/2085-neuron
                     \vdots & \vdots & \vdots & \ddots
                     \end{pmatrix}.
                     $$
+                    </small>
                     The idea is that for large enough \(N\) the Fr&eacute;chet derivative of \(L\) 
                     will dominate the Fr&eacute;chet derivative of \(N\). (Note that \(DL(u)=L\).)
                     Therefore we can choose
+                    <small>
                     $$
                     A =
                     \begin{pmatrix}
@@ -198,6 +203,7 @@ http://www.tooplate.com/view/2085-neuron
                     \vdots & \vdots & \vdots & \ddots
                     \end{pmatrix}.
                     $$
+                    </small>
                     </p>
                </div>
 
