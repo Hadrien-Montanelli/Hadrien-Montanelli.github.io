@@ -138,8 +138,7 @@ ul {
 
 html{
   -webkit-font-smoothing: antialiased;
-  scroll-behavior: smooth;
-  -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth !important;
 }
 
 a {
