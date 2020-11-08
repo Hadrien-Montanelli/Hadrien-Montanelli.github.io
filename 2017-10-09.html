@@ -111,13 +111,12 @@ http://www.tooplate.com/view/2085-neuron
                     The \(n\)-body problem describes the motion of these bodies under the action of 
                     <a href="http://en.wikipedia.org/wiki/Newton%27s_law_of_universal_gravitation">Newton's law of gravitation</a>, through the nonlinear coupled system of ODEs
                     $$
-                    \displaystyle 
                     z_j^{''}(t) - \sum_{\underset{i\neq j}{i=0}}^{n-1} \frac{z_i(t) - z_j(t)}{\big\vert z_i(t) - z_j(t) \big\vert^3} = 0, 
-                    \;\; 0\leq j\leq n-1.
+                    \;\, 0\leq j\leq n-1.
                     $$
                     Since choreographies share a single orbit and are uniformly spread along it, these can be written as
                     $$
-                    z_j(t) = q\Big(t + \frac{2\pi j}{n}\Big), \;\; 0\leq j\leq n-1,
+                    z_j(t) = q\Big(t + \frac{2\pi j}{n}\Big), \;\, 0\leq j\leq n-1,
                     $$
                     for some \(2\pi\)-periodic function \(q:[0,2\pi]\rightarrow\mathbb{C}\).</p>
 
@@ -131,26 +130,23 @@ http://www.tooplate.com/view/2085-neuron
                     $$
                     with kinetic energy
                     $$
-                    \displaystyle 
                     K(t) = \frac{1}{2}\sum_{j=0}^{n-1} 
                     \Big\vert q'\Big(t + \frac{2\pi j}{n}\Big) \Big\vert^2
                     $$
                     and potential energy
                     $$
-                    \displaystyle 
                     U(t) = -\sum_{j=0}^{n-1}\sum_{i=0}^{j-1}
                     \Big\vert q\Big(t + \frac{2\pi i}{n}\Big) - q\Big(t + \frac{2\pi j}{n}\Big) \Big\vert^{-1}.
                     $$
                     Note that the action \(A\) depends on \(q(t)\) via \(U(t)\) and on \(q'(t)\) via \(K(t)\).</p>
 
                     <p>Since the integral of \(K(t)\) does not depend on \(j\) and the integral of \(U(t)\) only depends on \(i-j\), the action can be rewritten
-                    <small>
                     $$
-                    \displaystyle 
-                    A = \frac{n}{2}\int_0^{2\pi} \big\vert q'(t) \big\vert^2 dt
-                    + \frac{n}{2}\sum_{j=1}^{n-1} \int_0^{2\pi} \Big\vert q(t) - q\Big(t + \frac{2\pi j}{n}\Big) \Big\vert^{-1}dt.
+                    \begin{align*}
+                    A = \;\, & \frac{n}{2}\int_0^{2\pi} \big\vert q'(t) \big\vert^2 dt \\
+                    + \;\, & \frac{n}{2}\sum_{j=1}^{n-1} \int_0^{2\pi} \Big\vert q(t) - q\Big(t + \frac{2\pi j}{n}\Big) \Big\vert^{-1}dt.
+                    \end{align*}
                     $$
-                    </small>
                     Choreographies correspond to functions \(q(t)\) which minimize \(A\). Since these are closed curves in the complex plane, these can be represendted by 
                     <a href="http://en.wikipedia.org/wiki/Fourier_series">Fourier series</a>.
                     The action \(A\) becomes a function of Fourier coefficients, can be computed with the
