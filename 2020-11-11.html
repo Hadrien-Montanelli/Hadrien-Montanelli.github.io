@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<meta name="description" content="">
+<meta name="keywords" content="">
+<meta name="author" content="">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+<title>Quantum computing I</title>
+<!--
+
+Template 2085 Neuron
+
+http://www.tooplate.com/view/2085-neuron
+
+-->
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" href="css/font-awesome.min.css">
+<link rel="stylesheet" href="css/magnific-popup.css">
+
+<!-- Main css -->
+<link rel="stylesheet" href="css/style.css">
+<link href="https://fonts.googleapis.com/css?family=Lora|Merriweather:300,400" rel="stylesheet">
+
+</head>
+<body>
+
+<!-- PRE LOADER -->
+
+<div class="preloader">
+     <div class="sk-spinner sk-spinner-wordpress">
+          <span class="sk-inner-circle"></span>
+     </div>
+</div>
+
+<!-- Navigation section  -->
+
+<div class="navbar navbar-default navbar-static-top" role="navigation">
+     <div class="container">
+
+          <div class="navbar-header">
+               <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon icon-bar"></span>
+                    <span class="icon icon-bar"></span>
+                    <span class="icon icon-bar"></span>
+               </button>
+               <a href="index.html" class="navbar-brand">H. Montanelli</a>
+          </div>
+          <div class="collapse navbar-collapse">
+               <ul class="nav navbar-nav navbar-right">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="publications.html">Publications</a></li>
+                    <li><a href="talks.html">Talks</a></li>
+                    <li><a href="teaching.html">Teaching</a></li>
+               </ul>
+          </div>
+
+  </div>
+</div>
+
+<!-- Home Section -->
+
+<section id="home" class="main-about parallax-section">
+     <div class="overlay"></div>
+     <div class="container">
+          <div class="row">
+
+               <div class="col-md-12 col-sm-12">
+                    <h1>Quantum computing I</h1>
+               </div>
+
+          </div>
+     </div>
+</section>
+
+<!-- Blog Single Post Section -->
+
+<section id="about">
+     <div class="container">
+          <div class="row">
+
+               <div class="col-md-offset-1 col-md-10 col-sm-12">     
+                    <p>In my first research project as an undergraduate student in the summer of 2010, I worked on groups and symmetries in classical and quantum physics. One day in the library I came across <a href='https://en.wikipedia.org/wiki/Noether%27s_theorem'>Noether's theorem</a>, which links symmetries (<i>e.g.</i>, time invariance) to conserved quantities (<i>e.g.</i>, energy). Noether was one of the leading mathematicians of her time and made major contributions to both <a href='https://en.wikipedia.org/wiki/Algebra'>algebra</a> and <a href='https://en.wikipedia.org/wiki/Mathematical_physics'>mathematical physics</a>. Learning about her work was a decisive moment in my life, because I realised for the first time how deeply mathematics and physics were connected.</p>
+
+                    <p>Thanks to Noether, I got really interested in mathematical physics, and took classes in <a href='https://en.wikipedia.org/wiki/Statistical_mechanics'>statistical mechanics</a> and <a href='https://en.wikipedia.org/wiki/Special_relativity'>special relativity</a>. My second research project as an undergraduate student was on <a href='https://en.wikipedia.org/wiki/Riemannian_geometry'>Riemannian geometry</a> and <a href='https://en.wikipedia.org/wiki/General_relativity'>general relativity</a>, with my friend and former classmate <a href='https://www.linkedin.com/in/olivier-martre-7a7a9a95/'>Olivier Martre</a>&mdash;oh dear, how hard it was!</p>
+
+                    <p>A couple years down the road, I had to choose between a M.Sc. in applied mathematics and a MS.c. in mathematical physics. I ended pursuing a career in applied mathematics, but physics never really left my life&mdash;most of my work in applied mathematics has been on the numerical solution of the <a href='https://en.wikipedia.org/wiki/Differential_equation'>differential equations</a> of physics.</p>
+
+                    <h2>Quantum states and observables</h2>
+                    <p>In <a href='https://en.wikipedia.org/wiki/Quantum_mechanics'>quantum physics</a>, the <a href='https://en.wikipedia.org/wiki/Quantum_state'>state</a> of a physical system is described by an element \(\psi\) of a <a href='https://en.wikipedia.org/wiki/Separable_space'>separable</a> <a href='https://en.wikipedia.org/wiki/Hilbert_space'>complex Hilbert space</a> \(H\) <a href="#section1">[1]</a>. Physical quantities are represented by <a href='https://en.wikipedia.org/wiki/Self-adjoint_operator'>self-adjoint</a> operators \(L:H\rightarrow H\) on that space, and they are called <a href='https://en.wikipedia.org/wiki/Observable#Quantum_mechanics'>observables</a>. Note that \(H\) may or may not be finite-dimensional. In finite dimension, the operator \(L\) is a <a href='https://en.wikipedia.org/wiki/Hermitian_matrix'>Hermitian</a> matrix.
+                    </p>
+
+                    <p>A finite-dimensional example is the Hilbert space \(H=\mathbb{C}^2\) of pairs of complex numbers \(\psi=(\psi_1,\psi_2)^T\), with inner product
+                    $$
+                    (\psi,\phi) = \overline{\psi}_1\phi_1 + \overline{\psi}_2\phi_2,
+                    $$
+                    together with the Hermitian matrix
+                    $$
+                    L = \frac{\hbar}2\sigma_y 
+                    = \frac{\hbar}{2}\begin{pmatrix}
+                    0 & -i \\
+                    i & 0
+                    \end{pmatrix}.
+                    $$
+                    The matrix \(L\) is the <a href='https://en.wikipedia.org/wiki/Spin_(physics)'>spin</a> angular momentum operator along the \(y\)-axis for spin-\(\frac{1}{2}\) particles, such as the electron. Since \(L\) is a Hermitian matrix, the <a href='https://en.wikipedia.org/wiki/Spectral_theorem'>spectral theorem</a> guarantees that it is diagonalizable with orthonormal eigenvectors and real eigenvalues. The eigenvalues are \(\pm\frac{\hbar}{2}\), while the eignvevectors are given by
+                    $$
+                    \psi_{y+}=\frac{1}{\sqrt{2}}\begin{pmatrix}
+                    1 \\
+                    i
+                    \end{pmatrix}, \quad
+                    \psi_{y-}=\frac{1}{\sqrt{2}}\begin{pmatrix}
+                    1 \\
+                    -i
+                    \end{pmatrix}.
+                    $$
+                    The quantum state of a spin-\(\frac{1}{2}\) particle, with respect to \(y\)-spin, may then be written as
+                    $$
+                    \psi = (\psi_{y+},\psi)\psi_{y+} + (\psi_{y-},\psi)\psi_{y-},
+                    $$
+                    with the normalization condition
+                    $$
+                    (\psi,\psi) = \vert(\psi_{y+},\psi)\vert^2 + \vert(\psi_{y-},\psi)\vert^2 = 1.
+                    $$
+                    When the \(y\)-spin of the particle is measured, the probability that it will be \(\pm\frac{\hbar}{2}\) is \(\vert(\psi_{y\pm},\psi)\vert^2\). Following the measurement, the \(y\)-spin state of the particle will collapse into the corresponding eigenstate.
+                    </p>
+
+                    <p>An example in infinite dimension is the Hilbert space \(H=L^2(\mathbb{R})\) of <a href='https://en.wikipedia.org/wiki/Square-integrable_function#:~:text=A%20space%20which%20is%20complete,induced%20by%20the%20inner%20product.'>square-integrable functions</a> \(\psi\), with inner product
+                    $$
+                    (\psi,\phi) = \int_{\mathbb{R}}\overline{\psi}(x)\phi(x)dx,
+                    $$
+                    together with the self-adjoint operator \(L\) defined by
+                    $$
+                    L\,\psi(x) = -\frac{\hbar}{2m}\psi''(x) + \frac{1}{2}m\omega^2x^2\psi(x), \;\;x\in\mathbb{R},
+                    $$
+                    with domain <a href="#section1">[2]</a>
+                    $$
+                    D(L) = \big\{\psi\in H^2(\mathbb{R})\,|\,x^2\psi\in L^2(\mathbb{R})\big\}\subset L^2(\mathbb{R}).
+                    $$ 
+                    The operator \(L\) is the <a href='https://en.wikipedia.org/wiki/Hamiltonian_(quantum_mechanics)'>Hamiltonian operator</a> of the <a href='https://en.wikipedia.org/wiki/Quantum_harmonic_oscillator'>quantum harmonic oscillator</a> with frequency \(\omega\), and correponds to the total energy of a particle of mass \(m\) in a quadratic potential. It is an example of an <a href='https://en.wikipedia.org/wiki/Unbounded_operator'>unbounded operator</a>, since the elements of its spectrum have unbounded amplitude. It is diagonalizable with orthonormal eigenfunctions and a discrete and real spectrum <a href="#section1">[3]</a>. The countably many eigenvalues are given by
+                    $$
+                    \lambda_n = (2n+1)\frac{\hbar}{2}\omega, \quad n=0,1,2,\ldots,
+                    $$
+                    while the eigenfunctions are the <a href='https://en.wikipedia.org/wiki/Hermite_polynomials#Hermite_functions'>Hermite functions</a> \(\psi_n\).
+                    Therefore, one may write the quantum state of the particle, with respect to total energy, as
+                    $$
+                    \psi(x) = \sum_{n=0}^{\infty}(\psi_n,\psi)\psi_n(x),
+                    $$
+                    with the normalizaton condition
+                    $$
+                    (\psi,\psi) = \sum_{n=0}^{\infty}\vert(\psi_n,\psi)\vert^2 = 1.
+                    $$
+                    As in the finite-dimensional case, the meaning of the decomposition in the basis of eigenfunctions is that if we perform an energy measurement, the state will have energy \(\lambda_n\) with probability \(\vert(\psi_n,\psi)\vert^2\), and following the measurement, the total energy state of the particle will collapse into the corresponding eigenstate. In the MATLAB-based package <a href='https://www.chebfun.org/'>Chebfun</a>, which I was working on during my Ph.D. at Oxford, quantum states can be computed with the <code>quantumstates</code> command; see, <i>e.g.</i>, <a href='https://www.chebfun.org/examples/ode-eig/Eigenstates.html'>this example</a>. 
+                    </p>
+
+                    <h2>Bit versus qubit</h2>
+                    <p>Classical computers use <a href='https://en.wikipedia.org/wiki/Bit'>bits</a> to store information, which are commonly represented as 0 and 1. The way I like to think about it is that each bit is like a small magnet that can either point North (0) or South (1). By applying an appropriate magnetic field, one can change the magnetization of a bit, and change 0 to 1, or vice versa. Bits are then combined together into arrays of bits, called words. Numbers, for example, are stored as 32- or 64-bit words, following the <a href='https://en.wikipedia.org/wiki/IEEE_754'>IEEE 754</a> technical standard.</p>
+
+                    <p>Quantum computers use <a href='https://en.wikipedia.org/wiki/Qubit'>qubits</a>. A qubit is a two-state quantum-mechanical system, for example, the \(y\)-spin up or down of the electron described in the previous section. Therefore, a qubit
+                    can be written as
+                    $$
+                    \psi = \alpha\psi_{y+} + \beta\psi_{y-}.
+                    $$
+                    As in the classical case, one can change the value qubit state by applying an appropriate magnetic field. Note that a qubit does not have a value in between 0 and 1; rather, as explained previously, when measured, it has a probability \(\vert\alpha\vert^2\) of the value 0 and a probability \(\vert\beta\vert^2\) of the value 1.
+                    </p>
+
+                    <p>In a future post, I will talk about <a href='https://en.wikipedia.org/wiki/Quantum_logic_gate'>quantum logical gates</a> and the <a href='https://en.wikipedia.org/wiki/Deutsch%E2%80%93Jozsa_algorithm'>Deutsch&ndash;Jozsa< algorithm</a>.</p>
+
+                    <p id="section1">[1] To be very precise, one has to consider equivalent classes of vectors in \(H\) called <a href='https://en.wikipedia.org/wiki/Projective_Hilbert_space'>rays</a>, with \(\psi\sim\phi\) when \(\phi=\lambda\psi\) for some non-zero \(\lambda\in\mathbb{C}\).
+
+                    <p id="section1">[2] \(H^2(\mathbb{R})\) denotes the usual <a href='https://en.wikipedia.org/wiki/Sobolev_space#The_case_p_=_2'>Sobolev space</a> of functions in \(L^2(\mathbb{R})\) whose weak derivatives up to order two have a finite \(L^2(\mathbb{R})\)-norm. 
+
+                    <p id="section1">[3] Self-adjoint unbounded operators can always be diagonalized in some sense but, in general, the spectrum has both a discrete and continuous part; see, <i>e.g.</i>, <a href='https://en.wikipedia.org/wiki/Decomposition_of_spectrum_(functional_analysis)'> this.</a>
+               </div>
+
+          </div>
+     </div>
+</section>
+
+<!-- Footer Section -->
+
+<footer>
+     <div class="container">
+          <div class="row">
+
+               <div class="col-md-4 col-md-offset-1 col-sm-6">
+                    <h3>Contact</h3>
+                    <p><i class="fa fa-send-o"></i> hadrien.montanelli@gmail.com</p>
+               </div>
+
+               <div class="col-md-5 col-md-offset-1 col-sm-6">
+                    <a href="https://epubs.siam.org/doi/abs/10.1137/18M1189336">
+                    <img src="images/deepnet.jpg" class="img-responsive">
+                    </a>
+                    <div class="footer-copyright">
+                         <p>Copyright &copy; 2020 Hadrien Montanelli</p>
+                    </div>
+               </div>
+
+               <div class="clearfix col-md-12 col-sm-12">
+                    <hr>
+               </div>
+
+               <div class="col-md-12 col-sm-12">
+                    <ul class="social-icon">
+                         <li><a href="http://github.com/Hadrien-Montanelli" class="fa fa-github"></a></li>
+                         <li><a href="https://scholar.google.com/citations?user=Bjmkfe8AAAAJ&hl=en&oi=sra/" class="fa fa-google"></a></li>
+                         <li><a href="https://www.linkedin.com/in/hadrien-montanelli/" class="fa fa-linkedin"></a></li>
+                    </ul>
+               </div>
+               
+          </div>
+     </div>
+</footer>
+
+<!-- Back top -->
+<a href="#back-top" class="go-top"><i class="fa fa-angle-up"></i></a>
+
+<!-- SCRIPTS -->
+
+<script src="js/jquery.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/jquery.parallax.js"></script>
+<script src="js/custom.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+
+</body>
+</html>
