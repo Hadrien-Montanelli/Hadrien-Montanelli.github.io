@@ -97,7 +97,7 @@ http://www.tooplate.com/view/2085-neuron
                     <p>Episode II of my series on quantum computing&mdash;in this post, I talk about the <a href='https://en.wikipedia.org/wiki/Schr%C3%B6dinger_equation'>Schr&ouml;dinger equation</a> and <a href='https://en.wikipedia.org/wiki/Quantum_logic_gate'>quantum logic gates</a>, which are the building blocks of <a href='https://en.wikipedia.org/wiki/Quantum_circuit#:~:text=In%20quantum%20information%20theory%2C%20a,as%20an%20n%2Dqubit%20register.'>quantum circuits</a> and <a href='https://en.wikipedia.org/wiki/Quantum_computing'>quantum computers</a>.</p>
 
                     <h2>Schr&ouml;dinger equation</h2>
-                    <p>Let \(\psi\) describe the quantum state of a physical system. As explained in my previous post, \(\psi\) may be a vector or a function. 
+                    <p>Let \(\psi\) describe the <a href='https://en.wikipedia.org/wiki/Quantum_state'>quantum state</a> of a physical system. As explained in my previous post, \(\psi\) may be a vector or a function. 
 
                     The Schr&ouml;dinger equation tells us that the time evolution of \(\psi\) is given by
                     $$
@@ -114,18 +114,18 @@ http://www.tooplate.com/view/2085-neuron
                     <h2>Qubits</h2>
                     <p>In my previous post, I introduced <a href='https://en.wikipedia.org/wiki/Qubit'>qubits</a> as two-state quantum-mechanical systems, and gave the \(y\)-<a href='https://en.wikipedia.org/wiki/Spin_(physics)'>spin</a> of the <a href='https://en.wikipedia.org/wiki/Electron'>electron</a> as an example. In practice, qubits actually correspond to the \(z\)-spin of the electron, whcih I shall quickly review now.</p>
 
-                    <p>Consider the <a href='https://en.wikipedia.org/wiki/Hilbert_space'>Hilbert space</a> \(\mathbb{C}^2\) of pairs of complex numbers \(\psi=(\psi_1,\psi_2)^T\), with inner product
+                    <p>The quantum state \(\psi=(\psi_1,\psi_2)^T\) of an electron, with respect to \(z\)-spin, lives in is the Hilbert space \(\mathbb{C}^2\) of pairs of complex numbers, with inner product
                     $$
                     \langle\psi,\phi\rangle = \overline{\psi}_1\phi_1 + \overline{\psi}_2\phi_2,
                     $$
-                    together with the <a href='https://en.wikipedia.org/wiki/Hermitian_matrix'>Hermitian matrix</a>
+                    and the spin operator along the \(z\)-axis is the <a href='https://en.wikipedia.org/wiki/Hermitian_matrix'>Hermitian matrix</a>
                     $$
                     S_z = \frac{\hbar}{2}\begin{pmatrix}
                     1 & 0 \\
                     0 & -1
                     \end{pmatrix}.
                     $$
-                    The matrix \(S_z\) is the spin angular momentum operator along the \(z\)-axis for the <a href='https://en.wikipedia.org/wiki/Electron'>electron</a>. The eigenvalues of \(S_z\) are \(\pm\frac{\hbar}{2}\), while the eigenvectors are given by
+					The eigenvalues are \(\pm\frac{\hbar}{2}\), while the eigenvectors are given by
                     $$
                     \vert0\rangle=\begin{pmatrix}
                     1 \\
@@ -136,7 +136,7 @@ http://www.tooplate.com/view/2085-neuron
                     1
                     \end{pmatrix},
                     $$ 
-                    These are the qubits used in practice, the quantum equivalent of the "0" and "1" bits. The quantum state of the electron, with respect to \(z\)-spin, may then be written as
+                    These are the qubits used in practice, the quantum equivalent of the "0" and "1" bits. The quantum state of the electron, with respect to \(z\)-spin, may be written as
                     $$
                     \psi = \psi_1\vert0\rangle + \psi_2\vert1\rangle.
                     $$
