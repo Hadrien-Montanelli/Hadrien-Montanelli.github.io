@@ -136,14 +136,14 @@ http://www.tooplate.com/view/2085-neuron
                     1
                     \end{pmatrix},
                     $$ 
-                    These are the qubits used in practice, the quantum equivalent of the "0" and "1" bits. The quantum state of the electron, with respect to \(z\)-spin, may then be written at any point in time as
+                    These are the qubits used in practice, the quantum equivalent of the "0" and "1" bits. The quantum state of the electron, with respect to \(z\)-spin, may then be written as
                     $$
                     \psi = \psi_1\vert0\rangle + \psi_2\vert1\rangle.
                     $$
                     </p>
 
                     <h2>Quantum logic gates</h2>
-                    <p>Suppose the electron is in the state \(\vert0\rangle\) and we want to want to change it to \(\vert1\rangle\). Since the spin Hamiltonian is related to the <a href='https://en.wikipedia.org/wiki/Magnetic_field'>magnetic field</a>, using Schr&ouml;dinger equation, this means applying the appropriate magnetic field for a suitable period of time. Mathematically, this means multiplying \(\vert0\rangle\) by the appropriate <a href='https://en.wikipedia.org/wiki/Unitary_matrix'>unitary matrix</a> to get \(\vert1\rangle\). This is what <a href='https://en.wikipedia.org/wiki/Quantum_logic_gate'>quantum logic gates</a> do&mdash;these are unitary matrices that act on the \(\vert0\rangle\) and \(\vert1\rangle\) qubits to get different states, and correspond to the application of a specific magnetic field for a certain period of time. Quantum logic gates abstract away the underlying physics.</p>
+                    <p>Suppose the electron is in the state \(\vert0\rangle\) and we want to change it to \(\vert1\rangle\). Since the spin Hamiltonian is related to the <a href='https://en.wikipedia.org/wiki/Magnetic_field'>magnetic field</a>, using Schr&ouml;dinger equation, we can obtain \(\vert1\rangle\) from \(\vert0\rangle\) by applying an appropriate magnetic field for a suitable period of time. Mathematically, this means multiplying \(\vert0\rangle\) by an appropriate <a href='https://en.wikipedia.org/wiki/Unitary_matrix'>unitary matrix</a>. This is what <a href='https://en.wikipedia.org/wiki/Quantum_logic_gate'>quantum logic gates</a> do&mdash;these are unitary matrices that act on the \(\vert0\rangle\) and \(\vert1\rangle\) qubits to get different states, and correspond to the application of a specific magnetic field for a certain period of time. Quantum logic gates abstract away the underlying physics.</p>
 
                     <p>For example, the <a href='https://en.wikipedia.org/wiki/Quantum_logic_gate#Pauli-X_gate'>quantum NOT gate</a> corresponds to the following \(X\) <a href='https://en.wikipedia.org/wiki/Pauli_matrices'>Pauli matrix</a>,
                     $$
@@ -152,7 +152,7 @@ http://www.tooplate.com/view/2085-neuron
                     1 & 0
                     \end{pmatrix},
                     $$
-                    and has the following expected behavior,
+                    and has the following expected NOT behavior,
 					$$
 					X\vert0\rangle = \vert1\rangle, \quad X\vert1\rangle = \vert0\rangle.
 					$$		
@@ -169,7 +169,7 @@ http://www.tooplate.com/view/2085-neuron
                     It has a more sophisticated behavior since it puts the basis states into a <a href='https://en.wikipedia.org/wiki/Quantum_superposition'>superposition</a>,
                     $$
                     \begin{align}
-                    & H\vert0\rangle = \frac{1}{\sqrt{2}}(\vert0\rangle + \vert1\rangle), \\\\
+                    & H\vert0\rangle = \frac{1}{\sqrt{2}}(\vert0\rangle + \vert1\rangle), \\
                     & H\vert1\rangle = \frac{1}{\sqrt{2}}(\vert0\rangle - \vert1\rangle).
                     \end{align}
                     $$
@@ -180,7 +180,7 @@ http://www.tooplate.com/view/2085-neuron
                 	$$
                 	\begin{align}
                 	\psi & = \psi_1\vert0\rangle\otimes\vert0\rangle
-                	+ \psi_2\vert0\rangle\otimes\vert1\rangle \\ \\[1pt]
+                	+ \psi_2\vert0\rangle\otimes\vert1\rangle \\
                 	& + \psi_3\vert1\rangle\otimes\vert0\rangle
                 	+ \psi_4\vert1\rangle\otimes\vert1\rangle,
                 	\end{align}
@@ -221,24 +221,27 @@ http://www.tooplate.com/view/2085-neuron
                     0 & 1 & 0 & 0 \\
                     0 & 0 & 0 & 1 \\
                     0 & 0 & 1 & 0
-                    \end{pmatrix},
+                    \end{pmatrix}.
                     $$
-                    and its action on the basis vectors is as follows,
+                    Its action on the basis vectors is as follows,
                     $$
                     \begin{align}
                     & CX\big(\vert0\rangle\otimes\vert0\rangle\big) =
-                    \vert0\rangle\otimes\vert0\rangle, \\\\
+                    \vert0\rangle\otimes\vert0\rangle, \\
                     & CX\big(\vert0\rangle\otimes\vert1\rangle\big) =
-                    \vert0\rangle\otimes\vert1\rangle, \\\\
+                    \vert0\rangle\otimes\vert1\rangle, \\
                     & CX\big(\vert1\rangle\otimes\vert0\rangle\big) =
-                    \vert1\rangle\otimes\vert1\rangle, \\\\
+                    \vert1\rangle\otimes\vert1\rangle, \\
                     & CX\big(\vert1\rangle\otimes\vert1\rangle\big) =
                     \vert1\rangle\otimes\vert0\rangle.
                     \end{align}
                     $$
-                    </p>
+                	</p>
 
-                	<p>In the next post, I will talk about using quantum computing for solving nonlinear ordinary differential equations.</p>
+                	<p>
+                    There are many more quantum gates, including the <a href='https://en.wikipedia.org/wiki/Quantum_logic_gate#Pauli-Y_gate'>Pauli-\(Y\)</a> and <a href='https://en.wikipedia.org/wiki/Quantum_logic_gate#Pauli-Z'>Pauli-\(Z\)</a> gates, and the <a href='https://en.wikipedia.org/wiki/Quantum_logic_gate#Swap_(SWAP)_gate'>SWAP gate</a>. Quamtum gates are then combined into sequences to form <a href='https://en.wikipedia.org/wiki/Quantum_circui'>quantum circuits</a>.</p>
+
+                	<p>In the next post, I will talk about using quantum computing for solving nonlinear <a href='https://en.wikipedia.org/wiki/Ordinary_differential_equation'>ordinary differential equations</a>.</p>
                </div>
 
           </div>
