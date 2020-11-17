@@ -109,10 +109,10 @@ http://www.tooplate.com/view/2085-neuron
                     $$
                     Note that since \(H\) is a <a href='https://en.wikipedia.org/wiki/Self-adjoint_operator'>self-adjoint operator</a>, the operator \(\exp\left(-\frac{i}{\hbar}tH\right)\) is a <a href='https://en.wikipedia.org/wiki/Unitary_operator'>unitary operator</a>.</p>
 
-                    <p>A consequence of the Schr&ouml;dinger equation is that, starting from a given physical state \(\psi_1\), it is possible to evolve towards another given physical state \(\psi_2\) by evolving the system with the appropriate Hamiltonian for a suitable period of time.</p>
+                    <p>A consequence of the Schr&ouml;dinger equation is that starting from a quantum state \(\psi_1\), it is possible to obtain a specific quantum state \(\psi_2\) by evolving the system with the appropriate Hamiltonian for a suitable period of time.</p>
 
                     <h2>Qubits</h2>
-                    <p>In my previous post, I introduced <a href='https://en.wikipedia.org/wiki/Qubit'>qubits</a> as two-state quantum-mechanical systems, and gave the \(y\)-<a href='https://en.wikipedia.org/wiki/Spin_(physics)'>spin</a> of the <a href='https://en.wikipedia.org/wiki/Electron'>electron</a> as an example. In practice, qubits actually correspond to the \(z\)-spin of the electron, whcih I shall quickly review now.</p>
+                    <p>In my previous post, I introduced <a href='https://en.wikipedia.org/wiki/Qubit'>qubits</a> as two-state quantum-mechanical systems and gave the \(y\)-<a href='https://en.wikipedia.org/wiki/Spin_(physics)'>spin</a> of the <a href='https://en.wikipedia.org/wiki/Electron'>electron</a> as an example. In practice, qubits actually correspond to the \(z\)-spin of the electron, which I shall quickly review now.</p>
 
                     <p>The quantum state \(\psi=(\psi_1,\psi_2)^T\) of an electron, with respect to \(z\)-spin, lives in is the Hilbert space \(\mathbb{C}^2\) of pairs of complex numbers, with inner product
                     $$
@@ -143,7 +143,7 @@ http://www.tooplate.com/view/2085-neuron
                     </p>
 
                     <h2>Quantum logic gates</h2>
-                    <p>Suppose the electron is in the state \(\vert0\rangle\) and we want to change it to \(\vert1\rangle\). Since the spin Hamiltonian is related to the <a href='https://en.wikipedia.org/wiki/Magnetic_field'>magnetic field</a>, using Schr&ouml;dinger equation, we can obtain \(\vert1\rangle\) from \(\vert0\rangle\) by applying an appropriate magnetic field for a suitable period of time. Mathematically, this means multiplying \(\vert0\rangle\) by an appropriate <a href='https://en.wikipedia.org/wiki/Unitary_matrix'>unitary matrix</a>. This is what <a href='https://en.wikipedia.org/wiki/Quantum_logic_gate'>quantum logic gates</a> do&mdash;these are unitary matrices that act on qubits, and correspond to the application of a specific magnetic field for a certain period of time. Quantum logic gates abstract the underlying physics away.</p>
+                    <p>Suppose the electron is in the state \(\vert0\rangle\) and we want to change it to \(\vert1\rangle\). Since the spin Hamiltonian is related to the <a href='https://en.wikipedia.org/wiki/Magnetic_field'>magnetic field</a>, using the Schr&ouml;dinger equation, we can obtain \(\vert1\rangle\) from \(\vert0\rangle\) by applying an appropriate magnetic field for a suitable period of time. Mathematically, this means multiplying \(\vert0\rangle\) by an appropriate <a href='https://en.wikipedia.org/wiki/Unitary_matrix'>unitary matrix</a>. This is what <a href='https://en.wikipedia.org/wiki/Quantum_logic_gate'>quantum logic gates</a> do&mdash;these are unitary matrices that act on qubits and correspond to the application of a specific magnetic field for a certain period of time. Quantum logic gates abstract the underlying physics away.</p>
 
                     <p>For example, the <a href='https://en.wikipedia.org/wiki/Quantum_logic_gate#Pauli-X_gate'>quantum NOT gate</a> corresponds to the following \(X\) <a href='https://en.wikipedia.org/wiki/Pauli_matrices'>Pauli matrix</a>,
                     $$
@@ -176,7 +176,7 @@ http://www.tooplate.com/view/2085-neuron
                 	</p>
 
 					<h2>Tensor products</h2>
-                	<p>The quamtum states of two electrons, with respect to \(z\)-spin, may be described in the <a href='https://en.wikipedia.org/wiki/Tensor_product'>tensor product</a> basis as
+                	<p>The quantum states of two electrons, with respect to \(z\)-spin, may be described in the <a href='https://en.wikipedia.org/wiki/Tensor_product'>tensor product</a> basis as
                 	$$
                 	\begin{align}
                 	\psi & = \psi_1\vert0\rangle\otimes\vert0\rangle
@@ -239,7 +239,7 @@ http://www.tooplate.com/view/2085-neuron
                 	</p>
 
                 	<p>
-                    There are many more quantum gates, including the <a href='https://en.wikipedia.org/wiki/Quantum_logic_gate#Pauli-Y_gate'>Pauli-\(Y\)</a> and <a href='https://en.wikipedia.org/wiki/Quantum_logic_gate#Pauli-Z'>Pauli-\(Z\)</a> gates, and the <a href='https://en.wikipedia.org/wiki/Quantum_logic_gate#Swap_(SWAP)_gate'>SWAP gate</a>. Quamtum gates are then combined into sequences to form <a href='https://en.wikipedia.org/wiki/Quantum_circui'>quantum circuits</a>.</p>
+                    There are many more quantum gates, including the <a href='https://en.wikipedia.org/wiki/Quantum_logic_gate#Pauli-Y_gate'>Pauli-\(Y\)</a> and <a href='https://en.wikipedia.org/wiki/Quantum_logic_gate#Pauli-Z'>Pauli-\(Z\)</a> gates, and the <a href='https://en.wikipedia.org/wiki/Quantum_logic_gate#Swap_(SWAP)_gate'>SWAP gate</a>. Quantum gates are then combined into sequences to form <a href='https://en.wikipedia.org/wiki/Quantum_circui'>quantum circuits</a>.</p>
 
                 	<p>In the next post, I will talk about using quantum computing for solving nonlinear <a href='https://en.wikipedia.org/wiki/Ordinary_differential_equation'>ordinary differential equations</a>.</p>
                </div>
