@@ -98,25 +98,24 @@ http://www.tooplate.com/view/2085-neuron
 
                     <p>Thanks to Noether, I got really interested in mathematical physics and took classes in <a href='https://en.wikipedia.org/wiki/Statistical_mechanics'>statistical mechanics</a> and <a href='https://en.wikipedia.org/wiki/Special_relativity'>special relativity</a>. My second research project as an undergraduate student was on <a href='https://en.wikipedia.org/wiki/Riemannian_geometry'>Riemannian geometry</a> and <a href='https://en.wikipedia.org/wiki/General_relativity'>general relativity</a>, with my friend and former classmate <a href='https://www.linkedin.com/in/olivier-martre-7a7a9a95/'>Olivier Martre</a>&mdash;oh dear, how hard it was!</p>
 
-                    <p>A couple of years down the road, I had to choose between an M.Sc. in applied mathematics and an MS.c. in mathematical physics. I ended pursuing a career in applied mathematics, but physics never really left my life&mdash;most of my work in applied mathematics has been on the numerical solution of the <a href='https://en.wikipedia.org/wiki/Differential_equation'>differential equations</a> of physics. In particular, during my Ph.D. at Oxford, I built a partial differential equation solver called <code>spin</code>; the guide can be found <a href='https://www.chebfun.org/docs/guide/guide19.html'>here</a>. While it stands for "stiff PDEs integrator", I named it after the <a href='https://en.wikipedia.org/wiki/Spin_(physics)'>quantum mechanical spin</a>. The <code>spin</code> code is part of the MATLAB-based package <a href='https://www.chebfun.org/'>Chebfun</a>, a project led by my former Ph.D. advisor <a href='https://en.wikipedia.org/wiki/Nick_Trefethen'>Nick Trefethen.</p>
+                    <p>A couple of years down the road, I had to choose between an M.Sc. in applied mathematics and an MS.c. in mathematical physics. I ended pursuing a career in applied mathematics, but physics never really left my life&mdash;most of my work in applied mathematics has been on the numerical solution of the <a href='https://en.wikipedia.org/wiki/Differential_equation'>differential equations</a> of physics. In particular, during my Ph.D. at Oxford, I built a partial differential equation solver called <code>spin</code>; the guide can be found <a href='https://www.chebfun.org/docs/guide/guide19.html'>here</a>. While it stands for "stiff PDEs integrator", I named it after the <a href='https://en.wikipedia.org/wiki/Spin_(physics)'>quantum mechanical spin</a>. The <code>spin</code> code is part of the MATLAB-based package <a href='https://www.chebfun.org/'>Chebfun</a>, a project led by my former Ph.D. advisor <a href='https://en.wikipedia.org/wiki/Nick_Trefethen'>Nick Trefethen</a>.</p>
 
                     <h2>Quantum states and observables</h2>
-                    <p>In <a href='https://en.wikipedia.org/wiki/Quantum_mechanics'>quantum physics</a>, the <a href='https://en.wikipedia.org/wiki/Quantum_state'>state</a> of a physical system is described by an element \(\psi\) of a <a href='https://en.wikipedia.org/wiki/Separable_space'>separable</a> <a href='https://en.wikipedia.org/wiki/Hilbert_space'>complex Hilbert space</a> \(H\) <a href="#section1">[1]</a>. Physical quantities are represented by <a href='https://en.wikipedia.org/wiki/Self-adjoint_operator'>self-adjoint</a> operators \(L:H\rightarrow H\) on that space, and called <a href='https://en.wikipedia.org/wiki/Observable#Quantum_mechanics'>observables</a>. Note that \(H\) may or may not be finite-dimensional. In finite dimension, the operator \(L\) is a <a href='https://en.wikipedia.org/wiki/Hermitian_matrix'>Hermitian</a> matrix.
+                    <p>In <a href='https://en.wikipedia.org/wiki/Quantum_mechanics'>quantum physics</a>, the <a href='https://en.wikipedia.org/wiki/Quantum_state'>state</a> of a physical system is described by an element \(\psi\) of a <a href='https://en.wikipedia.org/wiki/Separable_space'>separable</a> <a href='https://en.wikipedia.org/wiki/Hilbert_space'>complex Hilbert space</a> \(X\) <a href="#section1">[1]</a>. Physical quantities are represented by <a href='https://en.wikipedia.org/wiki/Self-adjoint_operator'>self-adjoint operators</a> \(L:X\rightarrow X\) on that space, and called <a href='https://en.wikipedia.org/wiki/Observable#Quantum_mechanics'>observables</a>. Note that \(X\) may or may not be finite-dimensional. In finite dimension, the operator \(L\) is a <a href='https://en.wikipedia.org/wiki/Hermitian_matrix'>Hermitian matrix</a>.
                     </p>
 
-                    <p>A finite-dimensional example is the Hilbert space \(H=\mathbb{C}^2\) of pairs of complex numbers \(\psi=(\psi_1,\psi_2)^T\), with inner product
+                    <p>A finite-dimensional example is the Hilbert space \(X=\mathbb{C}^2\) of pairs of complex numbers \(\psi=(\psi_1,\psi_2)^T\), with inner product
                     $$
-                    (\psi,\phi) = \overline{\psi}_1\phi_1 + \overline{\psi}_2\phi_2,
+                    \langle\psi,\phi\rangle = \overline{\psi}_1\phi_1 + \overline{\psi}_2\phi_2,
                     $$
-                    together with the Hermitian matrix
+                    together with the Hermitian matrix \(L=S_y\) with
                     $$
-                    L = \frac{\hbar}2\sigma_y 
-                    = \frac{\hbar}{2}\begin{pmatrix}
+                    S_y = \frac{\hbar}{2}\begin{pmatrix}
                     0 & -i \\
                     i & 0
                     \end{pmatrix}.
                     $$
-                    The matrix \(L\) is the spin angular momentum operator along the \(y\)-axis for <a href='https://en.wikipedia.org/wiki/Spin-%C2%BD'>spin-\(\frac{1}{2}\)</a> particles, such as the <a href='https://en.wikipedia.org/wiki/Electron'>electron</a>. Since \(L\) is a Hermitian matrix, the <a href='https://en.wikipedia.org/wiki/Spectral_theorem'>spectral theorem</a> guarantees that it is diagonalizable with orthonormal eigenvectors and real eigenvalues. The eigenvalues are \(\pm\frac{\hbar}{2}\), while the eigenvectors are given by
+                    The matrix \(S_y\) is the <a href='https://en.wikipedia.org/wiki/Spin_(physics)#Pauli_matrices'>spin angular momentum operator</a> along the \(y\)-axis for <a href='https://en.wikipedia.org/wiki/Spin-%C2%BD'>spin-\(\frac{1}{2}\)</a> particles, such as the <a href='https://en.wikipedia.org/wiki/Electron'>electron</a>. Since \(S_y\) is a Hermitian matrix, the <a href='https://en.wikipedia.org/wiki/Spectral_theorem'>spectral theorem</a> guarantees that it is diagonalizable with orthonormal eigenvectors and real eigenvalues. The eigenvalues are \(\pm\frac{\hbar}{2}\), while the eigenvectors are given by
                     $$
                     \psi_{y+}=\frac{1}{\sqrt{2}}\begin{pmatrix}
                     1 \\
@@ -129,55 +128,63 @@ http://www.tooplate.com/view/2085-neuron
                     $$
                     The quantum state of a spin-\(\frac{1}{2}\) particle, with respect to \(y\)-spin, may then be written as
                     $$
-                    \psi = (\psi_{y+},\psi)\psi_{y+} + (\psi_{y-},\psi)\psi_{y-},
+                    \psi = \langle\psi_{y+},\psi\rangle\psi_{y+} + \langle\psi_{y-},\psi\rangle\psi_{y-},
                     $$
                     with the normalization condition
                     $$
-                    (\psi,\psi) = \vert(\psi_{y+},\psi)\vert^2 + \vert(\psi_{y-},\psi)\vert^2 = 1.
+                    \langle\psi,\psi\rangle = \vert\langle\psi_{y+},\psi\rangle\vert^2 + \vert\langle\psi_{y-},\psi\rangle\vert^2 = 1.
                     $$
-                    When the \(y\)-spin of the particle is measured, the probability that it will be \(\pm\frac{\hbar}{2}\) is \(\vert(\psi_{y\pm},\psi)\vert^2\). Following the measurement, the \(y\)-spin state of the particle will collapse into the corresponding eigenstate.
+                    When the \(y\)-spin of the particle is measured, the probability that it will be \(\pm\frac{\hbar}{2}\) is \(\vert\langle\psi_{y\pm},\psi\rangle\vert^2\). Following the measurement, the \(y\)-spin state of the particle will collapse into the corresponding eigenstate. The <a href='https://en.wikipedia.org/wiki/Expected_value'>expected value</a> of \(\psi\) is then given by
+                    $$
+                    \langle\psi\rangle = \frac{\hbar}{2}\vert\langle\psi_{y+},\psi\rangle\vert^2 - \frac{\hbar}{2}\vert\langle\psi_{y-},\psi\rangle\vert^2.
+                    $$
                     </p>
 
-                    <p>An example in infinite dimension is the Hilbert space \(H=L^2(\mathbb{R})\) of <a href='https://en.wikipedia.org/wiki/Square-integrable_function#:~:text=A%20space%20which%20is%20complete,induced%20by%20the%20inner%20product.'>square-integrable functions</a> \(\psi\), with inner product
+                    <p>An example in infinite dimension is the Hilbert space \(X=L^2(\mathbb{R})\) of <a href='https://en.wikipedia.org/wiki/Square-integrable_function#:~:text=A%20space%20which%20is%20complete,induced%20by%20the%20inner%20product.'>square-integrable functions</a> \(\psi\), with inner product
                     $$
-                    (\psi,\phi) = \int_{\mathbb{R}}\overline{\psi}(x)\phi(x)dx,
+                    \langle\psi,\phi\rangle = \int_{\mathbb{R}}\overline{\psi}(x)\phi(x)dx,
                     $$
-                    together with the self-adjoint operator \(L\) defined by
+                    together with the self-adjoint operator \(L=H\) defined by
                     $$
-                    L\,\psi(x) = -\frac{\hbar}{2m}\psi''(x) + \frac{1}{2}m\omega^2x^2\psi(x), \;\;x\in\mathbb{R},
+                    H\psi(x) = -\frac{\hbar}{2m}\psi''(x) + \frac{1}{2}m\omega^2x^2\psi(x), \;\;x\in\mathbb{R},
                     $$
                     with domain <a href="#section1">[2]</a>
                     $$
-                    D(L) = \big\{\psi\in H^2(\mathbb{R})\,|\,x^2\psi\in L^2(\mathbb{R})\big\}\subset L^2(\mathbb{R}).
+                    D(H) = \big\{\psi\in H^2(\mathbb{R})\,|\,x^2\psi\in L^2(\mathbb{R})\big\}\subset L^2(\mathbb{R}).
                     $$ 
-                    The operator \(L\) is the <a href='https://en.wikipedia.org/wiki/Hamiltonian_(quantum_mechanics)'>Hamiltonian operator</a> of the <a href='https://en.wikipedia.org/wiki/Quantum_harmonic_oscillator'>quantum harmonic oscillator</a> with frequency \(\omega\), and corresponds to the total energy of a particle of mass \(m\) in a quadratic potential. It is an example of an <a href='https://en.wikipedia.org/wiki/Unbounded_operator'>unbounded operator</a>, since the elements of its spectrum have unbounded amplitude. It is diagonalizable with orthonormal eigenfunctions and a discrete real spectrum <a href="#section1">[3]</a>. The countably many eigenvalues are given by
+                    The operator \(H\) is the <a href='https://en.wikipedia.org/wiki/Hamiltonian_(quantum_mechanics)'>Hamiltonian operator</a> of the <a href='https://en.wikipedia.org/wiki/Quantum_harmonic_oscillator'>quantum harmonic oscillator</a> with frequency \(\omega\), and corresponds to the total energy of a particle of mass \(m\) in a quadratic potential. It is an example of an <a href='https://en.wikipedia.org/wiki/Unbounded_operator'>unbounded operator</a>, since the elements of its spectrum have unbounded amplitude. It is diagonalizable with orthonormal eigenfunctions and a discrete real spectrum <a href="#section1">[3]</a>. The countably many eigenvalues are given by
                     $$
                     \lambda_n = (2n+1)\frac{\hbar}{2}\omega, \quad n=0,1,2,\ldots,
                     $$
                     while the eigenfunctions are scaled <a href='https://en.wikipedia.org/wiki/Hermite_polynomials#Hermite_functions'>Hermite functions</a> \(\psi_n\).
                     Therefore, one may write the quantum state of the particle, with respect to total energy, as
                     $$
-                    \psi(x) = \sum_{n=0}^{\infty}(\psi_n,\psi)\psi_n(x),
+                    \psi(x) = \sum_{n=0}^{\infty}\langle\psi_n,\psi\rangle\psi_n(x),
                     $$
                     with the normalizaton condition
                     $$
-                    (\psi,\psi) = \sum_{n=0}^{\infty}\vert(\psi_n,\psi)\vert^2 = 1.
+                    \langle\psi,\psi\rangle = \sum_{n=0}^{\infty}\vert\langle\psi_n,\psi\rangle\vert^2 = 1.
                     $$
-                    As in the finite-dimensional case, the meaning of the decomposition in the basis of eigenfunctions is that if we perform an energy measurement, the state will have energy \(\lambda_n\) with probability \(\vert(\psi_n,\psi)\vert^2\), and following the measurement, the total energy state of the particle will collapse into the corresponding eigenstate. In Chebfun, quantum states can be computed with the <code>quantumstates</code> command; see, <i>e.g.</i>, <a href='https://www.chebfun.org/examples/ode-eig/Eigenstates.html'>this example</a>. 
+                    As in the finite-dimensional case, the meaning of the decomposition in the basis of eigenfunctions is that if we perform an energy measurement, the state will have energy \(\lambda_n\) with probability \(\vert\langle\psi_n,\psi\rangle\vert^2\), and following the measurement, the total energy state of the particle will collapse into the corresponding eigenstate. The expected value of \(\psi\) is then given by
+                    $$
+                    \langle\psi\rangle = \sum_{n=0}^{\infty}\lambda_n\vert\langle\psi_n,\psi\rangle\vert^2.
+                    $$
+
+
+                    In Chebfun, quantum states can be computed with the <code>quantumstates</code> command; see, <i>e.g.</i>, <a href='https://www.chebfun.org/examples/ode-eig/Eigenstates.html'>this example</a>. 
                     </p>
 
                     <h2>Bit versus qubit</h2>
                     <p>Classical computers use <a href='https://en.wikipedia.org/wiki/Bit'>bits</a> to store information, which are commonly represented as "0" and "1". The way I like to think about bits is that each bit is like a small magnet that can either point North ("0") or South ("1"). By applying an appropriate magnetic field, one can change the magnetization of a bit, and change "0" to "1", or vice versa. Bits are then combined together into arrays of bits, called words. Numbers, for example, are stored as 32- or 64-bit words, following the <a href='https://en.wikipedia.org/wiki/IEEE_754'>IEEE 754</a> technical standard.</p>
 
-                    <p>Quantum computers use <a href='https://en.wikipedia.org/wiki/Qubit'>qubits</a>. A qubit is a two-state quantum-mechanical system, for example, the \(y\)-spin of the electron described in the previous section. Therefore, a qubit
-                    can be written as
+                    <p>Quantum computers use <a href='https://en.wikipedia.org/wiki/Qubit'>qubits</a>. A qubit is a two-state quantum-mechanical system, for example, the \(y\)-spin of the electron described in the previous section. In that scenario, a qubit would be
                     $$
                     \psi = \alpha\psi_{y+} + \beta\psi_{y-},
                     $$
                     where \(\psi_{y+}\) corresponds to "0" and \(\psi_{y-}\) to "1". As in the classical case, one can change the value of the qubit by applying an appropriate magnetic field. Note that a qubit does not have a value in-between "0" and "1"; rather, as explained previously, when measured, it has a probability \(\vert\alpha\vert^2\) of the value "0" and a probability \(\vert\beta\vert^2\) of the value "1".
                     </p>
 
-                    <p>In a future post, I will talk about <a href='https://en.wikipedia.org/wiki/Quantum_logic_gate'>quantum logical gates</a> and the <a href='https://en.wikipedia.org/wiki/Deutsch%E2%80%93Jozsa_algorithm'>Deutsch&ndash;Jozsa algorithm</a>.</p>
+                    <p>In the next post, I will talk about the <a href='https://en.wikipedia.org/wiki/Schr%C3%B6dinger_equation'>Schr&ouml;dinger equation</a> and <a href='https://en.wikipedia.org/wiki/Quantum_logic_gate'>quantum logic gates</a>.</p>
 
                     <p id="section1">[1] To be very precise, one has to consider equivalent classes of vectors in \(H\) called <a href='https://en.wikipedia.org/wiki/Projective_Hilbert_space'>rays</a>, with \(\psi\sim\phi\) when \(\phi=\lambda\psi\) for some non-zero \(\lambda\in\mathbb{C}\).
 
