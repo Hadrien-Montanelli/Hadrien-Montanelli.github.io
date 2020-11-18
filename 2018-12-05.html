@@ -137,14 +137,14 @@ http://www.tooplate.com/view/2085-neuron
                     $$
                     T(u) = u - AF(u).
                     $$
-                    The main challenge is to chose \(A\) such that \(T\) is a contraction on some neighborhood 
+                    The main challenge is to choose \(A\) such that \(T\) is a contraction on some neighborhood 
                     of the unknown true solution.</p>
 
                     <p>The idea behind computer-assisted proofs goes like this. 
                     First, compute a numerical solution \(\bar{u}_N\) of the discretized problem \(F_N(u_N)=0\) in \(N\) dimensions.
                     Second, reinterpret \(\bar{u}_N\) as an element \(\bar{u}\) of the infinite-dimensional space by 
                     padding the vector of coefficients with an infinite number of zero.
-                    We expect the true solution \(u\) to be close to \(\bar{u}\) so we will chose \(A\) 
+                    We expect the true solution \(u\) to be close to \(\bar{u}\) so we will choose \(A\) 
                     to be an approximation of \(DF^{-1}(\bar{u})\). 
                     The following theorem justifies this approach.</p>
 
@@ -188,7 +188,7 @@ http://www.tooplate.com/view/2085-neuron
                     <a href="http://en.wikipedia.org/wiki/Wavenumber">wavenumbers</a> \(k\) 
                     between \(-N\) and \(N\) (\(2N+1\) grid points)
                     and by \(DF_N(\bar{u}_N)\) the \((2N+1) \times (2N+1)\) Jacobian matrix at \(\bar{u}_N\), which we can compute.
-                    In this case a good choice for \(A^\dagger\) is
+                    In this case, a good choice for \(A^\dagger\) is
                     <small>
                     $$
                     A^\dagger =

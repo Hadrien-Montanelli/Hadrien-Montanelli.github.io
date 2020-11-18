@@ -138,10 +138,10 @@ http://www.tooplate.com/view/2085-neuron
                     $$
                     \widehat{u}(t) = \Big(\frac{\widehat{u}_{-N/2}}{2}+\frac{\widehat{u}_{N/2}}{2}, \widehat{u}_{-N/2+1}(t),\ldots,\widehat{u}_{N/2-1}(t)\Big)^T.
                     $$
-                    For this PDE, \(\mathbf{L}=\mathbf{D}_N^{(2)}\) is the (diagonal) <i>second-order Fourier differentiation matrix</i> with entries \(-k^2\), \(-N/2\leq k\leq N/2-1\). Note that stiffness is related to \(\mathbf{L}\) having large <a href="https://en.wikipedia.org/wiki/Eigenvalues_and_eigenvectors">eigenvalues</a> since stability of spectral methods for time-dependent PDEs requires that the eigenvalues, scaled by the time-step, lie in the stability region of the time-stepping formula.</p>
+                    For this PDE, \(\mathbf{L}=\mathbf{D}_N^{(2)}\) is the (diagonal) <i>second-order Fourier differentiation matrix</i> with entries \(-k^2\), \(-N/2\leq k\leq N/2-1\). Note that stiffness is related to \(\mathbf{L}\) having large <a href="https://en.wikipedia.org/wiki/Eigenvalues_and_eigenvectors">eigenvalues</a> since the stability of spectral methods for time-dependent PDEs requires that the eigenvalues, scaled by the time-step, lie in the stability region of the time-stepping formula.</p>
 
 
-                    <h2>A simple expoential integrator</h2>
+                    <h2>A simple exponential integrator</h2>
 
                     <p>The second special feature of these PDEs is that they are is semilinear, <i>i.e.</i>, the higher-order terms of the equation are linear. <a href="https://en.wikipedia.org/wiki/Exponential_integrator">Exponential integrators</a> are a class of numerical methods for systems of ODEs that are aimed at taking advantage of this. The linear part \(\mathbf{L}\), responsible for the stiffness, is integrated exactly using the <a href="https://en.wikipedia.org/wiki/Matrix_exponential">matrix exponential</a> while a numerical scheme is applied to \(\mathbf{N}\).</p>
 
@@ -157,9 +157,9 @@ http://www.tooplate.com/view/2085-neuron
 
                     <h2>Results of our numerical experiments and Chebfun</h2>
 
-                    <p>We compare in our paper 30 exponential integrators of fourth and higher order on 11 model problems in 1D, 2D and 3D. Our conclusion is that it is hard to do much better than one of the simplest of these formulas, the ETDRK4 scheme of Cox and Matthews.</p>
+                    <p>We compare in our paper 30 exponential integrators of fourth and higher order on 11 model problems in 1D, 2D, and 3D. Our conclusion is that it is hard to do much better than one of the simplest of these formulas, the ETDRK4 scheme of Cox and Matthews.</p>
 
-                    <p>Our numerical experiments were performed using <a href="https://www.mathworks.com/products/matlab.html">MATLAB</a> and have been embedded within <a href="https://www.chebfun.org/">Chebfun</a>. More specifically, the <code>spin</code>, <code>spin2</code> and <code>spin3</code> codes implement a Fourier spectral method and exponential integrators to solve PDEs in 1D, 2D and 3D periodic domains. The simplest way to see <code>spin</code> in action is to type simply <code>spin('ks')</code> (for the Kuramoto&mdash;Sivashinsky equation) or <code>spin2('gl')</code> (for the 2D Ginzburg&mdash;Landau equation) to invoke an example computation.
+                    <p>Our numerical experiments were performed using <a href="https://www.mathworks.com/products/matlab.html">MATLAB</a> and have been embedded within <a href="https://www.chebfun.org/">Chebfun</a>. More specifically, the <code>spin</code>, <code>spin2</code> and <code>spin3</code> codes implement a Fourier spectral method and exponential integrators to solve PDEs in 1D, 2D, and 3D periodic domains. The simplest way to see <code>spin</code> in action is to type simply <code>spin('ks')</code> (for the Kuramoto&mdash;Sivashinsky equation) or <code>spin2('gl')</code> (for the 2D Ginzburg&mdash;Landau equation) to invoke an example computation.
                     It is also possible to define your own PDE using the <code>spinop</code> class. Check out the <a href="https://www.chebfun.org/docs/guide/guide19.html">documentation</a> for details.</p>    
                </div>
                

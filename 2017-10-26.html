@@ -106,7 +106,7 @@ http://www.tooplate.com/view/2085-neuron
                     \label{PDE}
                     $$
                     where \(u(t,x,y,z)\) is a function of time \(t\) and Cartesian coordinates \((x,y,z)\) with \(x^2 + y^2 + z^2=1\).
-                    The function \(u\) can be real or complex and the the PDE can be a single equation, as well as a system of equations.
+                    The function \(u\) can be real or complex and the PDE can be a single equation, as well as a system of equations.
                     A large number of PDEs of interest in science and engineering take this form.
                     Examples include the <a href="http://en.wikipedia.org/wiki/Allen–Cahn_equation">Allen&ndash;Cahn equation</a> 
                     \(u_t = \epsilon\Delta u + u - u^3\), the
@@ -115,7 +115,7 @@ http://www.tooplate.com/view/2085-neuron
 
                     <p>Our algorithms are based on a variant of the <a href="http://en.wikipedia.org/wiki/Double_Fourier_sphere_method">double Fourier sphere method</a> in coefficient space with multiplication matrices that differ from the usual ones, and implicit-explicit time-stepping schemes.
                     Operating in coefficient space with these new matrices allows one to use a sparse direct solver, avoids the 
-                    <a href="http://en.wikipedia.org/wiki/Coordinate_singularity">coordinate singularity</a> and maintains smoothness at the poles, while implicit-explicit schemes circumvent severe restrictions on the time-steps due to 
+                    <a href="http://en.wikipedia.org/wiki/Coordinate_singularity">coordinate singularity</a>, and maintains smoothness at the poles, while implicit-explicit schemes circumvent severe restrictions on the time-steps due to 
                     <a href="http://en.wikipedia.org/wiki/Stiff_equation">stiffness</a>.
                     A comparison is made against <a href="http://en.wikipedia.org/wiki/Exponential_integrator">exponential integrators</a> 
                     and it is found that implicit-explicit schemes perform best.
