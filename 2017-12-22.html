@@ -99,7 +99,7 @@ http://www.tooplate.com/view/2085-neuron
                     <p>I started working on <a href="http://en.wikipedia.org/wiki/Deep_learning">deep learning</a> 
                     models when I began my research at <a href="http//www.columbia.edu">Columbia University</a> in September 2017. 
                     Coming from the <a href="http://en.wikipedia.org/wiki/Approximation_theory">approximation theory</a>
-                    world, I wanted to learn about their approximation propeties.
+                    world, I wanted to learn about their approximation properties.
                     A few months down the road I have proven a <a href="http://arxiv.org/pdf/1712.08688.pdf">new theorem</a> concerning the approximation of 
                     <a href="http://en.wikipedia.org/wiki/Function_of_several_real_variables">multivariate functions</a> by deep ReLU networks.</p>
 
@@ -123,10 +123,9 @@ http://www.tooplate.com/view/2085-neuron
 
                     <p>One of the most important theoretical problems is to determine why and when deep (but not shallow) networks
                     can lessen or break the <a href="https://en.wikipedia.org/wiki/Curse_of_dimensionality">curse of dimensionality</a>.
-                    A possible way of addressing this problem is to focus on a particular set of functions which have a very
+                    A possible way of addressing this problem is to focus on a particular set of functions that have a very
                     special (<a href="http://en.wikipedia.org/wiki/Function_composition">compositional</a> or 
-                    <a href="https://en.wikipedia.org/wiki/Polynomial">polynomial</a>) structure, 
-                    and to show that for this particular set deep networks perform extremely well.
+                    <a href="https://en.wikipedia.org/wiki/Polynomial">polynomial</a>) structure and to show that for this particular set deep networks perform extremely well.
                     I have followed a different route. 
                     I have considered a generic set of functions and proved new error estimates 
                     for which the curse of dimensionality is lessened by establishing a connection with 
@@ -134,19 +133,19 @@ http://www.tooplate.com/view/2085-neuron
 
                     <p>For a real-valued function \(f\) in \(\mathbb{R}^d\) whose 
                     <a href="http://en.wikipedia.org/wiki/Smoothness">smoothness</a> is characterized by some integer \(m\)
-                    (typically the order of <a href="https://en.wikipedia.org/wiki/Locally_integrable_function">integrable</a> derivatives), and for some prescribed accuracy \(\epsilon>0\), 
+                    (typically the order of <a href="https://en.wikipedia.org/wiki/Locally_integrable_function">integrable</a> derivatives), and for some prescribed error \(\epsilon>0\), 
                     one tries to show that there exists a neural network \(f_N\) of size \(N\) that satisfies
                     $$
                     \Vert f - f_N \Vert \leq \epsilon \;\; \text{with} \;\; N=\mathcal{O}(\epsilon^{-\frac{d}{m}}),
                     $$
                     for some norm \(\Vert\cdot\Vert\). 
-                    For deep networks, one also wants to find the asymptotic behavior of the depth as a function of the accuracy \(\epsilon\).
+                    For deep networks, one also wants to find the asymptotic behavior of the depth as a function of \(\epsilon\).
                     Results of this form are standard approximation results that suffer from the curse of dimensionality.
                     For small dimensions \(d\), the size \(N\) of the network increases at a reasonable rate as \(\epsilon\) goes to zero.
                     However, \(N\) grows <i><b>geometrically</b></i> with \(d\).</p>
 
                     <p>The picture is different for deep networks.
-                    My theorem shows that functions in the so-called Korobov spaces \(X^{2,p}(\Omega)\) of mixed derivatives of order \(2\) can be represented to accuracy \(\epsilon\) by deep networks of depth 
+                    My theorem shows that functions in the so-called Korobov spaces \(X^{2,p}(\Omega)\) of mixed derivatives of order \(2\) can be represented with error \(\epsilon\) by deep networks of depth 
                     \(\mathcal{O}(\vert\log_2\epsilon\vert\log_2d)\) and size
                     $$
                     N=\mathcal{O}(\epsilon^{-\frac{1}{2}}\vert\log_2\epsilon\vert^{\frac{3}{2}(d-1)+1}(d-1)).
