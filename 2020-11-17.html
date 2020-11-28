@@ -154,13 +154,13 @@ http://www.tooplate.com/view/2085-neuron
                     \end{pmatrix},
                     $$
                     and has the following NOT-like behavior,
-					$$
-					X\vert0\rangle = \vert1\rangle, \quad X\vert1\rangle = \vert0\rangle.
-					$$		
-					It is the quantum analog of the <a href='https://en.wikipedia.org/wiki/Inverter_(logic_gate)'>classical NOT gate</a>.
-					</p>
+				$$
+				X\vert0\rangle = \vert1\rangle, \quad X\vert1\rangle = \vert0\rangle.
+				$$		
+				It is the quantum analog of the <a href='https://en.wikipedia.org/wiki/Inverter_(logic_gate)'>classical NOT gate</a>.
+				</p>
 
-					<p> The <a href='https://en.wikipedia.org/wiki/Quantum_logic_gate#Hadamard_(H)_gate'>Hadamard gate</a>, which is one of the most important quantum gates, is defined by,
+				<p> The <a href='https://en.wikipedia.org/wiki/Quantum_logic_gate#Hadamard_(H)_gate'>Hadamard gate</a>, which is one of the most important quantum gates, is defined by,
                     $$
                     H = \frac{1}{\sqrt{2}}\begin{pmatrix}
                     1 & 1 \\
@@ -176,14 +176,14 @@ http://www.tooplate.com/view/2085-neuron
                     $$
                 	</p>
 
-					<h2>Tensor products</h2>
+				<h2>Tensor products</h2>
                 	<p>The quantum states of two electrons, with respect to \(z\)-spin, may be described in the <a href='https://en.wikipedia.org/wiki/Tensor_product'>tensor product</a> basis as
                 	$$
                 	\begin{align}
                 	\psi & = \psi_1\vert0\rangle\otimes\vert0\rangle
-                	+ \psi_2\vert0\rangle\otimes\vert1\rangle \\
-                	& + \psi_3\vert1\rangle\otimes\vert0\rangle
-                	+ \psi_4\vert1\rangle\otimes\vert1\rangle,
+                	+ \psi_2\vert0\rangle\otimes\vert1\rangle \\[1.5pt]
+                	& + \psi_3\vert1\rangle\otimes\vert0\rangle 
+                    + \psi_4\vert1\rangle\otimes\vert1\rangle,
                 	\end{align}
                 	$$
                 	where the tensor product basis vectors are given by
@@ -215,9 +215,9 @@ http://www.tooplate.com/view/2085-neuron
                     \end{pmatrix}.
                     \end{align}
                     $$
-                    It is possible to define quantum logic gates for systems of electrons as well. For instance, the <a href='https://en.wikipedia.org/wiki/Quantum_logic_gate#Controlled_(CX_CY_CZ)_gates'>qantum controlled NOT gate</a> is given by the following \(CX\) matrix,
+                    It is possible to define quantum logic gates for systems of electrons as well. For instance, the <a href='https://en.wikipedia.org/wiki/Quantum_logic_gate#Controlled_(CX_CY_CZ)_gates'>qantum controlled NOT gate</a> is given by the following \(C_X\) matrix,
                     $$
-                    CX = \begin{pmatrix}
+                    C_X = \begin{pmatrix}
                     1 & 0 & 0 & 0 \\
                     0 & 1 & 0 & 0 \\
                     0 & 0 & 0 & 1 \\
@@ -227,13 +227,13 @@ http://www.tooplate.com/view/2085-neuron
                     Its action on the basis vectors is as follows,
                     $$
                     \begin{align}
-                    & CX\big(\vert0\rangle\otimes\vert0\rangle\big) =
-                    \vert0\rangle\otimes\vert0\rangle, \\
-                    & CX\big(\vert0\rangle\otimes\vert1\rangle\big) =
-                    \vert0\rangle\otimes\vert1\rangle, \\
-                    & CX\big(\vert1\rangle\otimes\vert0\rangle\big) =
-                    \vert1\rangle\otimes\vert1\rangle, \\
-                    & CX\big(\vert1\rangle\otimes\vert1\rangle\big) =
+                    & C_X\big(\vert0\rangle\otimes\vert0\rangle\big) =
+                    \vert0\rangle\otimes\vert0\rangle, \\[1.5pt]
+                    & C_X\big(\vert0\rangle\otimes\vert1\rangle\big) =
+                    \vert0\rangle\otimes\vert1\rangle, \\[1.5pt]
+                    & C_X\big(\vert1\rangle\otimes\vert0\rangle\big) =
+                    \vert1\rangle\otimes\vert1\rangle, \\[1.5pt]
+                    & C_X\big(\vert1\rangle\otimes\vert1\rangle\big) =
                     \vert1\rangle\otimes\vert0\rangle.
                     \end{align}
                     $$
