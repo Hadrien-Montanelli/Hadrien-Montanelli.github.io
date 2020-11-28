@@ -110,17 +110,20 @@ http://www.tooplate.com/view/2085-neuron
 
                     <p>The authors consider, as an example, the following <a href='https://en.wikipedia.org/wiki/Nonlinear_Schr%C3%B6dinger_equation'>nonlinear Schr&ouml;dinger</a> ODE <a href='https://en.wikipedia.org/wiki/Eigenvalues_and_eigenvectors'>eigenvalue</a> problem,
                     $$
-                    \left[-\frac{1}{2}\frac{d^2}{dx^2} + V(x) + g\vert f(x)\vert^2\right]f(x) = \lambda f(x), \; x\in[a,b],
+                    \left[-\frac{1}{2}\frac{d^2}{dx^2} + V(x) + g\vert f(x)\vert^2\right]f(x) = \lambda f(x),
                     $$
-                    with \(f(a)=f(b)\) and \(\int_a^b\vert f(x)\vert^2dx=1\). They are only interested in the <a href='https://en.wikipedia.org/wiki/Ground_state'>ground state</a> of the problem, <i>i.e.</i>, the function \(f\) that corresponds to the minimum eigenvalue \(\lambda_{\min}\). The nonlinear ODE eigenvalue problem reduces to a nonlinear ODE, which could be solved on a classical computer with an iterative method such as <a href='https://en.wikipedia.org/wiki/Newton%27s_method'>Newton's method</a>, combined with, <i>e.g.</i>, <a href='https://en.wikipedia.org/wiki/Finite_difference#finite_difference_approximation'>finite differences</a> or a <a href='https://en.wikipedia.org/wiki/Spectral_method'>spectral method</a>.</p>
+                    for \(x\in[a,b]\), and with \(f(a)=f(b)\) and \(\int_a^b\vert f(x)\vert^2dx=1\). They are only interested in the <a href='https://en.wikipedia.org/wiki/Ground_state'>ground state</a> of the problem, <i>i.e.</i>, the function \(f\) that corresponds to the minimum eigenvalue \(\lambda_{\min}\). The nonlinear ODE eigenvalue problem reduces to a nonlinear ODE, which can be solved on a classical computer with an iterative method such as <a href='https://en.wikipedia.org/wiki/Newton%27s_method'>Newton's method</a>, combined with, <i>e.g.</i>, <a href='https://en.wikipedia.org/wiki/Finite_difference#finite_difference_approximation'>finite differences</a> or a <a href='https://en.wikipedia.org/wiki/Spectral_method'>spectral method</a>.</p>
 
                     <h2>Method</h2>
 
                     <p>The idea in the paper is to, instead, write the problem as an optimization one. They use the fact that the ground state minimizes the following <a href='https://en.wikipedia.org/wiki/Loss_function'>cost function</a>,
                     $$
-                    J(f) = \int_a^b\left[-\frac{1}{2}\vert f''(x)\vert^2+V(x)\vert f(x)\vert^2+\frac{g}{2}\vert f(x)\vert^4\right]dx.
+                    \begin{align}
+                    J(f) = \int_a^b\bigg[&-\frac{1}{2}\vert f''(x)\vert^2+V(x)\vert f(x)\vert^2\\
+                    &+\frac{g}{2}\vert f(x)\vert^4\bigg]dx.
+                    \end{align}
                     $$
-                    They discretize \(J\) with the <a href='https://en.wikipedia.org/wiki/Trapezoidal_rule'>trapezoidal rule</a> and second-order finite differences on a uniform grid \(x_k=a+k(b-a)/N\), \(0\leq k\leq N-1\). The cost function \(J\) becomes a function of the \(N\) scaled values \(\psi_k=\sqrt{(b-a)/N}f(x_k)\). They encode the \(N=2^n\) amplitudes \(\psi_k\) in the normalized state
+                    They discretize \(J\) with the <a href='https://en.wikipedia.org/wiki/Trapezoidal_rule'>trapezoidal rule</a> and second-order finite differences on a uniform grid \(x_k=a+k(b-a)/N\), \(0\leq k\leq N-1\). The cost function \(J\) becomes a function of the \(N\) scaled values \(\psi_k=\sqrt{(b-a)/N}f(x_k)\). Then, they encode the \(N=2^n\) amplitudes \(\psi_k\) in the normalized state
                     $$
                     \vert\psi\rangle = \sum_{k=0}^{N-1}\psi_k\vert\mathrm{binary}(k)\rangle,
                     $$
@@ -152,7 +155,7 @@ http://www.tooplate.com/view/2085-neuron
                     $$
                     with \(\kappa_2=2\kappa_1/(1+\sqrt{5})\), and for various values of \(s_1/s_2\) and \(\kappa_1\). They show, both theoretically and numerically, that, in the \(s_1/s_2\approx1\) regime, the number of parameters for classical MPS scales like \(\mathcal{O}(\mathrm{poly}(\kappa_1))\), while it scales like \(\mathcal{O}(\log\kappa_1)\) for their quantum ansatz&mdash;quantum supremacy is achieved once again.</p>
 
-                    <p>In the next and final episode of my series on quantum computing, I will talk about quantum computing for supervised learning.</p>
+                    <p>In the next and final episode of my series on quantum computing, I will talk about quantum computing for <a href='https://en.wikipedia.org/wiki/Supervised_learning'>supervised learning</a>.</p>
                </div>
 
           </div>
