@@ -143,7 +143,7 @@ http://www.tooplate.com/view/2085-neuron
                     $$
                     \vert\psi\rangle = \sum_{q_1,\ldots,q_n\in\{0,1\}}\mathrm{tr}\left[A^{(1)}_{q_1}\ldots A^{(n)}_{q_n}\right]\vert q_1\ldots q_n\rangle,
                     $$
-                    where \(A^{(k)}_0\) and \(A^{(k)}_1\) are \(D_k\times D_{k+1}\) matrices, for sufficiently large \(D_1,\ldots,D_{n+1}\). The bond dimension of such a representation is \(\chi=\max_{1\leq k\leq n} D_k\) and, in general, \(\chi=\mathcal{O}(\mathrm{exp}(n))\). States are referred to as MPS when \(\chi\) is not too big, typically when \(\chi=\mathcal{O}(\mathrm{poly}(n))\). Note that MPS require \(\mathcal{O}(n\chi^2)=\mathcal{O}(\mathrm{poly}(n))\) parameters.</p>
+                    where \(A^{(k)}_0\) and \(A^{(k)}_1\) are \(D_k\times D_{k+1}\) matrices, for sufficiently large \(D_1,\ldots,D_{n+1}\). The bond dimension of such a representation is \(\chi=\max_{1\leq k\leq n+1} D_k\) and, in general, \(\chi=\mathcal{O}(\mathrm{exp}(n))\). States are referred to as MPS when \(\chi\) is not too big, typically when \(\chi=\mathcal{O}(\mathrm{poly}(n))\). Note that MPS require \(\mathcal{O}(n\chi^2)=\mathcal{O}(\mathrm{poly}(n))\) parameters (\(n\) matrices of size at most \(\chi\)).</p>
 
                     <p>The power of their quantum ansatz is that it contains all MPS with bond dimension \(\chi=\mathcal{O}(\mathrm{poly}(n))\). Since <a hreff='https://en.wikipedia.org/wiki/Chebyshev_polynomials'>Chebyshev polynomials</a> can be approximated exponentially well by MPS, MPS with such a \(\chi\) contain all polynomials of degree up to \(\mathcal{O}(\mathrm{exp}(\chi))=\mathcal{O}(N)\), as shown by Khoromskij <a href='https://www.mis.mpg.de/preprints/2009/preprint2009_55.pdf'>here</a>.</p>
 
