@@ -101,8 +101,8 @@ http://www.tooplate.com/view/2085-neuron
 
                     <p>In this post, I talk about quantum computing for solving nonlinear <a href='https://en.wikipedia.org/wiki/Ordinary_differential_equation'>ordinary differential equations</a> (ODEs). In a recent <a href='https://arxiv.org/pdf/1907.09032.pdf'>paper</a>, Michael Lubasch and his colleagues proposed an algorithm to solve such equations using a combination of classical and quantum computers. The main ideas are:</p>
                     <ul>
-                    <li> to reformulate the problem as an <a href='https://en.wikipedia.org/wiki/Mathematical_optimization'>optimization</a> one;
-                    <li> to use hybrid systems of quantum and classical computers to solve it.
+                    <li>reformulate the problem as an <a href='https://en.wikipedia.org/wiki/Mathematical_optimization'>optimization</a> one;
+                    <li>use hybrid systems of quantum and classical computers to solve it.
                     </ul>
                     <p>The <a href='https://en.wikipedia.org/wiki/Loss_function'>cost function</a> and its <a href='https://en.wikipedia.org/wiki/Gradient'>gradient</a> are typically evaluated on a quantum computer, while the higher-level iterative algorithm is performed on a classical computer.</p>
 
@@ -131,7 +131,7 @@ http://www.tooplate.com/view/2085-neuron
 
                     <p>Their hybrid algorithm goes like this. First, the quantum register is put in a given state \(\vert\psi(\boldsymbol{\theta})\rangle=U(\boldsymbol{\theta})\vert\boldsymbol{0}\rangle\) via a quantum circuit \(U(\boldsymbol{\theta})\) of depth \(d=\mathcal{O}(\mathrm{poly}(n))\), such that their quantum ansatz requires \(\mathcal{O}(nd)=\mathcal{O}(\mathrm{poly}(n))\) parameters, exponentially fewer parameters than classical schemes&mdash;this is an example of <a href='https://en.wikipedia.org/wiki/Quantum_supremacy'>quantum supremacy</a>.</p>
 
-                    <p>Second, a quantum nonlinear processing unit (QNPU) transforms the state \(\vert\psi(\boldsymbol{\theta})\rangle\) into a state \(\vert\psi_J(\boldsymbol{\theta})\rangle\) for which it is possible to measure a quantity \(\langle M_J(\boldsymbol{\theta})\rangle\) that is directly proportional to the cost function \(J(\boldsymbol{\theta})\).</p>
+                    <p>Second, a <i>quantum nonlinear processing unit</i> (QNPU) transforms the state \(\vert\psi(\boldsymbol{\theta})\rangle\) into a state \(\vert\psi_J(\boldsymbol{\theta})\rangle\) for which it is possible to measure a quantity \(\langle M_J(\boldsymbol{\theta})\rangle\) that is directly proportional to the cost function \(J(\boldsymbol{\theta})\).</p>
 
                     <p>Third, the evaluation of \(J(\boldsymbol{\theta})\) and the optimization over the parameters \(\boldsymbol{\theta}\) are carried out on a classical computer.</p>
 

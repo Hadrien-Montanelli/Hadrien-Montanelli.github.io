@@ -107,19 +107,19 @@ http://www.tooplate.com/view/2085-neuron
                     <a href="https://en.wikipedia.org/wiki/Computer_vision">computer vision</a>, 
                     <a href="https://en.wikipedia.org/wiki/Speech_recognition">speech recognition</a>, 
                     and <a href="http://en.wikipedia.org/wiki/Natural_language_processing">natural language processing</a>.
-                    It is based on approximations by <i><b>deep networks</b></i>, as opposed to <i><b>shallow networks</b></i>.
-                    The latter are neural networks with a single <i><b>hidden layer</b></i> and correspond to approximations \(f_N\) of multivariate functions \(f:\mathbb{R}^d\rightarrow\mathbb{R}\) of the form
+                    It is based on approximations by <i>deep networks</i>, as opposed to <i>shallow networks</i>.
+                    The latter are neural networks with a single <i>hidden layer</i> and correspond to approximations \(f_N\) of multivariate functions \(f:\mathbb{R}^d\rightarrow\mathbb{R}\) of the form
                     $$
                     f_N(\boldsymbol{x}) = \sum_{i=1}^N \alpha_i \sigma(\boldsymbol{w}_i^T\boldsymbol{x} + \theta_i),
                     $$
-                    with \(\alpha_i,\theta_i\in\mathbb{R},\, \boldsymbol{x},\boldsymbol{w}_i\in\mathbb{R}^d\), and for some <i><b>activation function</b></i> \(\sigma:\mathbb{R}\rightarrow\mathbb{R}\).
+                    with \(\alpha_i,\theta_i\in\mathbb{R},\, \boldsymbol{x},\boldsymbol{w}_i\in\mathbb{R}^d\), and for some <i>activation function</i> \(\sigma:\mathbb{R}\rightarrow\mathbb{R}\).
                     The former are neural networks with one or more hidden layers, where each unit of each layer 
                     performs an operation of the form \(\sigma(\boldsymbol{w}\cdot\boldsymbol{x} + \theta)\).
-                    The <i><b>depth</b></i> of a network is the number of hidden layers, and the <i><b>size</b></i> 
+                    The <i>depth</i> of a network is the number of hidden layers, and the <i>size</i> 
                     is the total number of units.
                     Shallow networks have depth \(1\) and their size is the number \(N\) in the expansion above,
                     while deep networks usually have depth \(\gg 1\).
-                    Deep <i><b>ReLU</b></i> networks use the activation function \(\sigma(x) = \max(0,x)\).</p>
+                    Deep <i>ReLU</i> networks use the activation function \(\sigma(x) = \max(0,x)\).</p>
 
                     <p>One of the most important theoretical problems is to determine why and when deep (but not shallow) networks
                     can lessen or break the <a href="https://en.wikipedia.org/wiki/Curse_of_dimensionality">curse of dimensionality</a>.
@@ -142,7 +142,7 @@ http://www.tooplate.com/view/2085-neuron
                     For deep networks, one also wants to find the asymptotic behavior of the depth as a function of \(\epsilon\).
                     Results of this form are standard approximation results that suffer from the curse of dimensionality.
                     For small dimensions \(d\), the size \(N\) of the network increases at a reasonable rate as \(\epsilon\) goes to zero.
-                    However, \(N\) grows <i><b>geometrically</b></i> with \(d\).</p>
+                    However, \(N\) grows <i>geometrically</i> with \(d\).</p>
 
                     <p>The picture is different for deep networks.
                     My theorem shows that functions in the so-called Korobov spaces \(X^{2,p}(\Omega)\) of mixed derivatives of order \(2\) can be represented with error \(\epsilon\) by deep networks of depth 

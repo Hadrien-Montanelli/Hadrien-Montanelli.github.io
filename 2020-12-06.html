@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<meta name="description" content="">
+<meta name="keywords" content="">
+<meta name="author" content="">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+<title>Quantum computing IV</title>
+<!--
+
+Template 2085 Neuron
+
+http://www.tooplate.com/view/2085-neuron
+
+-->
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" href="css/font-awesome.min.css">
+<link rel="stylesheet" href="css/magnific-popup.css">
+
+<!-- Main css -->
+<link rel="stylesheet" href="css/style.css">
+<link href="https://fonts.googleapis.com/css?family=Lora|Merriweather:300,400" rel="stylesheet">
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-108246943-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-108246943-1');
+</script>
+
+</head>
+<body>
+
+<!-- Tikz for mathjax -->
+<link rel="stylesheet" type="text/css" href="https://tikzjax.com/v1/fonts.css">
+<script src="https://tikzjax.com/v1/tikzjax.js"></script>
+
+<!-- PRE LOADER -->
+
+<div class="preloader">
+     <div class="sk-spinner sk-spinner-wordpress">
+          <span class="sk-inner-circle"></span>
+     </div>
+</div>
+
+<!-- Navigation section  -->
+
+<div class="navbar navbar-default navbar-static-top" role="navigation">
+     <div class="container">
+
+          <div class="navbar-header">
+               <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon icon-bar"></span>
+                    <span class="icon icon-bar"></span>
+                    <span class="icon icon-bar"></span>
+               </button>
+               <a href="index.html" class="navbar-brand">H. Montanelli</a>
+          </div>
+          <div class="collapse navbar-collapse">
+               <ul class="nav navbar-nav navbar-right">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="publications.html">Publications</a></li>
+                    <li><a href="talks.html">Talks</a></li>
+                    <li><a href="teaching.html">Teaching</a></li>
+               </ul>
+          </div>
+
+  </div>
+</div>
+
+<!-- Home Section -->
+
+<section id="home" class="main-about parallax-section">
+     <div class="overlay"></div>
+     <div class="container">
+          <div class="row">
+
+               <div class="col-md-12 col-sm-12">
+                    <h1>Quantum computing IV</h1>
+               </div>
+
+          </div>
+     </div>
+</section>
+
+<!-- Blog Single Post Section -->
+
+<section id="about">
+     <div class="container">
+          <div class="row">
+
+               <div class="col-md-offset-1 col-md-10 col-sm-12">     
+
+                    <p>In this post, I talk about quantum computing for <a href='https://en.wikipedia.org/wiki/Supervised_learning'>supervised learning</a>. Marcello Benedetti and his colleagues wrote a very nice <a href='https://iopscience.iop.org/article/10.1088/2058-9565/ab4eb5/pdf'>review</a> last year, which I highly recommend. The main ideas are similar to those described in my previous post about quantum computing for ODEs:</p>
+                    <ul>
+                    <li>reformulate the problem as an <a href='https://en.wikipedia.org/wiki/Mathematical_optimization'>optimization</a> one;
+                    <li>use hybrid systems of quantum and classical computers to solve it.
+                    </ul></p>
+
+                    <h2>Setup</h2>
+
+                    <p>The core idea in supervised learning goes like this. We consider data \(\mathcal{X}\subseteq\mathbb{R}^d\), labels \(\mathcal{Y}\subseteq\mathbb{R}\) and a classifier \(f:\mathcal{X}\mapsto\mathcal{Y}\). We want to approximate \(f\) by \(\hat{f}\) using \(n\) labeled data \((\boldsymbol{x}_1,y_1),\ldots,(\boldsymbol{x}_n,y_n)\in\mathcal{X}\times\mathcal{Y}\). The approximate classifier \(\hat{f}\) is often parametrized by a vector of parameters \(\boldsymbol{\theta}\), and the training process consists in minimizing some <a href='https://en.wikipedia.org/wiki/Loss_function'>cost function</a> \(J(\boldsymbol{\theta})\).</p>
+
+                    <p>They review two methods for quantum supervised machine learning, the <i>quantum kernel estimator</i> (QKE) and the <i>variational quantum model</i> (VQM). In both methods, the training set is mapped to <a href='https://en.wikipedia.org/wiki/Feature_(machine_learning)'>feature space</a> with a used-defined map \(\phi\) during the pre-processing stage.</p>
+
+                    <h2>Method 1 (QKE)</h2>
+
+                    <p>First, the data \(\phi(\boldsymbol{x}_i)\) is encoded in a quantum circuit by applying some operator \(U_{\phi(\boldsymbol{x}_i)}\).</p>
+
+                    <p>Second, a SWAP test is used to evaluate the kernel.</p>
+
+                    <p>Third, the evaluation of \(J(\boldsymbol{\theta})\) and the optimization over the parameters \(\boldsymbol{\theta}\) are carried out on a classical computer. A typical example of such a \(J(\boldsymbol{\theta})\) would be the following quantum <a href='https://en.wikipedia.org/wiki/Support_vector_machine'>support-vector machines</a> cost function,
+                    $$
+                    J(\boldsymbol{\theta}) = \frac{1}{2}\sum_{i=1}^n\sum_{j=1}^n\theta_i\theta_jy_iy_j\langle K(\boldsymbol{x}_j,\boldsymbol{x}_i)\rangle-\sum_{i=1}^n\theta_i.
+                    $$
+                    </p>
+
+                    <img src="/blog/QKE.jpg" class="img-responsive">
+
+                    <h2>Method 2 (VQM)</h2>
+
+                    <p>The first step is the same as in QKE.</p>
+
+                    <p>Second, a variational circuit \(U(\boldsymbol{\theta})\) implements the forecasting model. This yields state \(\vert\psi_J(\boldsymbol{\theta})\rangle\) for which it is possible to measure a quantity \(\langle M_J(\boldsymbol{\theta})\rangle\) that is directly related to the forecast.</p>
+
+                    <p>Third, the evaluation of both the forecast \(\hat{f}(\boldsymbol{x}_i;\langle M_J(\boldsymbol{\theta})\rangle)\) and \(J(\boldsymbol{\theta})\), which measures the forecasting error, as well as the optimization over \(\boldsymbol{\theta}\) are carried out on a classical computer. An example of a cost function \(J(\boldsymbol{\theta})\) would be
+                    $$
+                    J(\boldsymbol{\theta}) = \frac{1}{n}\sum_{i=1}^n\left(\hat{f}(\boldsymbol{x}_i;\langle M_J(\boldsymbol{\theta})\rangle)-y_i\right)^2.
+                    $$
+                    </p>
+
+                    <img src="/blog/VQM.jpg" class="img-responsive">
+
+                    <h2>Encoder circuit</h2>
+
+                    <p>The encoder circuit \(U_{\phi(\boldsymbol{x})}\) can be seen as an extra layer of feature-mapping, where the inner product defines a kernel 
+                    $$
+                    K(\boldsymbol{x}_i,\boldsymbol{x}_j)=\vert\langle\boldsymbol{0}\vert U^{*}_{\phi(\boldsymbol{x}_j)}U_{\phi(\boldsymbol{x}_i)}\vert\boldsymbol{0}\rangle\vert^2.
+                    $$
+                    The <a href='https://en.wikipedia.org/wiki/Swap_test'>SWAP test</a> can then be used to estimate \(\langle K(\boldsymbol{x}_i,\boldsymbol{x}_j)\rangle\).</p>
+
+                    <h2>Variational circuit</h2>
+
+                    <p>In practice, the gate structure is fixed; only the gate parameters vary. A simple example of gate parametrization is given by
+                    $$
+                    U(\boldsymbol{\theta}) = \prod_{\ell=1}^LU_\ell(\theta_\ell), \quad U_\ell(\theta_\ell) = \exp\left(-\frac{i}{2}\theta_\ell P_\ell\right),
+                    $$
+                    where \(P_\ell\in\{I,Z,X,Y\}^{\otimes n}\) is a tensor of \(n\) <a href='https://en.wikipedia.org/wiki/Pauli_matrices'>Pauli matrices</a>.</p>
+
+                    <p>It is crucial to efficiently encode the variational circuit. A fixed gate structure allows for the number of gate parameters to grow polynomially in \(n\).</p>
+
+                    <p>They emphasize on two key differences between variational circuits and neural networks. The first one is that quantum circuit operations are linear, as opposed to the nonlinear <a href='https://en.wikipedia.org/wiki/Activation_function'>activation functions</a> used in <a href='https://en.wikipedia.org/wiki/Artificial_neural_network'>neural networks</a>. The second one is that it is not possible to access the quantum state during the computation, which makes it hard to design a quantum analog of <a href='https://en.wikipedia.org/wiki/Backpropagation'>backpropagation</a>.</p>
+
+                    <h2>Circuit learning</h2>
+
+                    <p>Circuit learning relies on standard optimization procedures, which are carried out on the classical computer. For simple gates such as the Pauli gates presented above, it is possible to derive a closed-form expression for the gradient with respect to \(\boldsymbol{\theta}\).</p>
+               </div>
+
+          </div>
+     </div>
+</section>
+
+<!-- Footer Section -->
+
+<footer>
+     <div class="container">
+          <div class="row">
+
+               <div class="col-md-4 col-md-offset-1 col-sm-6">
+                    <h3>Contact</h3>
+                    <p><i class="fa fa-send-o"></i> hadrien.montanelli@gmail.com</p>
+               </div>
+
+               <div class="col-md-5 col-md-offset-1 col-sm-6">
+                    <a href="https://epubs.siam.org/doi/abs/10.1137/18M1189336">
+                    <img src="images/deepnet.jpg" class="img-responsive">
+                    </a>
+                    <div class="footer-copyright">
+                         <p>Copyright &copy; 2020 Hadrien Montanelli</p>
+                    </div>
+               </div>
+
+               <div class="clearfix col-md-12 col-sm-12">
+                    <hr>
+               </div>
+
+               <div class="col-md-12 col-sm-12">
+                    <ul class="social-icon">
+                         <li><a href="http://github.com/Hadrien-Montanelli" class="fa fa-github"></a></li>
+                         <li><a href="https://scholar.google.com/citations?user=Bjmkfe8AAAAJ&hl=en&oi=sra/" class="fa fa-google"></a></li>
+                         <li><a href="https://www.linkedin.com/in/hadrien-montanelli/" class="fa fa-linkedin"></a></li>
+                    </ul>
+               </div>
+               
+          </div>
+     </div>
+</footer>
+
+<!-- Back top -->
+<a href="#back-top" class="go-top"><i class="fa fa-angle-up"></i></a>
+
+<!-- SCRIPTS -->
+
+<script src="js/jquery.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/jquery.parallax.js"></script>
+<script src="js/custom.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+
+</body>
+</html>
