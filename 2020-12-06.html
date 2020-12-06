@@ -107,15 +107,15 @@ http://www.tooplate.com/view/2085-neuron
 
                     <h2>Setup</h2>
 
-                    <p>The core idea in supervised learning goes like this. We consider data \(\mathcal{X}\subseteq\mathbb{R}^d\), labels \(\mathcal{Y}\subseteq\mathbb{R}\) and a classifier \(f:\mathcal{X}\mapsto\mathcal{Y}\). We want to approximate \(f\) by \(\hat{f}\) using \(n\) labeled data \((\boldsymbol{x}_1,y_1),\ldots,(\boldsymbol{x}_n,y_n)\in\mathcal{X}\times\mathcal{Y}\). The approximate classifier \(\hat{f}\) is often parametrized by a vector of parameters \(\boldsymbol{\theta}\), and the training process consists in minimizing some <a href='https://en.wikipedia.org/wiki/Loss_function'>cost function</a> \(J(\boldsymbol{\theta})\).</p>
+                    <p>The core idea in supervised learning goes like this. We consider data \(\mathcal{X}\subseteq\mathbb{R}^d\), labels \(\mathcal{Y}\subseteq\mathbb{R}\) and a classifier \(f:\mathcal{X}\mapsto\mathcal{Y}\). We want to approximate \(f\) by \(\widehat{f}\) using \(n\) labeled data \((\boldsymbol{x}_1,y_1),\ldots,(\boldsymbol{x}_n,y_n)\in\mathcal{X}\times\mathcal{Y}\). The approximate classifier \(\widehat{f}\) is often parametrized by a vector of parameters \(\boldsymbol{\theta}\), and the training process consists in minimizing some <a href='https://en.wikipedia.org/wiki/Loss_function'>cost function</a> \(J(\boldsymbol{\theta})\).</p>
 
-                    <p>They review two methods for quantum supervised machine learning, the <i>quantum kernel estimator</i> (QKE) and the <i>variational quantum model</i> (VQM). In both methods, the training set is mapped to <a href='https://en.wikipedia.org/wiki/Feature_(machine_learning)'>feature space</a> with a used-defined map \(\phi\) during the pre-processing stage.</p>
+                    <p>They review two methods for quantum supervised machine learning, <i>quantum kernel estimator</i> (QKE) and <i>variational quantum model</i> (VQM). In both methods, the training set is mapped to <a href='https://en.wikipedia.org/wiki/Feature_(machine_learning)'>feature space</a> with a used-defined map \(\phi\) during the pre-processing stage.</p>
 
                     <h2>Method 1 (QKE)</h2>
 
                     <p>First, the data \(\phi(\boldsymbol{x}_i)\) is encoded in a quantum circuit by applying some operator \(U_{\phi(\boldsymbol{x}_i)}\).</p>
 
-                    <p>Second, a SWAP test is used to evaluate the kernel.</p>
+                    <p>Second, a <a href='https://en.wikipedia.org/wiki/Swap_test'>SWAP test</a> is used to evaluate the kernel.</p>
 
                     <p>Third, the evaluation of \(J(\boldsymbol{\theta})\) and the optimization over the parameters \(\boldsymbol{\theta}\) are carried out on a classical computer. A typical example of such a \(J(\boldsymbol{\theta})\) would be the following quantum <a href='https://en.wikipedia.org/wiki/Support_vector_machine'>support-vector machines</a> cost function,
                     $$
@@ -131,9 +131,9 @@ http://www.tooplate.com/view/2085-neuron
 
                     <p>Second, a variational circuit \(U(\boldsymbol{\theta})\) implements the forecasting model. This yields state \(\vert\psi_J(\boldsymbol{\theta})\rangle\) for which it is possible to measure a quantity \(\langle M_J(\boldsymbol{\theta})\rangle\) that is directly related to the forecast.</p>
 
-                    <p>Third, the evaluation of both the forecast \(\hat{f}(\boldsymbol{x}_i;\langle M_J(\boldsymbol{\theta})\rangle)\) and \(J(\boldsymbol{\theta})\), which measures the forecasting error, as well as the optimization over \(\boldsymbol{\theta}\) are carried out on a classical computer. An example of a cost function \(J(\boldsymbol{\theta})\) would be
+                    <p>Third, the evaluation of both the forecast \(\widehat{f}(\boldsymbol{x}_i;\langle M_J(\boldsymbol{\theta})\rangle)\) and \(J(\boldsymbol{\theta})\), which measures the forecasting error, as well as the optimization over \(\boldsymbol{\theta}\) are carried out on a classical computer. An example of a cost function \(J(\boldsymbol{\theta})\) would be
                     $$
-                    J(\boldsymbol{\theta}) = \frac{1}{n}\sum_{i=1}^n\left(\hat{f}(\boldsymbol{x}_i;\langle M_J(\boldsymbol{\theta})\rangle)-y_i\right)^2.
+                    J(\boldsymbol{\theta}) = \frac{1}{n}\sum_{i=1}^n\left(\widehat{f}(\boldsymbol{x}_i;\langle M_J(\boldsymbol{\theta})\rangle)-y_i\right)^2.
                     $$
                     </p>
 
@@ -145,13 +145,13 @@ http://www.tooplate.com/view/2085-neuron
                     $$
                     K(\boldsymbol{x}_i,\boldsymbol{x}_j)=\vert\langle\boldsymbol{0}\vert U^{*}_{\phi(\boldsymbol{x}_j)}U_{\phi(\boldsymbol{x}_i)}\vert\boldsymbol{0}\rangle\vert^2.
                     $$
-                    The <a href='https://en.wikipedia.org/wiki/Swap_test'>SWAP test</a> can then be used to estimate \(\langle K(\boldsymbol{x}_i,\boldsymbol{x}_j)\rangle\).</p>
+                    The SWAP test can then be used to estimate \(\langle K(\boldsymbol{x}_i,\boldsymbol{x}_j)\rangle\).</p>
 
                     <h2>Variational circuit</h2>
 
                     <p>In practice, the gate structure is fixed; only the gate parameters vary. A simple example of gate parametrization is given by
                     $$
-                    U(\boldsymbol{\theta}) = \prod_{\ell=1}^LU_\ell(\theta_\ell), \quad U_\ell(\theta_\ell) = \exp\left(-\frac{i}{2}\theta_\ell P_\ell\right),
+                    U(\boldsymbol{\theta}) = \prod_{\ell=1}^LU_\ell(\theta_\ell), \; U_\ell(\theta_\ell) = \exp\left(-\frac{i}{2}\theta_\ell P_\ell\right),
                     $$
                     where \(P_\ell\in\{I,Z,X,Y\}^{\otimes n}\) is a tensor of \(n\) <a href='https://en.wikipedia.org/wiki/Pauli_matrices'>Pauli matrices</a>.</p>
 
@@ -161,7 +161,7 @@ http://www.tooplate.com/view/2085-neuron
 
                     <h2>Circuit learning</h2>
 
-                    <p>Circuit learning relies on standard optimization procedures, which are carried out on the classical computer. For simple gates such as the Pauli gates presented above, it is possible to derive a closed-form expression for the gradient with respect to \(\boldsymbol{\theta}\).</p>
+                    <p>Circuit learning relies on standard optimization procedures, which are carried out on the classical computer. For simple gates such as the Pauli gates presented above, it is possible to derive a closed-form expression for the <a href='https://en.wikipedia.org/wiki/Gradient'>gradient</a> with respect to \(\boldsymbol{\theta}\).</p>
                </div>
 
           </div>
