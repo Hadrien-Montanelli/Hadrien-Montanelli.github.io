@@ -117,12 +117,13 @@ http://www.tooplate.com/view/2085-neuron
                     <h2>Method</h2>
 
                     <p>The idea in the paper is to, instead, write the problem as an optimization one. They use the fact that the ground state minimizes the following cost function,
+                    <small>
                     $$
                     \begin{align}
-                    J(f) = \int_a^b\bigg[&-\frac{1}{2}\vert f''(x)\vert^2+V(x)\vert f(x)\vert^2\\
-                    &+\frac{g}{2}\vert f(x)\vert^4\bigg]dx.
+                    J(f) = \int_a^b\bigg[&\frac{1}{2}\vert f'(x)\vert^2+V(x)\vert f(x)\vert^2 +\frac{g}{2}\vert f(x)\vert^4\bigg]dx.
                     \end{align}
                     $$
+                    </small>
                     They discretize \(J\) with the <a href='https://en.wikipedia.org/wiki/Trapezoidal_rule'>trapezoidal rule</a> and finite differences on a uniform grid \(x_k=a+k(b-a)/N\), \(0\leq k\leq N-1\). The cost function \(J\) becomes a function of the \(N\) scaled values \(\psi_k=\sqrt{(b-a)/N}f(x_k)\). Then, they encode the \(N=2^n\) amplitudes \(\psi_k\) in the normalized state
                     $$
                     \vert\psi\rangle = \sum_{k=0}^{N-1}\psi_k\vert\mathrm{binary}(k)\rangle,
