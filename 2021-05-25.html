@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<meta name="description" content="">
+<meta name="keywords" content="">
+<meta name="author" content="">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+<title>Singular integrals in high-order boundary elements</title>
+<!--
+
+Template 2085 Neuron
+
+http://www.tooplate.com/view/2085-neuron
+
+-->
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" href="css/font-awesome.min.css">
+<link rel="stylesheet" href="css/magnific-popup.css">
+
+<!-- Main css -->
+<link rel="stylesheet" href="css/style.css">
+<link href="https://fonts.googleapis.com/css?family=Lora|Merriweather:300,400" rel="stylesheet">
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-108246943-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-108246943-1');
+</script>
+
+</head>
+<body>
+
+<!-- Tikz for mathjax -->
+<link rel="stylesheet" type="text/css" href="https://tikzjax.com/v1/fonts.css">
+<script src="https://tikzjax.com/v1/tikzjax.js"></script>
+
+<!-- PRE LOADER -->
+
+<div class="preloader">
+     <div class="sk-spinner sk-spinner-wordpress">
+          <span class="sk-inner-circle"></span>
+     </div>
+</div>
+
+<!-- Navigation section  -->
+
+<div class="navbar navbar-default navbar-static-top" role="navigation">
+     <div class="container">
+
+          <div class="navbar-header">
+               <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon icon-bar"></span>
+                    <span class="icon icon-bar"></span>
+                    <span class="icon icon-bar"></span>
+               </button>
+               <a href="index.html" class="navbar-brand">H. Montanelli</a>
+          </div>
+          <div class="collapse navbar-collapse">
+               <ul class="nav navbar-nav navbar-right">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="publications.html">Publications</a></li>
+                    <li><a href="talks.html">Talks</a></li>
+                    <li><a href="teaching.html">Teaching</a></li>
+               </ul>
+          </div>
+
+  </div>
+</div>
+
+<!-- Home Section -->
+
+<section id="home" class="main-about parallax-section">
+     <div class="overlay"></div>
+     <div class="container">
+          <div class="row">
+
+               <div class="col-md-12 col-sm-12">
+                    <h1>Singular integrals in high-order boundary elements</h1>
+               </div>
+
+          </div>
+     </div>
+</section>
+
+<!-- Blog Single Post Section -->
+
+<section id="about">
+     <div class="container">
+          <div class="row">
+
+               <div class="col-md-offset-1 col-md-10 col-sm-12">     
+
+                    <p>In this post, I talk about a new method for computing singular and near-singular integrals that arise when solving 3D Helmholtz equation with high-order boundary elements.</p>
+
+                    <h2>Background</h2>
+
+                    <p>The amplitude \(u\) of time-harmonic solutions \(v(\boldsymbol{x},t)=u(\boldsymbol{x})e^{-i\omega t}\) to the <a href="https://en.wikipedia.org/wiki/Wave_equation">wave equation</a> \(v_{tt}=c^2\Delta v\) are solutions to the <a href="https://en.wikipedia.org/wiki/Helmholtz_equation">Helmholtz equation</a> \(\Delta u + k^2u = 0\) with \(k=\omega/c\), which is of fundamental importance in science and engineering in both 2D and 3D.</p >
+
+                    <p>Solutions to the Helmholtz equation in the presence of an obstacle may be expressed in terms of <i>layer potentials</i>; the partial differential equation is then replaced by a boundary integral equation, whose unknown is the jump in either the function or the conormal derivative across the obstacle's boundary. For example, to the 3D exterior <a href="https://en.wikipedia.org/wiki/Dirichlet_problem">Dirichlet problem</a> \(\Delta u + k^2u = 0\) in \(\mathbb{R}^3\setminus\overline{\Omega}\) for some bounded \(\Omega\subset\mathbb{R}^3\) with \(u = f\) on the boundary \(\Gamma\), corresponds the following 2D integral equation,
+                    $$
+                    \int_{\Gamma}G(\boldsymbol{x},\boldsymbol{y})\left[\frac{\partial u}{\partial n}\right](\boldsymbol{y})d\Gamma(\boldsymbol{y}) = f(\boldsymbol{x}), \quad \boldsymbol{x}\in\Gamma,
+                    \label{eq:SL}
+                    $$
+                    where \(G\) is the <a href="https://en.wikipedia.org/wiki/Green%27s_function">Green's function</a> of the 3D Helmholtz equation. Once the above equation is solved for \(\left[\partial u/\partial n\right]\) (the jump of the conormal derivative of \(u\) across \(\Gamma\)), the solution \(u\) for all \(\boldsymbol{x}\in\mathbb{R}^3\) may be represented by the left-hand side. This technique is not limited to the Helmholtz equation, <a href="https://en.wikipedia.org/wiki/Maxwell%27s_equation">Maxwell's equations</a> and <a href="https://en.wikipedia.org/wiki/Linear_elasticity">elasticity</a> problems can be reformulated as integral equations too.
+
+                    <h2>Challenges</h2>
+
+                    <p>Solutions to Helmholtz equation at large <a href="https://en.wikipedia.org/wiki/Wavenumber">wavenumbers</a> \(k\) are highly oscillatory, and this causes a great increase in complexity of numerical methods aimed at solving the underlying integral equation. To obtain accurate solutions in this regime, it is, therefore, necessary to use high-order numerical methods.</p> 
+
+                    <p>Two of the most popular methods for solving integral equations that can be high-order are orthogonal polynomial and finite element methods, which are called <a href="https://en.wikipedia.org/wiki/Nystr%C3%B6m_method">Nyström</a> and <a href="https://en.wikipedia.org/wiki/Boundary_element_method">boundary element methods</a> in this context.</p>
+
+                    <p>On the one hand, Nyström methods exhibit very high-order or exponential convergence but are limited to smooth and simple geometries. These are particularly efficient when solving the 2D Helmholtz equation with 1D boundary integrals, for which <a href="https://en.wikipedia.org/wiki/Numerical_integration">quadrature rules</a> may be readily obtained; for 3D Helmholtz with 2D surface integrals, it is often extremely challenging to derive a high-order quadrature rule.</p>
+
+                    <p>On the other hand, boundary element methods are very flexible in terms of geometry but only achieve algebraic orders of convergence, typically first- or second-order. Complications related to the increase in the order include prohibitive computational costs, numerical stability issues, and the fact that high-order curved elements have to be employed. In both the Nyström and boundary element methods, singular integrals have to be computed&mdash;this requires exact integration or carefully-derived quadrature schemes&mdash;and the resulting linear systems are dense&mdash;specialized methods have to be utilized to accelerate matrix-vector products in the <a href="https://en.wikipedia.org/wiki/Iterative_method">iterative solver</a>.</p>
+
+                    <h2>Method</h2>
+
+                    <p>When solving boudary integrals equations with high-order boundary elements, one has to compute integrals of the form
+                    $$
+                    I(\boldsymbol{x}_0) = \int_\mathcal{T}\frac{v(\boldsymbol{x})}{\vert\boldsymbol{x} - \boldsymbol{x}_0\vert}dS(\boldsymbol{x}),
+                    $$
+                    where \(\mathcal{T}\) is a curved element, \(\boldsymbol{x}_0\) is a point near or on \(\mathcal{T}\), and \(v\) is a polynomial function. Mapping this integral back to the reference element \(\widehat{T}\) yields the singular or near-singular integral
+                    $$
+                    I(\boldsymbol{x}_0) = \int_{\widehat{T}}\frac{\widehat{v}(\boldsymbol{\widehat{x}})}{\vert F(\boldsymbol{\widehat{x}}) - \boldsymbol{x}_0\vert}dS(\boldsymbol{\widehat{x}}), \quad F:\widehat{T}\mapsto\mathcal{T},
+                    $$
+                    where the Jacobian of the transofrmation has been incoporated into \(\widehat{v}\).
+                    </p>
+
+                    <p>My method goes like this. First, locate the singularity via solving \(\boldsymbol{\widehat{x}}_0=\mathrm{argmin}\vert F(\boldsymbol{\widehat{x}})-\boldsymbol{x}_0\vert^2\). This can be done efficently with <a href="https://en.wikipedia.org/wiki/Gradient_descent">gradient descent</a> with exact gradient, followed by a few steps of <a href="https://en.wikipedia.org/wiki/Newton%27s_method">Newton's method</a> with exact Hessian matrix.</p>
+
+                    <p>Second, isolate the singularity in the integrand with <a href="https://en.wikipedia.org/wiki/Taylor_series">Taylor series</a>,
+                    $$
+                    \frac{\widehat{v}(\boldsymbol{\widehat{x}})}{\vert F(\boldsymbol{\widehat{x}}) - \boldsymbol{x}_0\vert} \approx T_{-1}(\boldsymbol{\widehat{x}},h) = \widehat{v}(\boldsymbol{\widehat{x}}_0)\left[\vert J(\boldsymbol{\widehat{x}}_0)(\boldsymbol{\widehat{x}} - \boldsymbol{\widehat{x}}_0)\vert^2 + h^2\right]^{-\frac{1}{2}},
+                    $$
+                    where \(J(\boldsymbol{\widehat{x}}_0)\) is the Jacobian of \(F\) at \(\boldsymbol{\widehat{x}}_0\), and \(h=\vert F(\boldsymbol{\widehat{x}}_0) - \boldsymbol{x}_0\vert\) is the parameter of near-singularity.
+                    </p>
+
+                    <p>Third, integrate the singular and regularized parts separately by adding and subtracting the Taylor term,
+                    $$
+                    I(\boldsymbol{x}_0) = \int_{\widehat{T}}T_{-1}(\boldsymbol{\widehat{x}},h)dS(\boldsymbol{\widehat{x}}) + \int_{\widehat{T}}\bigg\{\frac{\widehat{v}(\boldsymbol{\widehat{x}})}{\vert F(\boldsymbol{\widehat{x}}) - \boldsymbol{x}_0\vert} - T_{-1}(\boldsymbol{\widehat{x}},h)\bigg\}dS(\boldsymbol{\widehat{x}}).
+                    $$
+                    Since the integrand of the singular part is homogeneous in both \(\boldsymbol{x}\) and \(h\), it becomes a regular integral on the edges (in fact, the integrand is analytic and standard 1D quadrature converges exponentially). The regularized part can be integrated numerically with standard 2D quadrature (but is not very smooth). Higher-order Taylor terms may be added and subtracted to improve the smoothness of the regularized part&mdash;check out the upcoming paper!</p>
+               </div>
+
+          </div>
+     </div>
+</section>
+
+<!-- Footer Section -->
+
+<footer>
+     <div class="container">
+          <div class="row">
+
+               <div class="col-md-4 col-md-offset-1 col-sm-6">
+                    <h3>Contact</h3>
+                    <p><i class="fa fa-send-o"></i> hadrien.montanelli@gmail.com</p>
+               </div>
+
+               <div class="col-md-5 col-md-offset-1 col-sm-6">
+                    <a href="https://epubs.siam.org/doi/abs/10.1137/18M1189336">
+                    <img src="images/deepnet.jpg" class="img-responsive">
+                    </a>
+                    <div class="footer-copyright">
+                         <p>Copyright &copy; 2021 Hadrien Montanelli</p>
+                    </div>
+               </div>
+
+               <div class="clearfix col-md-12 col-sm-12">
+                    <hr>
+               </div>
+
+               <div class="col-md-12 col-sm-12">
+                    <ul class="social-icon">
+                         <li><a href="http://github.com/Hadrien-Montanelli" class="fa fa-github"></a></li>
+                         <li><a href="https://scholar.google.com/citations?user=Bjmkfe8AAAAJ&hl=en&oi=sra/" class="fa fa-google"></a></li>
+                         <li><a href="https://www.linkedin.com/in/hadrien-montanelli/" class="fa fa-linkedin"></a></li>
+                    </ul>
+               </div>
+               
+          </div>
+     </div>
+</footer>
+
+<!-- Back top -->
+<a href="#back-top" class="go-top"><i class="fa fa-angle-up"></i></a>
+
+<!-- SCRIPTS -->
+
+<script src="js/jquery.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/jquery.parallax.js"></script>
+<script src="js/custom.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+
+</body>
+</html>
