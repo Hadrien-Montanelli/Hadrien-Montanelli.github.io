@@ -114,13 +114,13 @@ http://www.tooplate.com/view/2085-neuron
 
                     <h2>Challenges</h2>
 
-                    <p>Solutions to the Helmholtz equation at large <a href="https://en.wikipedia.org/wiki/Wavenumber">wavenumbers</a> \(k\) are highly oscillatory, and this causes a great increase in complexity of numerical methods aimed at solving the underlying integral equations  . To obtain accurate solutions in this regime, it is, therefore, necessary to use high-order numerical methods.</p> 
+                    <p>Solutions to the Helmholtz equation at large <a href="https://en.wikipedia.org/wiki/Wavenumber">wavenumbers</a> \(k\) are highly oscillatory, and this causes a great increase in complexity of numerical methods aimed at solving the underlying integral equations. To obtain accurate solutions in this regime, it is, therefore, necessary to use high-order numerical methods.</p> 
 
                     <p>Two of the most popular methods for solving integral equations that can be high-order are orthogonal polynomial and finite element methods, which are called <a href="https://en.wikipedia.org/wiki/Nystr%C3%B6m_method">Nyström</a> and <a href="https://en.wikipedia.org/wiki/Boundary_element_method">boundary element methods</a> in this context.</p>
 
                     <p>On the one hand, Nyström methods exhibit very high-order or exponential convergence but are limited to smooth and simple geometries. These are particularly efficient when solving the 2D Helmholtz equation with 1D boundary integrals, for which <a href="https://en.wikipedia.org/wiki/Numerical_integration">quadrature rules</a> may be readily obtained; for 3D Helmholtz with 2D surface integrals, it is often extremely challenging to derive a high-order quadrature rule.</p>
 
-                    <p>On the other hand, boundary element methods are very flexible in terms of geometry but only achieve algebraic orders of convergence, typically first- or second-order. Complications related to the increase in the order include prohibitive computational costs, numerical stability issues, and the fact that high-order curved elements have to be employed.</p>
+                    <p>On the other hand, boundary element methods are very flexible in terms of geometry but only achieve algebraic orders of convergence, typically first- or second-order. Complications related to the increase in the order include prohibitive computational costs, <a href="https://en.wikipedia.org/wiki/Numerical_stability">numerical stability</a> issues, and the fact that high-order curved elements have to be employed.</p>
 
                     <p>In both methods, singular integrals have to be computed&mdash;this requires exact integration or carefully-derived quadrature schemes&mdash;and the resulting linear systems are dense&mdash;specialized methods have to be utilized to accelerate matrix-vector products in the <a href="https://en.wikipedia.org/wiki/Iterative_method">iterative solver</a>.</p>
 
@@ -134,7 +134,7 @@ http://www.tooplate.com/view/2085-neuron
                     $$
                     I(\boldsymbol{x}_0) = \int_{\widehat{T}}\frac{\widehat{v}(\boldsymbol{\widehat{x}})}{\vert F(\boldsymbol{\widehat{x}}) - \boldsymbol{x}_0\vert}dS(\boldsymbol{\widehat{x}}), \quad F:\widehat{T}\mapsto\mathcal{T},
                     $$
-                    where the Jacobian of the transofrmation has been incoporated into \(\widehat{v}\).
+                    where the <a href="https://en.wikipedia.org/wiki/Jacobian_matrix_and_determinant">Jacobian</a> of the transofrmation has been incoporated into \(\widehat{v}\).
                     </p>
 
                     <p>My method goes like this. First, locate the singularity or near-singularity on \(\mathcal{T}\) by solving \(\boldsymbol{\widehat{x}}_0=\mathrm{argmin}\vert F(\boldsymbol{\widehat{x}})-\boldsymbol{x}_0\vert^2\). This can be done efficently with <a href="https://en.wikipedia.org/wiki/Gradient_descent">gradient descent</a> with exact gradient, followed by a few steps of <a href="https://en.wikipedia.org/wiki/Newton%27s_method">Newton's method</a> with exact Hessian matrix.</p>
