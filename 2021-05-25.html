@@ -126,7 +126,7 @@ http://www.tooplate.com/view/2085-neuron
 
                     <h2>Computing singular equations</h2>
 
-                    <p>When solving boudary integrals equations with high-order boundary elements, one has to compute integrals of the form
+                    <p>When solving boundary integrals equations with high-order boundary elements, one has to compute integrals of the form
                     $$
                     I(\boldsymbol{x}_0) = \int_\mathcal{T}\frac{v(\boldsymbol{x})}{\vert\boldsymbol{x} - \boldsymbol{x}_0\vert}dS(\boldsymbol{x}),
                     $$
@@ -134,10 +134,10 @@ http://www.tooplate.com/view/2085-neuron
                     $$
                     I(\boldsymbol{x}_0) = \int_{\widehat{T}}\frac{\widehat{v}(\boldsymbol{\widehat{x}})}{\vert F(\boldsymbol{\widehat{x}}) - \boldsymbol{x}_0\vert}dS(\boldsymbol{\widehat{x}}), \quad F:\widehat{T}\mapsto\mathcal{T},
                     $$
-                    where the <a href="https://en.wikipedia.org/wiki/Jacobian_matrix_and_determinant">Jacobian</a> of the transofrmation has been incoporated into \(\widehat{v}\).
+                    where the <a href="https://en.wikipedia.org/wiki/Jacobian_matrix_and_determinant">Jacobian</a> of the transformation has been incorporated into \(\widehat{v}\).
                     </p>
 
-                    <p>My method goes like this. First, locate the singularity or near-singularity on \(\mathcal{T}\) by solving \(\boldsymbol{\widehat{x}}_0=\mathrm{argmin}\vert F(\boldsymbol{\widehat{x}})-\boldsymbol{x}_0\vert^2\). This can be done efficently with <a href="https://en.wikipedia.org/wiki/Gradient_descent">gradient descent</a> with exact gradient, followed by a few steps of <a href="https://en.wikipedia.org/wiki/Newton%27s_method">Newton's method</a> with exact Hessian matrix.</p>
+                    <p>My method goes like this. First, locate the singularity or near-singularity on \(\mathcal{T}\) by solving \(\boldsymbol{\widehat{x}}_0=\mathrm{argmin}\vert F(\boldsymbol{\widehat{x}})-\boldsymbol{x}_0\vert^2\). This can be done efficiently with <a href="https://en.wikipedia.org/wiki/Gradient_descent">gradient descent</a> with the exact gradient, followed by a few steps of <a href="https://en.wikipedia.org/wiki/Newton%27s_method">Newton's method</a> with the exact Hessian matrix.</p>
 
                     <p>Second, isolate the singularity in the integrand with <a href="https://en.wikipedia.org/wiki/Taylor_series">Taylor series</a>,
                     $$
@@ -150,7 +150,7 @@ http://www.tooplate.com/view/2085-neuron
                     $$
                     I(\boldsymbol{x}_0) = \int_{\widehat{T}}T_{-1}(\boldsymbol{\widehat{x}},h)dS(\boldsymbol{\widehat{x}}) + \int_{\widehat{T}}\bigg\{\frac{\widehat{v}(\boldsymbol{\widehat{x}})}{\vert F(\boldsymbol{\widehat{x}}) - \boldsymbol{x}_0\vert} - T_{-1}(\boldsymbol{\widehat{x}},h)\bigg\}dS(\boldsymbol{\widehat{x}}).
                     $$
-                    Since the integrand of the singular part is <a href="https://en.wikipedia.org/wiki/Homogeneous_function">homogeneous</a> in both \(\boldsymbol{x}\) and \(h\), it becomes a regular integral on the edges (in fact, the integrand is analytic and standard 1D quadrature converges exponentially). The regularized part can be integrated numerically with standard 2D quadrature (but is not very smooth). Higher-order Taylor terms may be added and subtracted to improve the smoothness of the regularized part&mdash;check out the upcoming paper!</p>
+                    Since the integrand of the singular part is <a href="https://en.wikipedia.org/wiki/Homogeneous_function">homogeneous</a> in both \(\boldsymbol{x}\) and \(h\), it becomes a regular integral on the edges (in fact, the integrand is analytic, and standard 1D quadrature converges exponentially). The regularized part can be integrated numerically with standard 2D quadrature (but is not very smooth). Higher-order Taylor terms may be added and subtracted to improve the smoothness of the regularized part&mdash;check out the upcoming paper!</p>
                </div>
 
           </div>
