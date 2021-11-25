@@ -178,17 +178,9 @@ http://www.tooplate.com/view/2085-neuron
 					$$
 					u^s(\boldsymbol{x}) = \frac{1}{4\pi}\int_{\Gamma}\frac{e^{ik\vert\boldsymbol{x}-\boldsymbol{y}\vert}}{\vert\boldsymbol{x}-\boldsymbol{y}\vert}\varphi(\boldsymbol{y})d\Gamma(\boldsymbol{y}), \quad \boldsymbol{x}\in\mathbb{R}^3\setminus\Omega.
 					$$
-					Of particular interest is the <i>far-field pattern</i> \(u_\infty\) defined on the unit sphere \(\mathbb{S}^2\) via
-					$$
-					u^s(\boldsymbol{x}) = \frac{e^{ikr}}{r}u_\infty\left(\frac{\boldsymbol{x}}{r}\right) + \mathcal{O}\left(\frac{1}{r^2}\right), \quad r=\vert\boldsymbol{x}\vert\to\infty,
-					$$
-					with integral representation
-					$$
-					u_\infty(\bar{\boldsymbol{x}}) = \frac{1}{4\pi}\int_{\Gamma}e^{-ik\bar{\boldsymbol{x}}\cdot\boldsymbol{y}}\varphi(\boldsymbol{y})d\Gamma(\boldsymbol{y}), \quad \bar{\boldsymbol{x}}\in\mathbb{S}^2.
-					$$
 					</p>
 
-					<p>We discretize the integral equation using a boundary element method with quadratic basis functions/triangles. We take \(k=2\pi\) and consider the scattering of a plane wave \(u^i(r,\theta)=e^{ikr\cos\theta}\) by two half-spheres of radius \(1\) centered at \((0,0,\pm\delta)\) for small values of \(\delta\). For each of these values, we solve the equation and evaluate the far-field pattern for a mesh size \(h\approx10^{-1}\), which guarantees about five digits of accuracy. We plot the solutions below for \(\delta=0.5,0.2,0.1,0\). Let us emphasize that this numerical experiment is particularly challenging when \(\delta\ll h\). Standard methods like that of Sauter and Schwab fail to be accurate in this regime; our method successfully worked for \(h\approx10^{-1}\) and \(\delta\) as small as \(5\times10^{-4}\). Check out our paper to find out more!
+					<p>We discretize the integral equation using quadratic boundary elements combined with our method for computing singular aintegrals. We take \(k=2\pi\) and consider the scattering of a plane wave \(u^i(r,\theta)=e^{ikr\cos\theta}\) by two half-spheres of radius \(1\) centered at \((0,0,\pm\delta)\) for small values of \(\delta\). For each of these values, we solve the equation and evaluate the solution for a mesh size \(h\approx10^{-1}\), which guarantees about five digits of accuracy. We plot the solutions below for \(\delta=0.5,0.2,0.1,0\). Let us emphasize that this numerical experiment is particularly challenging when \(\delta\ll h\). Standard methods like that of Sauter and Schwab fail to be accurate in this regime; our method successfully worked for \(h\approx10^{-1}\) and \(\delta\) as small as \(5\times10^{-4}\). Check out our paper to find out more!
 					</p>
                     <img src="/blog/image8.jpg" class="img-responsive">
                     <img src="/blog/image9.jpg" class="img-responsive">
