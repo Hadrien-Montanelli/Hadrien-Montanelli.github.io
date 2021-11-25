@@ -131,41 +131,41 @@ http://www.tooplate.com/view/2085-neuron
 
                     <p><i>Step 1.</i> We map \(\mathcal{T}\) back to the reference element \(\widehat{T}\),
 					$$
-					I(\boldsymbol{x}_0) = \int_{\widehat{T}}\frac{\psi(\boldsymbol{\hat{x}})}{\vert F(\boldsymbol{\hat{x}}) - \boldsymbol{x}_0\vert}dS(\boldsymbol{\hat{x}}),
+					I(\boldsymbol{x}_0) = \int_{\widehat{T}}\frac{\psi(\boldsymbol{\widehat{x}})}{\vert F(\boldsymbol{\widehat{x}}) - \boldsymbol{x}_0\vert}dS(\boldsymbol{\widehat{x}}),
 					\label{eq:step1}
 					$$
-					where \(F:\widehat{T}\to\mathcal{T}\) has a \(3\times2\) <a href="https://en.wikipedia.org/wiki/Jacobian_matrix_and_determinant">Jacobian matrix</a> \(J\) with columns \(J_1\) and \(J_2\), and \(\psi(\boldsymbol{\hat{x}})=\varphi(\boldsymbol{\hat{x}})\vert J_1(\boldsymbol{\hat{x}})\times J_2(\boldsymbol{\hat{x}})\vert\). 
+					where \(F:\widehat{T}\to\mathcal{T}\) has a \(3\times2\) <a href="https://en.wikipedia.org/wiki/Jacobian_matrix_and_determinant">Jacobian matrix</a> \(J\) with columns \(J_1\) and \(J_2\), and \(\psi(\boldsymbol{\widehat{x}})=\varphi(\boldsymbol{\widehat{x}})\vert J_1(\boldsymbol{\widehat{x}})\times J_2(\boldsymbol{\widehat{x}})\vert\). 
 
                     <p><i>Step 2.</i> We write
 					$$
-					\boldsymbol{x}_0 = F(\boldsymbol{\hat{x}}_0) + \boldsymbol{x}_0 - F(\boldsymbol{\hat{x}}_0)
+					\boldsymbol{x}_0 = F(\boldsymbol{\widehat{x}}_0) + \boldsymbol{x}_0 - F(\boldsymbol{\widehat{x}}_0)
 					$$
-					for some \(\boldsymbol{\hat{x}}_0\in\widehat{T}\) such that its image \(F(\boldsymbol{\hat{x}}_0)\in\mathcal{T}\) is the closest point to \(\boldsymbol{x}_0\) on \(\mathcal{T}\). In other words, we compute the preimage \(\boldsymbol{\hat{x}}_0\) of the singularity or near-singularity. This can be done efficiently with <a href="https://en.wikipedia.org/wiki/Newton%27s_method">Newton's method</a> combined with a <a href="https://en.wikipedia.org/wiki/Backtracking_line_search">backtracking line search</a>.</p>
+					for some \(\boldsymbol{\widehat{x}}_0\in\widehat{T}\) such that its image \(F(\boldsymbol{\widehat{x}}_0)\in\mathcal{T}\) is the closest point to \(\boldsymbol{x}_0\) on \(\mathcal{T}\). In other words, we compute the preimage \(\boldsymbol{\widehat{x}}_0\) of the singularity or near-singularity. This can be done efficiently with <a href="https://en.wikipedia.org/wiki/Newton%27s_method">Newton's method</a> combined with a <a href="https://en.wikipedia.org/wiki/Backtracking_line_search">backtracking line search</a>.</p>
 
-                    <p><i>Step 3.</i> We compute the singular or near-singular term using the first-order <a href="https://en.wikipedia.org/wiki/Taylor_series">Taylor series</a> of \(F(\boldsymbol{\hat{x}}) - \boldsymbol{x}_0\) at \(\boldsymbol{\hat{x}}_0\),
+                    <p><i>Step 3.</i> We compute the singular or near-singular term using the first-order <a href="https://en.wikipedia.org/wiki/Taylor_series">Taylor series</a> of \(F(\boldsymbol{\widehat{x}}) - \boldsymbol{x}_0\) at \(\boldsymbol{\widehat{x}}_0\),
 					$$
-					T_{-1}(\boldsymbol{\hat{x}},h) = \frac{\psi(\boldsymbol{\hat{x}}_0)}{\sqrt{\vert J(\boldsymbol{\hat{x}}_0)(\boldsymbol{\hat{x}} - \boldsymbol{\hat{x}}_0)\vert^2 + h^2}},
+					T_{-1}(\boldsymbol{\widehat{x}},h) = \frac{\psi(\boldsymbol{\widehat{x}}_0)}{\sqrt{\vert J(\boldsymbol{\widehat{x}}_0)(\boldsymbol{\widehat{x}} - \boldsymbol{\widehat{x}}_0)\vert^2 + h^2}},
 					$$
 					and add it to/subtract it form the original integral,
 					$$
-					I(\boldsymbol{x}_0) = \int_{\widehat{T}}T_{-1}(\boldsymbol{\hat{x}},h)dS(\boldsymbol{\hat{x}}) + \int_{\widehat{T}}\left[\frac{\psi(\boldsymbol{\hat{x}})}{\vert F(\boldsymbol{\hat{x}}) - \boldsymbol{x}_0\vert} - T_{-1}(\boldsymbol{\hat{x}},h)\right]dS(\boldsymbol{\hat{x}}).
+					I(\boldsymbol{x}_0) = \int_{\widehat{T}}T_{-1}(\boldsymbol{\widehat{x}},h)dS(\boldsymbol{\widehat{x}}) + \int_{\widehat{T}}\left[\frac{\psi(\boldsymbol{\widehat{x}})}{\vert F(\boldsymbol{\widehat{x}}) - \boldsymbol{x}_0\vert} - T_{-1}(\boldsymbol{\widehat{x}},h)\right]dS(\boldsymbol{\widehat{x}}).
 					$$
 					The first integral is singular or near-singular and will be computed in Steps 4&ndash;5. The second integral has a bounded integrand&mdash;it can be computed with Gauss quadrature on triangles. To render the integrand in the second integral smoother, which would accelerate convergence by quadrature, higher-order Taylor expansions may be added and subtracted.
                     </p>
 
                     <p><i>Step 4.</i> Let
 					$$
-					I_{-1}(h) = \int_{\widehat{T}}T_{-1}(\boldsymbol{\hat{x}},h)dS(\boldsymbol{\hat{x}}) = \int_{\widehat{T}-\boldsymbol{\hat{x}}_0}\frac{\psi(\boldsymbol{\hat{x}}_0)}{\sqrt{\vert J(\boldsymbol{\hat{x}}_0)\boldsymbol{\hat{x}}\vert^2 + h^2}}dS(\boldsymbol{\hat{x}}).
+					I_{-1}(h) = \int_{\widehat{T}}T_{-1}(\boldsymbol{\widehat{x}},h)dS(\boldsymbol{\widehat{x}}) = \int_{\widehat{T}-\boldsymbol{\widehat{x}}_0}\frac{\psi(\boldsymbol{\widehat{x}}_0)}{\sqrt{\vert J(\boldsymbol{\widehat{x}}_0)\boldsymbol{\widehat{x}}\vert^2 + h^2}}dS(\boldsymbol{\widehat{x}}).
 					\label{eq:In1_tri}
 					$$
-					The integrand is <a href="https://en.wikipedia.org/wiki/Homogeneous_function">homogeneous</a> in both \(\boldsymbol{\hat{x}}\) and \(h\), and using the continuation approach, we reduce the 2D integral to a sum of three 1D integrals along the edges of the shifted triangle \(\widehat{T}-\boldsymbol{\hat{x}}_0\),
+					The integrand is <a href="https://en.wikipedia.org/wiki/Homogeneous_function">homogeneous</a> in both \(\boldsymbol{\widehat{x}}\) and \(h\), and using the continuation approach, we reduce the 2D integral to a sum of three 1D integrals along the edges of the shifted triangle \(\widehat{T}-\boldsymbol{\widehat{x}}_0\),
 					$$
-					I_{-1}(h) = \psi(\boldsymbol{\hat{x}}_0)\sum_{j=1}^3\hat{s}_j\int_{\partial\widehat{T}_j - \boldsymbol{\hat{x}}_0}\frac{\sqrt{\vert J(\boldsymbol{\hat{x}}_0)\boldsymbol{\hat{x}}\vert^2+h^2}-h}{\vert J(\boldsymbol{\hat{x}}_0)\boldsymbol{\hat{x}}\vert^2}ds(\boldsymbol{\hat{x}}),
+					I_{-1}(h) = \psi(\boldsymbol{\widehat{x}}_0)\sum_{j=1}^3\widehat{s}_j\int_{\partial\widehat{T}_j - \boldsymbol{\widehat{x}}_0}\frac{\sqrt{\vert J(\boldsymbol{\widehat{x}}_0)\boldsymbol{\widehat{x}}\vert^2+h^2}-h}{\vert J(\boldsymbol{\widehat{x}}_0)\boldsymbol{\widehat{x}}\vert^2}ds(\boldsymbol{\widehat{x}}),
 					$$
-					where the \(\hat{s}_j\)'s are the distances from the origin to the edges \(\partial\widehat{T}_j-\boldsymbol{\hat{x}}_0\) of \(\widehat{T}-\boldsymbol{\hat{x}}_0\).
+					where the \(\widehat{s}_j\)'s are the distances from the origin to the edges \(\partial\widehat{T}_j-\boldsymbol{\widehat{x}}_0\) of \(\widehat{T}-\boldsymbol{\widehat{x}}_0\).
                     </p>
 
-                    <p><i>Step 5.</i> On the one hand, when the origin is far from all three edges (<i>e.g.</i>, near the center of the triangle), each integrand is analytic and convergence with Gauss quadrature is exponential. On the other, when the origin lies on an edge, the corresponding integrand is singular&mdash;however, the distance \(\hat{s}_j\) to that edge equals \(0\), the product &ldquo;\(\hat{s}_j\) times integral&rdquo; is also \(0\), and the integral need not be computed. Issues arise when the origin is close to one of the edges&mdash;the integrand is analytic but near-singular, convergence with Gauss quadrature is exponential but slow. We circumvent the near-singularity issue by using transplanted Gauss quadrature.
+                    <p><i>Step 5.</i> On the one hand, when the origin is far from all three edges (<i>e.g.</i>, near the center of the triangle), each integrand is analytic and convergence with Gauss quadrature is exponential. On the other, when the origin lies on an edge, the corresponding integrand is singular&mdash;however, the distance \(\widehat{s}_j\) to that edge equals \(0\), the product &ldquo;\(\widehat{s}_j\) times integral&rdquo; is also \(0\), and the integral need not be computed. Issues arise when the origin is close to one of the edges&mdash;the integrand is analytic but near-singular, convergence with Gauss quadrature is exponential but slow. We circumvent the near-singularity issue by using transplanted Gauss quadrature.
                     </p>
 
                     <h2>Numerical experiments</h2>
