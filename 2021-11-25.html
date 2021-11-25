@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<meta name="description" content="">
+<meta name="keywords" content="">
+<meta name="author" content="">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+<title>Singular integrals in high-order boundary elements</title>
+<!--
+
+Template 2085 Neuron
+
+http://www.tooplate.com/view/2085-neuron
+
+-->
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" href="css/font-awesome.min.css">
+<link rel="stylesheet" href="css/magnific-popup.css">
+
+<!-- Main css -->
+<link rel="stylesheet" href="css/style.css">
+<link href="https://fonts.googleapis.com/css?family=Lora|Merriweather:300,400" rel="stylesheet">
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-108246943-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-108246943-1');
+</script>
+
+</head>
+<body>
+
+<!-- Tikz for mathjax -->
+<link rel="stylesheet" type="text/css" href="https://tikzjax.com/v1/fonts.css">
+<script src="https://tikzjax.com/v1/tikzjax.js"></script>
+
+<!-- PRE LOADER -->
+
+<div class="preloader">
+     <div class="sk-spinner sk-spinner-wordpress">
+          <span class="sk-inner-circle"></span>
+     </div>
+</div>
+
+<!-- Navigation section  -->
+
+<div class="navbar navbar-default navbar-static-top" role="navigation">
+     <div class="container">
+
+          <div class="navbar-header">
+               <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon icon-bar"></span>
+                    <span class="icon icon-bar"></span>
+                    <span class="icon icon-bar"></span>
+               </button>
+               <a href="index.html" class="navbar-brand">H. Montanelli</a>
+          </div>
+          <div class="collapse navbar-collapse">
+               <ul class="nav navbar-nav navbar-right">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="publications.html">Publications</a></li>
+                    <li><a href="talks.html">Talks</a></li>
+                    <li><a href="teaching.html">Teaching</a></li>
+               </ul>
+          </div>
+
+  </div>
+</div>
+
+<!-- Home Section -->
+
+<section id="home" class="main-about parallax-section">
+     <div class="overlay"></div>
+     <div class="container">
+          <div class="row">
+
+               <div class="col-md-12 col-sm-12">
+                    <h1>Singular integrals in high-order boundary elements</h1>
+               </div>
+
+          </div>
+     </div>
+</section>
+
+<!-- Blog Single Post Section -->
+
+<section id="about">
+     <div class="container">
+          <div class="row">
+
+               <div class="col-md-offset-1 col-md-10 col-sm-12">     
+
+                    <p>In this post, I talk about a new method for computing singular and near-singular integrals that arise when solving 3D Helmholtz equation with high-order boundary elements.</p>
+
+                    <h2>Background on integral equations</h2>
+
+					<p>The <a href="https://en.wikipedia.org/wiki/Helmholtz_equation">Helmholtz equation</a> \(\Delta u + k^2u = 0\) in the presence of an obstacle may be rewritten as an integral equation on the obstacle's boundary via <i>layer potentials</i>. For example, the radiating solution to the <a href="https://en.wikipedia.org/wiki/Dirichlet_problem">Dirichlet problem</a> \(\Delta u + k^2u = 0\) in \(\mathbb{R}^3\setminus\overline{\Omega}\) with \(u = u_D\) on the boundary \(\Gamma=\partial\Omega\), for some bounded \(\Omega\) whose complement is connected, can be obtained via the equation
+					$$
+					\int_{\Gamma}G(\boldsymbol{x},\boldsymbol{y})\varphi(\boldsymbol{y})d\Gamma(\boldsymbol{y}) = u_D(\boldsymbol{x}), \quad \boldsymbol{x}\in\Gamma,
+					$$
+					based on the <i>single-layer potential</i>; \(G\) is the <a href="https://en.wikipedia.org/wiki/Green%27s_function">Green's function</a> of the Helmholtz equation in 3D,
+					$$
+					G(\boldsymbol{x},\boldsymbol{y}) = \frac{1}{4\pi}\frac{e^{ik\vert\boldsymbol{x}-\boldsymbol{y}\vert}}{\vert\boldsymbol{x}-\boldsymbol{y}\vert}.
+					\label{eq:kernel}
+					$$
+					Once the equation is solved for \(\varphi\), which is unique if \(k^2\) is not an <a href="https://en.wikipedia.org/wiki/Eigenvalues_and_eigenvectors">eigenvalue</a> of \(-\Delta\) in \(\Omega\), the solution \(u\) may be represented by the left-hand side for all \(\boldsymbol{x}\in\mathbb{R}^3\setminus\Omega\). This technique is not limited to the Helmholtz equation, <a href="https://en.wikipedia.org/wiki/Maxwell%27s_equation">Maxwell's equations</a> and <a href="https://en.wikipedia.org/wiki/Linear_elasticity">elasticity</a> problems can be reformulated as <a href="https://en.wikipedia.org/wiki/Integral_equation">integral equations</a> as well.</p>
+
+                    <h2>Challenges</h2>
+
+                    <p>From a numerical point of view, integral equations are particularly challenging for several reasons. First, when \(\boldsymbol{x}\) approaches \(\boldsymbol{y}\), the integral becomes <a href="https://en.wikipedia.org/wiki/Singularity_(mathematics)">singular</a> and standard <a href="https://en.wikipedia.org/wiki/Gaussian_quadrature">quadrature schemes</a> fail to be accurate&mdash;analytic integration or carefully-derived quadrature formulas are, hence, required.</p>
+
+                    <p>Second, the resulting linear systems after discretization are often dense. For large <a href="https://en.wikipedia.org/wiki/Wavenumber">wavenumbers</a> \(k\), only iterative methods can be used to solve them (with the help of specialized techniques to accelerate the matrix-vector products, such as the <a href="https://en.wikipedia.org/wiki/Fast_multipole_method">Fast Multipole Method</a> or <a href="https://en.wikipedia.org/wiki/Hierarchical_matrix">hierarchical matrices</a>). In this respect, the use of higher-order numerical discretization schemes may be helpful in enlarging the interval of feasible wavenumbers.</p>
+
+                    <h2>Computing singular equations</h2>
+
+                    <p>When solving boundary integrals equations with high-order boundary elements, one has to compute integrals of the form
+                    $$
+                    I(\boldsymbol{x}_0) = \int_\mathcal{T}\frac{\varphi(F^{-1}(\boldsymbol{x}))}{\vert\boldsymbol{x} - \boldsymbol{x}_0\vert}dS(\boldsymbol{x}),
+                    $$
+                    where \(\mathcal{T}\) is a <i>curved</i> triangle defined by a transformation \(F:\widehat{T}\to\mathcal{T}\) of degree \(q\geq1\) from some <i>flat</i> reference triangle \(\widehat{T}\), \(\boldsymbol{x}_0\) is a point on or close to \(\mathcal{T}\), and \(\varphi:\widehat{T}\to\mathbb{R}\) is a <a href="https://en.wikipedia.org/wiki/Polynomial">polynomial function</a> of degree \(p\geq0\) (not necessarily equal to \(q\)). Our method is based on the computation of the preimage of the singularity on the reference element using <a href="https://en.wikipedia.org/wiki/Newton%27s_method">Newton's method</a>, singularity subtraction with high-order <a href="https://en.wikipedia.org/wiki/Taylor_series">Taylor expansions</a>, the continuation approach, and transplanted Gauss quadrature.
+                    </p>
+
+                    <p><i>Step 1.</i> We map \(\mathcal{T}\) back to the reference element \(\widehat{T}\),
+					$$
+					I(\boldsymbol{x}_0) = \int_{\widehat{T}}\frac{\psi(\boldsymbol{\hat{x}})}{\vert F(\boldsymbol{\hat{x}}) - \boldsymbol{x}_0\vert}dS(\boldsymbol{\hat{x}}),
+					\label{eq:step1}
+					$$
+					where \(F:\widehat{T}\to\mathcal{T}\) has a \(3\times2\) <a href="https://en.wikipedia.org/wiki/Jacobian_matrix_and_determinant">Jacobian matrix</a> \(J\) with columns \(J_1\) and \(J_2\), and \(\psi(\boldsymbol{\hat{x}})=\varphi(\boldsymbol{\hat{x}})\vert J_1(\boldsymbol{\hat{x}})\times J_2(\boldsymbol{\hat{x}})\vert\). 
+
+                    <p><i>Step 2.</i> We write
+					$$
+					\boldsymbol{x}_0 = F(\boldsymbol{\hat{x}}_0) + \boldsymbol{x}_0 - F(\boldsymbol{\hat{x}}_0)
+					$$
+					for some \(\boldsymbol{\hat{x}}_0\in\widehat{T}\) such that its image \(F(\boldsymbol{\hat{x}}_0)\in\mathcal{T}\) is the closest point to \(\boldsymbol{x}_0\) on \(\mathcal{T}\). In other words, we compute the preimage \(\boldsymbol{\hat{x}}_0\) of the singularity or near-singularity. This can be done efficiently with <a href="https://en.wikipedia.org/wiki/Newton%27s_method">Newton's method</a> combined with a <a href="https://en.wikipedia.org/wiki/Backtracking_line_search">backtracking line search</a>.</p>
+
+                    <p><i>Step 3.</i> We compute the singular or near-singular term using the first-order <a href="https://en.wikipedia.org/wiki/Taylor_series">Taylor series</a> of \(F(\boldsymbol{\hat{x}}) - \boldsymbol{x}_0\) at \(\boldsymbol{\hat{x}}_0\),
+					$$
+					T_{-1}(\boldsymbol{\hat{x}},h) = \frac{\psi(\boldsymbol{\hat{x}}_0)}{\sqrt{\vert J(\boldsymbol{\hat{x}}_0)(\boldsymbol{\hat{x}} - \boldsymbol{\hat{x}}_0)\vert^2 + h^2}},
+					$$
+					and add it to/subtract it form the original integral,
+					$$
+					I(\boldsymbol{x}_0) = \int_{\widehat{T}}T_{-1}(\boldsymbol{\hat{x}},h)dS(\boldsymbol{\hat{x}}) + \int_{\widehat{T}}\left[\frac{\psi(\boldsymbol{\hat{x}})}{\vert F(\boldsymbol{\hat{x}}) - \boldsymbol{x}_0\vert} - T_{-1}(\boldsymbol{\hat{x}},h)\right]dS(\boldsymbol{\hat{x}}).
+					$$
+					The first integral is singular or near-singular and will be computed in Steps 4&ndash;5. The second integral has a bounded integrand&mdash;it can be computed with Gauss quadrature on triangles. To render the integrand in the second integral smoother, which would accelerate convergence by quadrature, higher-order Taylor expansions may be added and subtracted.
+                    </p>
+
+                    <p><i>Step 4.</i> Let
+					$$
+					I_{-1}(h) = \int_{\widehat{T}}T_{-1}(\boldsymbol{\hat{x}},h)dS(\boldsymbol{\hat{x}}) = \int_{\widehat{T}-\boldsymbol{\hat{x}}_0}\frac{\psi(\boldsymbol{\hat{x}}_0)}{\sqrt{\vert J(\boldsymbol{\hat{x}}_0)\boldsymbol{\hat{x}}\vert^2 + h^2}}dS(\boldsymbol{\hat{x}}).
+					\label{eq:In1_tri}
+					$$
+					The integrand is <a href="https://en.wikipedia.org/wiki/Homogeneous_function">homogeneous</a> in both \(\boldsymbol{\hat{x}}\) and \(h\), and using the continuation approach, we reduce the 2D integral to a sum of three 1D integrals along the edges of the shifted triangle \(\widehat{T}-\boldsymbol{\hat{x}}_0\),
+					$$
+					I_{-1}(h) = \psi(\boldsymbol{\hat{x}}_0)\sum_{j=1}^3\hat{s}_j\int_{\partial\widehat{T}_j - \boldsymbol{\hat{x}}_0}\frac{\sqrt{\vert J(\boldsymbol{\hat{x}}_0)\boldsymbol{\hat{x}}\vert^2+h^2}-h}{\vert J(\boldsymbol{\hat{x}}_0)\boldsymbol{\hat{x}}\vert^2}ds(\boldsymbol{\hat{x}}),
+					$$
+					where the \(\hat{s}_j\)'s are the distances from the origin to the edges \(\partial\widehat{T}_j-\boldsymbol{\hat{x}}_0\) of \(\widehat{T}-\boldsymbol{\hat{x}}_0\).
+                    </p>
+
+                    <p><i>Step 5.</i> On the one hand, when the origin is far from all three edges (<i>e.g.</i>, near the center of the triangle), each integrand is analytic and convergence with Gauss quadrature is exponential. On the other, when the origin lies on an edge, the corresponding integrand is singular&mdash;however, the distance \(\hat{s}_j\) to that edge equals \(0\), the product &ldquo;\(\hat{s}_j\) times integral&rdquo; is also \(0\), and the integral need not be computed. Issues arise when the origin is close to one of the edges&mdash;the integrand is analytic but near-singular, convergence with Gauss quadrature is exponential but slow. We circumvent the near-singularity issue by using transplanted Gauss quadrature.
+                    </p>
+
+                    <h2>Numerical experiments</h2>
+
+                    <p> Let \(\Omega\subset\mathbb{R}^3\) be a bounded domain whose complement is connected, let \(\Gamma\) be its boundary, and let \(k>0\). Given an incident wave \(u^i\), a solution to \(\Delta u + k^2u = 0\) in \(\mathbb{R}^3\), we look for the scattered field \(u^s\), a solution to \(\Delta u + k^2u = 0\) in \(\mathbb{R}^3\setminus\overline{\Omega}\), satisfying the <a href="https://en.wikipedia.org/wiki/Sommerfeld_radiation_condition">Sommerfeld radiation condition</a> and such that \(u^i(\boldsymbol{x}) + u^s(\boldsymbol{x}) = 0\) on \(\Gamma=\partial\Omega\). As said above, this leads to
+					$$
+					\frac{1}{4\pi}\int_{\Gamma}\frac{e^{ik\vert\boldsymbol{x}-\boldsymbol{y}\vert}}{\vert\boldsymbol{x}-\boldsymbol{y}\vert}\varphi(\boldsymbol{y})d\Gamma(\boldsymbol{y}) = -u^i(\boldsymbol{x}), \quad \boldsymbol{x}\in\Gamma.
+					$$
+					Once the equation is solved for \(\varphi\), the solution \(u^s\) for all \(x\in\mathbb{R}^3\setminus\Omega\) is given by
+					$$
+					u^s(\boldsymbol{x}) = \frac{1}{4\pi}\int_{\Gamma}\frac{e^{ik\vert\boldsymbol{x}-\boldsymbol{y}\vert}}{\vert\boldsymbol{x}-\boldsymbol{y}\vert}\varphi(\boldsymbol{y})d\Gamma(\boldsymbol{y}), \quad \boldsymbol{x}\in\mathbb{R}^3\setminus\Omega.
+					$$
+					Of particular interest is the <i>far-field pattern</i> \(u_\infty\) defined on the unit sphere \(\mathbb{S}^2\) via
+					$$
+					u^s(\boldsymbol{x}) = \frac{e^{ikr}}{r}u_\infty\left(\frac{\boldsymbol{x}}{r}\right) + \mathcal{O}\left(\frac{1}{r^2}\right), \quad r=\vert\boldsymbol{x}\vert\to\infty,
+					$$
+					with integral representation
+					$$
+					u_\infty(\bar{\boldsymbol{x}}) = \frac{1}{4\pi}\int_{\Gamma}e^{-ik\bar{\boldsymbol{x}}\cdot\boldsymbol{y}}\varphi(\boldsymbol{y})d\Gamma(\boldsymbol{y}), \quad \bar{\boldsymbol{x}}\in\mathbb{S}^2.
+					$$
+					</p>
+
+					<p>We discretize the integral equation using a boundary element method with quadratic basis functions/triangles. We take \(k=2\pi\) and consider the scattering of a plane wave \(u^i(r,\theta)=e^{ikr\cos\theta}\) by two half-spheres of radius \(1\) centered at \((0,0,\pm\delta)\) for small values of \(\delta\). For each of these values, we solve the equation and evaluate the far-field pattern for a mesh size \(h\approx10^{-1}\), which guarantees about five digits of accuracy. We plot the solutions below for \(\delta=0.5,0.2,0.1,0\). Let us emphasize that this numerical experiment is particularly challenging when \(\delta\ll h\). Standard methods like that of Sauter and Schwab fail to be accurate in this regime; our method successfully worked for \(h\approx10^{-1}\) and \(\delta\) as small as \(5\times10^{-4}\). Check out our paper to find out more!
+					</p>
+                    <img src="/blog/image8.jpg" class="img-responsive">
+                    <img src="/blog/image9.jpg" class="img-responsive">
+                    <img src="/blog/image10.jpg" class="img-responsive">
+                    <img src="/blog/image11.jpg" class="img-responsive">
+
+               </div>
+
+          </div>
+     </div>
+</section>
+
+<!-- Footer Section -->
+
+<footer>
+     <div class="container">
+          <div class="row">
+
+               <div class="col-md-4 col-md-offset-1 col-sm-6">
+                    <h3>Contact</h3>
+                    <p><i class="fa fa-send-o"></i> hadrien.montanelli@gmail.com</p>
+               </div>
+
+               <div class="col-md-5 col-md-offset-1 col-sm-6">
+                    <a href="https://epubs.siam.org/doi/abs/10.1137/18M1189336">
+                    <img src="images/deepnet.jpg" class="img-responsive">
+                    </a>
+                    <div class="footer-copyright">
+                         <p>Copyright &copy; 2021 Hadrien Montanelli</p>
+                    </div>
+               </div>
+
+               <div class="clearfix col-md-12 col-sm-12">
+                    <hr>
+               </div>
+
+               <div class="col-md-12 col-sm-12">
+                    <ul class="social-icon">
+                         <li><a href="http://github.com/Hadrien-Montanelli" class="fa fa-github"></a></li>
+                         <li><a href="https://scholar.google.com/citations?user=Bjmkfe8AAAAJ&hl=en&oi=sra/" class="fa fa-google"></a></li>
+                         <li><a href="https://www.linkedin.com/in/hadrien-montanelli/" class="fa fa-linkedin"></a></li>
+                    </ul>
+               </div>
+               
+          </div>
+     </div>
+</footer>
+
+<!-- Back top -->
+<a href="#back-top" class="go-top"><i class="fa fa-angle-up"></i></a>
+
+<!-- SCRIPTS -->
+
+<script src="js/jquery.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/jquery.parallax.js"></script>
+<script src="js/custom.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+
+</body>
+</html>
