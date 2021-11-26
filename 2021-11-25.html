@@ -120,7 +120,7 @@ http://www.tooplate.com/view/2085-neuron
 
                     <p>Second, the resulting linear systems after discretization are often dense. For large <a href="https://en.wikipedia.org/wiki/Wavenumber">wavenumbers</a> \(k\), only iterative methods can be used to solve them (with the help of specialized techniques to accelerate the matrix-vector products, such as the <a href="https://en.wikipedia.org/wiki/Fast_multipole_method">Fast Multipole Method</a> or <a href="https://en.wikipedia.org/wiki/Hierarchical_matrix">hierarchical matrices</a>). In this respect, the use of higher-order numerical discretization schemes may be helpful in enlarging the interval of feasible wavenumbers.</p>
 
-                    <h2>Computing singular equations</h2>
+                    <h2>Computing singular integrals</h2>
 
                     <p>When solving boundary integrals equations with high-order boundary elements, one has to compute integrals of the form
                     $$
@@ -180,7 +180,7 @@ http://www.tooplate.com/view/2085-neuron
 					$$
 					</p>
 
-					<p>We discretize the integral equation using quadratic boundary elements and our method for computing singular integrals. We take \(k=2\pi\) and consider the scattering of a plane wave \(u^i(r,\theta)=e^{ikr\cos\theta}\) by two half-spheres of radius \(1\) centered at \((0,0,\pm\delta)\) for small values of \(\delta\). For each of these values, we solve the equation and evaluate the total field \(u=u^i+u^s\) for a mesh size \(h\approx10^{-1}\), which guarantees about five digits of accuracy. We plot \(u\) below for \(\delta=0.5,0.2,0.1,0\). Let us emphasize that this numerical experiment is particularly challenging when \(\delta\ll h\). Standard methods like that of Sauter and Schwab fail to be accurate in this regime; our method produced accurate results for \(h\approx10^{-1}\) and \(\delta\) as small as \(5\times10^{-4}\). Check out our paper to find out more!
+					<p>We discretize the integral equation using quadratic boundary elements together with our method for computing singular integrals. We take \(k=2\pi\) and consider the scattering of a plane wave \(u^i(r,\theta)=e^{ikr\cos\theta}\) by two half-spheres of radius \(1\) centered at \((0,0,\pm\delta)\) for small values of \(\delta\). For each of these values, we solve the equation and evaluate the total field \(u=u^i+u^s\) for a mesh size \(h\approx10^{-1}\), which guarantees about five digits of accuracy. We plot \(u\) below for \(\delta=0.5,0.2,0.1,0\). Let us emphasize that this numerical experiment is particularly challenging when \(\delta\ll h\). Standard methods like that of Sauter and Schwab fail to be accurate in this regime; our method produced accurate results for \(h\approx10^{-1}\) and \(\delta\) as small as \(5\times10^{-4}\). Check out our paper to find out more!
 					</p>
                     <img src="/blog/image8.jpg" class="img-responsive">
                     <img src="/blog/image9.jpg" class="img-responsive">
