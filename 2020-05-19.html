@@ -144,7 +144,7 @@ http://www.tooplate.com/view/2085-neuron
 
                     <h2>A simple exponential integrator</h2>
 
-                    <p>The second special feature of these PDEs is that they are is semilinear, <i>i.e.</i>, the higher-order terms of the equation are linear. <a href="https://en.wikipedia.org/wiki/Exponential_integrator">Exponential integrators</a> are a class of numerical methods for systems of ODEs that are aimed at taking advantage of this. The linear part \(\mathbf{L}\), responsible for the stiffness, is integrated exactly using the <a href="https://en.wikipedia.org/wiki/Matrix_exponential">matrix exponential</a> while a numerical scheme is applied to \(\mathbf{N}\).</p>
+                    <p>The second special feature of these PDEs is that they are is semilinear, i.e., the higher-order terms of the equation are linear. <a href="https://en.wikipedia.org/wiki/Exponential_integrator">Exponential integrators</a> are a class of numerical methods for systems of ODEs that are aimed at taking advantage of this. The linear part \(\mathbf{L}\), responsible for the stiffness, is integrated exactly using the <a href="https://en.wikipedia.org/wiki/Matrix_exponential">matrix exponential</a> while a numerical scheme is applied to \(\mathbf{N}\).</p>
 
                     <p>One of the simplest exponential integrators, commonly known as the Exponential Time Differencing (ETD) Euler method, is given by
                     $$
@@ -154,7 +154,7 @@ http://www.tooplate.com/view/2085-neuron
                     $$
                     \varphi_1(z) = \frac{e^z-1}{z}.
                     $$
-                    Note that, in practice, the nonlinear evaluations \(\mathbf{N}(\widehat{u}^n)\) is carried out in value space, that is, \(\mathbf{N}(\widehat{u}^n)\) means \(\mathbf{F}(\mathbf{N}(\mathbf{F}^{-1}\widehat{u}^n))\), with discrete Fourier transform \(\mathbf{F}\). Since the matrix \(\mathbf{L}\) diagonal, computing the matrix exponential and matrix-vector products cost only \(\mathcal{O}(N)\) operations. The dominant cost per time-step is therefore the cost of an FFT, <i>i.e.</i>, \(\mathcal{O}(N\log N)\) operations.</p>
+                    Note that, in practice, the nonlinear evaluations \(\mathbf{N}(\widehat{u}^n)\) is carried out in value space, that is, \(\mathbf{N}(\widehat{u}^n)\) means \(\mathbf{F}(\mathbf{N}(\mathbf{F}^{-1}\widehat{u}^n))\), with discrete Fourier transform \(\mathbf{F}\). Since the matrix \(\mathbf{L}\) diagonal, computing the matrix exponential and matrix-vector products cost only \(\mathcal{O}(N)\) operations. The dominant cost per time-step is therefore the cost of an FFT, i.e., \(\mathcal{O}(N\log N)\) operations.</p>
 
                     <h2>Results of our numerical experiments and Chebfun</h2>
 

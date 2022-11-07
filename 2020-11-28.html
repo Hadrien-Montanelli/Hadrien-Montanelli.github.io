@@ -112,7 +112,7 @@ http://www.tooplate.com/view/2085-neuron
                     $$
                     \left[-\frac{1}{2}\frac{d^2}{dx^2} + V(x) + g\vert f(x)\vert^2\right]f(x) = \lambda f(x),
                     $$
-                    for \(x\in[a,b]\), and with \(f(a)=f(b)\) and \(\int_a^b\vert f(x)\vert^2dx=1\). They are only interested in the <a href='https://en.wikipedia.org/wiki/Ground_state'>ground state</a> of the problem, <i>i.e.</i>, the function \(f\) that corresponds to the minimum eigenvalue \(\lambda_{\min}\). The nonlinear ODE eigenvalue problem reduces to a nonlinear ODE, which can be solved on a classical computer with an iterative method such as <a href='https://en.wikipedia.org/wiki/Newton%27s_method'>Newton's method</a>, combined with, <i>e.g.</i>, <a href='https://en.wikipedia.org/wiki/Finite_difference#finite_difference_approximation'>finite differences</a> or a <a href='https://en.wikipedia.org/wiki/Spectral_method'>spectral method</a>.</p>
+                    for \(x\in[a,b]\), and with \(f(a)=f(b)\) and \(\int_a^b\vert f(x)\vert^2dx=1\). They are only interested in the <a href='https://en.wikipedia.org/wiki/Ground_state'>ground state</a> of the problem, i.e., the function \(f\) that corresponds to the minimum eigenvalue \(\lambda_{\min}\). The nonlinear ODE eigenvalue problem reduces to a nonlinear ODE, which can be solved on a classical computer with an iterative method such as <a href='https://en.wikipedia.org/wiki/Newton%27s_method'>Newton's method</a>, combined with, e.g., <a href='https://en.wikipedia.org/wiki/Finite_difference#finite_difference_approximation'>finite differences</a> or a <a href='https://en.wikipedia.org/wiki/Spectral_method'>spectral method</a>.</p>
 
                     <h2>Method</h2>
 
@@ -142,7 +142,7 @@ http://www.tooplate.com/view/2085-neuron
 
                     <h2>Theoretical justification</h2>
 
-                    <p>The quantum ansatz is based on <a href='https://en.wikipedia.org/wiki/Matrix_product_state'>matrix product states</a> (MPS); for details, see, <i>e.g.</i>, <a href='https://arxiv.org/pdf/quant-ph/0608197.pdf'>this</a>. The key feature is that any state \(\psi\) can be written as
+                    <p>The quantum ansatz is based on <a href='https://en.wikipedia.org/wiki/Matrix_product_state'>matrix product states</a> (MPS); for details, see, e.g., <a href='https://arxiv.org/pdf/quant-ph/0608197.pdf'>this</a>. The key feature is that any state \(\psi\) can be written as
                     $$
                     \vert\psi\rangle = \sum_{q_1,\ldots,q_n\in\{0,1\}}\mathrm{tr}\left[A^{(1)}_{q_1}\ldots A^{(n)}_{q_n}\right]\vert q_1\ldots q_n\rangle,
                     $$
