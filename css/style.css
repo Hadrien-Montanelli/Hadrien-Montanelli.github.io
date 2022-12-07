@@ -74,7 +74,7 @@ body {
 } 
 
 .basic-table {
-  width: 100%; 
+  width: 150%; 
   color: #777;
   font-size: 15px;
   font-weight: 300;
@@ -82,12 +82,13 @@ body {
   line-height: 36px;
 }
 .left-col {
-  width: 100%;
+  text-align: left; 
 }
 .right-col {
   text-align: right;
-  vertical-align: bottom;
+  vertical-align: top;
   white-space: nowrap;
+  padding: 0 200px;
 }
 
 /*---------------------------------------
