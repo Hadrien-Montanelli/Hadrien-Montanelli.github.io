@@ -92,6 +92,15 @@ body {
 }
 
 /*---------------------------------------
+    Mark              
+-----------------------------------------*/
+
+mark {
+  color: black;
+  border: 1px solid black;
+}
+
+/*---------------------------------------
     Typorgraphy              
 -----------------------------------------*/
 
@@ -557,6 +566,7 @@ a:hover, a:active, a:focus {
 #about img,
 .blog-post-image img {
   border-radius: 1px;
+  border: 1px solid black;
 }
 
 .blog-post-title a {
