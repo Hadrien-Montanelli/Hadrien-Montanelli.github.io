@@ -73,6 +73,22 @@ body {
     color: rgb(0, 0, 0);
 } 
 
+.basic-table {
+  width: 100%; 
+  color: #777;
+  font-size: 15px;
+  font-weight: 300;
+  letter-spacing: 0.2px;
+  line-height: 36px;
+}
+.left-col {
+  width: 100%;
+}
+.right-col {
+  text-align: right;
+  vertical-align: bottom;
+  white-space: nowrap;
+}
 
 /*---------------------------------------
     Typorgraphy              
