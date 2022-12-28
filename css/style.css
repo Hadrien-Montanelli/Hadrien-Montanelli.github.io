@@ -842,6 +842,14 @@ footer .footer-copyright {
 
 }
 
+@media (min-width: 768px) and (max-width: 1024px){
+.section-style.parallax_section{
+background-size: contain !important;
+-webkit-background-size: cover !important;
+background-position: center !important;
+background-attachment: inherit !important;
+}
+}
 
 @media (max-width: 768px) {
 
