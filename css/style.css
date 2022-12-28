@@ -842,6 +842,19 @@ footer .footer-copyright {
 
 }
 
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) { 
+  .x-section.bg-image.parallax, .x-section.bg-pattern.parallax {
+ background-attachment:scroll !important;
+    background-size: cover;
+    height: 100%;
+    overflow: hidden;
+}
+}
+
+.x-section.bg-image.parallax, .x-section.bg-pattern.parallax {
+  background-position: center center !important;
+}
+
 @media (max-width: 768px) {
 
   h1 {
