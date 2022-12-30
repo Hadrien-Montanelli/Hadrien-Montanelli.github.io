@@ -14,7 +14,6 @@ body {
     overflow-x: hidden;
 }
 
-
 /*---------------------------------------
     Tables             
 -----------------------------------------*/
@@ -158,7 +157,6 @@ ul {
   border-color: transparent;
 }
 
-
 /*---------------------------------------
     General               
 -----------------------------------------*/
@@ -226,6 +224,11 @@ a:hover, a:active, a:focus {
   overflow: hidden;
 }
 
+pre {
+  background: #FFF;
+  white-space: pre;
+  overflow: auto;
+}
 
 /*---------------------------------------
     Preloader section              

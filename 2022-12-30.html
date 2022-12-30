@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<meta name="description" content="">
+<meta name="keywords" content="">
+<meta name="author" content="">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+<title>Image matting with examples in Python</title>
+<!--
+
+Template 2085 Neuron
+
+http://www.tooplate.com/view/2085-neuron
+
+-->
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" href="css/font-awesome.min.css">
+<link rel="stylesheet" href="css/magnific-popup.css">
+
+<!-- Main css -->
+<link rel="stylesheet" href="css/style.css">
+<link href="https://fonts.googleapis.com/css?family=Lora|Merriweather:300,400" rel="stylesheet">
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-108246943-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-108246943-1');
+</script>
+
+<!-- Google AdSense -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8299683413193339" crossorigin="anonymous"></script>
+
+</head>
+<body>
+
+<!-- Tikz for mathjax -->
+<link rel="stylesheet" type="text/css" href="https://tikzjax.com/v1/fonts.css">
+<script src="https://tikzjax.com/v1/tikzjax.js"></script>
+
+<!-- PRE LOADER -->
+
+<div class="preloader">
+     <div class="sk-spinner sk-spinner-wordpress">
+          <span class="sk-inner-circle"></span>
+     </div>
+</div>
+
+<!-- Navigation section  -->
+
+<div class="navbar navbar-default navbar-static-top" role="navigation">
+     <div class="container">
+
+          <div class="navbar-header">
+               <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon icon-bar"></span>
+                    <span class="icon icon-bar"></span>
+                    <span class="icon icon-bar"></span>
+               </button>
+               <a href="index.html" class="navbar-brand">H. Montanelli</a>
+          </div>
+          <div class="collapse navbar-collapse">
+               <ul class="nav navbar-nav navbar-right">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="publications.html">Publications</a></li>
+                    <li><a href="talks.html">Talks</a></li>
+                    <li><a href="teaching.html">Teaching</a></li>
+               </ul>
+          </div>
+
+  </div>
+</div>
+
+<!-- Home Section -->
+
+<section id="home" class="main-about parallax-section">
+     <div class="overlay"></div>
+     <div class="container">
+          <div class="row">
+
+               <div class="col-md-12 col-sm-12">
+                    <h1>Image matting with examples in Python</h1>
+               </div>
+
+          </div>
+     </div>
+</section>
+
+<!-- Blog Single Post Section -->
+
+<section id="about">
+     <div class="container">
+          <div class="row">
+
+              <div class="col-md-offset-1 col-md-10 col-sm-12">     
+
+                    <p><i>December 30, 2022</i></p>
+
+                    <p>In this post, I talk about image and video <a href="https://en.wikipedia.org/wiki/Video_matting">matting</a>&mdash;the process of extracting specific objects from an image to place them in a scene of a movie or compose them onto another background.</p>
+
+                    <h2>Introduction</h2>
+
+                    <p>Formally, matting techniques take as input in image \(I\), which is assumed to be a <a href="https://en.wikipedia.org/wiki/Convex_combination">convex combination</a> of a foreground image \(F\) and a background image \(B\), 
+                    $$
+                    I = \alpha F + (1-\alpha)B,
+                    $$
+                    where \(\alpha\) is the pixel's foreground opacity or <a href="https://en.wikipedia.org/wiki/Matte_(filmmaking)">matte</a>. The above equation applies at each pixel of the image $I$ and for each RGB component of this pixel. In other words, the above equation is an identity between <a href="https://en.wikipedia.org/wiki/Vector_(mathematics_and_physics)">vectors</a>, which we can write as
+                    $$
+                    \begin{bmatrix}\mathrm{R}_I\\\mathrm{G}_I\\\mathrm{B}_I\end{bmatrix} = \alpha\begin{bmatrix}\mathrm{R}_F\\\mathrm{G}_F\\\mathrm{B}_F\end{bmatrix} + (1-\alpha)\begin{bmatrix}\mathrm{R}_B\\\mathrm{G}_B\\\mathrm{B}_B\end{bmatrix} \quad\text{at each pixel}.
+                    $$
+                    This is what we call the <i>matting equation</i>. Here, the input image \(I\) is given and the matte \(\alpha\) and the foreground and background images \(F\) and \(B\) are unknowns, that is, we have seven variables 
+                    $$
+                    (\mathrm{R}_F,\mathrm{G}_F,\mathrm{B}_F,\mathrm{R}_B,\mathrm{G}_B,\mathrm{B}_B,\alpha)
+                    $$ 
+                    but only three equations&mdash;one per RGB component. (More precisely, if the image is \(N\times N\), we have \(7N^2\) variables and \(3N^2\) equations.) Mathematically, we say that this set of equations is <a href="https://en.wikipedia.org/wiki/Underdetermined_system">underdetermined</a>. There is no general and obvious way to solve it unless we make some simplifying assumptions or else are given some additional inputs.</p>
+
+                    <h2>Green screet matting</h2>
+
+                    <p>In green screen matting, also called <a href="https://en.wikipedia.org/wiki/Chroma_key">chroma keying</a>, we assume that the background image \(B\) is a <i>given</i> uniform green color \(\mathrm{G}_B\). In terms of RGB components, this means that
+                    $$
+                    B = \begin{bmatrix}0\\\mathrm{G}_B\\0\end{bmatrix}.
+                    $$
+                    In this case, the matting equation simplifies to
+                    $$
+                    \begin{bmatrix}\mathrm{R}_I\\\mathrm{G}_I\\\mathrm{B}_I\end{bmatrix} = \alpha\begin{bmatrix}\mathrm{R}_F\\\mathrm{G}_F\\\mathrm{B}_F\end{bmatrix} + (1-\alpha)\begin{bmatrix}0\\\mathrm{G}_B\\0\end{bmatrix}.
+                    $$
+                    We now have four variables \((\mathrm{R}_F,\mathrm{G}_F,\mathrm{B}_F,\alpha)\) and three equations&mdash;this is a much simpler problem. We can even obtain exact solutions in several specific cases.</p>
+
+                    <h2>Gray images</h2>
+
+                    <p>For gray foreground images \(F\), we may assume that 
+                    $$
+                    \mathrm{R}_F = \mathrm{G}_F = \mathrm{B}_F,
+                    $$
+                    which leads to
+                    $$
+                    \begin{bmatrix}\mathrm{R}_I\\\mathrm{G}_I\\\mathrm{B}_I\end{bmatrix} = \alpha\begin{bmatrix}\mathrm{R}_F\\\mathrm{R}_F\\\mathrm{R}_F\end{bmatrix} + (1-\alpha)\begin{bmatrix}0\\\mathrm{G}_B\\0\end{bmatrix}.
+                    $$
+                    In this case, we only have two variables \((\mathrm{R}_F,\alpha)\). The three equations read
+                    $$
+                    \left\{
+                    \begin{array}{ll}
+                    \mathrm{R}_I = \alpha\mathrm{R}_F, \\
+                    \mathrm{G}_I = \alpha\mathrm{R}_F + (1-\alpha)\mathrm{G}_B, \\
+                    \mathrm{B}_I = \alpha\mathrm{R}_F.
+                    \end{array}
+                    \right.
+                    $$
+                    The first and third equations yield
+                    $$
+                    \alpha\mathrm{R}_F = \mathrm{R}_I = \mathrm{B}_I,$$ 
+                    while the second equation gives \(\mathrm{G}_I = \mathrm{R}_I + (1-\alpha)\mathrm{G}_B\), that is,
+                    $$
+                    \alpha = \frac{\mathrm{R}_I - (\mathrm{G}_I - \mathrm{G}_B)}{\mathrm{G}_B}.
+                    $$
+                    To obtain a new image \(J\) with a different background \(K\), one can simply compute
+                    $$
+                    J = \alpha F +(1-\alpha)K,
+                    $$
+                    that is,
+                    $$
+                    \begin{bmatrix}\mathrm{R}_J\\\mathrm{G}_J\\\mathrm{B}_J\end{bmatrix} = \alpha\begin{bmatrix}\mathrm{R}_F\\\mathrm{R}_F\\\mathrm{R}_F\end{bmatrix} + (1-\alpha)\begin{bmatrix}\mathrm{R}_K\\\mathrm{G}_K\\\mathrm{B}_K\end{bmatrix}
+                    = \begin{bmatrix}\mathrm{R}_I\\\mathrm{R}_I\\\mathrm{R}_I\end{bmatrix} +(1-\alpha)\begin{bmatrix}\mathrm{R}_K\\\mathrm{G}_K\\\mathrm{B}_K\end{bmatrix}.
+                    $$
+                    </p>
+
+                    <p>Let's look at an example. Consider the following image from the <a href="http://www.alphamatting.com/index.html">alpha matting evaluation website</a> together with its "exact" matte:</p>
+
+<!------- Code ------->
+<pre>
+I = cv2.imread('GT04.png')                                         # load image I (BGR format)
+I = cv2.cvtColor(I, cv2.COLOR_BGR2RGB)/255                         # convert to RGB and normalize
+plt.imshow(I), plt.axis('off')                                     # plot I
+plt.show();
+alpha_ex = cv2.imread('GT04_alpha.png', cv2.IMREAD_GRAYSCALE)/255  # load exact alpha and normalize
+plt.imshow(alpha_ex, cmap='gray'), plt.axis('off')                 # plot alpha
+plt.show();
+</pre>
+<img src="/blog/matting1.jpg" class="img-responsive">
+<img src="/blog/matting2.jpg" class="img-responsive">
+<!------- Code ------->
+
+                    <p>We create a gray version of the image with a green background as follows:</p>
+
+<!------- Code ------->
+<pre>
+n_rows = I.shape[0]                              # number of rows in I
+n_cols = I.shape[1]                              # number of columns in I
+n_pixels = n_rows * n_cols                       # number of pixels in I
+I = np.reshape(I, (n_pixels, 3))
+I[:, 0] = I[:, 1]                                # red = green
+I[:, 2] = I[:, 1]                                # blue = green
+alpha_ex = np.reshape(alpha_ex, (n_pixels, 1))   
+G_B = 1                                          # green screen value 
+I = alpha_ex * I + (1 - alpha_ex) * [0, G_B, 0]  # replace background by green screen
+I = np.reshape(I, (n_rows, n_cols, 3))
+plt.imshow(I), plt.axis('off')                   # plot I
+plt.show(); 
+</pre>
+<img src="/blog/matting3.jpg" class="img-responsive">
+<!------- Code ------->
+
+                    <p>Let's extract the RGB components of \(I\):</p>
+
+<!------- Code ------->
+<pre>
+R_I = I[:, :, 0]  # red component of I
+G_I = I[:, :, 1]  # green component of I 
+B_I = I[:, :, 2]  # blue component of I
+</pre>
+<!------- Code ------->
+
+                    <p>Let's compute the matte \(\alpha\):</p>
+
+<!------- Code ------->
+<pre>
+alpha = (R_I - (G_I - G_B))/G_B                  # compute alpha with formula
+plt.imshow(alpha, cmap='gray'), plt.axis('off')  # plot alpha
+plt.show();
+</pre>
+<img src="/blog/matting4.jpg" class="img-responsive">
+<!------- Code ------->
+
+                    <p>The relative error between our matte and the "exact" one is around machine precision:</p>
+
+<!------- Code ------->
+<pre>
+alpha = np.reshape(alpha, (n_pixels, 1))  
+error = np.linalg.norm(alpha - alpha_ex)/np.linalg.norm(alpha_ex)
+print(f'Error (alpha): {error:.2e}')
+</pre>
+<pre>
+Error (alpha): 3.63e-17
+</pre>
+<!------- Code ------->
+
+                    <p>We're going to replace the green screen by the following image of Toronto's skyline:</p>
+
+<!------- Code ------->
+<pre>
+K = cv2.imread('toronto.jpg')                # load image (BGR format)
+K = cv2.cvtColor(K, cv2.COLOR_BGR2RGB)/255   # convert to RGB and normalize
+K = K[:n_rows, :n_cols, :]                   # adjust size of K to size of I
+plt.imshow(K), plt.axis('off')               # plot K
+plt.show();
+K = np.reshape(K, (n_pixels, 3))
+</pre>
+<img src="/blog/matting5.jpg" class="img-responsive">
+<!------- Code ------->
+
+                    <p>Let's now replace the green screen by the image \(K\):</p>
+
+<!------- Code ------->
+<pre>
+R_I = np.reshape(R_I, (n_pixels, 1))
+J = np.tile(R_I, 3) + (1 - alpha) * K   # new image J with different background K
+J = np.reshape(J, (n_rows, n_cols, 3))               
+plt.imshow(J), plt.axis('off')          # plot J 
+plt.show();
+</pre>
+<img src="/blog/matting6.jpg" class="img-responsive">
+<!------- Code ------->
+
+                    <h2>Other exact solutions</h2>
+
+                    <p>Smith and Blinn <a href="#ref1">[1]</a> found an exact solution of the matting equation for foreground images \(F\) that verify
+                    $$
+                    \mathrm{B}_F = a_0 + a_1\mathrm{G}_F,
+                    $$
+                    for some coefficients \(a_0\) and \(a_1\). We present here a slightly more general solution for foreground images \(F\) that sastisfy
+                    $$
+                    \mathrm{B}_F = a_0 + a_1\mathrm{G}_F + a_2\mathrm{R}_F.
+                    $$
+                    Using this relationship, we obtain the following system of equations,
+                    $$
+                    \begin{bmatrix}\mathrm{R}_I\\\mathrm{G}_I\\\mathrm{B}_I\end{bmatrix} = \alpha\begin{bmatrix}\mathrm{R}_F\\\displaystyle\frac{\mathrm{B}_F - a_0 - a_2\mathrm{R}_F}{a_1}\\\mathrm{B}_F\end{bmatrix} + (1-\alpha)\begin{bmatrix}0\\\mathrm{G}_B\\0\end{bmatrix}.
+                    $$
+                    Here, we have three variables \((\mathrm{R}_F,\mathrm{B}_F,\alpha)\). The three equations read
+                    $$
+                    \left\{
+                    \begin{array}{ll}
+                    \mathrm{R}_I = \alpha\mathrm{R}_F, \\
+                    \mathrm{G}_I = \alpha\displaystyle\frac{\mathrm{B}_F - a_0 - a_2\mathrm{R}_F}{a_1} + (1-\alpha)\mathrm{G}_B, \\
+                    \mathrm{B}_I = \alpha\mathrm{B}_F.
+                    \end{array}
+                    \right.
+                    $$
+                    The first and third equations lead to 
+                    $$
+                    \alpha\mathrm{R}_F = \mathrm{R}_I, \quad \alpha\mathrm{B}_F = \mathrm{B}_I,$$
+                    while the second equation gives \(\mathrm{G}_I = (\mathrm{B}_I - a_0\alpha - a_2\mathrm{R}_I)/a_1 + (1-\alpha)\mathrm{G}_B\), that is,
+                    $$
+                    \alpha = \frac{\mathrm{B}_I - a_1(\mathrm{G}_I - \mathrm{G}_B) - a_2\mathrm{R}_I}{a_0 + a_1\mathrm{G}_B}.
+                    $$
+                    Again, to obtain a new image \(J\) with a different background \(K\), one can simply compute
+                    $$
+                    J = \alpha F +(1-\alpha)K,
+                    $$
+                    that is,
+                    $$
+                    \begin{bmatrix}\mathrm{R}_J\\\mathrm{G}_J\\\mathrm{B}_J\end{bmatrix} = \alpha\begin{bmatrix}\mathrm{R}_F\\\displaystyle\frac{\mathrm{B}_F - a_0 - a_2\mathrm{R}_F}{a_1}\\\mathrm{B}_F\end{bmatrix} + (1-\alpha)\begin{bmatrix}\mathrm{R}_K\\\mathrm{G}_K\\\mathrm{B}_K\end{bmatrix}
+                    = \begin{bmatrix}\mathrm{R}_I\\\displaystyle\frac{\mathrm{B}_I - a_0\alpha - a_2\mathrm{R}_I}{a_1}\\\mathrm{B}_I\end{bmatrix} +(1-\alpha)\begin{bmatrix}\mathrm{R}_K\\\mathrm{G}_K\\\mathrm{B}_K\end{bmatrix}.
+                    $$
+                    </p>
+
+                    <p>Let's create a version of the previous image that verifies a relationship of the form \(\mathrm{B}_F = a_0 + a_1\mathrm{G}_F + a_2\mathrm{R}_F\) with \(a_0=0.4\), \(a_1=0.3\) and \(a_2=0.3\):</p>
+
+<!------- Code ------->
+<pre>
+I = cv2.imread('GT04.png')                       # load image I (BGR format)
+I = cv2.cvtColor(I, cv2.COLOR_BGR2RGB)/255       # convert to RGB and normalize
+I = np.reshape(I, (n_pixels, 3))
+a_0 = 0.4                                        # coefficient a_0
+a_1 = 0.3                                        # coefficient a_1       
+a_2 = 0.3                                        # coefficient a_2             
+I[:, 2] = a_0 + a_1*I[:, 1] + a_2*I[:, 0]        # blue = a_0 + a_1*green + a_2*red
+I = alpha_ex * I + (1 - alpha_ex) * [0, G_B, 0]  # replace background by green screen
+I = np.reshape(I, (n_rows, n_cols, 3))
+plt.imshow(I), plt.axis('off')                   # plot I
+plt.show();
+</pre>
+<img src="/blog/matting7.jpg" class="img-responsive">
+<!------- Code ------->
+
+                    <p>Let's extract the RGB components of \(I\):</p>
+
+<!------- Code ------->
+<pre>
+R_I = I[:, :, 0]  # red component of I
+G_I = I[:, :, 1]  # green component of I 
+B_I = I[:, :, 2]  # blue component of I
+</pre>
+<!------- Code ------->
+
+                    <p>Let's compute \(\alpha\):</p>
+
+<!------- Code ------->
+<pre>
+alpha = (B_I - a_1*(G_I - G_B) - a_2*R_I)/(a_0 + a_1*G_B)  # compute alpha with formula
+plt.imshow(alpha, cmap='gray'), plt.axis('off')            # plot alpha
+plt.show();
+</pre>
+<img src="/blog/matting8.jpg" class="img-responsive">
+<!------- Code ------->
+
+                    <p>Once again, the error is around machine precision:</p>
+
+<!------- Code ------->
+<pre>
+alpha = np.reshape(alpha, (n_pixels, 1))  
+error = np.linalg.norm(alpha - alpha_ex)/np.linalg.norm(alpha_ex)  # relative error
+print(f'Error (alpha): {error:.2e}')
+</pre>
+<pre>
+Error (alpha): 1.46e-16
+</pre>
+<!------- Code ------->
+
+                    <p>We can change the background as follows:</p>
+
+<!------- Code ------->
+<pre>
+alpha = np.reshape(alpha, (n_pixels, 1)) 
+R_I = np.reshape(R_I, (n_pixels, 1))
+B_I = np.reshape(B_I, (n_pixels, 1))
+J = np.concatenate((R_I, (B_I - a_0*alpha - a_2*R_I)/a_1, B_I), axis=1)  # new image J
+J += (1 - alpha)*K
+J = np.reshape(J, (n_rows, n_cols, 3))
+plt.imshow(J), plt.axis('off')                                           # plot J
+plt.show();
+</pre>
+<img src="/blog/matting9.jpg" class="img-responsive">
+<!------- Code ------->
+
+                    <h2>Extension and connection to Vlahos' formula</h2>
+
+                    <p>We've considered so far images whose RGB components verify specific relationships. For arbitrary color images, there is no exact formula for the matte \(\alpha\) and the foreground data \((\mathrm{R}_F,\mathrm{G}_F,\mathrm{B}_F)\). However, one may utilize the formula of the previous section as an approximation.</p>
+
+                    <p>We show below an example with the color image we've been working with&mdash;this time, however, we use it as is with a green screen (i.e., we don't make it gray or purple-ish). We utilize the formula for the matte \(\alpha\) with \(a_0=0\), \(a_1=0.5\) and \(a_2=0\), which yields a relative error below \(1\%\). The resulting new image \(J\) with a different background \(K\) isn't perfect&mdash;let's emphasize that it was done with a <i>very simple</i> method that has an <i>extremely low</i> computational cost. Moreover, this image is particularly challenging because of the hair details and color. We provide below the full code in a single cell.</p>
+
+<!------- Code ------->
+<pre>
+# Load the previous color image:
+I = cv2.imread('GT04.png')                                        
+I = cv2.cvtColor(I, cv2.COLOR_BGR2RGB)/255                        
+n_rows = I.shape[0]                           
+n_cols = I.shape[1]                              
+n_pixels = n_rows * n_cols                      
+I = np.reshape(I, (n_pixels, 3))
+
+# Load exact matte:
+alpha_ex = cv2.imread('GT04_alpha.png', cv2.IMREAD_GRAYSCALE)/255 
+alpha_ex = np.reshape(alpha_ex, (n_pixels, 1))   
+
+# Generate a version with a green screen:
+G_B = 1
+I = alpha_ex * I + (1 - alpha_ex) * [0, G_B, 0] 
+I = np.reshape(I, (n_rows, n_cols, 3))
+plt.imshow(I), plt.axis('off'), plt.show();
+
+# RGB components:
+R_I = I[:, :, 0]  
+G_I = I[:, :, 1] 
+B_I = I[:, :, 2] 
+
+# Coefficients:
+a_0 = 0
+a_1 = 0.5
+a_2 = 0
+
+# Compute alpha with formula:
+alpha = (B_I - a_1*(G_I - G_B) - a_2*R_I)/(a_0 + a_1*G_B)     
+alpha[alpha < 0] = 0
+alpha[alpha > 1] = 1
+plt.imshow(alpha, cmap='gray'), plt.axis('off'), plt.show();
+
+# Compute relative error with exact alpha:
+alpha = np.reshape(alpha, (n_pixels, 1))   
+error = np.linalg.norm(alpha - alpha_ex)/np.linalg.norm(alpha_ex) 
+print(f'Error (alpha): {error:.2e}')  
+
+# Load background K:
+K = cv2.imread('toronto.jpg')               
+K = cv2.cvtColor(K, cv2.COLOR_BGR2RGB)/255   
+K = K[:n_rows, :n_cols, :]                  
+K = np.reshape(K, (n_pixels, 3))
+
+# Compute new image J with background K:
+alpha = np.reshape(alpha, (n_pixels, 1)) 
+R_I = np.reshape(R_I, (n_pixels, 1))
+B_I = np.reshape(B_I, (n_pixels, 1))
+G_I = np.reshape(G_I, (n_pixels, 1))
+tmp = np.minimum(G_I, (B_I - a_0*alpha - a_2*R_I)/a_1)
+J = np.concatenate((R_I, tmp, B_I), axis=1) + (1 - alpha)*K
+J[J < 0] = 0
+J[J > 1] = 1
+J = np.reshape(J, (n_rows, n_cols, 3))
+plt.imshow(J), plt.axis('off'), plt.show();  
+</pre>
+<img src="/blog/matting10.jpg" class="img-responsive">
+<img src="/blog/matting11.jpg" class="img-responsive">
+<pre>
+Error (alpha): 7.58e-02
+</pre>
+<img src="/blog/matting12.jpg" class="img-responsive">
+<!------- Code ------->
+
+                    <p>Let's make a few comments about the code. First, because the formula for the matte \(\alpha\) isn't exact here&mdash;it is merely an approximation&mdash;it may lead to values below \(0\) and above \(1\) for both \(\alpha\) and \(J\)&mdash;therefore, we clamped the values of \(\alpha\) and \(J\).</p>
+
+                    <p>Second, the green component, which was given in the previous section by 
+                    $$
+                    \frac{\mathrm{B}_I - a_0\alpha - a_2\mathrm{R}_I}{a_1},
+                    $$
+                    has been replaced here by
+                    $$
+                    \mathrm{min}\left(\mathrm{G}_I, \frac{\mathrm{B}_I - a_0\alpha - a_2\mathrm{R}_I}{a_1}\right).
+                    $$
+                    This is inspired by <a href="https://en.wikipedia.org/wiki/Petro_Vlahos">Vlahos'</a> work&mdash;Vlahos was an engineer who revolutionized the motion picture industry by introducing novel green screen techniques, essential to movies such as the <a href="https://en.wikipedia.org/wiki/Star_Wars">Stars Wars</a> trilogy and <a href="https://en.wikipedia.org/wiki/Titanic_(1997_film)">Titanic</a>; he was awarded multiple <a href="https://en.wikipedia.org/wiki/Academy_Awards">Oscars</a> and an <a href="https://en.wikipedia.org/wiki/Emmy_Awards">Emmy Award</a> for his contributions to the field.</p>
+
+                    <p>In his first patent related to green screen technology <a href="#ref1">[2]</a>, he claimed that for foreground images \(F\) that verify
+                    $$
+                    \mathrm{G}_F \leq b_2\mathrm{B}_F,
+                    $$
+                    the matte \(\alpha\) can be computed via the formula
+                    $$
+                    \alpha = 1 - b_1(\mathrm{G}_I - b_2\mathrm{B}_I),
+                    $$
+                    where \(b_1\) and \(b_2\) are tuning adjustment parameters. Once \(\alpha\) has been obtained by his formula, he proposed to compute the new image \(J\) with a different background \(K\) via
+                    $$
+                    \begin{bmatrix}\mathrm{R}_J\\\mathrm{G}_J\\\mathrm{B}_J\end{bmatrix} = \begin{bmatrix}\mathrm{R}_I\\\mathrm{min}\left(\mathrm{G}_I, b_2\mathrm{B}_I\right)\\\mathrm{B}_I\end{bmatrix} +(1-\alpha)\begin{bmatrix}\mathrm{R}_K\\\mathrm{G}_K\\\mathrm{B}_K\end{bmatrix}.
+                    $$
+                    In the code above, we selected \(a_0=a_2=0\), that is, we assumed that the foreground image \(F\) verifies 
+                    $$
+                    \mathrm{B}_F \approx a_1\mathrm{G}_F,
+                    $$
+                    to some approximation. In that case, the formula for \(\alpha\) from the previous section simplifies to
+                    $$
+                    \alpha = \frac{\mathrm{B}_I - a_1(\mathrm{G}_I - \mathrm{G}_B)}{a_1\mathrm{G}_B} = 1 - \frac{1}{\mathrm{G}_B}\left(\mathrm{G}_I - \frac{\mathrm{B}_I}{a_1}\right),
+                    $$
+                    and the green component is given by
+                    $$
+                    \begin{bmatrix}\mathrm{R}_J\\\mathrm{G}_J\\\mathrm{B}_J\end{bmatrix} = \begin{bmatrix}\mathrm{R}_I\\\displaystyle\frac{\mathrm{B}_I}{a_1}\\\mathrm{B}_I\end{bmatrix} +(1-\alpha)\begin{bmatrix}\mathrm{R}_K\\\mathrm{G}_K\\\mathrm{B}_K\end{bmatrix}.
+                    $$
+                    This is exactly Vlahos' process provided that \(b_1=1/\mathrm{G}_B\), \(b_2=1/a_1\) and that we replace the green component by
+                    $$
+                    \mathrm{min}\left(\mathrm{G}_I, \frac{\mathrm{B}_I}{a_1}\right),
+                    $$
+                    which is precisely what we did.</p>
+
+                    <h2>Conclusion</h2>
+
+                    <p>Image matting is the process of recovering the matte \(\alpha\) and the foreground and background images \(F\) and \(B\) from an input image \(I\). This is an undetermined problem, which does not have exact solutions in general. When using a green screen, the problem becomes simpler and there are exact solutions in certain cases&mdash;for example when the foreground image \(F\) is gray.</p>
+
+                    <p>For arbitrary color images, there exist simple green screen algorithms that lead to reasonably good numerical results&mdash;we've reviewed one of them, operating in RGB space.</p>
+
+                    <p>In future blog posts, we'll talk about matting techniques without green screen based on the <a href="https://en.wikipedia.org/wiki/Laplace_operator">Laplacian</a> and <a href="https://en.wikipedia.org/wiki/Deep_learning">deep neural networks</a>, as well as video matting.</p>
+                    
+                    <h2>References</h2>
+
+                    <p id="ref1">[1] A. R. Smith and J. F. Blinn, <i>Blue screen matting</i>, in Proceedings of the 23rd Annual Conference on Computer Graphics and Interactive Techniques, SIGGRAPH ’96, New York, NY, USA, 1996, Association for Computing Machinery, pp. 259–268.
+
+                    <p id="ref1">[2] P. Vlahos, <i>Electronic Composite Photography</i>, U.S. Patent 3595987A, 1971.
+
+              </div>
+
+          </div>
+     </div>
+</section>
+
+<!-- Footer Section -->
+
+<footer>
+     <div class="container">
+          <div class="row">
+
+               <div class="col-md-4 col-md-offset-1 col-sm-6">
+                    <h3>Contact</h3>
+                    <p style="color:white"><i class="fa fa-send-o"></i>hadrien.montanelli@gmail.com</p>
+               </div>
+
+               <div class="col-md-5 col-md-offset-1 col-sm-6">
+                    <h3 style="opacity:0;">Contact</h3>
+                    <p style="color:white">Copyright &copy; 2023 Hadrien Montanelli</p>
+               </div>
+
+               <div class="clearfix col-md-12 col-sm-12">
+                    <hr style="color:white;">
+               </div>
+
+               <div class="col-md-12 col-sm-12">
+                    <ul class="social-icon">
+                         <li><a href="https://github.com/Hadrien-Montanelli" class="fa fa-github" style="font-size:30px;color:white"></a></li>
+                         <li><a href="https://scholar.google.com/citations?user=Bjmkfe8AAAAJ&hl=en&oi=sra/" class="fa fa-google" style="font-size:30px;color:white"></a></li>
+                         <li><a href="https://www.linkedin.com/in/hadrien-montanelli/" class="fa fa-linkedin" style="font-size:30px;color:white"></a></li>
+                         <li><a href="https://twitter.com/drmontanelli" class="fa fa-twitter" style="font-size:30px;color:white"></a></li>
+                    </ul>
+               </div>
+               
+          </div>
+     </div>
+</footer>
+
+<!-- Back top -->
+<a href="#back-top" class="go-top"><i class="fa fa-angle-up"></i></a>
+
+<!-- SCRIPTS -->
+<script src="js/jquery.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/particles.min.js"></script>
+<script src="js/app.js"></script>
+<script src="js/jquery.parallax.js"></script>
+<script src="js/smoothscroll.js"></script>
+<script src="js/custom.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+
+</body>
+</html>
