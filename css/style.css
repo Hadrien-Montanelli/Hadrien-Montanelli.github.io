@@ -227,7 +227,7 @@ a:hover, a:active, a:focus {
 pre {
   background: #FFF;
   white-space: pre;
-  overflow: auto;
+  overflow: none;
 }
 
 /*---------------------------------------
