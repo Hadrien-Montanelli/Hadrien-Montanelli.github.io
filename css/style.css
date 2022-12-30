@@ -225,9 +225,8 @@ a:hover, a:active, a:focus {
 }
 
 pre {
-  background: #FFF;
+  overflow: auto;
   white-space: pre;
-  overflow: scroll;
 }
 
 /*---------------------------------------
@@ -843,6 +842,11 @@ footer .footer-copyright {
     background-attachment: inherit !important;
   }
 
+  pre {
+    overflow: auto;
+    white-space: pre;
+  }
+
 }
 
 @media (max-width: 768px) {
@@ -867,6 +871,11 @@ footer .footer-copyright {
     padding-top: 22px;
   }
 
+  pre {
+    overflow: auto;
+    white-space: pre;
+  }
+
 }
 
 
@@ -881,6 +890,11 @@ footer .footer-copyright {
   #blog, #blog-single-post {
     padding-top: 60px;
     padding-bottom: 60px;
+  }
+
+  pre {
+    overflow: auto;
+    white-space: pre;
   }
 
 }
