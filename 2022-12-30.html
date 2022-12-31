@@ -113,7 +113,7 @@ http://www.tooplate.com/view/2085-neuron
                     $$
                     I = \alpha F + (1-\alpha)B,
                     $$
-                    where \(\alpha\) is the pixel's foreground opacity or <a href="https://en.wikipedia.org/wiki/Matte_(filmmaking)">matte</a>. The above equation applies at each pixel of the image $I$ and for each RGB component of this pixel. In other words, the above equation is an identity between <a href="https://en.wikipedia.org/wiki/Vector_(mathematics_and_physics)">vectors</a>, which we can write as
+                    where \(\alpha\) is the pixel's foreground opacity or <a href="https://en.wikipedia.org/wiki/Matte_(filmmaking)">matte</a>. The above equation applies to each pixel of the image $I$ and for each RGB component of this pixel. In other words, the above equation is an identity between <a href="https://en.wikipedia.org/wiki/Vector_(mathematics_and_physics)">vectors</a>, which we can write as
                     $$
                     \begin{bmatrix}\mathrm{R}_I\\\mathrm{G}_I\\\mathrm{B}_I\end{bmatrix} = \alpha\begin{bmatrix}\mathrm{R}_F\\\mathrm{G}_F\\\mathrm{B}_F\end{bmatrix} + (1-\alpha)\begin{bmatrix}\mathrm{R}_B\\\mathrm{G}_B\\\mathrm{B}_B\end{bmatrix} \quad\text{at each pixel}.
                     $$
@@ -204,7 +204,7 @@ I[:, 0] = I[:, 1]                                # red = green
 I[:, 2] = I[:, 1]                                # blue = green
 alpha_ex = np.reshape(alpha_ex, (n_pixels, 1))   
 G_B = 1                                          # green screen value 
-I = alpha_ex * I + (1 - alpha_ex) * [0, G_B, 0]  # replace background by green screen
+I = alpha_ex * I + (1 - alpha_ex) * [0, G_B, 0]  # replace background with green screen
 I = np.reshape(I, (n_rows, n_cols, 3))
 plt.imshow(I), plt.axis('off')                   # plot I
 plt.show(); 
@@ -246,7 +246,7 @@ Error (alpha): 3.63e-17
 </pre>
 <!------- Code ------->
 
-                    <p>We're going to replace the green screen by the following image of Toronto's skyline:</p>
+                    <p>We're going to replace the green screen with the following image of Toronto's skyline:</p>
 
 <!------- Code ------->
 <pre>
@@ -260,7 +260,7 @@ K = np.reshape(K, (n_pixels, 3))
 <img src="/blog/matting5.jpg" class="img-responsive">
 <!------- Code ------->
 
-                    <p>Let's now replace the green screen by the image \(K\):</p>
+                    <p>Let's now replace the green screen with the image \(K\):</p>
 
 <!------- Code ------->
 <pre>
@@ -279,7 +279,7 @@ plt.show();
                     $$
                     \mathrm{B}_F = a_0 + a_1\mathrm{G}_F,
                     $$
-                    for some coefficients \(a_0\) and \(a_1\). We present here a slightly more general solution for foreground images \(F\) that sastisfy
+                    for some coefficients \(a_0\) and \(a_1\). We present here a slightly more general solution for foreground images \(F\) that satisfy
                     $$
                     \mathrm{B}_F = a_0 + a_1\mathrm{G}_F + a_2\mathrm{R}_F.
                     $$
@@ -329,7 +329,7 @@ a_0 = 0.4                                        # coefficient a_0
 a_1 = 0.3                                        # coefficient a_1       
 a_2 = 0.3                                        # coefficient a_2             
 I[:, 2] = a_0 + a_1*I[:, 1] + a_2*I[:, 0]        # blue = a_0 + a_1*green + a_2*red
-I = alpha_ex * I + (1 - alpha_ex) * [0, G_B, 0]  # replace background by green screen
+I = alpha_ex * I + (1 - alpha_ex) * [0, G_B, 0]  # replace background with green screen
 I = np.reshape(I, (n_rows, n_cols, 3))
 plt.imshow(I), plt.axis('off')                   # plot I
 plt.show();
@@ -466,7 +466,7 @@ Error (alpha): 7.58e-02
                     $$
                     \frac{\mathrm{B}_I - a_0\alpha - a_2\mathrm{R}_I}{a_1},
                     $$
-                    has been replaced here by
+                    has been replaced here with
                     $$
                     \mathrm{min}\left(\mathrm{G}_I, \frac{\mathrm{B}_I - a_0\alpha - a_2\mathrm{R}_I}{a_1}\right).
                     $$
@@ -496,7 +496,7 @@ Error (alpha): 7.58e-02
                     $$
                     \begin{bmatrix}\mathrm{R}_J\\\mathrm{G}_J\\\mathrm{B}_J\end{bmatrix} = \begin{bmatrix}\mathrm{R}_I\\\displaystyle\frac{\mathrm{B}_I}{a_1}\\\mathrm{B}_I\end{bmatrix} +(1-\alpha)\begin{bmatrix}\mathrm{R}_K\\\mathrm{G}_K\\\mathrm{B}_K\end{bmatrix}.
                     $$
-                    This is exactly Vlahos' process provided that \(b_1=1/\mathrm{G}_B\), \(b_2=1/a_1\) and that we replace the green component by
+                    This is exactly Vlahos' process provided that \(b_1=1/\mathrm{G}_B\), \(b_2=1/a_1\) and that we replace the green component with
                     $$
                     \mathrm{min}\left(\mathrm{G}_I, \frac{\mathrm{B}_I}{a_1}\right),
                     $$
@@ -508,7 +508,7 @@ Error (alpha): 7.58e-02
 
                     <p>For arbitrary color images, there exist simple green screen algorithms that lead to reasonably good numerical results&mdash;we've reviewed one of them, operating in RGB space.</p>
 
-                    <p>In future blog posts, we'll talk about matting techniques without green screen based on the <a href="https://en.wikipedia.org/wiki/Laplace_operator">Laplacian</a> and <a href="https://en.wikipedia.org/wiki/Deep_learning">deep neural networks</a>, as well as video matting.</p>
+                    <p>In future blog posts, we'll talk about matting techniques without a green screen based on the <a href="https://en.wikipedia.org/wiki/Laplace_operator">Laplacian</a> and <a href="https://en.wikipedia.org/wiki/Deep_learning">deep neural networks</a>, as well as video matting.</p>
                     
                     <h2>References</h2>
 
