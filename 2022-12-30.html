@@ -113,7 +113,7 @@ http://www.tooplate.com/view/2085-neuron
                     $$
                     I = \alpha F + (1-\alpha)B,
                     $$
-                    where \(\alpha\) is the pixel's foreground opacity or <a href="https://en.wikipedia.org/wiki/Matte_(filmmaking)">matte</a>. The above equation applies to each pixel of the image $I$ and for each RGB component of this pixel. In other words, the above equation is an identity between <a href="https://en.wikipedia.org/wiki/Vector_(mathematics_and_physics)">vectors</a>, which we can write as
+                    where \(\alpha\) is the pixel's foreground opacity or <a href="https://en.wikipedia.org/wiki/Matte_(filmmaking)">matte</a>. The above equation applies to each pixel of the image \(I\) and for each RGB component of this pixel. In other words, the above equation is an identity between <a href="https://en.wikipedia.org/wiki/Vector_(mathematics_and_physics)">vectors</a>, which we can write as
                     $$
                     \begin{bmatrix}\mathrm{R}_I\\\mathrm{G}_I\\\mathrm{B}_I\end{bmatrix} = \alpha\begin{bmatrix}\mathrm{R}_F\\\mathrm{G}_F\\\mathrm{B}_F\end{bmatrix} + (1-\alpha)\begin{bmatrix}\mathrm{R}_B\\\mathrm{G}_B\\\mathrm{B}_B\end{bmatrix} \quad\text{at each pixel}.
                     $$
@@ -180,6 +180,10 @@ http://www.tooplate.com/view/2085-neuron
 
 <!------- Code ------->
 <pre>
+import cv2
+import matplotlib.pyplot as plt
+import numpy as np
+
 I = cv2.imread('GT04.png')                                         # load image I (BGR format)
 I = cv2.cvtColor(I, cv2.COLOR_BGR2RGB)/255                         # convert to RGB and normalize
 plt.imshow(I), plt.axis('off')                                     # plot I
@@ -272,6 +276,8 @@ plt.show();
 </pre>
 <img src="/blog/matting6.jpg" class="img-responsive">
 <!------- Code ------->
+                    
+                    <p>The result is flawless&mdash;it is not surprising that <a href="https://en.wikipedia.org/wiki/Science_fiction_film">science fiction movies</a> use green screens particularly efficiently since many foreground objects are neutrally colored <a href="https://en.wikipedia.org/wiki/Spacecraft">spacecraft</a>.</p>
 
                     <h2>Other exact solutions</h2>
 
@@ -391,7 +397,7 @@ plt.show();
 
                     <p>We've considered so far images whose RGB components verify specific relationships. For arbitrary color images, there is no exact formula for the matte \(\alpha\) and the foreground data \((\mathrm{R}_F,\mathrm{G}_F,\mathrm{B}_F)\). However, one may utilize the formula of the previous section as an approximation.</p>
 
-                    <p>We show below an example with the color image we've been working with&mdash;this time, however, we use it as is with a green screen (i.e., we don't make it gray or purple-ish). We utilize the formula for the matte \(\alpha\) with \(a_0=0\), \(a_1=0.5\) and \(a_2=0\), which yields a relative error below \(1\%\). The resulting new image \(J\) with a different background \(K\) isn't perfect&mdash;let's emphasize that it was done with a <i>very simple</i> method that has an <i>extremely low</i> computational cost. Moreover, this image is particularly challenging because of the hair details and color. We provide below the full code in a single cell.</p>
+                    <p>We show below an example with the color image we've been working with&mdash;this time, however, we use it as is with a green screen (i.e., we don't make it gray or purple-ish). We utilize the formula for the matte \(\alpha\) with \(a_0=0\), \(a_1=0.5\) and \(a_2=0\), which yields a relative error below \(8\%\). The resulting new image \(J\) with a different background \(K\) isn't perfect&mdash;let's emphasize that it was done with a <i>very simple</i> method that has an <i>extremely low</i> computational cost. Moreover, this image is particularly challenging because of the hair details and color. We provide below the full code in a single cell.</p>
 
 <!------- Code ------->
 <pre>
