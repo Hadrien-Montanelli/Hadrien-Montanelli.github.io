@@ -102,163 +102,54 @@ https://www.tooplate.com/view/2085-neuron
 
                     <p>My general research interests lie in <a href="https://en.wikipedia.org/wiki/Numerical_methods_for_partial_differential_equations">numerical methods for PDEs</a> and <a href="https://en.wikipedia.org/wiki/Integral_equation">integral equations</a>, <a href="https://en.wikipedia.org/wiki/Inverse_problem">inverse problems</a>, <a href="https://en.wikipedia.org/wiki/Approximation_theory">approximation theory</a>, and <a href="https://en.wikipedia.org/wiki/Machine_learning">machine learning</a>. More generally, my background is in <a href="https://en.wikipedia.org/wiki/Numerical_analysis">numerical analysis</a> and <a href="https://en.wikipedia.org/wiki/Computational_science">scientific computing</a>.</p>
 
-               	<h3>Spectral methods</h3>
+                    <h3>Inverse acousting scattering</h3>
 
                     <h4>Background</h4>
 
-                    <p>Orthogonal polynomials lie at the heart of scientific computing. In the last ten years, there has been a renewed interest in their properties, which has contributed to the development of more efficient algorithms. In particular, asymptotic expansions and the exploitation of sparsity and low-rank structure in recurrence relations have been some of the key ingredients in the design of packages such as <a href="https://www.chebfun.org/">chebfun</a> (MATLAB), <a href="https://github.com/JuliaApproximation/ApproxFun.jl">approxfun</a> (Julia), and <a href=https://dedalus-project.org/">dedalus</a> (Python), which have automated the computation with orthogonal polynomials for approximating functions via interpolation, computing integrals via quadrature, and solving differential equations via spectral methods.</p>
-
-                    <p>These packages are particularly relevant to the astrophysics, computational fluid dynamics, and biology communities, where simple geometries such as the sphere are prevalent. For example, nonlinear advection equations on the sphere, such as the shallow water equations, are of significant importance in atmospheric numerical modeling, while reaction-diffusion equations in a spherical shell are widely used as a model for convection patterns within the Earth's mantle, as well as for the modeling of morphogenesis in embryos. On top of these standard local differential equations, their nonlocal integral analogs are becoming more and more popular to model a wide range of phenomena in these communities.</p>
-
-                    <h4>Results (Ph.D. work at Oxford)</h4>
-
-                    <p>My Ph.D. introduced new numerical methods for the simulation of periodic physical phenomena.</p>
-
-                    <p>The first year of my Ph.D. work was about the computation with periodic functions via approximations by trigonometric polynomials to machine precision, including the solution of nonlinear ODEs and ODE eigenvalue problems. For example, the Sturm&ndash;Liouville problem with periodic boundary conditions,
-                    $$
-                    -\frac{d}{d\theta}\Big[p(\theta)\frac{du}{d\theta}\Big]+q(\theta)u(\theta)=\lambda w(\theta)u(\theta), \;\, \theta\in[0, 2\pi],
-                    $$
-                    is discretized by \((-\mathbf{D}_N\mathbf{M}[p]\mathbf{D}_N + \mathbf{M}[q])\hat{u} = \lambda\mathbf{M}[w]\hat{u}\), where \(\mathbf{D}_N\) and \(\mathbf{M}[f]\) are the differentiation and multiplication by \(f\) matrices in Fourier space, and \(\hat{u}\) is the vector of Fourier coefficients of \(u\).</p>
-
-                    <p>During my second year, I investigated the computation of choreographies, periodic solutions in time of the \(n\)-body problem in which the bodies share a common orbit. The \(n\)-body problem describes the motion of \(n\) point particles \(z_j(t)\in\mathbb{C}\), \(0\leq j\leq n-1\), through 
-                    $$
-                    z_j^{''}(t) - \sum_{\underset{i\neq j}{i=0}}^{n-1} \frac{z_i(t) - z_j(t)}{\big\vert z_i(t) - z_j(t) \big\vert^3} = 0, \;\, 0\leq j\leq n-1.
-                    $$
-                    Since choreographies share a single orbit and are uniformly spread along it, these can be written as \(z_j(t) = q(t + 2\pi j/n)\), for some \(2\pi\)-periodic function \(q:[0,2\pi]\rightarrow\mathbb{C}\), and are minima of the action
-                    $$
-                    \begin{align}
-                    A = \, & \frac{n}{2}\int_0^{2\pi} \big\vert q'(t) \big\vert^2 dt \\
-                    & + \frac{n}{2}\sum_{j=1}^{n-1} \int_0^{2\pi} \Big\vert q(t) - q\Big(t + \frac{2\pi j}{n}\Big) \Big\vert^{-1}dt.
-                    \end{align}
-                    $$
-                    I proposed an algorithm based on interpolation and optimization for computing choreographies, which I implemented in the <a href="https://github.com/Hadrien-Montanelli/choreolab">choreolab</a> MATLAB package.</p>
-
-                    <center>
-                    <img src="/blog/choreo.jpg" class="img-responsive">
-                    </center>
-
-                    <p>In my third year, I worked on stiff PDEs of the form
-                    $$
-                    u_t = \mathcal{L}u + \mathcal{N}(u), \quad u(0,\boldsymbol{x})=u_0(\boldsymbol{x}),
-                    $$
-                    where \(u(t,\boldsymbol{x})\) is a function of time \(t\) and space \(\boldsymbol{x}\), \(\mathcal{L}\) is a linear differential operator on a spatial domain in one, two or three periodic space dimensions and \(\mathcal{N}\) is a nonlinear operator of lower order. I compared 30 high-order exponential integrators and showed that is it hard to beat one of the simplest integrators. Implementations in the <a href="https://github.com/chebfun/chebfun">chebfun</a> MATLAB package allow one to compute the solutions of many PDEs quickly and accurately (<code>spin</code> code). I also implemented some of these integrators in the <a href="https://github.com/Hadrien-Montanelli/chebpy">chebpy</a> Python package.</p>
-
-                    <center>
-                    <img src="/blog/iconic.png" class="img-responsive">
-                    </center>
-
-                    <p>The main project of my final year at Oxford was on stiff PDEs on the unit sphere of the form
-                    $$
-                    u_t = \mathcal{L}u + \mathcal{N}(u), \;\; u(t=0,x,y,z)=u_0(x,y,z).
-                    $$
-                    I proposed a novel fast algorithm based on a variant of the double Fourier sphere method and implicit-explicit time-stepping schemes (<code>spinsphere</code> code).</p>
-
-                    <center>
-                    <img src="/blog/pdesphere.jpg" class="img-responsive">
-                    </center>
-
-                    <h4>Results (Postdoctoral work at Columbia)</h4>
-
-                    <p>With discretizations of operators in hand, I explored potential applications in biology. I used the fast algorithms I developed to investigate pattern formation and explain symmetry breaking on the sphere.</p>
-
-                    <center>
-                    <img src="/blog/sphericalcaps3.jpg" class="img-responsive">
-                    </center>
-
-                    <p>I also introduced nonlocal diffusion operators on the sphere \(\mathbb{S}^2\),
-                    $$
-                    \mathcal{L}_\delta u(\boldsymbol{x}) = \int_{\mathbb{S}^2} \rho_\delta(\vert\boldsymbol{x}-\boldsymbol{y}\vert)
-                    [u(\boldsymbol{y}) - u(\boldsymbol{x})]\,d\Omega(\boldsymbol{y}),
-                    $$
-                    where\(\rho_\delta\) is a suitably defined (singular) nonlocal kernel. I presented algorithms for solving PDEs involving such operators with spectral accuracy in space and high-order accuracy in time. These are based on the diagonalization of the nonlocal operators, the high-accuracy computation of their eigenvalues, a fast spherical harmonic transform, and exponential integrators.</p>
-
-                    <center>
-                    <img src="/blog/nonlocalpdesphere.jpg" class="img-responsive">
-                    </center>
-
-                    <h4>Collaborators</h4>
-
-                    <p><a href="http://www.columbia.edu/~qd2125/">Qiang Du</a> (Columbia), <a href="https://people.maths.ox.ac.uk/nakatsukasa/">Yuji Nakatsukasa</a> & <a href="https://people.maths.ox.ac.uk/trefethen/">Nick Trefethen</a> (Oxford), <a href="http://shvartsmanlab.com/">Stanislav Shvartsman</a> (Princeton), <a href="https://home.cc.umanitoba.ca/~slevinrm/">Mikael Slevinsky</a> (Manitoba)</p>
-
-                    <h4>Sofware</h4>
-
-                    <p><a href="https://github.com/chebfun/chebfun">chebfun</a> &mdash; MATLAB package to approximate functions and solve PDEs</p>
-                    <p><a href="https://github.com/Hadrien-Montanelli/chebpy">chebpy</a> &mdash; Python package for solving PDEs</p>
-                    <p><a href="https://github.com/Hadrien-Montanelli/choreolab">choreolab</a> &mdash; MATLAB package for computing choreographies</p>
-
-                    <h4>Papers</h4>
-
-                    <p>2020 &nbsp; M. & Bootland, <i><b>Solving periodic stiff PDEs in 1D, 2D and 3D with exponential integrators</b></i> <a href="https://www.sciencedirect.com/science/article/abs/pii/S037847542030210X"><mark>doi</mark></a> <a href="https://arxiv.org/pdf/1604.08900.pdf"><mark>arXiv</mark></a></p>
-
-                    <p>2018 &nbsp; Diegmiller, M., Muratov & Shvarstman <i><b>Spherical caps in cell polarization</b></i> <a href="https://www.cell.com/biophysj/fulltext/S0006-3495(18)30672-6"><mark>doi</mark></a></p>
-
-                    <p>2018 &nbsp; Slevinsky, M. & Du, <i><b>A spectral method for nonlocal diffusion operators on the sphere</b></i> <a href="https://www.sciencedirect.com/science/article/pii/S0021999118304029"><mark>doi</mark></a> <a href="https://arxiv.org/pdf/1801.04902.pdf"><mark>arXiv</mark></a></p>
-                    
-                    <p>2018 &nbsp; M. & Nakatsukasa, <i><b>Fourth-order time-stepping for stiff PDEs on the sphere</b></i> <a href="https://epubs.siam.org/doi/abs/10.1137/17M1112728"><mark>doi</mark></a> <a href="https://arxiv.org/pdf/1701.06030.pdf"><mark>arXiv</mark></a></p>
-
-                    <p>2016 &nbsp; M., <i><b>Computing hyperbolic choreographies</b></i> <a href="https://link.springer.com/article/10.1134/S1560354716050038"><mark>doi</mark></a> <a href="https://arxiv.org/pdf/1606.01850.pdf"><mark>arXiv</mark></a></p> 
-
-                    <p>2016 &nbsp; M. & Gushterov, <i><b>Computing planar and spherical choreographies</b></i> <a href="https://epubs.siam.org/doi/abs/10.1137/15M1024652"><mark>doi</mark></a> <a href="https://arxiv.org/pdf/1505.04848.pdf"><mark>arXiv</mark></a></p>
-                   
-                    <p>2015 &nbsp; Wright, Javed, M. & Trefethen, <i><b>Extension of Chebfun to periodic functions</b></i> <a href="https://epubs.siam.org/doi/10.1137/141001007"><mark>doi</mark></a> <a href="https://arxiv.org/pdf/1511.00166.pdf"><mark>arXiv</mark></a></p>
-
-                    <h4>Blog posts</h4>
-
-                    <p>2020 &nbsp; <a href="2020-05-19.html">Exponential integrators for stiff PDEs</a></p>
-                    <p>2018 &nbsp; <a href="2018-12-05.html">Computer-assisted proofs for PDEs</a></p>
-                    <p>2018 &nbsp; <a href="2018-02-27.html">Spherical caps in cell polarization</a></p>
-                    <p>2018 &nbsp; <a href="2018-01-25.html">Solving nonlocal PDEs on the sphere</a></p>
-                    <p>2018 &nbsp; <a href="2018-01-04.html">Gibbs phenomenon and Cesàro mean</a></p>
-                    <p>2017 &nbsp; <a href="2017-10-26.html">Solving PDEs on the sphere</a></p>
-                    <p>2017 &nbsp; <a href="2017-10-09.html">When planets dance</a></p>
-
-                    <h3>Neural network approximation theory</h3>
-
-                    <h4>Background</h4>
-
-                    <p>I am interested in the mathematical properties of neural network models. In particular, I am trying to understand why and when neural networks break the curse of dimensionality.</p> 
-
-                    <p>For a real-valued function \(f\) in \(\mathbb{R}^d\) whose smoothness is characterized by some integer \(m\) (typically the order of integrable or bounded derivatives) and for some prescribed \(\epsilon>0\), one tries to show that there exists a neural network \(f_W\) of size \(W\) that satisfies, for some norm \(\Vert\cdot\Vert\),
-                    $$
-                    \Vert f - f_W \Vert \leq \epsilon \quad \text{with} \quad W=\mathcal{O}(\epsilon^{-\frac{d}{m}}).
-                    $$
-                    For deep neural networks, one also wants to find the asymptotic behavior of the depth \(L\) as a function of the error \(\epsilon\). (Note that the size \(W\) is the total number of parameters while the depth \(L\) is the number of hidden layers.) Results of this form are standard approximation results that suffer from the curse of dimensionality: for small dimensions \(d\), the size \(W\) of the network increases at a reasonable rate as \(\epsilon\) goes to zero; however, \(W\) grows geometrically with \(d\).</p>
+                    <p>A typical inverse scattering problem is the identification of the shape of a defect inside a medium by sending waves that propagate within. In the data acquisition step, several receivers record the medium's response that forms the data of the inverse problem; in the data processing step, numerical algorithms are used to recover an approximation of the shape from the measurements. What I have just described is an example of active imaging, where both the sources and the receivers are controlled. In passive imaging, only receivers are employed and the illumination comes from uncontrolled, random sources. In this setup, it is the cross-correlations between the recorded signals that convey information about the medium through which the waves propagate. While there are many techniques available for inverse scattering problems in active imaging, only linearization approaches have been developed so far in passive imaging.</p>
 
                     <h4>Results</h4>
 
-                    <p>In 2019, I showed that functions in the so-called Korobov spaces \(X^{2,p}(\Omega)\) of mixed derivatives in \(\Omega\subset\mathbb{R}^d\) can be approximated with error \(\epsilon\) by neural networks of depth \(L=\mathcal{O}(\vert\log\epsilon\vert\log d)\) and size \(W=\mathcal{O}(\epsilon^{-\frac{1}{2}}\vert\log\epsilon\vert^{\frac{3}{2}(d-1)+1}(d-1))\). The curse of dimensionality is lessened since \(d\) only affects logarithmic factors.</p> 
+                    <p>In 2022, I presented an extension of the linear sampling method for solving the sound-soft inverse acoustic scattering problem with randomly distributed point sources. The theoretical justification of my sampling method is based on the Helmholtz&ndash;Kirchhoff identity, the cross-correlation between measurements, and the volume and imaginary near-field operators, which I introduced and analyzed. The resulting method gives comparable results to the standard linear sampling method with deterministic sources.</p>
 
-                    <p>In 2020, I used the Kolmogorov&ndash;Arnold theorem to show that a subset of the continuous functions in \([0,1]^d\) can be approximated with error \(\epsilon\) by neural networks of depth and size \(L,W=\mathcal{O}(\epsilon^{-\log d})\).</p>
-
-                    <p>Finally, in 2021, I considered generalized bandlimited functions \(f:[0,1]^d\rightarrow\mathbb{R}\) of the form
-                    $$
-                    f(\boldsymbol{x}) = \int_{\mathbb{R}^d}F(\boldsymbol{w})K(\boldsymbol{w}\cdot\boldsymbol{x})d\boldsymbol{w}, 
-                    $$
-                    with \(\mathrm{supp}\,F\subset [-M,M]^d\), \(M\geq 1\), and for some integrable function \(F:[-M,M]^d\rightarrow\mathbb{C}\) and analytic kernel \(K:\mathbb{R}\rightarrow\mathbb{C}\). I proved that such functions can be approximated with error \(\epsilon\) by neural networks of depth \(L=\mathcal{O}(\log^2\epsilon^{-1})\) and size \(W=\mathcal{O}(\epsilon^{-2}\log^2\epsilon^{-1})\).</p>
+                    <div class="row">
+                      <div class="column">
+                        <img src="/blog/matrix-N-kite.jpg" class="img-responsive">
+                      </div>
+                      <div class="column">
+                        <img src="/blog/lsm-N-kite.jpg" class="img-responsive">
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="column">
+                        <img src="/blog/matrix-I-kite.jpg" class="img-responsive">
+                      </div>
+                      <div class="column">
+                        <img src="/blog/lsm-I-kite.jpg" class="img-responsive">
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="column">
+                        <img src="/blog/matrix-C-kite.jpg" class="img-responsive">
+                      </div>
+                      <div class="column">
+                        <img src="/blog/lsm-C-kite.jpg" class="img-responsive">
+                      </div>
+                    </div>
 
                     <h4>Collaborators</h4>
 
-                    <p><a href="http://www.columbia.edu/~qd2125/">Qiang Du</a> (Columbia), <a href="https://haizhaoyang.github.io/">Haizhao Yang</a> (Maryland)</p>
-
-                    <h4>Sofware</h4>
-
-                    <p><a href="https://github.com/Hadrien-Montanelli/learnpy">learnpy</a> &mdash; Python package for supervised & unsupervised learning</p>
+                    <p> <a href="https://josselin-garnier.org/}{Josselin Garnier">Josselin Garnier</a> (IP Paris), <a href="https://perso.ensta-paris.fr/~haddar/">Houssem Haddar</a> (Inria & IP Paris)</p>
 
                     <h4>Papers</h4>
 
-                    <p>2021 &nbsp; M., Yang & Du, <i><b>Deep ReLU networks overcome the curse of dimensionality for generalized bandlimited functions</b></i> <a href="https://global-sci.org/intro/article_detail/jcm/19912.html"><mark>doi</mark></a> <a href="https://arxiv.org/pdf/1903.00735.pdf"><mark>arXiv</mark></a></p>
-
-                    <p>2020 &nbsp; M. & Yang, <i><b>Error bounds for deep ReLU networks using the Kolmogorov&ndash;Arnold superposition theorem</b></i> <a href="https://linkinghub.elsevier.com/retrieve/pii/S0893608019304058"><mark>doi</mark></a> <a href="https://arxiv.org/pdf/1906.11945.pdf"><mark>arXiv</mark></a></p>
-                    
-                    <p>2019 &nbsp; M. & Du, <i><b>New error bounds for deep ReLU networks using sparse grids</b></i> <a href="https://epubs.siam.org/doi/abs/10.1137/18M1189336"><mark>doi</mark></a> <a href="https://arxiv.org/pdf/1712.08688.pdf"><mark>arXiv</mark></a></p>
+                    <p>2022 &nbsp; Garnier, Haddar & M., <i><b>The linear sampling method for random sources</b></i> <a href="https://arxiv.org/pdf/2210.15560.pdf"><mark>arXiv</mark></a></p>
 
                     <h4>Blog posts</h4>
 
-                    <p>2019 &nbsp; <a href="2019-06-25.html">Deep networks and the Kolmogorov&ndash;Arnold theorem</a></p>
-                    <p>2019 &nbsp; <a href="2019-03-02.html">Deep networks and bandlimited functions</a></p>
-                    <p>2017 &nbsp; <a href="2017-12-22.html">Deep networks and the curse of dimensionality</a></p>
+                    <p>2022 &nbsp; <a href="2022-11-04.html">The linear sampling method for random sources</a></p>
 
-                    <h3>Boudary element methods</h3>
+                    <h3>Boundary element methods</h3>
 
                     <h4>Background</h4>
 
@@ -310,52 +201,161 @@ https://www.tooplate.com/view/2085-neuron
 
                     <p>2021 &nbsp; <a href="2021-11-25.html">Singular integrals over curved elements</a></p>
 
-                    <h3>Inverse acousting scattering</h3>
+                    <h3>Neural network approximation theory</h3>
 
                     <h4>Background</h4>
 
-                    <p>A typical inverse scattering problem is the identification of the shape of a defect inside a medium by sending waves that propagate within. In the data acquisition step, several receivers record the medium's response that forms the data of the inverse problem; in the data processing step, numerical algorithms are used to recover an approximation of the shape from the measurements. What I have just described is an example of active imaging, where both the sources and the receivers are controlled. In passive imaging, only receivers are employed and the illumination comes from uncontrolled, random sources. In this setup, it is the cross-correlations between the recorded signals that convey information about the medium through which the waves propagate. While there are many techniques available for inverse scattering problems in active imaging, only linearization approaches have been developed so far in passive imaging.</p>
+                    <p>I am interested in the mathematical properties of neural network models. In particular, I am trying to understand why and when neural networks break the curse of dimensionality.</p> 
+
+                    <p>For a real-valued function \(f\) in \(\mathbb{R}^d\) whose smoothness is characterized by some integer \(m\) (typically the order of integrable or bounded derivatives) and for some prescribed \(\epsilon>0\), one tries to show that there exists a neural network \(f_W\) of size \(W\) that satisfies, for some norm \(\Vert\cdot\Vert\),
+                    $$
+                    \Vert f - f_W \Vert \leq \epsilon \quad \text{with} \quad W=\mathcal{O}(\epsilon^{-\frac{d}{m}}).
+                    $$
+                    For deep neural networks, one also wants to find the asymptotic behavior of the depth \(L\) as a function of the error \(\epsilon\). (Note that the size \(W\) is the total number of parameters while the depth \(L\) is the number of hidden layers.) Results of this form are standard approximation results that suffer from the curse of dimensionality: for small dimensions \(d\), the size \(W\) of the network increases at a reasonable rate as \(\epsilon\) goes to zero; however, \(W\) grows geometrically with \(d\).</p>
 
                     <h4>Results</h4>
 
-                    <p>In 2022, I presented an extension of the linear sampling method for solving the sound-soft inverse acoustic scattering problem with randomly distributed point sources. The theoretical justification of my sampling method is based on the Helmholtz&ndash;Kirchhoff identity, the cross-correlation between measurements, and the volume and imaginary near-field operators, which I introduced and analyzed. The resulting method gives comparable results to the standard linear sampling method with deterministic sources.</p>
+                    <p>In 2019, I showed that functions in the so-called Korobov spaces \(X^{2,p}(\Omega)\) of mixed derivatives in \(\Omega\subset\mathbb{R}^d\) can be approximated with error \(\epsilon\) by neural networks of depth \(L=\mathcal{O}(\vert\log\epsilon\vert\log d)\) and size \(W=\mathcal{O}(\epsilon^{-\frac{1}{2}}\vert\log\epsilon\vert^{\frac{3}{2}(d-1)+1}(d-1))\). The curse of dimensionality is lessened since \(d\) only affects logarithmic factors.</p> 
 
-                    <div class="row">
-                      <div class="column">
-                        <img src="/blog/matrix-N-kite.jpg" class="img-responsive">
-                      </div>
-                      <div class="column">
-                        <img src="/blog/lsm-N-kite.jpg" class="img-responsive">
-                      </div>
-                    </div>
-                    <div class="row">
-                      <div class="column">
-                        <img src="/blog/matrix-I-kite.jpg" class="img-responsive">
-                      </div>
-                      <div class="column">
-                        <img src="/blog/lsm-I-kite.jpg" class="img-responsive">
-                      </div>
-                    </div>
-                    <div class="row">
-                      <div class="column">
-                        <img src="/blog/matrix-C-kite.jpg" class="img-responsive">
-                      </div>
-                      <div class="column">
-                        <img src="/blog/lsm-C-kite.jpg" class="img-responsive">
-                      </div>
-                    </div>
+                    <p>In 2020, I used the Kolmogorov&ndash;Arnold theorem to show that a subset of the continuous functions in \([0,1]^d\) can be approximated with error \(\epsilon\) by neural networks of depth and size \(L,W=\mathcal{O}(\epsilon^{-\log d})\).</p>
+
+                    <p>Finally, in 2021, I considered generalized bandlimited functions \(f:[0,1]^d\rightarrow\mathbb{R}\) of the form
+                    $$
+                    f(\boldsymbol{x}) = \int_{\mathbb{R}^d}F(\boldsymbol{w})K(\boldsymbol{w}\cdot\boldsymbol{x})d\boldsymbol{w}, 
+                    $$
+                    with \(\mathrm{supp}\,F\subset [-M,M]^d\), \(M\geq 1\), and for some integrable function \(F:[-M,M]^d\rightarrow\mathbb{C}\) and analytic kernel \(K:\mathbb{R}\rightarrow\mathbb{C}\). I proved that such functions can be approximated with error \(\epsilon\) by neural networks of depth \(L=\mathcal{O}(\log^2\epsilon^{-1})\) and size \(W=\mathcal{O}(\epsilon^{-2}\log^2\epsilon^{-1})\).</p>
 
                     <h4>Collaborators</h4>
 
-                    <p> <a href="https://josselin-garnier.org/}{Josselin Garnier">Josselin Garnier</a> (IP Paris), <a href="https://perso.ensta-paris.fr/~haddar/">Houssem Haddar</a> (Inria & IP Paris)</p>
+                    <p><a href="http://www.columbia.edu/~qd2125/">Qiang Du</a> (Columbia), <a href="https://haizhaoyang.github.io/">Haizhao Yang</a> (Maryland)</p>
+
+                    <h4>Software</h4>
+
+                    <p><a href="https://github.com/Hadrien-Montanelli/learnpy">learnpy</a> &mdash; Python package for supervised & unsupervised learning</p>
 
                     <h4>Papers</h4>
 
-                    <p>2022 &nbsp; Garnier, Haddar & M., <i><b>The linear sampling method for random sources</b></i> <a href="https://arxiv.org/pdf/2210.15560.pdf"><mark>arXiv</mark></a></p>
+                    <p>2021 &nbsp; M., Yang & Du, <i><b>Deep ReLU networks overcome the curse of dimensionality for generalized bandlimited functions</b></i> <a href="https://global-sci.org/intro/article_detail/jcm/19912.html"><mark>doi</mark></a> <a href="https://arxiv.org/pdf/1903.00735.pdf"><mark>arXiv</mark></a></p>
+
+                    <p>2020 &nbsp; M. & Yang, <i><b>Error bounds for deep ReLU networks using the Kolmogorov&ndash;Arnold superposition theorem</b></i> <a href="https://linkinghub.elsevier.com/retrieve/pii/S0893608019304058"><mark>doi</mark></a> <a href="https://arxiv.org/pdf/1906.11945.pdf"><mark>arXiv</mark></a></p>
+                    
+                    <p>2019 &nbsp; M. & Du, <i><b>New error bounds for deep ReLU networks using sparse grids</b></i> <a href="https://epubs.siam.org/doi/abs/10.1137/18M1189336"><mark>doi</mark></a> <a href="https://arxiv.org/pdf/1712.08688.pdf"><mark>arXiv</mark></a></p>
 
                     <h4>Blog posts</h4>
 
-                    <p>2022 &nbsp; <a href="2022-11-04.html">The linear sampling method for random sources</a></p>
+                    <p>2019 &nbsp; <a href="2019-06-25.html">Deep networks and the Kolmogorov&ndash;Arnold theorem</a></p>
+                    <p>2019 &nbsp; <a href="2019-03-02.html">Deep networks and bandlimited functions</a></p>
+                    <p>2017 &nbsp; <a href="2017-12-22.html">Deep networks and the curse of dimensionality</a></p>
+
+               	<h3>Spectral methods</h3>
+
+                    <h4>Background</h4>
+
+                    <p>Orthogonal polynomials lie at the heart of scientific computing. In the last ten years, there has been a renewed interest in their properties, which has contributed to the development of more efficient algorithms. In particular, asymptotic expansions and the exploitation of sparsity and low-rank structure in recurrence relations have been some of the key ingredients in the design of packages such as <a href="https://www.chebfun.org/">chebfun</a> (MATLAB), <a href="https://github.com/JuliaApproximation/ApproxFun.jl">approxfun</a> (Julia), and <a href=https://dedalus-project.org/">dedalus</a> (Python), which have automated the computation with orthogonal polynomials for approximating functions via interpolation, computing integrals via quadrature, and solving differential equations via spectral methods.</p>
+
+                    <p>These packages are particularly relevant to the astrophysics, computational fluid dynamics, and biology communities, where simple geometries such as the sphere are prevalent. For example, nonlinear advection equations on the sphere, such as the shallow water equations, are of significant importance in atmospheric numerical modeling, while reaction-diffusion equations in a spherical shell are widely used as a model for convection patterns within the Earth's mantle, as well as for the modeling of morphogenesis in embryos. On top of these standard local differential equations, their nonlocal integral analogs are becoming more and more popular to model a wide range of phenomena in these communities.</p>
+
+                    <h4>Results (Ph.D. at Oxford)</h4>
+
+                    <p>My Ph.D. introduced new numerical methods for the simulation of periodic physical phenomena.</p>
+
+                    <p>The first year of my Ph.D. work was about the computation with periodic functions via approximations by trigonometric polynomials to machine precision, including the solution of nonlinear ODEs and ODE eigenvalue problems. For example, the Sturm&ndash;Liouville problem with periodic boundary conditions,
+                    $$
+                    -\frac{d}{d\theta}\Big[p(\theta)\frac{du}{d\theta}\Big]+q(\theta)u(\theta)=\lambda w(\theta)u(\theta),
+                    $$
+                    is discretized by \((-\mathbf{D}_N\mathbf{M}[p]\mathbf{D}_N + \mathbf{M}[q])\widehat{u} = \lambda\mathbf{M}[w]\widehat{u}\), where \(\mathbf{D}_N\) and \(\mathbf{M}[f]\) are the differentiation and multiplication by \(f\) matrices in Fourier space, and \(\widehat{u}\) is the vector of Fourier coefficients of \(u\).</p>
+
+                    <p>During my second year, I investigated the computation of choreographies, periodic solutions in time of the \(n\)-body problem in which the bodies share a common orbit. The \(n\)-body problem describes the motion of \(n\) point particles \(z_j(t)\in\mathbb{C}\), \(0\leq j\leq n-1\), through 
+                    $$
+                    z_j^{''}(t) - \sum_{\underset{i\neq j}{i=0}}^{n-1} \frac{z_i(t) - z_j(t)}{\big\vert z_i(t) - z_j(t) \big\vert^3} = 0, \;\, 0\leq j\leq n-1.
+                    $$
+                    Since choreographies share a single orbit and are uniformly spread along it, these can be written as \(z_j(t) = q(t + 2\pi j/n)\), for some \(2\pi\)-periodic function \(q:[0,2\pi]\rightarrow\mathbb{C}\), and are minima of the action
+                    $$
+                    \begin{align}
+                    A = \, & \frac{n}{2}\int_0^{2\pi} \big\vert q'(t) \big\vert^2 dt \\
+                    & + \frac{n}{2}\sum_{j=1}^{n-1} \int_0^{2\pi} \Big\vert q(t) - q\Big(t + \frac{2\pi j}{n}\Big) \Big\vert^{-1}dt.
+                    \end{align}
+                    $$
+                    I proposed an algorithm based on interpolation and optimization for computing choreographies, which I implemented in the <a href="https://github.com/Hadrien-Montanelli/choreolab">choreolab</a> MATLAB package.</p>
+
+                    <center>
+                    <img src="/blog/choreo.jpg" class="img-responsive">
+                    </center>
+
+                    <p>In my third year, I worked on stiff PDEs of the form
+                    $$
+                    u_t = \mathcal{L}u + \mathcal{N}(u), \quad u(0,\boldsymbol{x})=u_0(\boldsymbol{x}),
+                    $$
+                    where \(u(t,\boldsymbol{x})\) is a function of time \(t\) and space \(\boldsymbol{x}\), \(\mathcal{L}\) is a linear differential operator on a spatial domain in one, two or three periodic space dimensions and \(\mathcal{N}\) is a nonlinear operator of lower order. I compared 30 high-order exponential integrators and showed that is it hard to beat one of the simplest integrators. Implementations in the <a href="https://github.com/chebfun/chebfun">chebfun</a> MATLAB package allow one to compute the solutions of many PDEs quickly and accurately (<code>spin</code> code). I also implemented some of these integrators in the <a href="https://github.com/Hadrien-Montanelli/chebpy">chebpy</a> Python package.</p>
+
+                    <center>
+                    <img src="/blog/iconic.png" class="img-responsive">
+                    </center>
+
+                    <p>The main project of my final year at Oxford was on stiff PDEs on the unit sphere of the form
+                    $$
+                    u_t = \mathcal{L}u + \mathcal{N}(u), \;\; u(t=0,x,y,z)=u_0(x,y,z).
+                    $$
+                    I proposed a novel fast algorithm based on a variant of the double Fourier sphere method and implicit-explicit time-stepping schemes (<code>spinsphere</code> code).</p>
+
+                    <center>
+                    <img src="/blog/pdesphere.jpg" class="img-responsive">
+                    </center>
+
+                    <h4>Results (Postdoc at Columbia)</h4>
+
+                    <p>With discretizations of operators in hand, I explored potential applications in biology. I used the fast algorithms I developed to investigate pattern formation and explain symmetry breaking on the sphere.</p>
+
+                    <center>
+                    <img src="/blog/sphericalcaps3.jpg" class="img-responsive">
+                    </center>
+
+                    <p>I also introduced nonlocal diffusion operators on the sphere \(\mathbb{S}^2\),
+                    $$
+                    \mathcal{L}_\delta u(\boldsymbol{x}) = \int_{\mathbb{S}^2} \rho_\delta(\vert\boldsymbol{x}-\boldsymbol{y}\vert)
+                    [u(\boldsymbol{y}) - u(\boldsymbol{x})]\,d\Omega(\boldsymbol{y}),
+                    $$
+                    where\(\rho_\delta\) is a suitably defined (singular) nonlocal kernel. I presented algorithms for solving PDEs involving such operators with spectral accuracy in space and high-order accuracy in time. These are based on the diagonalization of the nonlocal operators, the high-accuracy computation of their eigenvalues, a fast spherical harmonic transform, and exponential integrators.</p>
+
+                    <center>
+                    <img src="/blog/nonlocalpdesphere.jpg" class="img-responsive">
+                    </center>
+
+                    <h4>Collaborators</h4>
+
+                    <p><a href="http://www.columbia.edu/~qd2125/">Qiang Du</a> (Columbia), <a href="https://people.maths.ox.ac.uk/nakatsukasa/">Yuji Nakatsukasa</a> & <a href="https://people.maths.ox.ac.uk/trefethen/">Nick Trefethen</a> (Oxford), <a href="http://shvartsmanlab.com/">Stanislav Shvartsman</a> (Princeton), <a href="https://home.cc.umanitoba.ca/~slevinrm/">Mikael Slevinsky</a> (Manitoba)</p>
+
+                    <h4>Software</h4>
+
+                    <p><a href="https://github.com/chebfun/chebfun">chebfun</a> &mdash; MATLAB package to approximate functions and solve PDEs</p>
+                    <p><a href="https://github.com/Hadrien-Montanelli/chebpy">chebpy</a> &mdash; Python package for solving PDEs</p>
+                    <p><a href="https://github.com/Hadrien-Montanelli/choreolab">choreolab</a> &mdash; MATLAB package for computing choreographies</p>
+
+                    <h4>Papers</h4>
+
+                    <p>2020 &nbsp; M. & Bootland, <i><b>Solving periodic stiff PDEs in 1D, 2D and 3D with exponential integrators</b></i> <a href="https://www.sciencedirect.com/science/article/abs/pii/S037847542030210X"><mark>doi</mark></a> <a href="https://arxiv.org/pdf/1604.08900.pdf"><mark>arXiv</mark></a></p>
+
+                    <p>2018 &nbsp; Diegmiller, M., Muratov & Shvarstman <i><b>Spherical caps in cell polarization</b></i> <a href="https://www.cell.com/biophysj/fulltext/S0006-3495(18)30672-6"><mark>doi</mark></a></p>
+
+                    <p>2018 &nbsp; Slevinsky, M. & Du, <i><b>A spectral method for nonlocal diffusion operators on the sphere</b></i> <a href="https://www.sciencedirect.com/science/article/pii/S0021999118304029"><mark>doi</mark></a> <a href="https://arxiv.org/pdf/1801.04902.pdf"><mark>arXiv</mark></a></p>
+                    
+                    <p>2018 &nbsp; M. & Nakatsukasa, <i><b>Fourth-order time-stepping for stiff PDEs on the sphere</b></i> <a href="https://epubs.siam.org/doi/abs/10.1137/17M1112728"><mark>doi</mark></a> <a href="https://arxiv.org/pdf/1701.06030.pdf"><mark>arXiv</mark></a></p>
+
+                    <p>2016 &nbsp; M., <i><b>Computing hyperbolic choreographies</b></i> <a href="https://link.springer.com/article/10.1134/S1560354716050038"><mark>doi</mark></a> <a href="https://arxiv.org/pdf/1606.01850.pdf"><mark>arXiv</mark></a></p> 
+
+                    <p>2016 &nbsp; M. & Gushterov, <i><b>Computing planar and spherical choreographies</b></i> <a href="https://epubs.siam.org/doi/abs/10.1137/15M1024652"><mark>doi</mark></a> <a href="https://arxiv.org/pdf/1505.04848.pdf"><mark>arXiv</mark></a></p>
+                   
+                    <p>2015 &nbsp; Wright, Javed, M. & Trefethen, <i><b>Extension of Chebfun to periodic functions</b></i> <a href="https://epubs.siam.org/doi/10.1137/141001007"><mark>doi</mark></a> <a href="https://arxiv.org/pdf/1511.00166.pdf"><mark>arXiv</mark></a></p>
+
+                    <h4>Blog posts</h4>
+
+                    <p>2020 &nbsp; <a href="2020-05-19.html">Exponential integrators for stiff PDEs</a></p>
+                    <p>2018 &nbsp; <a href="2018-12-05.html">Computer-assisted proofs for PDEs</a></p>
+                    <p>2018 &nbsp; <a href="2018-02-27.html">Spherical caps in cell polarization</a></p>
+                    <p>2018 &nbsp; <a href="2018-01-25.html">Solving nonlocal PDEs on the sphere</a></p>
+                    <p>2018 &nbsp; <a href="2018-01-04.html">Gibbs phenomenon and Cesàro mean</a></p>
+                    <p>2017 &nbsp; <a href="2017-10-26.html">Solving PDEs on the sphere</a></p>
+                    <p>2017 &nbsp; <a href="2017-10-09.html">When planets dance</a></p>
    
                </div>
                
