@@ -106,27 +106,85 @@ https://www.tooplate.com/view/2085-neuron
 
                     <h4>Background</h4>
 
-                    <p>Orthogonal polynomials lie at the heart of scientific computing. In the last ten years, there has been a renewed interest in their properties, which has contributed to the development of more efficient algorithms. In particular, asymptotic expansions and the exploitation of sparsity and low-rank structure in recurrence relations have been some of the key ingredients in the design of packages such as <a href="https://www.chebfun.org/">Chebfun</a> (MATLAB), <a href="https://github.com/JuliaApproximation/ApproxFun.jl">Approxfun</a> (Julia), and <a href=https://dedalus-project.org/">Dedalus</a> (Python), which have automated the computation with orthogonal polynomials for approximating functions via interpolation, computing integrals via quadrature, and solving differential equations via spectral methods.</p>
+                    <p>Orthogonal polynomials lie at the heart of scientific computing. In the last ten years, there has been a renewed interest in their properties, which has contributed to the development of more efficient algorithms. In particular, asymptotic expansions and the exploitation of sparsity and low-rank structure in recurrence relations have been some of the key ingredients in the design of packages such as <a href="https://www.chebfun.org/">chebfun</a> (MATLAB), <a href="https://github.com/JuliaApproximation/ApproxFun.jl">approxfun</a> (Julia), and <a href=https://dedalus-project.org/">dedalus</a> (Python), which have automated the computation with orthogonal polynomials for approximating functions via interpolation, computing integrals via quadrature, and solving differential equations via spectral methods.</p>
 
                     <p>These packages are particularly relevant to the astrophysics, computational fluid dynamics, and biology communities, where simple geometries such as the sphere are prevalent. For example, nonlinear advection equations on the sphere, such as the shallow water equations, are of significant importance in atmospheric numerical modeling, while reaction-diffusion equations in a spherical shell are widely used as a model for convection patterns within the Earth's mantle, as well as for the modeling of morphogenesis in embryos. On top of these standard local differential equations, their nonlocal integral analogs are becoming more and more popular to model a wide range of phenomena in these communities.</p>
 
-                    <h4>Results (section in progress)</h4>
+                    <h4>Results (Ph.D. work at Oxford)</h4>
 
-                    <p>My PhD introduced new numerical methods for the simulation of periodic physical phenomena.</p>
+                    <p>My Ph.D. introduced new numerical methods for the simulation of periodic physical phenomena.</p>
+
+                    <p>The first year of my Ph.D. work was about the computation with periodic functions via approximations by trigonometric polynomials to machine precision, including the solution of nonlinear ODEs and ODE eigenvalue problems. For example, the Sturm&ndash;Liouville problem with periodic boundary conditions,
+                    $$
+                    -\frac{d}{d\theta}\Big[p(\theta)\frac{du}{d\theta}\Big]+q(\theta)u(\theta)=\lambda w(\theta)u(\theta), \;\, \theta\in[0, 2\pi],
+                    $$
+                    is discretized by \((-\mathbf{D}_N\mathbf{M}[p]\mathbf{D}_N + \mathbf{M}[q])\hat{u} = \lambda\mathbf{M}[w]\hat{u}\), where \(\mathbf{D}_N\) and \(\mathbf{M}[f]\) are the differentiation and multiplication by \(f\) matrices in Fourier space, and \(\hat{u}\) is the vector of Fourier coefficients of \(u\).</p>
+
+                    <p>During my second year, I investigated the computation of choreographies, periodic solutions in time of the \(n\)-body problem in which the bodies share a common orbit. The \(n\)-body problem describes the motion of \(n\) point particles \(z_j(t)\in\mathbb{C}\), \(0\leq j\leq n-1\), through 
+                    $$
+                    z_j^{''}(t) - \sum_{\underset{i\neq j}{i=0}}^{n-1} \frac{z_i(t) - z_j(t)}{\big\vert z_i(t) - z_j(t) \big\vert^3} = 0, \;\, 0\leq j\leq n-1.
+                    $$
+                    Since choreographies share a single orbit and are uniformly spread along it, these can be written as \(z_j(t) = q(t + 2\pi j/n)\), for some \(2\pi\)-periodic function \(q:[0,2\pi]\rightarrow\mathbb{C}\), and are minima of the action
+                    $$
+                    \begin{align}
+                    A = \, & \frac{n}{2}\int_0^{2\pi} \big\vert q'(t) \big\vert^2 dt \\
+                    & + \frac{n}{2}\sum_{j=1}^{n-1} \int_0^{2\pi} \Big\vert q(t) - q\Big(t + \frac{2\pi j}{n}\Big) \Big\vert^{-1}dt.
+                    \end{align}
+                    $$
+                    I proposed an algorithm based on interpolation and optimization for computing choreographies, which I implemented in the <a href="https://github.com/Hadrien-Montanelli/choreolab">choreolab</a> MATLAB package.</p>
+
+                    <center>
+                    <img src="/blog/choreo.jpg" class="img-responsive">
+                    </center>
 
                     <p>In my third year, I worked on stiff PDEs of the form
                     $$
                     u_t = \mathcal{L}u + \mathcal{N}(u), \quad u(0,\boldsymbol{x})=u_0(\boldsymbol{x}),
                     $$
-                    where \(u(t,\boldsymbol{x})\) is a function of time \(t\) and space \(\boldsymbol{x}\), \(\mathcal{L}\) is a linear differential operator on a spatial domain in one, two or three periodic space dimensions and \(\mathcal{N}\) is a nonlinear operator of lower order. I compared 30 high-order exponential integrators and showed that is it hard to beat one of the simplest integrators. Implementations in Chebfun allow one to compute the solutions of many PDEs quickly and accurately.</p>
+                    where \(u(t,\boldsymbol{x})\) is a function of time \(t\) and space \(\boldsymbol{x}\), \(\mathcal{L}\) is a linear differential operator on a spatial domain in one, two or three periodic space dimensions and \(\mathcal{N}\) is a nonlinear operator of lower order. I compared 30 high-order exponential integrators and showed that is it hard to beat one of the simplest integrators. Implementations in the <a href="https://github.com/chebfun/chebfun">chebfun</a> MATLAB package allow one to compute the solutions of many PDEs quickly and accurately (<code>spin</code> code). I also implemented some of these integrators in the <a href="https://github.com/Hadrien-Montanelli/chebpy">chebpy</a> Python package.</p>
 
                     <center>
                     <img src="/blog/iconic.png" class="img-responsive">
                     </center>
 
+                    <p>The main project of my final year at Oxford was on stiff PDEs on the unit sphere of the form
+                    $$
+                    u_t = \mathcal{L}u + \mathcal{N}(u), \;\; u(t=0,x,y,z)=u_0(x,y,z).
+                    $$
+                    I proposed a novel fast algorithm based on a variant of the double Fourier sphere method and implicit-explicit time-stepping schemes (<code>spinsphere</code> code).</p>
+
+                    <center>
+                    <img src="/blog/pdesphere.jpg" class="img-responsive">
+                    </center>
+
+                    <h4>Results (Postdoctoral work at Columbia)</h4>
+
+                    <p>With discretizations of operators in hand, I explored potential applications in biology. I used the fast algorithms I developed to investigate pattern formation and explain symmetry breaking on the sphere.</p>
+
+                    <center>
+                    <img src="/blog/sphericalcaps3.jpg" class="img-responsive">
+                    </center>
+
+                    <p>I also introduced nonlocal diffusion operators on the sphere \(\mathbb{S}^2\),
+                    $$
+                    \mathcal{L}_\delta u(\boldsymbol{x}) = \int_{\mathbb{S}^2} \rho_\delta(\vert\boldsymbol{x}-\boldsymbol{y}\vert)
+                    [u(\boldsymbol{y}) - u(\boldsymbol{x})]\,d\Omega(\boldsymbol{y}),
+                    $$
+                    where\(\rho_\delta\) is a suitably defined (singular) nonlocal kernel. I presented algorithms for solving PDEs involving such operators with spectral accuracy in space and high-order accuracy in time. These are based on the diagonalization of the nonlocal operators, the high-accuracy computation of their eigenvalues, a fast spherical harmonic transform, and exponential integrators.</p>
+
+                    <center>
+                    <img src="/blog/nonlocalpdesphere.jpg" class="img-responsive">
+                    </center>
+
                     <h4>Collaborators</h4>
 
                     <p><a href="http://www.columbia.edu/~qd2125/">Qiang Du</a> (Columbia), <a href="https://people.maths.ox.ac.uk/nakatsukasa/">Yuji Nakatsukasa</a> & <a href="https://people.maths.ox.ac.uk/trefethen/">Nick Trefethen</a> (Oxford), <a href="http://shvartsmanlab.com/">Stanislav Shvartsman</a> (Princeton), <a href="https://home.cc.umanitoba.ca/~slevinrm/">Mikael Slevinsky</a> (Manitoba)</p>
+
+                    <h4>Sofware</h4>
+
+                    <p><a href="https://github.com/chebfun/chebfun">chebfun</a> &mdash; MATLAB package to approximate functions and solve PDEs</p>
+                    <p><a href="https://github.com/Hadrien-Montanelli/chebpy">chebpy</a> &mdash; Python package for solving PDEs</p>
+                    <p><a href="https://github.com/Hadrien-Montanelli/choreolab">choreolab</a> &mdash; MATLAB package for computing choreographies</p>
 
                     <h4>Papers</h4>
 
@@ -168,7 +226,7 @@ https://www.tooplate.com/view/2085-neuron
 
                     <h4>Results</h4>
 
-                    <p>Three papers published&mdash;in 2019, I showed that functions in the so-called Korobov spaces \(X^{2,p}(\Omega)\) of mixed derivatives in \(\Omega\subset\mathbb{R}^d\) can be approximated with error \(\epsilon\) by neural networks of depth \(L=\mathcal{O}(\vert\log\epsilon\vert\log d)\) and size \(W=\mathcal{O}(\epsilon^{-\frac{1}{2}}\vert\log\epsilon\vert^{\frac{3}{2}(d-1)+1}(d-1))\). The curse of dimensionality is lessened since \(d\) only affects logarithmic factors.</p> 
+                    <p>In 2019, I showed that functions in the so-called Korobov spaces \(X^{2,p}(\Omega)\) of mixed derivatives in \(\Omega\subset\mathbb{R}^d\) can be approximated with error \(\epsilon\) by neural networks of depth \(L=\mathcal{O}(\vert\log\epsilon\vert\log d)\) and size \(W=\mathcal{O}(\epsilon^{-\frac{1}{2}}\vert\log\epsilon\vert^{\frac{3}{2}(d-1)+1}(d-1))\). The curse of dimensionality is lessened since \(d\) only affects logarithmic factors.</p> 
 
                     <p>In 2020, I used the Kolmogorov&ndash;Arnold theorem to show that a subset of the continuous functions in \([0,1]^d\) can be approximated with error \(\epsilon\) by neural networks of depth and size \(L,W=\mathcal{O}(\epsilon^{-\log d})\).</p>
 
@@ -181,6 +239,10 @@ https://www.tooplate.com/view/2085-neuron
                     <h4>Collaborators</h4>
 
                     <p><a href="http://www.columbia.edu/~qd2125/">Qiang Du</a> (Columbia), <a href="https://haizhaoyang.github.io/">Haizhao Yang</a> (Maryland)</p>
+
+                    <h4>Sofware</h4>
+
+                    <p><a href="https://github.com/Hadrien-Montanelli/learnpy">learnpy</a> &mdash; Python package for supervised & unsupervised learning</p>
 
                     <h4>Papers</h4>
 
@@ -210,7 +272,7 @@ https://www.tooplate.com/view/2085-neuron
 
                     <h4>Results</h4>
 
-                    <p>In 2022, I presented algorithms for computing weakly singular and near-singular integrals arising with high-order boundary elements. I utilized the continuation approach in a novel way that simplifies implementation, decreases computational costs, and carefully handles both singular and near-singular integrals&mdash;existing methods are designed for singular integrals but are not accurate in the near-singular case. More generally, the paper utilizes a variety of numerical tools (e.g., Newton's method, transplanted Gauss quadrature). The resulting method is applicable to any 3D object, including those with corners, resonant cavities, and thin layers. I am working on an extension of my method that deals with strongly singular kernels.</p>
+                    <p>In 2022, I presented algorithms for computing weakly singular and near-singular integrals arising with high-order boundary elements. I utilized the continuation approach in a novel way that simplifies implementation, decreases computational costs, and carefully handles both singular and near-singular integrals&mdash;existing methods are designed for singular integrals but are not accurate in the near-singular case. More generally, the paper utilizes a variety of numerical tools (e.g., Newton's method, transplanted Gauss quadrature). The resulting method is applicable to any 3D object, including those with corners, resonant cavities, and thin layers. I am working on an extension of my method that deals with strongly singular kernels. Implementations in C++ and Python can be found in the <a href="https://gitlab.labos.polytechnique.fr/leprojetcastor/castor">castor</a> and <a href="https://github.com/Hadrien-Montanelli/singintpy">singintpy</a> packages.</p>
 
                     <div class="row">
                       <div class="column">
@@ -232,6 +294,11 @@ https://www.tooplate.com/view/2085-neuron
                     <h4>Collaborators</h4>
 
                     <p> <a href="http://www.cmap.polytechnique.fr/~aussal/">Matthieu Aussal</a> (IP Paris), <a href="https://perso.ensta-paris.fr/~haddar/">Houssem Haddar</a> (Inria & IP Paris)</p>
+
+                    <h4>Software</h4>
+
+                    <p><a href="https://gitlab.labos.polytechnique.fr/leprojetcastor/castor">castor</a> &mdash; C++ package to solve scattering problems with BEMs</p>
+                    <p><a href="https://github.com/Hadrien-Montanelli/singintpy">singintpy</a> &mdash; Python package for computing singular & near-singular integrals on quadratic triangles</p>
 
                     <h4>Papers</h4>
 
