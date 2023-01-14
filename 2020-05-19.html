@@ -117,7 +117,6 @@ http://www.tooplate.com/view/2085-neuron
                     $$
                     where \(u(t,\boldsymbol{x})\) is a function of time \(t\) and space \(\boldsymbol{x}\), \(\mathcal{L}\) is a linear differential operator with constant coefficients, and \(\mathcal{N}\) is a nonlinear operator of lower order with constant coefficients.</p>
 
-
                     <p>In applications, PDEs of this kind typically arise when two or more different physical processes are combined, and many PDEs of interest in 
                     science and engineering take this form. For example, the <a href="https://en.wikipedia.org/wiki/Korteweg%E2%80%93de_Vries_equation">Korteweg&ndash;de Vries equation</a> \(u_t = -u_{xxx} - uu_x\), the starting point of the study of nonlinear waves and solitons, couples third-order linear dispersion with first-order convection, and the <a href="http://en.wikipedia.org/wiki/Allen–Cahn_equation">Allen&ndash;Cahn equation</a> \(u_t = \epsilon u_{xx} + u - u^3\) couples second-order linear 
                     diffusion with a nondifferentiated cubic reaction term.</p> 
@@ -170,6 +169,16 @@ http://www.tooplate.com/view/2085-neuron
 
                     <p>Our numerical experiments were performed using <a href="https://www.mathworks.com/products/matlab.html">MATLAB</a> and have been embedded within <a href="https://www.chebfun.org/">Chebfun</a>. More specifically, the <code>spin</code>, <code>spin2</code> and <code>spin3</code> codes implement a Fourier spectral method and exponential integrators to solve PDEs in 1D, 2D, and 3D periodic domains. The simplest way to see <code>spin</code> in action is to type simply <code>spin('ks')</code> (for the Kuramoto&ndash;Sivashinsky equation) or <code>spin2('gl')</code> (for the 2D Ginzburg&ndash;Landau equation) to invoke an example computation.
                     It is also possible to define your own PDE using the <code>spinop</code> class. Check out the <a href="https://www.chebfun.org/docs/guide/guide19.html">documentation</a> for details.</p> 
+
+                    <hr>     
+                    <h4>Blog posts about spectral methods</h4>
+                    <p>2020 &nbsp; <a href="2020-05-19.html">Exponential integrators for stiff PDEs</a></p>
+                    <p>2018 &nbsp; <a href="2018-12-05.html">Computer-assisted proofs for PDEs</a></p>
+                    <p>2018 &nbsp; <a href="2018-02-27.html">Spherical caps in cell polarization</a></p>
+                    <p>2018 &nbsp; <a href="2018-01-25.html">Solving nonlocal PDEs on the sphere</a></p>
+                    <p>2018 &nbsp; <a href="2018-01-04.html">Gibbs phenomenon and Cesàro mean</a></p>
+                    <p>2017 &nbsp; <a href="2017-10-26.html">Solving PDEs on the sphere</a></p>
+                    <p>2017 &nbsp; <a href="2017-10-09.html">When planets dance</a></p>
 
                </div>
                
