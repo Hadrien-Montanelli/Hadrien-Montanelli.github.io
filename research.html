@@ -159,7 +159,7 @@ https://www.tooplate.com/view/2085-neuron
 
                     <p>The Helmholtz equation \(\Delta u + k^2u = 0\) in the presence of an obstacle may be rewritten as an integral equation on the obstacle's boundary via layer potentials. For example, the radiating solution to the exterior Dirichlet problem \(\Delta u + k^2u = 0\) in \(\mathbb{R}^3\setminus\overline{D}\) with \(u = u_D\) on \(\partial D\), for some bounded \(D\) whose complement is connected, can be obtained via the equation
                     $$
-                    \int_{\partial D}G(\boldsymbol{x},\boldsymbol{y})\varphi(\boldsymbol{y})d\Gamma(\boldsymbol{y}) = u_D(\boldsymbol{x}), \quad \boldsymbol{x}\in\partial D,
+                    \int_{\partial D}G(\boldsymbol{x},\boldsymbol{y})\varphi(\boldsymbol{y})dS(\boldsymbol{y}) = u_D(\boldsymbol{x}), \quad \boldsymbol{x}\in\partial D,
                     $$
                     based on the single-layer potential; \(G\) is the Green's function of the Helmholtz equation in 3D. Once the integral equation is solved for \(\varphi\), the solution \(u\) may be represented by the left-hand side for all \(\boldsymbol{x}\in\mathbb{R}^3\setminus\overline{D}\). From a numerical point of view, such integral equations are particularly challenging for several reasons. First, when \(\boldsymbol{x}\) approaches \(\boldsymbol{y}\), the integral becomes singular and standard quadrature schemes fail to be accurate&mdash;analytic integration or carefully-derived quadrature formulas are required. Second, the resulting linear systems after discretization are dense. For large wavenumbers \(k\), only iterative methods can be used to solve them (with the help of specialized techniques to accelerate the matrix-vector products such as hierarchical matrices). In this respect, the use of high-order schemes may be helpful in enlarging the interval of feasible wavenumbers.</p>
 
@@ -196,8 +196,6 @@ https://www.tooplate.com/view/2085-neuron
                     <p><a href="https://github.com/Hadrien-Montanelli/singintpy">singintpy</a> &mdash; Python package for computing singular & near-singular integrals on quadratic triangles</p>
 
                     <h4>Papers</h4>
-
-                    <p>2023 &nbsp; M. & Haddar, <i><b>Computing singular and near-singular integrals over curved boundary elements: The strongly singular case</b></i></p>
 
                     <p>2022 &nbsp; M., Aussal & Haddar, <i><b>Computing weakly singular and near-singular integrals over curved boundary elements</b></i> <a href="https://epubs.siam.org/doi/epdf/10.1137/21M1462027"><mark>doi</mark></a> <a href="https://arxiv.org/pdf/2111.13151.pdf"><mark>arXiv</mark></a></p>
 
