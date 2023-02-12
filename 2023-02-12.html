@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<meta name="description" content="">
+<meta name="keywords" content="">
+<meta name="author" content="">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+<title>Finite-boundary element coupling in MATLAB</title>
+<!--
+
+Template 2085 Neuron
+
+http://www.tooplate.com/view/2085-neuron
+
+-->
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" href="css/font-awesome.min.css">
+<link rel="stylesheet" href="css/magnific-popup.css">
+
+<!-- Main css -->
+<link rel="stylesheet" href="css/style.css">
+<link href="https://fonts.googleapis.com/css?family=Lora|Merriweather:300,400" rel="stylesheet">
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-108246943-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-108246943-1');
+</script>
+
+<!-- Google AdSense -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8299683413193339" crossorigin="anonymous"></script>
+<script async src="https://fundingchoicesmessages.google.com/i/pub-8299683413193339?ers=1" nonce="AuY4vKpDElA9N7YwmFfMjg"></script>
+<script nonce="AuY4vKpDElA9N7YwmFfMjg">(function() {function signalGooglefcPresent() {if (!window.frames['googlefcPresent']) {if (document.body) {const iframe = document.createElement('iframe'); iframe.style = 'width: 0; height: 0; border: none; z-index: -1000; left: -1000px; top: -1000px;'; iframe.style.display = 'none'; iframe.name = 'googlefcPresent'; document.body.appendChild(iframe);} else {setTimeout(signalGooglefcPresent, 0);}}}signalGooglefcPresent();})();</script>
+
+</head>
+<body>
+
+<!-- Tikz for mathjax -->
+<link rel="stylesheet" type="text/css" href="https://tikzjax.com/v1/fonts.css">
+<script src="https://tikzjax.com/v1/tikzjax.js"></script>
+
+<!-- PRE LOADER -->
+
+<div class="preloader">
+     <div class="sk-spinner sk-spinner-wordpress">
+          <span class="sk-inner-circle"></span>
+     </div>
+</div>
+
+<!-- Navigation section  -->
+
+<div class="navbar navbar-default navbar-static-top" role="navigation">
+     <div class="container">
+
+          <div class="navbar-header">
+               <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon icon-bar"></span>
+                    <span class="icon icon-bar"></span>
+                    <span class="icon icon-bar"></span>
+               </button>
+               <a href="index.html" class="navbar-brand">H. Montanelli</a>
+          </div>
+          <div class="collapse navbar-collapse">
+               <ul class="nav navbar-nav navbar-right">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="publications.html">Publications</a></li>
+                    <li><a href="research.html">Research</a></li>
+                    <li><a href="talks.html">Talks</a></li>
+                    <li><a href="teaching.html">Teaching</a></li>
+                    <li><a href="https://www.paypal.com/donate/?hosted_button_id=UCLCSJLFL433E"><b>Donate</b></a></li>
+               </ul>
+          </div>
+
+  </div>
+</div>
+
+<!-- Home Section -->
+
+<section id="home" class="main-about parallax-section">
+     <div class="overlay"></div>
+     <div class="container">
+          <div class="row">
+
+               <div class="col-md-12 col-sm-12">
+                    <h1>Finite-boundary element coupling in MATLAB</h1>
+               </div>
+
+          </div>
+     </div>
+</section>
+
+<!-- Blog Single Post Section -->
+
+<section id="about">
+     <div class="container">
+          <div class="row">
+
+              <div class="col-md-offset-1 col-md-10 col-sm-12">     
+
+                    <p><i>February 12, 2023 &mdash; Support my next blog post, <a href="https://www.paypal.com/donate/?hosted_button_id=UCLCSJLFL433E">buy me a coffee</a> &#9749;.</i></p>
+
+                    <p>In this post, I talk about coupling the finite and boundary elment methods for solving <a href="https://en.wikipedia.org/wiki/Wave_propagation">wave propagation</a> problems in an inhomogeneous medum.</p>
+
+                    <h2>Acoustic waves in an inhomogeneous medium</h2>
+
+                    <p>We consider the following model with the total field \(u\):
+                    $$
+                    \begin{align}
+                    & \Delta w^s + k^2w^s = 0 \quad \text{in $\mathbb{R}^2\setminus\overline{B}$}, \\[.4em]
+                    & \text{$w^s$ is radiating}, \\[0.4em]
+                    & \Delta u + k^2nu = 0 \quad \text{in $B\setminus\overline{D}$}, \\[.4em]
+                    & u = 0 \quad \text{on $\partial D$}, \\[0.4em]
+                    & \displaystyle w^s = u - u^i \;\,\text{and}\;\, \frac{\partial w^s}{\partial\nu} = \frac{\partial (u - u^i)}{\partial\nu} \quad \text{on $\partial B$}.
+                    \end{align}
+                    $$
+                    To solve this system, we must be able to solve interior problems of the form
+                    $$
+                    \begin{align}
+                    & \Delta u + k^2nu = f \quad \text{in $B\setminus\overline{D}$}, \\[0.4em]
+                    & u = g \quad \text{on $\partial D$}, \\[0.4em]
+                    & \frac{\partial u}{\partial\nu} = h \quad \text{on $\partial B$},
+                    \end{align}
+                    $$
+                    with a <a href="https://en.wikipedia.org/wiki/Finite_element_method">fine element method</a>, as well as exterior problems of the form
+                    $$
+                    \begin{align}
+                    & \Delta w + k^2w = 0 \quad \text{in $\mathbb{R}^2\setminus\overline{B}$}, \\[0.4em]
+                    & w = g \quad \text{on $\partial B$}, \\[0.4em]
+                    & \text{$w$ is radiating}, 
+                    \end{align}
+                    $$
+                    with a <a href="https://en.wikipedia.org/wiki/Boundary_element_method">boundary element method</a>.
+
+                    <h2>Interior problems & finite elements</h2>
+
+                    <h4>Theory (disk)</h4>
+
+                    <p>Let \(D=\mathcal{D}(0,R)\), the disk of radius \(R>0\) centered at the origin, and consider
+                    \begin{align*}
+                    & \Delta u + k^2nu = f \quad \text{in $D$}, \\[0.4em]
+                    & u = g \quad \text{on $\partial D$},
+                    \end{align*}
+                    for some \(g\) such that \(\Delta g = 0\). Let us define \(\widetilde{u} = u - g\). Then,
+                    $$
+                    \begin{align}
+                    & \Delta \widetilde{u} + k^2n\widetilde{u} = f - k^2ng \quad \text{in $D$}, \\[0.4em]
+                    & \widetilde{u} = 0 \quad \text{on $\partial D$}.
+                    \end{align}
+                    $$
+                    The variational problem is to find \(\widetilde{u}\in H^1_0(D)\) such that
+                    $$
+                    \int_D\left(-\nabla\widetilde{u}\nabla v + k^2n\widetilde{u}v\right) = \int_D (f - k^2ng)v,
+                    $$
+                    for all \(v\in H^1_0(D)\), where
+                    $$
+                    H^1_0(D) = \left\{v \in H^1(D) \,:\, v|_{\partial D} = 0\right\}.
+                    $$
+                    Once the problem is solved for \(\widetilde{u}\), we recover \(u=\widetilde{u}+g\).
+                    </p>
+
+                    <h4>Experiment (disk)</h4>
+
+                    <p>Let us take \(R=1\), \(k=2\pi\), and
+                    $$
+                    n(x,y)=1, \quad f(x,y)=x^2, \quad g(x,y)=4.
+                    $$
+                    Using the <a href="https://github.com/matthieuaussal/gypsilab">gypsilab</a> toolbox, we may compute the solution as follows.
+
+<!------- Code ------->
+<pre>
+R = 1;
+k = 2*pi;
+n = @(X) 0*X(:, 1) + 1;
+f = @(X) X(:, 1).^2;
+g = @(X) 0*X(:, 1) + 4;
+N = 1000;
+mesh = mshDisk(N, R);
+D = dom(mesh, 3);
+V = fem(mesh, 'P1');
+V = dirichlet(V, mesh.bnd);
+L = -integral(D, grad(V), grad(V)) ...
+    + k^2*integral(D, V, n, V);
+F = integral(D, V, @(X) f(X) - k^2*n(X).*g(X));
+u = L\F;
+</pre>
+<img src="/blog/fembem1.jpg" class="img-responsive">
+<!------- Code ------->
+
+                    <p>In <a href="https://www.chebfun.org/">Chebfun</a>, we may use the <code>diskfun.helmholtz</code> code.</p>
+
+<!------- Code ------->
+<pre>
+F = diskfun(@(x,y) f([x, y]) - k^2*g([x, y]));
+BC = @(theta) 0*theta;
+u = diskfun.helmholtz(F, k, BC, N);
+</pre>
+<img src="/blog/fembem2.jpg" class="img-responsive">
+<!------- Code ------->
+
+                    <h4>Theory (annulus)</h4>
+
+                    <p>Let us now consider a harder problem. Let \(D=\mathcal{D}(0, R_1)\) and \(B=\mathcal{D}(0,R_2)\) for some \(R_2>R_1>0\). Define \(C=B\setminus\overline{D}\) and consider
+                    $$
+                    \begin{align}
+                    & \Delta u + k^2nu = f \quad \text{in $C$}, \\[0.4em]
+                    & u = g \quad \text{on $\partial D$}, \\[0.4em]
+                    & \frac{\partial u}{\partial\nu} = h \quad \text{on $\partial B$},
+                    \end{align}
+                    $$
+                    for some \(g\) such that \(\Delta g = 0\) and \(\partial g/\partial\nu = 0\) on \(\partial B\). Let us define \(\widetilde{u} = u - g\). Then,
+                    $$
+                    \begin{align}
+                    & \Delta \widetilde{u} + k^2n\widetilde{u} = f - k^2ng \quad \text{in $C$}, \\[0.4em]
+                    & \widetilde{u} = 0 \quad \text{on $\partial D$}, \\[0.4em]
+                    & \frac{\partial\widetilde{u}}{\partial\nu} = h \quad \text{on $\partial B$}.
+                    \end{align}
+                    $$
+                    The problem is to find \(\widetilde{u}\in H^1_0(C)\) such that
+                    $$
+                    \int_{C}\left(-\nabla\widetilde{u}\nabla v + k^2n\widetilde{u}v\right) = \int_{C} (f - k^2ng)v - \int_{\partial B}hv,
+                    $$
+                    for all \(v\in H^1_0(C)\), where (slight abuse of notation)
+                    $$
+                    H^1_0(C) = \left\{v \in H^1(C) \,:\, v|_{\partial D} = 0\right\}.
+                    $$
+                    Once the problem is solved for \(\widetilde{u}\), we recover \(u=\widetilde{u}+g\).</p>
+
+                    <h4>Experiment (annulus)</h4>
+
+                    <p>Let us take \(R_1=0.1\), \(R_2=1\), \(k=2\pi\), and
+                    $$
+                    n(x,y)=\cos(y), \;\, f(x,y)=x^2, \;\, g(x,y) =1, \;\, h(x,y) = 1.
+                    $$
+                    </p>
+
+<!------- Code ------->
+<pre>
+R1 = 0.1; 
+R2 = 1;      
+k = 2*pi;            
+n = @(X) cos(X(:, 2)); 
+f = @(X) X(:, 1).^2;     
+g = @(X) 0*X(:, 1) + 1; 
+h = @(X) 0*X(:, 1) + 1;      
+N = 2000;
+mesh = mshAnnulus(N, R1, R2);
+C = dom(mesh, 3);
+[dD, dB] = bndAnnulus(mesh.bnd);
+dB = dom(dB, 3);
+V = fem(mesh, 'P1');
+V = dirichlet(V, dD);
+L = -integral(C, grad(V), grad(V)) ...
+    + k^2*integral(C, V, n, V);
+F = integral(C, V, @(X) f(X) - k^2*n(X).*g(X)) ...
+    - integral(dB, V, h);
+u = L\F;
+</pre>
+<img src="/blog/fembem3.jpg" class="img-responsive">
+<!------- Code ------->
+
+                    <h2>Exterior problems & boundary elements</h2>
+
+                    <h4>Theory</h4>
+
+                    <p>Let \(B=\mathcal{D}(0,R)\) and consider
+                    $$
+                    \begin{align}
+                    & \Delta w + k^2w = 0 \quad \text{in $\mathbb{R}^2\setminus\overline{B}$}, \\[0.4em]
+                    & w = g \quad \text{on $\partial B$}, \quad \text{$w$ is radiating},
+                    \end{align}
+                    $$
+                    for some function \(g\). Let us look for \(w\) as a single-layer potential,
+                    $$
+                    w(\boldsymbol{x}) = \int_{\partial B} G(\boldsymbol{x},\boldsymbol{y})\varphi(\boldsymbol{y})dS(\boldsymbol{y}) = (\mathcal{S}\varphi)(\boldsymbol{x}).
+                    $$
+                    The problem is to find \(\varphi\in H^{-1/2}(\partial B)\) such that
+                    $$
+                    \int_{\partial B}(\mathcal{S}\varphi)(\boldsymbol{x})\psi(\boldsymbol{x})dS(\boldsymbol{x}) = \int_{\partial B}g(\boldsymbol{x})\psi(\boldsymbol{x})dS(\boldsymbol{x}),
+                    $$
+                    for all \(\psi\in H^{-1/2}(\partial B)\).</p>
+
+                    <h4>Experimemt</h4>
+
+                    <p>Let us take \(R=0.5\), \(k=2\pi\), and
+                    $$
+                    g(x,y) = -e^{ikx}.
+                    $$
+                    </p>
+
+<!------- Code ------->
+<pre>
+R = 0.5; 
+k = 2*pi;                                              
+g = @(X) -exp(1i*k*X(:,1));                        
+G = @(X,Y) femGreenKernel(X, Y, '[H0(kr)]', k); 
+N = 100;
+mesh = mshCircle(N, R);
+dB = dom(mesh, 3);
+W = fem(mesh, 'P1');
+S = (1i/4)*integral(dB, dB, W, G, W);
+S = S - 1/(2*pi)*regularize(dB, dB, W, ...
+    '[log(r)]', W);
+F = integral(dB, W, g);
+phi = S\F;
+</pre>
+<img src="/blog/fembem4.jpg" class="img-responsive">
+<!------- Code ------->
+
+                    <h2>Finite-boundary element coupling</h2>
+
+                    <h4>Theory</h4>
+
+                    <p>Let \(D=\mathcal{D}(0, R_1)\) and \(B=\mathcal{D}(0,R_2)\) for some \(R_2>R_1>0\). The bilinear form \(A\) reads
+                    $$
+                    \begin{pmatrix}
+                    \displaystyle \int_{\partial B}(\mathcal{S}\varphi)\psi & \displaystyle -\int_{\partial B}u\psi \\[.4em]
+                    \displaystyle \int_{\partial B}\left[\left(\mathcal{D}^* - \frac{\mathcal{I}}{2}\right)\varphi\right]v & \displaystyle \int_C\left(-\nabla u\nabla v + k^2nuv\right)
+                    \end{pmatrix},
+                    $$
+                    where \(C=B\setminus\overline{D}\), while the linear form \(F\) has entries
+                    $$
+                    \begin{pmatrix}
+                    \displaystyle -\int_{\partial B} u^i\psi \\[.4em]
+                    \displaystyle -\int_{\partial B}\frac{\partial u^i}{\partial \nu}v
+                    \end{pmatrix}.
+                    $$   
+                    We may write the system as
+                    $$
+                    \left\{
+                    \begin{array}{l}
+                    A_{11}\varphi + A_{12} u = F_1, \\[.4em]
+                    A_{21}\varphi + A_{22} u = F_2.
+                    \end{array}
+                    \right.
+                    $$
+                    This yields
+                    $$
+                    \left\{
+                    \begin{array}{l}
+                    -A_{21}A_{11}^{-1}A_{12}u + A_{22}u = F_2 - A_{21}A_{11}^{-1}F_1, \\[.4em]
+                    \varphi = A_{11}^{-1}(F_1 - A_{12}u).
+                    \end{array}
+                    \right.
+                    $$
+                    We use GMRES for the first equation (<code>mgcr</code> in <a href="https://github.com/matthieuaussal/gypsilab">gypsilab</a>).</p>
+
+                    <h4>Exeperiment</h4>
+
+                    <p>Let us take \(R_1=0.5\), \(R_2=1\), \(k=2\pi\), and
+                    $$
+                    u^i(x,y) = e^{ikx}, \quad n(x,y)=1.
+                    $$
+                    The MATLAB code is a little bit more involved. We are going to break it down. We first set up the parameters.</p>
+
+<!------- Code ------->
+<pre>
+R1 = 0.5; 
+R2 = 1;                                   
+k = 2*pi;                                        
+lambda = 2*pi/k;                                  
+ui = @(X) exp(1i*k*X(:, 1));
+dui = @(X) 1i*k*X(:,1)/R2.*ui(X);
+G = @(X,Y) femGreenKernel(X, Y, '[H0(kr)]', k); 
+dG{1} = @(X,Y) femGreenKernel(X, Y, ...
+    'grady[H0(kr)]1', k);
+dG{2} = @(X,Y) femGreenKernel(X, Y, ...
+    'grady[H0(kr)]2', k);
+dG{3} = @(X,Y) femGreenKernel(X, Y, ...
+    'grady[H0(kr)]3', k);
+n = @(X) 0*X(:, 1) + 1;   
+</pre>
+<!------- Code ------->
+
+                     <p>We define the mesh and the finite/boundary elements.</p>
+
+<!------- Code ------->
+<pre>
+N = 1000;
+mesh = mshAnnulus(N, R1, R2);
+C = dom(mesh, 3);
+[dD, dB] = bndAnnulus(mesh.bnd);
+V = fem(mesh, 'P1');
+V = dirichlet(V, dD);
+W = fem(dB, 'P1');
+dB = dom(dB, 3);
+</pre>
+<!------- Code ------->
+
+                    <p>This is tricky part where we define the projection between finite and boundary elements, as well as the operators.</p>
+
+<!------- Code ------->
+<pre>
+[~, IW, IV] = intersect(W.unk, V.unk, 'rows');
+P = sparse(IW, IV, 1, size(W.unk, 1), size(V.unk, 1));
+L = -integral(C, grad(V), grad(V)) ...
+    + k^2*integral(C, V, n, V);
+S = (1i/4)*integral(dB, dB, W, G, W);
+S = S - 1/(2*pi)*regularize(dB, dB, W, ...
+    '[log(r)]', W);
+D = (1i/4)*integral(dB, dB, W, dG, ntimes(W));
+D = D - 1/(2*pi)*regularize(dB, dB, W, ...
+    'grady[log(r)]', ntimes(W));
+D = -D;
+I = integral(dB, W, W);
+</pre>
+<!------- Code ------->
+
+                    <p>We assemble the system and solve it.</p>
+
+<!------- Code ------->
+<pre>
+A11 = S;
+A21 = P'*(D.' - I/2);
+A12 = -I*P;
+A22 = L;
+F1 = -integral(dB, W, ui);
+F2 = -integral(dB, V, dui);
+fun = @(V) -A21*(A11\(A12*V)) + A22*V;
+u = mgcr(fun, F2 - A21*(A11\F1), [], 1e-3, 1000);
+phi = A11\(F1 - A12*u);
+</pre>
+<img src="/blog/fembem5.jpg" class="img-responsive">
+<img src="/blog/fembem6.jpg" class="img-responsive">
+<!------- Code ------->
+
+
+                    <hr>
+                    <h4>Blog posts about boundary elements</h4>
+                    <p>2023 &nbsp; <a href="2023-02-12.html">Finite-boundary element coupling in MATLAB</a></p>
+                    <p>2021 &nbsp; <a href="2021-11-25.html">Singular integrals over curved elements</a></p>
+
+              </div>
+
+          </div>
+     </div>
+
+</section>
+
+<!-- Footer Section -->
+
+<footer>
+     <div class="container">
+          <div class="row">
+
+               <div class="col-md-4 col-md-offset-1 col-sm-6">
+                    <h3>Contact</h3>
+                    <p style="color:white"><i class="fa fa-send-o"></i>hadrien.montanelli@gmail.com</p>
+               </div>
+
+               <div class="col-md-5 col-md-offset-1 col-sm-6">
+                    <h3 style="opacity:0;">Contact</h3>
+                    <p style="color:white">Copyright &copy; 2023 Hadrien Montanelli</p>
+               </div>
+
+               <div class="clearfix col-md-12 col-sm-12">
+                    <hr style="color:white;">
+               </div>
+
+               <div class="col-md-12 col-sm-12">
+                    <ul class="social-icon">
+                         <li><a href="https://github.com/Hadrien-Montanelli" class="fa fa-github" style="font-size:30px;color:white"></a></li>
+                         <li><a href="https://scholar.google.com/citations?user=Bjmkfe8AAAAJ&hl=en&oi=sra/" class="fa fa-google" style="font-size:30px;color:white"></a></li>
+                         <li><a href="https://www.linkedin.com/in/hadrien-montanelli/" class="fa fa-linkedin" style="font-size:30px;color:white"></a></li>
+                         <li><a href="https://twitter.com/drmontanelli" class="fa fa-twitter" style="font-size:30px;color:white"></a></li>
+                    </ul>
+               </div>
+               
+          </div>
+     </div>
+</footer>
+
+<!-- Back top -->
+<a href="#back-top" class="go-top"><i class="fa fa-angle-up"></i></a>
+
+<!-- SCRIPTS -->
+<script src="js/jquery.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/particles.min.js"></script>
+<script src="js/app.js"></script>
+<script src="js/jquery.parallax.js"></script>
+<script src="js/smoothscroll.js"></script>
+<script src="js/custom.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+
+</body>
+</html>
