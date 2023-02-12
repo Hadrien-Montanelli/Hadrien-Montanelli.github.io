@@ -109,7 +109,7 @@ http://www.tooplate.com/view/2085-neuron
 
                     <p><i>February 12, 2023 &mdash; Support my next blog post, <a href="https://www.paypal.com/donate/?hosted_button_id=UCLCSJLFL433E">buy me a coffee</a> &#9749;.</i></p>
 
-                    <p>In this post, I talk about coupling the finite and boundary elment methods for solving <a href="https://en.wikipedia.org/wiki/Wave_propagation">wave propagation</a> problems in an inhomogeneous medum.</p>
+                    <p>In this post, I talk about coupling the finite and boundary element methods for solving <a href="https://en.wikipedia.org/wiki/Wave_propagation">wave propagation</a> problems in an inhomogeneous medium.</p>
 
                     <h2>Acoustic waves in an inhomogeneous medium</h2>
 
@@ -249,10 +249,11 @@ u = diskfun.helmholtz(F, k, BC, N);
 
                     <h4>Experiment (annulus)</h4>
 
-                    <p>Let us take \(R_1=0.1\), \(R_2=1\), \(k=2\pi\), and
+                    <p>Let us take \(R_1=0.1\), \(R_2=1\), \(k=2\pi\),
                     $$
-                    n(x,y)=\cos(y), \;\, f(x,y)=x^2, \;\, g(x,y) =1, \;\, h(x,y) = 1.
+                    n(x,y)=\cos(y), \quad f(x,y)=x^2,
                     $$
+                    and \(g(x,y) = h(x,y) = 1\).
                     </p>
 
 <!------- Code ------->
@@ -370,7 +371,7 @@ phi = S\F;
                     $$
                     We use GMRES for the first equation (<code>mgcr</code> in <a href="https://github.com/matthieuaussal/gypsilab">gypsilab</a>).</p>
 
-                    <h4>Exeperiment</h4>
+                    <h4>Experiment</h4>
 
                     <p>Let us take \(R_1=0.5\), \(R_2=1\), \(k=2\pi\), and
                     $$
@@ -412,7 +413,7 @@ dB = dom(dB, 3);
 </pre>
 <!------- Code ------->
 
-                    <p>This is tricky part where we define the projection between finite and boundary elements, as well as the operators.</p>
+                    <p>This is the tricky part where we define the projection between finite and boundary elements, as well as the operators.</p>
 
 <!------- Code ------->
 <pre>
