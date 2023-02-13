@@ -160,7 +160,7 @@ http://www.tooplate.com/view/2085-neuron
                     & \Delta u + k^2nu = f \quad \text{in $D$}, \\[0.4em]
                     & u = g \quad \text{on $\partial D$},
                     \end{align*}
-                    for some \(g\) such that \(\Delta g = 0\). Let us define \(\widetilde{u} = u - g\). Then,
+                    for some \(g\) such that \(\Delta g = 0\) in \(D\). Let us define \(\widetilde{u} = u - g\). Then,
                     $$
                     \begin{align}
                     & \Delta \widetilde{u} + k^2n\widetilde{u} = f - k^2ng \quad \text{in $D$}, \\[0.4em]
@@ -231,7 +231,7 @@ u = diskfun.helmholtz(F, k, BC, N);
                     & \frac{\partial u}{\partial\nu} = h \quad \text{on $\partial B$},
                     \end{align}
                     $$
-                    for some \(g\) such that \(\Delta g = 0\) and \(\partial g/\partial\nu = 0\) on \(\partial B\). Let us define \(\widetilde{u} = u - g\). Then,
+                    for some \(g\) such that \(\Delta g = 0\) in \(C\) and \(\partial g/\partial\nu = 0\) on \(\partial B\). Let us define \(\widetilde{u} = u - g\). Then,
                     $$
                     \begin{align}
                     & \Delta \widetilde{u} + k^2n\widetilde{u} = f - k^2ng \quad \text{in $C$}, \\[0.4em]
