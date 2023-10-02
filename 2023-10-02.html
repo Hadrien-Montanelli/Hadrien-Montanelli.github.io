@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<meta name="description" content="">
+<meta name="keywords" content="">
+<meta name="author" content="">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+<title>Strongly singular integrals over curved elements</title>
+<!--
+
+Template 2085 Neuron
+
+http://www.tooplate.com/view/2085-neuron
+
+-->
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" href="css/font-awesome.min.css">
+<link rel="stylesheet" href="css/magnific-popup.css">
+
+<!-- Main css -->
+<link rel="stylesheet" href="css/style.css">
+<link href="https://fonts.googleapis.com/css?family=Lora|Merriweather:300,400" rel="stylesheet">
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-108246943-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-108246943-1');
+</script>
+
+<!-- Google AdSense -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8299683413193339" crossorigin="anonymous"></script>
+<!--<script async src="https://fundingchoicesmessages.google.com/i/pub-8299683413193339?ers=1" nonce="AuY4vKpDElA9N7YwmFfMjg"></script>
+<script nonce="AuY4vKpDElA9N7YwmFfMjg">(function() {function signalGooglefcPresent() {if (!window.frames['googlefcPresent']) {if (document.body) {const iframe = document.createElement('iframe'); iframe.style = 'width: 0; height: 0; border: none; z-index: -1000; left: -1000px; top: -1000px;'; iframe.style.display = 'none'; iframe.name = 'googlefcPresent'; document.body.appendChild(iframe);} else {setTimeout(signalGooglefcPresent, 0);}}}signalGooglefcPresent();})();</script>-->
+
+</head>
+<body>
+
+<!-- Tikz for mathjax -->
+<link rel="stylesheet" type="text/css" href="https://tikzjax.com/v1/fonts.css">
+<script src="https://tikzjax.com/v1/tikzjax.js"></script>
+
+<!-- PRE LOADER -->
+
+<div class="preloader">
+     <div class="sk-spinner sk-spinner-wordpress">
+          <span class="sk-inner-circle"></span>
+     </div>
+</div>
+
+<!-- Navigation section  -->
+
+<div class="navbar navbar-default navbar-static-top" role="navigation">
+     <div class="container">
+
+          <div class="navbar-header">
+               <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon icon-bar"></span>
+                    <span class="icon icon-bar"></span>
+                    <span class="icon icon-bar"></span>
+               </button>
+               <a href="index.html" class="navbar-brand">H. Montanelli</a>
+          </div>
+          <div class="collapse navbar-collapse">
+               <ul class="nav navbar-nav navbar-right">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="publications.html">Publications</a></li>
+                    <li><a href="research.html">Research</a></li>
+                    <li><a href="talks.html">Talks</a></li>
+                    <li><a href="teaching.html">Teaching</a></li>
+                    <li><a href="https://www.paypal.com/donate/?hosted_button_id=UCLCSJLFL433E"><b>Donate</b></a></li>
+               </ul>
+          </div>
+
+  </div>
+</div>
+
+<!-- Home Section -->
+
+<section id="home" class="main-about parallax-section">
+     <div class="overlay"></div>
+     <div class="container">
+          <div class="row">
+
+               <div class="col-md-12 col-sm-12">
+                    <h1>Strongly singular integrals over curved elements</h1>
+               </div>
+
+          </div>
+     </div>
+</section>
+
+<!-- Blog Single Post Section -->
+
+<section id="about">
+     <div class="container">
+          <div class="row">
+
+               <div class="col-md-offset-1 col-md-10 col-sm-12">  
+                  
+                    <p><i>October 2, 2023 &mdash; Support my next blog post, <a href="https://www.paypal.com/donate/?hosted_button_id=UCLCSJLFL433E">buy me a coffee</a> &#9749;.</i></p>
+
+                    <p>In this post, I talk about a new method for computing strongly singular and near-singular integrals that arise when solving the 3D Helmholtz equation with curved <a href="https://en.wikipedia.org/wiki/Boundary_element_method">boundary elements</a>.</p>
+
+                    <h2>Background on integral equations</h2>
+
+                    <p>The Helmholtz equation, which has the form
+                    $$
+                    \Delta u + k^2u = 0,
+                    $$
+                    appears when one looks for time-harmonic solutions to the wave equation&mdash;if \(v(\boldsymbol{x},t)=u(\boldsymbol{x})e^{-i\omega t}\) is a solution to \(v_{tt}=c^2\Delta v\), then \(u\) satisfies the Helmholtz equation with wavenumber \(k=\omega /c\). It is of fundamental importance in science and engineering, with applications as diverse as noise scattering, radar and sonar technology, and seismology. For instance, given an incident acoustic wave \(u^i\) that is a solution to Helmholtz equation in \(\mathbb{R}^3\), the outgoing scattered field \(u^s\) generated by a bounded obstacle \(D\) is also a solution to Helmholtz equation, in \(\mathbb{R}^3\setminus\overline{D}\), with \(u^i+u^s=0\) on the boundary \(\partial D\) (for sound-soft scattering).</p>
+
+                    <p>For obstacles \(D\) whose complements are connected, a popular technique for calculating scattered fields is based on integral equations. As an example, one can show that the solution \(u^s\) to the sound-soft scattering problem of the previous paragraph may be obtained by solving
+                    $$
+                    \int_{\partial D}\left\{\frac{\partial G(\boldsymbol{x},\boldsymbol{y})}{\partial\boldsymbol{n}(\boldsymbol{y})} - i\eta G(\boldsymbol{x},\boldsymbol{y})\right\}\varphi^s(\boldsymbol{y})dS(\boldsymbol{y}) + \frac{\varphi^s(\boldsymbol{x})}{2} = -u^i(\boldsymbol{x}), \quad \boldsymbol{x}\in\partial D,
+                    $$
+                    for some arbitrary real number \(\eta\neq0\) such that \(\eta\mathrm{Re}(k)\geq0\). Once the equation is solved for \(\varphi^s\), the scattered field is given by 
+                    $$
+                    u^s(\boldsymbol{x}) =\int_{\partial D}\left\{\frac{\partial G(\boldsymbol{x},\boldsymbol{y})}{\partial\boldsymbol{n}(\boldsymbol{y})} - i\eta G(\boldsymbol{x},\boldsymbol{y})\right\}\varphi^s(\boldsymbol{y})dS(\boldsymbol{y}), \quad \boldsymbol{x}\in\mathbb{R}^3\setminus{\overline{D}}.
+                    $$
+                    The function \(G\) is the Green's function of the Helmholtz equation in 3D,
+                    $$
+                    G(\boldsymbol{x},\boldsymbol{y}) = \frac{1}{4\pi}\frac{e^{ik\vert\boldsymbol{x}-\boldsymbol{y}\vert}}{\vert\boldsymbol{x}-\boldsymbol{y}\vert}.
+                    $$
+                    One of the challenges one faces when solving integral equations is the computation of singular integrals&mdash;when \(\boldsymbol{x}\) is close or equal to \(\boldsymbol{y}\), the Green's function and its derivatives become (numerically) unbounded.
+
+                    <h2>Challenges</h2>
+
+                    <p>One of the challenges one faces when solving integral equations is the computation of singular integrals&mdash;when \(\boldsymbol{x}\) is close or equal to \(\boldsymbol{y}\), the Green's function and its derivatives become (numerically) unbounded.here are many specialized methods to compute such integrals, including singularity subtraction, singularity cancellation, and the continuation approach.  We described, in a previous <a href="https://hadrien-montanelli.github.io/2021-11-25.html">blog post</a>, algorithms to compute weakly singular integrals using singularity subtraction and the continuation approach. The term <i>weakly singular</i> refers to integrals with singularities of the same type as the Green's function. We describe, here, our method to <i>strongly singular</i> integrals, which have singularities of the same nature as the derivatives of the Green's function.</p>
+
+                    <h2>Computing strongly singular integrals</h2>
+
+                    <p>We consider strongly singular and near-singular integrals of the form
+                    $$
+                    I(\boldsymbol{x}_0) = \int_{\mathcal{T}}\frac{(\boldsymbol{x} - \boldsymbol{x}_0)\cdot\boldsymbol{n}(\boldsymbol{x})}{\vert\boldsymbol{x}-\boldsymbol{x}_0\vert^3}\varphi(F^{-1}(\boldsymbol{x}))dS(\boldsymbol{x}),
+                    $$
+                    where \(\mathcal{T}\subset\mathbb{R}^3\) is a curved triangle defined by a polynomial transformation \(F:\widehat{T}\to\mathcal{T}\) of degree \(q\geq1\) from some reference planar triangle \(\widehat{T}\subset\mathbb{R}^2\), \(\boldsymbol{x}_0\in\mathbb{R}^3\) is a point on/or close to \(\mathcal{T}\), \(\varphi:\widehat{T}\to\mathbb{R}\) is a polynomial function of degree \(p\geq0\) (not necessarily equal to \(q\), and \(\boldsymbol{n}(\boldsymbol{x})\) is the unit normal vector at \(\boldsymbol{x}\). Our method is based on the computation of the preimage of the singularity in the reference element's space using Newton's method, singularity subtraction with Taylor-like asymptotic expansions, the continuation approach, and transplanted Gauss quadrature.</p>
+
+                    <p><i>Step 1.</i> We map \(\mathcal{T}\) back to \(\widehat{T}\),
+                    $$
+                    I(\boldsymbol{x}_0) = \int_{\widehat{T}}\frac{(F(\boldsymbol{\widehat{x}})-\boldsymbol{x}_0)\cdot\boldsymbol{\widehat{n}}(\boldsymbol{\widehat{x}})}{\vert F(\boldsymbol{\widehat{x}})-\boldsymbol{x}_0\vert^3}\varphi(\boldsymbol{\widehat{x}})dS(\boldsymbol{\widehat{x}}),
+                    $$
+                    where \(\boldsymbol{\widehat{n}}(\boldsymbol{\widehat{x}}) = F_{\widehat{x}_1}(\boldsymbol{\widehat{x}})\times F_{\widehat{x}_2}(\boldsymbol{\widehat{x}})\).
+
+                    <p><i>Step 2.</i> We compute \(\boldsymbol{\widehat{x}}_0\in\mathbb{R}^2\) such that \(F(\boldsymbol{\widehat{x}}_0)\in\mathcal{T}\) is the closest point to \(\boldsymbol{x}_0\) on \(\mathcal{T}\) (this is done with numerical optimization). We then decompose \(\boldsymbol{x}_0\) as
+                    $$
+                    \boldsymbol{x}_0 = F(\boldsymbol{\widehat{x}}_0) + h\frac{\boldsymbol{\widehat{n}}_0}{\vert\boldsymbol{\widehat{n}}_0\vert}, \quad \boldsymbol{\widehat{n}}_0 = \boldsymbol{\widehat{n}}(\boldsymbol{\widehat{x}}_0),
+                    $$
+                    for some scalar \(h\), which may be negative, obtained via
+                    $$
+                    h = (\boldsymbol{x}_0 - F(\boldsymbol{\widehat{x}}_0)) \cdot \frac{\boldsymbol{\widehat{n}}_0}{\vert\boldsymbol{\widehat{n}}_0\vert}.
+                    $$.
+                    </p>
+
+                    <p><i>Step 3.</i> We compute the strongly singular term,
+                    $$
+                    T_{-2}(\boldsymbol{\widehat{x}},h) = -\frac{h\varphi_0\vert\boldsymbol{\widehat{n}}_0\vert}{\left[\vert J_0(\boldsymbol{\widehat{x}} - \boldsymbol{\widehat{x}}_0)\vert^2 + h^2\right]^{\frac{3}{2}}},
+                    $$
+                    where \(J_0\) is the Jacobian matrix at \(\boldsymbol{\widehat{x}}_0\) and \(\varphi_0=\varphi(\boldsymbol{\widehat{x}}_0)\), as well as the weakly singular term \(T_{-1}\). We subtract them from/add them to the integrand,
+                    $$
+                    I(\boldsymbol{x}_0) = \, \int_{\widehat{T}}\left[\frac{(F(\boldsymbol{\widehat{x}})-\boldsymbol{x}_0)\cdot\boldsymbol{\widehat{n}}(\boldsymbol{\widehat{x}})}{\vert F(\boldsymbol{\widehat{x}})-\boldsymbol{x}_0\vert^3}\varphi(\boldsymbol{\widehat{x}}) - T_{-2}(\boldsymbol{\widehat{x}},h) - T_{-1}(\boldsymbol{\widehat{x}},h)\right]dS(\boldsymbol{\widehat{x}}) \\
+                    + \int_{\widehat{T}}T_{-2}(\boldsymbol{\widehat{x}},h)dS(\boldsymbol{\widehat{x}}) + \int_{\widehat{T}}T_{-1}(\boldsymbol{\widehat{x}},h)dS(\boldsymbol{\widehat{x}}). \nonumber
+                    $$
+                    The first integral is regularized&mdash;it may be computed with Gauss quadrature on triangles. The last two integrals are singular or near-singular and will be computed in steps 4&ndash;5. 
+                    </p>
+
+                    <p><i>Step 4.</i>  Let
+                    $$
+                    I_{-2}(h) = \int_{\widehat{T}}T_{-2}(\boldsymbol{\widehat{x}},h)dS(\boldsymbol{\widehat{x}}), \quad I_{-1}(h) = \int_{\widehat{T}}T_{-1}(\boldsymbol{\widehat{x}},h)dS(\boldsymbol{\widehat{x}}).
+                    $$
+                    Since \(T_{-2}\) and \(T_{-1}\) are homogeneous in \(\boldsymbol{\widehat{x}}\) and \(h\), using the continuation approach, we reduce the 2D integrals to a sum of three 1D integrals along the edges of the shifted triangle \(\widehat{T}-\boldsymbol{\widehat{x}}_0\). For instance, for \(I_{-2}\), this yields
+                    $$
+                    I_{-2}(h) = -\mathrm{sign}(h)\varphi_0\vert\boldsymbol{\widehat{n}}_0\vert\sum_{j=1}^3\widehat{s}_j\int_{\partial\widehat{T}_j-\boldsymbol{\widehat{x}}_0}\frac{\sqrt{\vert J_0\boldsymbol{\widehat{x}}\vert^2 + h^2}-\vert h\vert}{\vert J_0\boldsymbol{\widehat{x}}\vert^2\sqrt{\vert J_0\boldsymbol{\widehat{x}}\vert^2 + h^2}}ds(\boldsymbol{\widehat{x}}),
+                    $$
+                    where the \(\widehat{s}_j\)'s are the distances from the origin to the edges of \(\widehat{T}-\boldsymbol{\widehat{x}}_0\). 
+                    </p>
+
+                    <p><i>Step 5.</i> To circumvent near-singularity issues in the computation of \(I_{-2}\) and \(I_{-1}\), we employ transplanted quadrature when the singularity is close to the edges. We take advantage of the a priori knowledge of the singularities to utilize transplanted rules with significantly improved convergence rates.
+                    </p>
+
+                    <h2>Numerical experiments</h2>
+
+                    <p>We consider the sound-soft scattering of a plane wave \(u^i(r,\theta)=e^{ikr\cos\theta}\) by the unit sphere. We utilize the combined boundary integral equation with \(\eta=k/2\) and discretize it with a boundary element method with quadratic basis functions (\(p=2\)) and quadratic triangles (\(q=2\)). We take \(k=2\pi\), solve for \(\varphi^s\), and evaluate the far-field pattern
+                    $$
+                    u_\infty(\boldsymbol{\theta}) = \frac{1}{4\pi}\int_{\partial D} e^{-ik\boldsymbol{\theta}\cdot\boldsymbol{y}}\varphi^s(\boldsymbol{y})dS(\boldsymbol{y}), \quad \boldsymbol{\theta}\in\mathbb{S}^2,
+                    $$
+                    for an increasing number of triangles. For the sphere, the exact pattern is
+                    $$
+                    u_\infty(\theta) = \frac{i}{k}\sum_{n=0}^\infty(2n+1)\frac{j_n(k)}{h_n^{(1)}(k)}P_n(\cos\theta), \quad \theta\in[0,2\pi], 
+                    $$
+                    with Legendre polynomials \(P_n\), and spherical Bessel and Hankel functions \(j_n\) and \(h_n^{(1)}\). We plot the relative error in the far-field pattern below. We observe quartic superconvergence as the mesh size \(h\to0\).</p>
+
+                    <center>
+                    <img src="/blog/test_cv_sphere_2pi.jpg" class="img-responsive">
+                    </center>
+
+                    <p>We now take \(k\in\{2\pi,4\pi,8\pi,16\pi\}\), solve for \(\varphi^s\), and seek the number of degrees of freedom needed to reach a relative error on the far-field pattern around \(10^{-3}\) for each \(k\). We report the results below for linear basis functions/planar triangles (\(p=q=1\)) and quadratic basis functions/triangles (\(p=q=2\)). We observe that using quadratic basis functions and triangles reduces the number of degrees of freedom by a factor of about four, while also decreasing computer time by a similar factor at high frequency.</p>
+
+                    <center>
+                    <img src="/blog/test_cv_sphere_DOFs.jpg" class="img-responsive">
+                    </center>
+
+                    <p>This is how the solutions look like.</p>
+                    <div class="row">
+                      <div class="column">
+                        <img src="/blog/sol-2pi.jpg" class="img-responsive">
+                      </div>
+                      <div class="column">
+                        <img src="/blog/sol-4pi.jpg" class="img-responsive">
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="column">
+                        <img src="/blog/sol-8pi.jpg" class="img-responsive">
+                      </div>
+                      <div class="column">
+                        <img src="/blog/sol-16pi.jpg" class="img-responsive">
+                      </div>
+                    </div>
+
+
+                    <p>Check out our <a href="https://arxiv.org/pdf/2309.17039.pdf">paper</a> for details!</p>
+
+
+                    <hr>
+                    <h4>Blog posts about boundary elements</h4>
+                    <p>2023 &nbsp; <a href="2023-10-02.html">Strongly singular integrals over curved elements</a></p>
+                    <p>2023 &nbsp; <a href="2023-02-12.html">Finite-boundary element coupling in MATLAB</a></p>
+                    <p>2021 &nbsp; <a href="2021-11-25.html">Weakly singular integrals over curved elements</a></p>
+
+               </div>
+
+          </div>
+     </div>
+</section>
+
+<!-- Footer Section -->
+
+<footer>
+     <div class="container">
+          <div class="row">
+
+               <div class="col-md-4 col-md-offset-1 col-sm-6">
+                    <h3>Contact</h3>
+                    <p style="color:white"><i class="fa fa-send-o"></i>hadrien.montanelli@gmail.com</p>
+               </div>
+
+               <div class="col-md-5 col-md-offset-1 col-sm-6">
+                    <h3 style="opacity:0;">Contact</h3>
+                    <p style="color:white">Copyright &copy; 2023 Hadrien Montanelli</p>
+               </div>
+
+               <div class="clearfix col-md-12 col-sm-12">
+                    <hr style="color:white;">
+               </div>
+
+               <div class="col-md-12 col-sm-12">
+                    <ul class="social-icon">
+                         <li><a href="https://github.com/Hadrien-Montanelli" class="fa fa-github" style="font-size:30px;color:white"></a></li>
+                         <li><a href="https://scholar.google.com/citations?user=Bjmkfe8AAAAJ&hl=en&oi=sra/" class="fa fa-google" style="font-size:30px;color:white"></a></li>
+                         <li><a href="https://www.linkedin.com/in/hadrien-montanelli/" class="fa fa-linkedin" style="font-size:30px;color:white"></a></li>
+                         <li><a href="https://twitter.com/drmontanelli" class="fa fa-twitter" style="font-size:30px;color:white"></a></li>
+                    </ul>
+               </div>
+               
+          </div>
+     </div>
+</footer>
+
+<!-- Back top -->
+<a href="#back-top" class="go-top"><i class="fa fa-angle-up"></i></a>
+
+<!-- SCRIPTS -->
+<script src="js/jquery.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/particles.min.js"></script>
+<script src="js/app.js"></script>
+<script src="js/jquery.parallax.js"></script>
+<script src="js/smoothscroll.js"></script>
+<script src="js/custom.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+
+</body>
+</html>
