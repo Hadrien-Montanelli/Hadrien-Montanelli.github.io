@@ -175,7 +175,10 @@ http://www.tooplate.com/view/2085-neuron
 
                     <p><i>Step 4.</i>  Let
                     $$
-                    I_{-2}(h) = \int_{\widehat{T}}T_{-2}(\boldsymbol{\widehat{x}},h)dS(\boldsymbol{\widehat{x}}), \quad I_{-1}(h) = \int_{\widehat{T}}T_{-1}(\boldsymbol{\widehat{x}},h)dS(\boldsymbol{\widehat{x}}).
+                    \begin{align}
+                    & I_{-2}(h) = \int_{\widehat{T}}T_{-2}(\boldsymbol{\widehat{x}},h)dS(\boldsymbol{\widehat{x}}), \\
+                    & I_{-1}(h) = \int_{\widehat{T}}T_{-1}(\boldsymbol{\widehat{x}},h)dS(\boldsymbol{\widehat{x}}).
+                    \end{align}
                     $$
                     Since \(T_{-2}\) and \(T_{-1}\) are homogeneous in \(\boldsymbol{\widehat{x}}\) and \(h\), using the continuation approach, we reduce the 2D integrals to a sum of three 1D integrals along the edges of the shifted triangle \(\widehat{T}-\boldsymbol{\widehat{x}}_0\). For instance, for \(I_{-2}\), this yields
                     $$
@@ -193,20 +196,16 @@ http://www.tooplate.com/view/2085-neuron
                     $$
                     u_\infty(\boldsymbol{\theta}) = \frac{1}{4\pi}\int_{\partial D} e^{-ik\boldsymbol{\theta}\cdot\boldsymbol{y}}\varphi^s(\boldsymbol{y})dS(\boldsymbol{y}), \quad \boldsymbol{\theta}\in\mathbb{S}^2,
                     $$
-                    for an increasing number of triangles. For the sphere, the exact pattern is
-                    $$
-                    u_\infty(\theta) = \frac{i}{k}\sum_{n=0}^\infty(2n+1)\frac{j_n(k)}{h_n^{(1)}(k)}P_n(\cos\theta), \quad \theta\in[0,2\pi], 
-                    $$
-                    with Legendre polynomials \(P_n\), and spherical Bessel and Hankel functions \(j_n\) and \(h_n^{(1)}\). We plot the relative error in the far-field pattern below. We observe quartic superconvergence as the mesh size \(h\to0\).</p>
+                    for an increasing number of triangles. We plot the relative error in the far-field pattern below. We observe quartic superconvergence as the mesh size \(h\to0\).</p>
 
                     <center>
                     <img src="/blog/test_cv_sphere_2pi.jpg" class="img-responsive">
                     </center>
 
-                    <p>We now take \(k\in\{2\pi,4\pi,8\pi,16\pi\}\), solve for \(\varphi^s\), and seek the number of degrees of freedom needed to reach a relative error on the far-field pattern around \(10^{-3}\) for each \(k\). We report the results below for linear basis functions/planar triangles (\(p=q=1\)) and quadratic basis functions/triangles (\(p=q=2\)). We observe that using quadratic basis functions and triangles reduces the number of degrees of freedom by a factor of about four, while also decreasing computer time by a similar factor at high frequency.</p>
+                    <p>We now take \(k\in\{2\pi,4\pi,8\pi,16\pi\}\), solve for \(\varphi^s\) and seek the number of degrees of freedom needed to reach a relative error on the far-field pattern around \(10^{-3}\) for each \(k\). We report the results below for linear basis functions/planar triangles (\(p=q=1\)) and quadratic basis functions/triangles (\(p=q=2\)). We observe that using quadratic basis functions and triangles reduces the number of degrees of freedom by a factor of about four, while also decreasing computer time by a similar factor at high frequency.</p>
 
                     <center>
-                    <img src="/blog/test_cv_sphere_DOFs.jpg" class="img-responsive">
+                    <img src="/blog/test_cv_sphere_DoFs.jpg" class="img-responsive">
                     </center>
 
                     <p>This is how the solutions look like.</p>
@@ -227,9 +226,7 @@ http://www.tooplate.com/view/2085-neuron
                       </div>
                     </div>
 
-
                     <p>Check out our <a href="https://arxiv.org/pdf/2309.17039.pdf">paper</a> for details!</p>
-
 
                     <hr>
                     <h4>Blog posts about boundary elements</h4>
