@@ -38,7 +38,7 @@ body {
     font-family: 'Roboto', sans-serif;
     color: #555;
     font-size: 16px;
-    font-weight: 300;
+    font-weight: 400;
     line-height: 26px;
     letter-spacing: 0.2px;
     min-width: 400px;
@@ -77,7 +77,7 @@ body {
   width: 150%; 
   color: #555;
   font-size: 16px;
-  font-weight: 300;
+  font-weight: 400;
   letter-spacing: 0.2px;
   line-height: 36px;
 }
@@ -149,7 +149,7 @@ p {
 ul {
     color: #555;
     font-size: 16px;
-    font-weight: 300;
+    font-weight: 400;
     line-height: 26px;
     letter-spacing: 0.2px;
 }
