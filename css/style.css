@@ -215,7 +215,7 @@ a:hover, a:active, a:focus {
 .main-single-post,
 .main-gallery,
 .main-contact {
-  height: 65vh;
+  height: 40vh;
 }
 
 .overlay {
