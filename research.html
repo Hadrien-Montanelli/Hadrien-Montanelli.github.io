@@ -100,9 +100,18 @@ https://www.tooplate.com/view/2085-neuron
 
                     <h3>Research interests</h3>
 
-                    <p>My general research interests lie in <a href="https://en.wikipedia.org/wiki/Numerical_methods_for_partial_differential_equations">numerical methods for PDEs</a> and <a href="https://en.wikipedia.org/wiki/Integral_equation">integral equations</a>, <a href="https://en.wikipedia.org/wiki/Inverse_problem">inverse problems</a>, <a href="https://en.wikipedia.org/wiki/Approximation_theory">approximation theory</a>, and <a href="https://en.wikipedia.org/wiki/Machine_learning">machine learning</a>. More generally, my background is in <a href="https://en.wikipedia.org/wiki/Numerical_analysis">numerical analysis</a> and <a href="https://en.wikipedia.org/wiki/Computational_science">scientific computing</a>.</p>
+                    <p>My general research interests lie in <a href="https://en.wikipedia.org/wiki/Numerical_methods_for_partial_differential_equations">numerical methods for PDEs</a> and <a href="https://en.wikipedia.org/wiki/Integral_equation">integral equations</a>, <a href="https://en.wikipedia.org/wiki/Inverse_problem">inverse problems</a>, <a href="https://en.wikipedia.org/wiki/Approximation_theory">approximation theory</a>, and <a href="https://en.wikipedia.org/wiki/Machine_learning">machine learning</a>. More generally, my background is in <a href="https://en.wikipedia.org/wiki/Numerical_analysis">numerical analysis</a> and <a href="https://en.wikipedia.org/wiki/Computational_science">scientific computing</a>. I highlight, here, my contributions to the following four topics:</p>
 
-                    <h3>Inverse acousting scattering</h3>
+                    <ul>
+                    <li><a href="#section1">Inverse acoustic scattering;</a></li>
+                    <li><a href="#section2">Boundary element methods;</a></li>
+                    <li><a href="#section3">Neural network approximation theory;</a></li>
+                    <li><a href="#section4">Spectral methods.</a></li>
+                    </ul>
+
+                    <hr class="solid">
+
+                    <h3 id="section1">Inverse acoustic scattering</h3>
 
                     <h4>Background</h4>
 
@@ -155,7 +164,7 @@ https://www.tooplate.com/view/2085-neuron
 
                     <hr class="solid">
 
-                    <h3>Boundary element methods</h3>
+                    <h3 id="section2">Boundary element methods</h3>
 
                     <h4>Background</h4>
 
@@ -164,7 +173,6 @@ https://www.tooplate.com/view/2085-neuron
                     \int_{\partial D}G(\boldsymbol{x},\boldsymbol{y})\varphi(\boldsymbol{y})dS(\boldsymbol{y}) = u_D(\boldsymbol{x}), \quad \boldsymbol{x}\in\partial D,
                     $$
                     based on the single-layer potential; \(G\) is the Green's function of the Helmholtz equation in 3D. Once the integral equation is solved for \(\varphi\), the solution \(u\) may be represented by the left-hand side for all \(\boldsymbol{x}\in\mathbb{R}^3\setminus\overline{D}\). From a numerical point of view, such integral equations are particularly challenging for several reasons. First, when \(\boldsymbol{x}\) approaches \(\boldsymbol{y}\), the integral becomes singular and standard quadrature schemes fail to be accurate&mdash;analytic integration or carefully-derived quadrature formulas are required. Second, the resulting linear systems after discretization are dense. For large wavenumbers \(k\), only iterative methods can be used to solve them (with the help of specialized techniques to accelerate the matrix-vector products such as hierarchical matrices). In this respect, the use of high-order schemes may be helpful in enlarging the interval of feasible wavenumbers.</p>
-
 
                     <h4>Results</h4>
 
@@ -209,7 +217,7 @@ https://www.tooplate.com/view/2085-neuron
 
                     <hr class="solid">
                     
-                    <h3>Neural network approximation theory</h3>
+                    <h3 id="section3">Neural network approximation theory</h3>
 
                     <h4>Background</h4>
 
@@ -257,7 +265,7 @@ https://www.tooplate.com/view/2085-neuron
 
                     <hr class="solid">
 
-                    <h3>Spectral methods</h3>
+                    <h3 id="section4">Spectral methods</h3>
 
                     <h4>Background</h4>
 
