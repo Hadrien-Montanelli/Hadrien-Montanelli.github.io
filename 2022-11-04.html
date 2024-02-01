@@ -109,7 +109,7 @@ http://www.tooplate.com/view/2085-neuron
 
                     <p><i>November 4, 2022 &mdash; Support my next blog post, <a href="https://www.paypal.com/donate/?hosted_button_id=UCLCSJLFL433E">buy me a coffee</a> &#9749;.</i></p>
 
-                    <p>In this post, I talk about an extension of the linear sampling method (LSM) for solving the sound-soft inverse acoustic <a href="https://en.wikipedia.org/wiki/Scattering">scattering</a> problem with randomly distributed point sources. For details, check out my <a href="https://arxiv.org/pdf/2210.15560.pdf">paper</a> with <a href="https://perso.ensta-paris.fr/~haddar/">Houssem Haddar</a> and <a href="https://josselin-garnier.org/">Josselin Garnier</a>!</p>
+                    <p>In this post, I talk about an extension of the linear sampling method (LSM) for solving the sound-soft <a href="https://en.wikipedia.org/wiki/Inverse_scattering_problem">inverse acoustic scattering</a> problem with randomly distributed point sources. For details, check out my <a href="https://arxiv.org/pdf/2210.15560.pdf">paper</a> with <a href="https://perso.ensta-paris.fr/~haddar/">Houssem Haddar</a> and <a href="https://josselin-garnier.org/">Josselin Garnier</a>!</p>
 
                     <h2>Introduction</h2>
 
@@ -148,15 +148,14 @@ http://www.tooplate.com/view/2085-neuron
                     This immediately implies the following relationship for the scattered fields,
                     $$
                     \begin{align}
-                    u^s(\boldsymbol{x},\boldsymbol{y}) - \overline{u^s(\boldsymbol{x},\boldsymbol{y})} = \, & 2ik\int_{\Sigma}\overline{u(\boldsymbol{x},\boldsymbol{z})}u(\boldsymbol{y},\boldsymbol{z})dS(\boldsymbol{z}) \\
-                    & - \left[\phi(\boldsymbol{x},\boldsymbol{y})-\overline{\phi(\boldsymbol{x},\boldsymbol{y})}\right].
+                    u^s(\boldsymbol{x},\boldsymbol{y}) - \overline{u^s(\boldsymbol{x},\boldsymbol{y})} = 2ik\int_{\Sigma}\overline{u(\boldsymbol{x},\boldsymbol{z})}u(\boldsymbol{y},\boldsymbol{z})dS(\boldsymbol{z}) - \left[\phi(\boldsymbol{x},\boldsymbol{y}) - \overline{\phi(\boldsymbol{x},\boldsymbol{y})}\right].
                     \end{align}
                     $$
                     </p>
 
                     <h2>The standard LSM in active imaging</h2>
 
-                    <p>Let \(\boldsymbol{x}_j\), \(1\leq j\leq J\), and \(\boldsymbol{y}_m\), \(1\leq m\leq M\), be measurement points and point sources both located on a surface \(\partial B\) that encloses \(D\). The standard LSM for near-field measurements, in active imaging, relies on the construction of the near-field matrix \(N^\mathrm{ac}\) with entries
+                    <p>Let \(\boldsymbol{x}_j\), \(1\leq j\leq J\), and \(\boldsymbol{y}_m\), \(1\leq m\leq M\), be measurement points and point sources located on a surface \(\partial B\) that encloses \(D\). The standard LSM for near-field measurements, in active imaging, relies on the construction of the near-field matrix \(N^\mathrm{ac}\) with entries
                     $$
                     N^\mathrm{ac}_{jm} = u^s(\boldsymbol{x}_j,\boldsymbol{y}_m).
                     $$
@@ -171,15 +170,13 @@ http://www.tooplate.com/view/2085-neuron
                     <p>In passive imaging, we assume that the measurement points \(\boldsymbol{x}_j\) are located in some bounded volume \(B\subset\mathbb{R}^d\setminus\overline{D}\). Let \(\Sigma\) be a surface that encloses \(B\) and \(D\), and let us assume that there are \(L>0\) point sources \(\boldsymbol{z}_\ell\) randomly distributed on \(\Sigma\). These sources can transmit a unit-amplitude time-harmonic signal, one by one, so that it is possible to measure the total fields \(u(\boldsymbol{x}_j,\boldsymbol{z}_\ell)\). Moreover, it is possible to compute \(\phi(\boldsymbol{x}_j,\boldsymbol{x}_m)\), so we can evaluate the cross-correlation matrix \(C\) with entries
                     $$
                     \begin{align}
-                    C_{jm} = \, & \frac{2ik\vert\Sigma\vert}{L}\sum_{\ell=1}^L\overline{u(\boldsymbol{x}_j,\boldsymbol{z}_\ell)}u(\boldsymbol{x}_m,\boldsymbol{z}_\ell) \\
-                    & - \left[\phi(\boldsymbol{x}_j,\boldsymbol{x}_m) - \overline{\phi(\boldsymbol{x}_j,\boldsymbol{x}_m)}\right],
+                    C_{jm} = \frac{2ik\vert\Sigma\vert}{L}\sum_{\ell=1}^L\overline{u(\boldsymbol{x}_j,\boldsymbol{z}_\ell)}u(\boldsymbol{x}_m,\boldsymbol{z}_\ell) - \left[\phi(\boldsymbol{x}_j,\boldsymbol{x}_m) - \overline{\phi(\boldsymbol{x}_j,\boldsymbol{x}_m)}\right],
                     \end{align}
                     $$
                     where \(\vert\Sigma\vert\) is the area of \(\Sigma\). The matrix \(C\) corresponds to the discretization of the right-hand side of the Helmholtz&ndash;Kirchhoff identity (for scattered fields) at points \(\boldsymbol{z}_\ell\) with uniform weights and evaluted at \(\boldsymbol{x}_j\) and \(\boldsymbol{x}_m\), i.e.,
                     $$
                     \begin{align}
-                    C_{jm} \approx \, & 2ik\int_{\Sigma}\overline{u(\boldsymbol{x}_j,\boldsymbol{z})}u(\boldsymbol{x}_m,\boldsymbol{z})dS(\boldsymbol{z}) \\
-                    & - \left[\phi(\boldsymbol{x}_j,\boldsymbol{x}_m)-\overline{\phi(\boldsymbol{x}_j,\boldsymbol{x}_m)}\right].
+                    C_{jm} \approx 2ik\int_{\Sigma}\overline{u(\boldsymbol{x}_j,\boldsymbol{z})}u(\boldsymbol{x}_m,\boldsymbol{z})dS(\boldsymbol{z}) - \left[\phi(\boldsymbol{x}_j,\boldsymbol{x}_m) - \overline{\phi(\boldsymbol{x}_j,\boldsymbol{x}_m)}\right].
                     \end{align}
                     $$
                     Therefore, it satisfies
@@ -242,7 +239,7 @@ http://www.tooplate.com/view/2085-neuron
                     <hr>
                     <h4>Blog posts about inverse scattering</h4>
                     
-                    <p>2024 &nbsp; <a href="2023-12-22.html">The linear sampling method for small random scatterers</a></p>
+                    <p>2024 &nbsp; <a href="2024-02-04.html">The linear sampling method for data generated by small random scatterers</a></p>
                     <p>2022 &nbsp; <a href="2022-11-04.html">The linear sampling method for random sources</a></p>
 
                </div>
