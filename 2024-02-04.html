@@ -206,13 +206,13 @@ http://www.tooplate.com/view/2085-neuron
                     </div>
                     </p>
 
-                    <p>We proved that the scattered fields verifiy the following <i>modified</i> Helmholtz&ndash;Kirchhoff identity:
+                    <p>We proved that the scattered fields verifiy the following <i>modified</i> Helmholtz&ndash;Kirchhoff identity,
                     $$
                     \begin{align}
-                    u^s(\boldsymbol{x},\boldsymbol{x}') - \overline{u^s(\boldsymbol{x},\boldsymbol{x}')} \approx 2ik\sigma_\epsilon\int_{\Sigma_\epsilon}\overline{v_\epsilon(\boldsymbol{x},\boldsymbol{y}_\epsilon,\boldsymbol{z}_\epsilon)} v_\epsilon(\boldsymbol{x}',\boldsymbol{y}_\epsilon,\boldsymbol{z}_\epsilon)dS(\boldsymbol{y}_\epsilon) - [\phi(\boldsymbol{x},\boldsymbol{x}') - \overline{\phi(\boldsymbol{x},\boldsymbol{x}')}].
+                    u^s(\boldsymbol{x},\boldsymbol{x}') - \overline{u^s(\boldsymbol{x},\boldsymbol{x}')} \approx 2ik\sigma_\epsilon\int_{\Sigma_\epsilon}\overline{v_\epsilon(\boldsymbol{x},\boldsymbol{y}_\epsilon,\boldsymbol{z}_\epsilon)} v_\epsilon(\boldsymbol{x}',\boldsymbol{y}_\epsilon,\boldsymbol{z}_\epsilon)dS(\boldsymbol{y}_\epsilon) - [\phi(\boldsymbol{x},\boldsymbol{x}') - \overline{\phi(\boldsymbol{x},\boldsymbol{x}')}],
                     \end{align}
                     $$
-                    This motivates the introduction of the following <i>modified</i> cross-correlation matrix:
+                    with scaling factor \(\sigma_\epsilon = \pi^2\vert H_0^{(1)}(2\pi\epsilon)\vert^2\epsilon^{-q}\). This motivates the introduction of the following <i>modified</i> cross-correlation matrix:
                     $$
                     \begin{align}
                     \widetilde{C}_{jm} = \frac{2ik\vert\Sigma_\epsilon\vert\sigma_\epsilon}{L}\sum_{\ell=1}^L\overline{v_\epsilon(\boldsymbol{x}_j,\boldsymbol{y}_\epsilon^\ell,\boldsymbol{z}_\epsilon)} v_\epsilon(\boldsymbol{x}_m,\boldsymbol{y}_\epsilon^\ell,\boldsymbol{z}_\epsilon) - \left[\phi(\boldsymbol{x}_j,\boldsymbol{x}_m) - \overline{\phi(\boldsymbol{x}_j,\boldsymbol{x}_m)}\right].
@@ -232,7 +232,7 @@ http://www.tooplate.com/view/2085-neuron
                     \begin{align}\label{eq:scatterer-beta}
                     \boldsymbol{y}_\epsilon^\ell = 100e^{i\theta_y^\ell}, \quad \theta_y^\ell = \frac{2\pi}{L}(\ell - 1 + \beta_\ell), \quad 1\leq \ell\leq L,
                     \end{align}
-                    where \(\beta_\ell\) is drawn from the uniform distribution on \([0,0.1]\). Finally, we add some multiplicative white noise with amplitude \(\epsilon^p\epsilon^{q/2}=10^{-4}\) to the the near-field measurements, and probe the medium on a \(100\times100\) uniform grid on \([-6\lambda,6\lambda]\times[-6\lambda,6\lambda]\).</p>
+                    where \(\beta_\ell\) is drawn from the uniform distribution on \([0,0.1]\). Finally, we add some multiplicative white noise with amplitude \(\delta=\epsilon^p\epsilon^{q/2}=10^{-4}\) to the the near-field measurements (generating a matrix \(\widetilde{C}_\delta\)), and probe the medium on a \(100\times100\) uniform grid on \([-6\lambda,6\lambda]\times[-6\lambda,6\lambda]\).</p>
 
                     <div class="row">
                       <div class="column">
