@@ -109,7 +109,7 @@ http://www.tooplate.com/view/2085-neuron
 
                     <h2>Introduction</h2>
 
-                    <p>In a previous paper, I introduced an extension of the LSM to address the sound-soft inverse scattering problem involving random sources. This current study builds upon that foundation, focusing on a scenario where a single <i>controlled</i> source, operating at a specified wavelength \(\lambda\), illuminates a small <i>random</i> scatterer and an object of comparable size to \(\lambda\)&mdash;the goal is to reconstruct the shape of the latter. The reflection of the wave field transmitted by the point source on the small scatterer serves as a random source, aligning with the context explored in my earlier work. </p>
+                    <p>In a previous paper, we introduced an extension of the LSM to address the sound-soft inverse scattering problem involving random sources. This current study builds upon that foundation, focusing on a scenario where a single <i>controlled</i> source, operating at a specified wavelength \(\lambda\), illuminates a small <i>random</i> scatterer and an object of comparable size to \(\lambda\)&mdash;the goal is to reconstruct the shape of the latter. The reflection of the wave field transmitted by the point source on the small scatterer serves as a random source, aligning with the context explored in our earlier work. </p>
 
                     <p>The motivation for this research stems from the necessity, when imaging an unknown obstacle \(D\), to illuminate it with a diverse set of incoming waves. For deterministic, controlled point sources, one considers a family of sources located at points \(\boldsymbol{z}_m\) generating the incident fields
                     $$
@@ -117,7 +117,7 @@ http://www.tooplate.com/view/2085-neuron
                     \phi(\boldsymbol{x},\boldsymbol{z}_m) = \frac{i}{4}H_0^{(1)}(k\vert\boldsymbol{x}-\boldsymbol{z}_m\vert),
                     \end{align} 
                     $$
-                    and measures the resulting scattered fields \(u^s(\boldsymbol{x}_j,\boldsymbol{z}_m)\) at points \(\boldsymbol{x}_j\) to populate the near-field matrix \(N\) with entries \(N_{jm} = u^s(\boldsymbol{x}_j,\boldsymbol{z}_m)\). In the case of random, uncontrolled sources at positions \(\boldsymbol{z}_\ell\), as demonstrated in my prior work, the relevant matrix is the cross-correlation matrix \(C\). Its entries are given by:
+                    and measures the resulting scattered fields \(u^s(\boldsymbol{x}_j,\boldsymbol{z}_m)\) at points \(\boldsymbol{x}_j\) to populate the near-field matrix \(N\) with entries \(N_{jm} = u^s(\boldsymbol{x}_j,\boldsymbol{z}_m)\). In the case of random, uncontrolled sources at positions \(\boldsymbol{z}_\ell\), as demonstrated in our prior work, the relevant matrix is the cross-correlation matrix \(C\). Its entries are given by:
                     $$
                     \begin{align}
                     C_{jm} = \frac{2ik\vert\Sigma\vert}{L}\sum_{\ell=1}^L\overline{u(\boldsymbol{x}_j,\boldsymbol{z}_\ell)}u(\boldsymbol{x}_m,\boldsymbol{z}_\ell) - \left[\phi(\boldsymbol{x}_j,\boldsymbol{x}_m) - \overline{\phi(\boldsymbol{x}_j,\boldsymbol{x}_m)}\right],
@@ -125,11 +125,11 @@ http://www.tooplate.com/view/2085-neuron
                     $$
                     where \(u(\boldsymbol{x},\boldsymbol{z})=\phi(\boldsymbol{x},\boldsymbol{z})+u^s(\boldsymbol{x},\boldsymbol{z})\) is the total field for the incident wave \(\phi(\boldsymbol{x},\boldsymbol{z})\), and \(\vert\Sigma\vert\) is the area of the surface \(\Sigma\) on which the random sources are distributed.</p>
 
-                    <p>Suppose now that we only have access to a single <i>controlled</i> source located at some given point \(\boldsymbol{z}\). Alone, this is insufficient for reconstructing the obstacle's shape. To address this limitation, I propose introducing a random medium between the source and the obstacle. I illustrate this concept by considering a single random small scatterer between the point source and the obstacle&ndash;a seemingly simple yet powerful model of a random medium that allows me to apply the LSM in a novel manner, with a modified version of \(C\).</p>
+                    <p>Suppose now that we only have access to a single <i>controlled</i> source located at some given point \(\boldsymbol{z}\). Alone, this is insufficient for reconstructing the obstacle's shape. To address this limitation, we propose introducing a random medium between the source and the obstacle. We illustrate this concept by considering a single random small scatterer between the point source and the obstacle&ndash;a seemingly simple yet powerful model of a random medium that allows me to apply the LSM in a novel manner, with a modified version of \(C\).</p>
 
                     <h2>Modified Helmholtz&ndash;Kirchoff identity</h2>
 
-                    <p>Consider the incident field \(\phi(\boldsymbol{x},\boldsymbol{z}_\epsilon)\) generated by a point source located at \(\boldsymbol{z}_\epsilon=\lambda\epsilon^{-q}e^{i\theta_z}\) for some scalars \(\epsilon>0\), \(q>0\), and \(\theta_z\in[0,2\pi]\). Here, \(k>0\) is the wavenumber and \(\lambda=2\pi/k\) is the wavelength. Let \(D\) be an obstacle of size proportional to \(\lambda\) and independent on \(\epsilon\). Without loss of generality, we assume that \(D\) is centered at the origin. We also consider a small disk \(D_\epsilon=D_\epsilon(\boldsymbol{y}_\epsilon)\) of radius \(\rho(D_\epsilon)=\lambda\epsilon\) centered at \(\boldsymbol{y}_\epsilon = \lambda\epsilon^{-p}e^{i\theta_y}\) for some scalars \(0 < p < q\) and \(\theta_y\in[0,2\pi]\). Finally, let \(B\subset\mathbb{R}^2\setminus\overline{D\cup D_\epsilon}\) be a compact set whose size and distance to \(D\) are proportional to \(\lambda\) and independent on \(\epsilon\). Measurements will be taken inside the volume \(B\), which is consistent with my previous work.</p>
+                    <p>Consider the incident field \(\phi(\boldsymbol{x},\boldsymbol{z}_\epsilon)\) generated by a point source located at \(\boldsymbol{z}_\epsilon=\lambda\epsilon^{-q}e^{i\theta_z}\) for some scalars \(\epsilon>0\), \(q>0\), and \(\theta_z\in[0,2\pi]\). Here, \(k>0\) is the wavenumber and \(\lambda=2\pi/k\) is the wavelength. Let \(D\) be an obstacle of size proportional to \(\lambda\) and independent on \(\epsilon\). Without loss of generality, we assume that \(D\) is centered at the origin. We also consider a small disk \(D_\epsilon=D_\epsilon(\boldsymbol{y}_\epsilon)\) of radius \(\rho(D_\epsilon)=\lambda\epsilon\) centered at \(\boldsymbol{y}_\epsilon = \lambda\epsilon^{-p}e^{i\theta_y}\) for some scalars \(0 < p < q\) and \(\theta_y\in[0,2\pi]\). Finally, let \(B\subset\mathbb{R}^2\setminus\overline{D\cup D_\epsilon}\) be a compact set whose size and distance to \(D\) are proportional to \(\lambda\) and independent on \(\epsilon\). Measurements will be taken inside the volume \(B\), which is consistent with our previous work.</p>
 
                     <p>We examine the scattering of the incident field \(\phi(\cdot,\boldsymbol{z}_\epsilon)\) by \(D\) and \(D_\epsilon\), which generates the scattered field \(w^s_\epsilon\). More precisely, let \(w^s_\epsilon(\cdot,\boldsymbol{y}_\epsilon,\boldsymbol{z}_\epsilon)\) be the solution to the sound-soft scattering problem
                     $$
@@ -265,7 +265,7 @@ http://www.tooplate.com/view/2085-neuron
 
                <div class="col-md-4 col-md-offset-1 col-sm-6">
                     <h3>Contact</h3>
-                    <p style="color:white"><i class="fa fa-send-o"></i>hadrien.montanelli@gmail.com</p>
+                    <p style="color:white"><i class="fa fa-send-o"></i>hadrien.montanelli@inria.fr</p>
                     <img src="/images/inria.png" class="img-responsive">
                </div>
 
