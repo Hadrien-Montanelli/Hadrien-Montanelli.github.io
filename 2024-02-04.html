@@ -230,9 +230,9 @@ http://www.tooplate.com/view/2085-neuron
                     $$
                     and \(L=120\) different positions of a single small scatterer on the circle of radius \(\lambda\epsilon^{-p}=100\),
                     \begin{align}\label{eq:scatterer-beta}
-                    \boldsymbol{y}_\epsilon^\ell = 100e^{i\theta_y^\ell}, \quad \theta_y^\ell = \frac{2\pi}{L}(\ell - 1 + \beta_\ell), \quad 1\leq \ell\leq L,
+                    \boldsymbol{y}_\epsilon^\ell = 100e^{i\theta_y^\ell}, \quad \theta_y^\ell = 2\pi\beta_\ell, \quad 1\leq \ell\leq L,
                     \end{align}
-                    where \(\beta_\ell\) is drawn from the uniform distribution on \([0,0.1]\). Finally, we add some multiplicative white noise with amplitude \(\delta=\epsilon^p\epsilon^{q/2}=10^{-4}\) to the the near-field measurements (generating a matrix \(\widetilde{C}_\delta\)), and probe the medium on a \(100\times100\) uniform grid on \([-6\lambda,6\lambda]\times[-6\lambda,6\lambda]\).</p>
+                    where \(\beta_\ell\sim U(0,1)\) is drawn from the <a href="https://en.wikipedia.org/wiki/Continuous_uniform_distribution">uniform distribution</a> on \([0,1]\). Finally, we add some multiplicative <a href="https://en.wikipedia.org/wiki/White_noise">white noise</a> with amplitude \(\delta=5\times 10^{-3}\) to the the near-field measurements (generating a matrix \(\widetilde{C}_\delta\)), and probe the medium on a \(100\times100\) uniform grid on \([-6\lambda,6\lambda]\times[-6\lambda,6\lambda]\).</p>
 
                     <div class="row">
                       <div class="column">
