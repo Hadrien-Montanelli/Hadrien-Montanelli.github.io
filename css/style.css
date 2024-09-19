@@ -384,8 +384,11 @@ pre {
 }
 
 .main-home {
-  background: url('../images/home-bg.jpg') no-repeat;
-  height: 100vh;
+  /*background: url('../images/home-bg.jpg') no-repeat;
+  height: 100vh;*/
+  background: url('../images/polytechnique.jpg') no-repeat;
+  height: 80vh;
+  opacity: 0.8;
 }
 
 .main-about {
