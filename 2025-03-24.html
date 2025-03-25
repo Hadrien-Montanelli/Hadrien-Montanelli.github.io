@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<meta name="description" content="">
+<meta name="keywords" content="">
+<meta name="author" content="">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+<title>Scientific machine learning</title>
+<!--
+
+Template 2085 Neuron
+
+http://www.tooplate.com/view/2085-neuron
+
+-->
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" href="css/all.css">
+<link rel="stylesheet" href="css/magnific-popup.css">
+
+<!-- Main css -->
+<link rel="stylesheet" href="css/style.css">
+<link href="https://fonts.googleapis.com/css?family=Lora|Merriweather:300,400" rel="stylesheet">
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-108246943-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-108246943-1');
+</script>
+
+<!-- Google AdSense -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8299683413193339" crossorigin="anonymous"></script>
+<!--<script async src="https://fundingchoicesmessages.google.com/i/pub-8299683413193339?ers=1" nonce="AuY4vKpDElA9N7YwmFfMjg"></script>
+<script nonce="AuY4vKpDElA9N7YwmFfMjg">(function() {function signalGooglefcPresent() {if (!window.frames['googlefcPresent']) {if (document.body) {const iframe = document.createElement('iframe'); iframe.style = 'width: 0; height: 0; border: none; z-index: -1000; left: -1000px; top: -1000px;'; iframe.style.display = 'none'; iframe.name = 'googlefcPresent'; document.body.appendChild(iframe);} else {setTimeout(signalGooglefcPresent, 0);}}}signalGooglefcPresent();})();</script>-->
+
+</head>
+<body>
+
+<!-- PRE LOADER -->
+
+<div class="preloader">
+     <div class="sk-spinner sk-spinner-wordpress">
+          <span class="sk-inner-circle"></span>
+     </div>
+</div>
+
+<!-- Navigation section  -->
+
+<div class="navbar navbar-default navbar-static-top" role="navigation">
+     <div class="container">
+
+          <div class="navbar-header">
+               <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon icon-bar"></span>
+                    <span class="icon icon-bar"></span>
+                    <span class="icon icon-bar"></span>
+               </button>
+               <a href="index.html" class="navbar-brand">H. Montanelli</a>
+          </div>
+          <div class="collapse navbar-collapse">
+               <ul class="nav navbar-nav navbar-right">
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="publications.html">Publications</a></li>
+                    <li><a href="research.html">Research</a></li>
+                    <li><a href="students.html">Students</a></li>
+                    <li><a href="talks.html">Talks</a></li>
+                    <li><a href="teaching.html">Teaching</a></li>
+                    <li><a href="https://www.paypal.com/donate/?hosted_button_id=UCLCSJLFL433E"><b>Donate</b></a></li>
+               </ul>
+          </div>
+
+  </div>
+</div>
+
+<!-- Home Section -->
+
+<section id="home" class="main-about parallax-section">
+     <div class="overlay"></div>
+     <div class="container">
+          <div class="row">
+
+               <div class="col-md-12 col-sm-12">
+                    <h1>Scientific machine learning</h1>
+               </div>
+
+          </div>
+     </div>
+</section>
+
+<!-- Blog Single Post Section -->
+
+<section id="about">
+     <div class="container">
+          <div class="row">
+
+               <div class="col-md-offset-1 col-md-10 col-sm-12">     
+
+                    <p><i>March 24, 2025 &mdash; Support my next blog post, <a href="https://www.paypal.com/donate/?hosted_button_id=UCLCSJLFL433E">buy me a coffee</a> &#9749;.</i></p>
+
+                    <p>In this post, I talk about a course I just finished teaching at <a href="https://en.wikipedia.org/wiki/%C3%89cole_polytechnique">École Polytechnique</a> on scientific machine learning.</p>
+
+                    <h2>Introduction</h2>
+
+                    <p> The course was aimed at third-year students at École Polytechnique, who had completed two years of <a href="https://en.wikipedia.org/wiki/Classe_pr%C3%A9paratoire_aux_grandes_%C3%A9coles">classes préparatoires</a>, making the material equivalent to a graduate-level course in the UK or US. This Scientific Machine Learning (SciML) course bridged the gap between <a href="https://en.wikipedia.org/wiki/Numerical_analysis">Scientific Computing</a> and <a href="https://en.wikipedia.org/wiki/Machine_learning">Machine Learning</a>. SciML, an emerging field, enables efficient methods for solving complex problems in science and engineering, like <a href="https://en.wikipedia.org/wiki/Partial_differential_equation">partial differential equations (PDEs)</a>. This course offered a new, valuable specialization, helping students stand out in the evolving job market, where demand for ML experts with specialized skills is growing.</p>
+
+                    <h2>Scientific computing and numerical analysis</h2>
+
+                    <p>Scientific Computing and Numerical Analysis are branches of <a href="https://en.wikipedia.org/wiki/Applied_mathematics">applied mathematics</a> that focus on the development and analysis of <i>numerical</i> <a href="https://en.wikipedia.org/wiki/Algorithm">algorithms</a> for solving problems in <i>continuous</i> mathematics, such as  PDEs.</p>
+
+                    <center>
+                         <img src="/blog/figure1.png" class="img-responsive">
+                    </center>
+
+                    <p>When a PDE is linear, we first discretize it on a grid or mesh and then solve it using linear algebra. This creates a natural connection between PDEs and <a href="https://en.wikipedia.org/wiki/Numerical_linear_algebra">Numerical Linear Algebra (NLA)</a>.</p>
+
+                    <center>
+                         <img src="/blog/figure2.png" class="img-responsive">
+                    </center>
+
+
+                    <p>Sometimes, when an energy functional exists for a problem (e.g., PDEs with <a href="https://en.wikipedia.org/wiki/Coercive_function">coercive</a> bilinear forms like the <a href="https://en.wikipedia.org/wiki/Laplace%27s_equation">Laplace equation</a>), we can also apply <a href="https://en.wikipedia.org/wiki/Mathematical_optimization">optimization</a> techniques to solve it effectively.</p>
+
+                    <p>A typical approach to solving nonlinear PDEs involves transforming the problem into a sequence of linear problems, through <a href="https://en.wikipedia.org/wiki/Linearization">linearization</a> and <a href="https://en.wikipedia.org/wiki/Iterative_method">iteration</a>. In this way, nonlinear PDEs are reduced to linear algebra problems.</p>
+
+                    <center>
+                         <img src="/blog/figure3.png" class="img-responsive">
+                    </center>
+
+                    <h2>Scientific machine learning</h2>
+
+                    <p>SciML is a recent research field based on both machine learning and scientific computing. Its goal is the development of robust, efficient, and interpretable methods to solve problems in science and engineering, such as PDEs, parameter identification, or <a href="https://en.wikipedia.org/wiki/Inverse_problem">inverse problems</a>.</p>
+
+                    <p>In SciML, a common approach to solving nonlinear PDEs starts with generating <a href="https://en.wikipedia.org/wiki/Training,_validation,_and_test_data_sets">training data</a>, typically using standard numerical solvers, where the training data consists of reference solutions. This data is then used to construct a cost function that quantifies the training error, while the solution or solution operator is discretized using a <a href="https://en.wikipedia.org/wiki/Neural_network_(machine_learning)">neural network</a>. The goal is to minimize this cost function through optimization to learn the optimal network weights.</p>
+
+                    <center>
+                         <img src="/blog/figure4.png" class="img-responsive">
+                    </center>
+
+                    <p>This brings optimization back to the core of the numerical solutions of PDEs.</p>
+
+                    <h2>Overview</h2>
+
+                    <p>Throughout the course, we touched upon all major fields of Scientific Computing and Numerical Analysis, including Numerical Linear Algebra, PDEs, and Optimization, with a ML flavor. Each method discussed was implemented in <a href="https://en.wikipedia.org/wiki/Python_(programming_language)">Python</a>, and every tutorial provided hands-on experience through notebooks. This ensured that students not only understood the theoretical aspects but also gained practical experience in implementing and using these methods. Check out my <a href="https://hal.science/hal-04976856">lecture notes</a>!</p>
+
+                    <ul>
+                       <li><strong>Supervised Learning</strong>
+                           <ul>
+                               <li><strong>Chapter 1 &mdash; Supervised Learning without Neural Networks</strong>
+                                   <ul>
+                                       <li>Linear and nonlinear least squares with QR and Gauss Newton's method</li>
+                                       <li>Trigonometric interpolation with the FFT</li>
+                                   </ul>
+                               </li>
+
+                               <li><strong>Chapter 2 &mdash; Supervised Learning with Neural Networks</strong>
+                                   <ul>
+                                       <li>Artificial neural networks</li>
+                                       <li>Training with stochastic gradient descent and backpropagation</li>
+                                   </ul>
+                               </li>
+
+                               <li><strong>Chapter 3 &mdash; Neural Network Approximation Theory</strong>
+                                   <ul>
+                                       <li>Universality theorems</li>
+                                       <li>Quantitative estimates in Sobolev spaces</li>
+                                   </ul>
+                               </li>
+                           </ul>
+                       </li>
+
+                       <li><strong>Solving PDEs</strong>
+                           <ul>
+                               <li><strong>Chapter 4 &mdash; Solving PDEs without Neural Networks</strong>
+                                   <ul>
+                                       <li>Finite elements for the 1D Poisson equation</li>
+                                       <li>Finite elements with finite differences for the 1D heat equation</li>
+                                   </ul>
+                               </li>
+
+                               <li><strong>Chapter 5 &mdash; Solving PDEs with Neural Networks</strong>
+                                   <ul>
+                                       <li>Physics-informed neural networks</li>
+                                   </ul>
+                               </li>
+
+                               <li><strong>Chapter 6 &mdash; Solving PDEs with Neural Networks 2 (Samuel Kokh)</strong></li>
+                           </ul>
+                       </li>
+
+                       <li><strong>Solving Parametric PDEs</strong>
+                           <ul>
+                               <li><strong>Chapter 7 &mdash; Solving Parametric PDEs without Neural Networks</strong>
+                                   <ul>
+                                       <li>Reduced basis methods with the SVD</li>
+                                   </ul>
+                               </li>
+
+                               <li><strong>Chapter 8 &mdash; Solving Parametric PDEs with Neural Networks</strong>
+                                   <ul>
+                                       <li>Deep operator networks</li>
+                                       <li>Fourier neural operators</li>
+                                   </ul>
+                               </li>
+                           </ul>
+                       </li>
+                   </ul>
+
+                    <hr>     
+                    <h4>Blog posts about scientific machine learning</h4>
+                    
+                    <p>2025 &nbsp; <a href="2025-03-24.html">Scientific machine learning</a></p>
+                    
+               </div>
+
+          </div>
+     </div>
+</section>
+
+<!-- Footer Section -->
+
+<footer>
+     <div class="container">
+          <div class="row">
+
+               <div class="col-md-4 col-md-offset-1 col-sm-6">
+                    <h3>Contact</h3>
+                    <p style="color:white"><i class="fa fa-send-o"></i>hadrien.montanelli@inria.fr</p><br>
+                    <a href="https://www.inria.fr/en"><img src="/images/inria.png" class="img-responsive"></a>
+               </div>
+
+               <div class="col-md-4 col-md-offset-1 col-sm-6">
+                    <h3 style="opacity:0;">Contact</h3>
+                    <p style="color:white">Copyright &copy; 2025 Hadrien Montanelli</p><br>
+                    <a href="https://www.ip-paris.fr/en"><img src="/images/polytechnique.png" class="img-responsive"></a>
+               </div>
+
+               <div class="clearfix col-md-12 col-sm-12">
+                    <hr style="color:white;">
+               </div>
+
+               <div class="col-md-12 col-sm-12">
+                    <ul class="social-icon">
+                         <li><a href="https://github.com/Hadrien-Montanelli" class="fa-brands fa-github" style="font-size:30px;color:white"></a></li>
+                         <li><a href="https://scholar.google.com/citations?user=Bjmkfe8AAAAJ&hl=en&oi=sra/" class="fa-brands fa-google" style="font-size:30px;color:white"></a></li>
+                         <li><a href="https://www.linkedin.com/in/hadrien-montanelli/" class="fa-brands fa-linkedin" style="font-size:30px;color:white"></a></li>
+                         <li><a href="https://orcid.org/0009-0005-1742-9828" class="fa-brands fa-orcid" style="font-size:30px;color:white"></a></li>
+                         <li><a href="https://twitter.com/drmontanelli" class="fa-brands fa-x-twitter" style="font-size:30px;color:white;"></a></li>
+                    </ul>
+               </div>
+               
+          </div>
+     </div>
+</footer>
+
+<!-- Back top -->
+<a href="#back-top" class="go-top"><i class="fa fa-angle-up"></i></a>
+
+<!-- SCRIPTS -->
+<script src="js/jquery.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/particles.min.js"></script>
+<script src="js/app.js"></script>
+<script src="js/jquery.parallax.js"></script>
+<script src="js/smoothscroll.js"></script>
+<script src="js/custom.js"></script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+</body>
+</html>
