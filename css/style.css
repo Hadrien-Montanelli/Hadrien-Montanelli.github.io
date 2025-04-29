@@ -16,6 +16,38 @@ body {
 }
 
 /*---------------------------------------
+    Tags in publications        
+-----------------------------------------*/
+.tag {
+  display: inline-block;
+  background-color: #eee;
+  padding: 4px 8px;
+  margin: 2px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.tag:hover {
+  background-color: #ccc;
+}
+
+.tag.active {
+  background-color: #bfba55;
+  color: white;
+}
+
+.publication {
+  margin-bottom: 10px;
+  padding: 10px 10px 0px 10px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+}
+
+.hidden {
+  display: none;
+}
+
+/*---------------------------------------
     Tables             
 -----------------------------------------*/
 
