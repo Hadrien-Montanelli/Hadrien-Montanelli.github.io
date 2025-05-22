@@ -146,6 +146,27 @@ mark:active {
 }
 
 /*---------------------------------------
+    Toggle         
+-----------------------------------------*/
+.toggle-header {
+  color: inherit;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.toggle-arrow {
+  display: inline-block;
+  transition: transform 0.3s ease;
+  margin-right: 5px;
+}
+
+/* Rotate arrow when open */
+.collapse.in + h3 .toggle-arrow,
+.toggle-header[aria-expanded="true"] .toggle-arrow {
+  transform: rotate(90deg);
+}
+
+/*---------------------------------------
     Typorgraphy              
 -----------------------------------------*/
 
