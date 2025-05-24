@@ -1,3 +1,10 @@
+---
+layout: null
+title: Image matting with examples in Python
+date: 2022-12-30
+tags: [image matting]
+permalink: 2022-12-30.html
+---
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -526,9 +533,22 @@ Error (alpha): 7.58e-02
                     <p id="ref1">[2] P. Vlahos, <i>Electronic Composite Photography</i>, U.S. Patent 3595987A, 1971.
 
                     <hr>
-                    <h4>Blog posts about image matting</h4>
-                    
-                    <p>2022 &nbsp; <a href="2022-12-30.html">Image matting with examples in Python</a></p>
+                    {% if page.tags %}
+                      <h4>Blog posts about {{ page.tags }}</h4>
+                      <ul>
+                        {% assign related_posts = site.blog %}
+                        {% assign related = "" | split: "" %}
+                        {% for tag in page.tags %}
+                          {% assign tagged_posts = related_posts | where_exp: "post", "post.tags contains tag" %}
+                          {% assign related = related | concat: tagged_posts %}
+                        {% endfor %}
+                        {% assign related = related | uniq | sort: "date" | reverse %}
+                        {% for post in related limit: 5 %}
+                          {% assign post_year = post.date | date: "%Y" %}
+                          <li>{{ post_year }} &nbsp; <a href="{{ post.permalink }}">{{ post.title }}</a></li>
+                        {% endfor %}
+                      </ul>
+                    {% endif %}
 
               </div>
 

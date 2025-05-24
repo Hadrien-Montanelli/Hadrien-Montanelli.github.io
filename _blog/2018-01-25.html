@@ -1,3 +1,10 @@
+---
+layout: null
+title: Solving nonlocal equations on the sphere
+date: 2018-01-25
+tags: [spectral methods]
+permalink: 2018-01-25.html
+---
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,7 +16,7 @@
 <meta name="author" content="">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-<title>Writing memos</title>
+<title>Solving nonlocal equations on the sphere</title>
 <!--
 
 Template 2085 Neuron
@@ -87,7 +94,7 @@ http://www.tooplate.com/view/2085-neuron
           <div class="row">
 
                <div class="col-md-12 col-sm-12">
-                    <h1>Writing papers and giving maths talks</h1>
+                    <h1>Solving nonlocal equations on the sphere</h1>
                </div>
 
           </div>
@@ -99,20 +106,83 @@ http://www.tooplate.com/view/2085-neuron
 <section id="about">
      <div class="container">
           <div class="row">
+
                <div class="col-md-offset-1 col-md-10 col-sm-12">     
 
-                    <p><i>June 2, 2025</i></p>
+                    <p><i>January 25, 2018</i></p>
 
-                    <p>In this post, I talk about TBD. Part of my holiday in Sicily series.</p>
+                    <center>
+                    <img src="/blog/nonlocalpdesphere.jpg" class="img-responsive">
+                    </center>
 
-                    <h2>Introduction</h2>
+                    <p>I have just submitted <a href="http://arxiv.org/pdf/1801.04902.pdf">a paper</a> 
+                    about <a href="http://www.ma.utexas.edu/mediawiki/index.php/Introduction_to_nonlocal_equations">nonlocal equations</a> 
+                    on the sphere with my colleagues 
+                    <a href="http://home.cc.umanitoba.ca/~slevinrm/">Mikael Slevinsky</a> and 
+                    <a href="http://www.columbia.edu/~qd2125/">Qiang Du</a>. 
+                    Here are the main ideas of our work.</p>
 
-                    <hr>     
-                    <h4>Blog posts research life</h4>
-                    
-                    <p>2025 &nbsp; <a href="2025-05-23.html">Writing memos</a></p>
-                    
+                    <p>We proposed a fast <a href="http://en.wikipedia.org/wiki/Spectral_method">spectral method</a> 
+                    for computing solutions of nonlocal models of the form
+                    $$
+                    u_t = \epsilon^2\mathcal{L}_\delta u + \mathcal{N}(u), \;\; u(t=0,\boldsymbol{x}) = u_0(\boldsymbol{x}),
+                    $$
+                    where \(u(t,\boldsymbol{x})\) is a function of time \(t\ge0\) and position 
+                    \(\boldsymbol{x}\) 
+                    on the unit sphere \(\mathbb{S}^2\subset\mathbb{R}^3\),
+                    \(\mathcal{N}\) is a nonlinear operator with constant coefficients (e.g., \(\mathcal{N}(u)=u-u^3\)), 
+                    and \(\mathcal{L}_{\delta}\) is a nonlocal 
+                    <a href="http://en.wikipedia.org/wiki/Laplace%E2%80%93Beltrami_operator">Laplace&ndash;Beltrami operator</a>,
+                    $$
+                    \mathcal{L}_\delta u(\boldsymbol{x}) = \int_{\mathbb{S}^2} \rho_\delta(\vert\boldsymbol{x}-\boldsymbol{y}\vert)
+                    [u(\boldsymbol{y}) - u(\boldsymbol{x})]\,d\Omega(\boldsymbol{y}).
+                    $$
+                    In the definition above, \(d\Omega(\boldsymbol{y})\) denotes the standard 
+                    <a href="http://en.wikipedia.org/wiki/Measure_(mathematics)">measure</a> on 
+                    \(\mathbb{S}^2\) and \(\rho_\delta\) is a suitably defined nonlocal kernel with horizon \(0<\delta\le2\), which determines the range of interactions.</p>
+
+                    <p>There has been substantial work on the numerical approximation of this type of equations in 
+                    <a href="http://en.wikipedia.org/wiki/Euclidean_geometry">Euclidean geometries</a>.
+                    However, no study has been attempted so far to investigate similar 
+                    <a href="http://en.wikipedia.org/wiki/Discretization">discretizations</a> on the sphere. 
+                    It is of practical interest to study the extension to 
+                    <a href="http://en.wikipedia.org/wiki/Non-Euclidean_geometry">non-Euclidean geometries</a> 
+                    (the sphere being a representative example) for the modeling of 
+                    <a href="http://en.wikipedia.org/wiki/Anomalous_diffusion">anomalous diffusion</a>, 
+                    <a href="http://en.wikipedia.org/wiki/Pattern_formation">pattern formation</a>, 
+                    and <a href="http://en.wikipedia.org/wiki/Image_analysis">image analysis</a>.</p>
+
+                    <p>Our algorithms are based on the diagonalizability of nonlocal diffusion operators in the basis of 
+                    <a href="http://en.wikipedia.org/wiki/Spherical_harmonics">spherical harmonics</a>, 
+                    the computation of their <a href="http://en.wikipedia.org/wiki/Eigenvalues_and_eigenvectors">eigenvalues</a> 
+                    to high relative accuracy using <a href="http://en.wikipedia.org/wiki/Numerical_integration">quadrature</a> 
+                    and <a href="http://en.wikipedia.org/wiki/Asymptotic_analysis">asymptotic formulas</a>, 
+                    and a fast spherical harmonic transform.
+                    The picture at the top shows the numerical solutions of the local (first row) 
+                    and nonlocal (second row) 
+                    <a href="https://en.wikipedia.org/wiki/Allen%E2%80%93Cahn_equation">Allen&ndash;Cahn</a> equation.
+                    If you want to know more about our algorithms, check our paper out!</p>
+
+                    <hr>
+                    {% if page.tags %}
+                      <h4>Blog posts about {{ page.tags }}</h4>
+                      <ul>
+                        {% assign related_posts = site.blog %}
+                        {% assign related = "" | split: "" %}
+                        {% for tag in page.tags %}
+                          {% assign tagged_posts = related_posts | where_exp: "post", "post.tags contains tag" %}
+                          {% assign related = related | concat: tagged_posts %}
+                        {% endfor %}
+                        {% assign related = related | uniq | sort: "date" | reverse %}
+                        {% for post in related limit: 5 %}
+                          {% assign post_year = post.date | date: "%Y" %}
+                          <li>{{ post_year }} &nbsp; <a href="{{ post.permalink }}">{{ post.title }}</a></li>
+                        {% endfor %}
+                      </ul>
+                    {% endif %}
+
                </div>
+
           </div>
      </div>
 </section>

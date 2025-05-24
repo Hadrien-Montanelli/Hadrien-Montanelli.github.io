@@ -1,3 +1,10 @@
+---
+layout: null
+title: The U.K. government's controversial plan of action
+date: 2020-03-19
+tags: [COVID-19]
+permalink: 2020-03-19.html
+---
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -191,10 +198,22 @@ http://www.tooplate.com/view/2085-neuron
                     <p>Finally, to be as transparent as possible&mdash;<a href='https://github.com/Hadrien-Montanelli/covid19'>here</a> is the code.</p>
 
                     <hr>
-                    <h4>Blog posts about COVID-19</h4>
-                    
-                    <p>2020 &nbsp; <a href="2020-10-25.html">Chloroquine & COVID-19 (in French)</a></p>
-                    <p>2020 &nbsp; <a href="2020-03-19.html">The U.K. government's controversial plan of action</a></p>
+                    {% if page.tags %}
+                      <h4>Blog posts about {{ page.tags }}</h4>
+                      <ul>
+                        {% assign related_posts = site.blog %}
+                        {% assign related = "" | split: "" %}
+                        {% for tag in page.tags %}
+                          {% assign tagged_posts = related_posts | where_exp: "post", "post.tags contains tag" %}
+                          {% assign related = related | concat: tagged_posts %}
+                        {% endfor %}
+                        {% assign related = related | uniq | sort: "date" | reverse %}
+                        {% for post in related limit: 5 %}
+                          {% assign post_year = post.date | date: "%Y" %}
+                          <li>{{ post_year }} &nbsp; <a href="{{ post.permalink }}">{{ post.title }}</a></li>
+                        {% endfor %}
+                      </ul>
+                    {% endif %}
 
                </div>
 

@@ -1,3 +1,10 @@
+---
+layout: null
+title: Scientific machine learning
+date: 2025-03-24
+tags: [scientific machine learning]
+permalink: 2025-03-24.html
+---
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -212,10 +219,23 @@ http://www.tooplate.com/view/2085-neuron
                        </li>
                    </ul>
 
-                    <hr>     
-                    <h4>Blog posts about scientific machine learning</h4>
-                    
-                    <p>2025 &nbsp; <a href="2025-03-24.html">Scientific machine learning</a></p>
+                    <hr>
+                    {% if page.tags %}
+                      <h4>Blog posts about {{ page.tags }}</h4>
+                      <ul>
+                        {% assign related_posts = site.blog %}
+                        {% assign related = "" | split: "" %}
+                        {% for tag in page.tags %}
+                          {% assign tagged_posts = related_posts | where_exp: "post", "post.tags contains tag" %}
+                          {% assign related = related | concat: tagged_posts %}
+                        {% endfor %}
+                        {% assign related = related | uniq | sort: "date" | reverse %}
+                        {% for post in related limit: 5 %}
+                          {% assign post_year = post.date | date: "%Y" %}
+                          <li>{{ post_year }} &nbsp; <a href="{{ post.permalink }}">{{ post.title }}</a></li>
+                        {% endfor %}
+                      </ul>
+                    {% endif %}
                     
                </div>
 

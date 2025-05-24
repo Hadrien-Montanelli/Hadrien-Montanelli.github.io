@@ -1,3 +1,10 @@
+---
+layout: null
+title: Spherical caps in cell polarization
+date: 2018-02-27
+tags: [spectral methods]
+permalink: 2018-02-27.html
+---
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,7 +16,7 @@
 <meta name="author" content="">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-<title>Writing memos</title>
+<title>Spherical caps in cell polarization</title>
 <!--
 
 Template 2085 Neuron
@@ -87,7 +94,7 @@ http://www.tooplate.com/view/2085-neuron
           <div class="row">
 
                <div class="col-md-12 col-sm-12">
-                    <h1>Nich research versus new research</h1>
+                    <h1>Spherical caps in cell polarization</h1>
                </div>
 
           </div>
@@ -99,20 +106,83 @@ http://www.tooplate.com/view/2085-neuron
 <section id="about">
      <div class="container">
           <div class="row">
+
                <div class="col-md-offset-1 col-md-10 col-sm-12">     
 
-                    <p><i>May 27, 2025</i></p>
+                    <p><i>February 27, 2018</i></p>
 
-                    <p>In this post, I talk about TBD. Part of my holiday in Sicily series.</p>
+                    <center>
+				<img src="/blog/sphericalcaps1.png" class="img-responsive">
+                    </center>
 
-                    <h2>Introduction</h2>
+				<p>I have just submitted a <a href="https://www.cell.com/biophysj/fulltext/S0006-3495(18)30672-6">paper</a> about the modeling of 
+				<a href="https://en.wikipedia.org/wiki/Embryogenesis">embryogenesis</a> with the
+				<a href="http://shvartsmanlab.com">Shvartsman group</a> at 
+				<a href="http://www.princeton.edu">Princeton University</a>.
+				Let me review the main ideas of our work.</p>
 
-                    <hr>     
-                    <h4>Blog posts research life</h4>
-                    
-                    <p>2025 &nbsp; <a href="2025-05-23.html">Writing memos</a></p>
-                    
+				<p>We proposed a new model for the formation of polarized patterns observed in early embryogenesis of 
+				<a href="https://en.wikipedia.org/wiki/Caenorhabditis_elegans"> <i>C. elegans</i></a> 
+				where <a href="http://en.wikipedia.org/wiki/Conservation_of_mass">mass conservation</a> is the driving force.
+				In our model, a species \(V\) moves freely in a <a href="http://en.wikipedia.org/wiki/Cell_(biology)">cell</a> 
+				\(\Omega\) and reversibly adheres to the <a href="http://en.wikipedia.org/wiki/Cell_membrane">cell membrane</a> 
+				\(\partial\Omega\). 
+				The membrane-bound species \(U\) diffuses on the surface and recruits
+				more of itself to the membrane.
+				For a sphere of radius \(r\), \(U\) and \(V\) satisfy the following equations,
+				<small>
+				$$
+				\left\{
+				\begin{array}{l}
+				U_t = \frac{D_U}{r^2}\Delta U + k_b\big(U_0 + H(U - \Gamma)\big)V - k_d U
+				\;\text{on $\partial\Omega$}, \\[1.5pt]
+				V_t = D_V\Delta V\;\text{in $\Omega$}, \\[1.5pt]
+				D_V\nabla V\cdot n = -k_b\big(U_0 + H(U - \Gamma)V\big) + k_d U,
+				\end{array}
+				\right. 
+				$$
+				</small>
+				for some constants \(D_U\), \(D_V\), \(k_b\), \(k_d\), \(\Gamma\) and \(U_0\).
+				Upon nondimensionalization by \(u=k_dU/k_bV_0\), we obtain a single PDE
+				$$
+				u_\tau = \delta^2\Delta u + \big(1 - \alpha\bar{u}\big)\big(\beta+H(u - \gamma)\big) - u.
+				$$
+				Using the algorithms presented in a previous blog post,
+				we showed that for arbitrary initial conditions, the only non-uniform long-term
+				behavior was a single axisymmetric spherical cap:</p>
+
+                    <center>
+				<img src="/blog/sphericalcaps2.jpg" class="img-responsive">
+                    </center>
+
+				<p>We also showed that, starting from a constant initial condition, transient convection is enough to start the polarization process:</p>
+
+                    <center>
+				<img src="/blog/sphericalcaps3.jpg" class="img-responsive">
+                    </center>
+
+				<p>These findings reinforce the idea that symmetry breaking is crucial for the development of all living organisms.</p>
+
+                    <hr>
+                    {% if page.tags %}
+                      <h4>Blog posts about {{ page.tags }}</h4>
+                      <ul>
+                        {% assign related_posts = site.blog %}
+                        {% assign related = "" | split: "" %}
+                        {% for tag in page.tags %}
+                          {% assign tagged_posts = related_posts | where_exp: "post", "post.tags contains tag" %}
+                          {% assign related = related | concat: tagged_posts %}
+                        {% endfor %}
+                        {% assign related = related | uniq | sort: "date" | reverse %}
+                        {% for post in related limit: 5 %}
+                          {% assign post_year = post.date | date: "%Y" %}
+                          <li>{{ post_year }} &nbsp; <a href="{{ post.permalink }}">{{ post.title }}</a></li>
+                        {% endfor %}
+                      </ul>
+                    {% endif %}
+
                </div>
+
           </div>
      </div>
 </section>

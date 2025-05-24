@@ -1,3 +1,10 @@
+---
+layout: null
+title: Deep networks and the Kolmogorov&ndash;Arnold theorem
+date: 2019-06-25
+tags: [scientific machine learning]
+permalink: 2019-06-25.html
+---
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -135,12 +142,22 @@ http://www.tooplate.com/view/2085-neuron
                     <p>We first show that the outer functions may be approximated by Lipschitz continuous functions. Then, we prove that&mdash;for a particular subset of the continuous functions&mdash;the inner and outer functions can be approximated with error \(\epsilon\) by deep networks of size \(\mathcal{O}(\epsilon^{-\log n})\) and \(\mathcal{O}(\epsilon^{-1/2})\). The resulting network that approximates \(f\) has depth and size \(\mathcal{O}(\epsilon^{-\log n})\); the curse of dimensionality is lessened. <a href="http://arxiv.org/pdf/1906.11945.pdf">Check it out</a> if you are interested!</p>
 
                     <hr>
-                    <h4>Blog posts about neural network approximation theory</h4>
-                    
-                    <p>2019 &nbsp; <a href="2019-06-25.html">Deep networks and the Kolmogorov&ndash;Arnold theorem</a></p>
-                    <p>2019 &nbsp; <a href="2019-03-02.html">Deep networks and bandlimited functions</a></p>
-                    <p>2017 &nbsp; <a href="2017-12-22.html">Deep networks and the curse of dimensionality</a></p>
-
+                    {% if page.tags %}
+                      <h4>Blog posts about {{ page.tags }}</h4>
+                      <ul>
+                        {% assign related_posts = site.blog %}
+                        {% assign related = "" | split: "" %}
+                        {% for tag in page.tags %}
+                          {% assign tagged_posts = related_posts | where_exp: "post", "post.tags contains tag" %}
+                          {% assign related = related | concat: tagged_posts %}
+                        {% endfor %}
+                        {% assign related = related | uniq | sort: "date" | reverse %}
+                        {% for post in related limit: 5 %}
+                          {% assign post_year = post.date | date: "%Y" %}
+                          <li>{{ post_year }} &nbsp; <a href="{{ post.permalink }}">{{ post.title }}</a></li>
+                        {% endfor %}
+                      </ul>
+                    {% endif %}
                </div>
 
           </div>

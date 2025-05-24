@@ -1,3 +1,7 @@
+---
+layout: null
+title: blog
+---
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -37,6 +41,37 @@ https://www.tooplate.com/view/2085-neuron
 
 </head>
 <body>
+
+<!-- Script for tags -->
+ <script>
+  document.addEventListener("DOMContentLoaded", function() {
+    const tags = document.querySelectorAll('#tagList .tag');
+    const posts = document.querySelectorAll('#postsList .post');
+
+    function filterPosts(selectedTag) {
+      posts.forEach(post => {
+        const postTags = post.getAttribute('data-tags').split(',').map(t => t.trim().toLowerCase());
+        if (selectedTag === 'all' || postTags.includes(selectedTag)) {
+          post.style.display = '';
+        } else {
+          post.style.display = 'none';
+        }
+      });
+    }
+
+    tags.forEach(tag => {
+      tag.addEventListener('click', () => {
+        tags.forEach(t => t.classList.remove('active'));
+        tag.classList.add('active');
+
+        const selectedTag = tag.getAttribute('data-tag').toLowerCase();
+        filterPosts(selectedTag);
+      });
+    });
+
+    filterPosts('all');
+  });
+</script>
 
 <!-- PRE LOADER -->
 
@@ -90,40 +125,39 @@ https://www.tooplate.com/view/2085-neuron
 </section>
 
 <!-- About Section -->
-
 <section id="about">
-	<div class="container">
-      <div class="row">
+     <div class="container">
+          <div class="row">
 
-      		<div class="col-md-offset-1 col-md-10 col-sm-12">
+               <div class="col-md-offset-1 col-md-12 col-sm-12"> 
 
-                 <p>2025 &nbsp; <a href="2025-05-23.html">Writing research memos</a></p>
-                 <p>2025 &nbsp; <a href="2025-03-24.html">Scientific machine learning</a></p>
-                 <p>2024 &nbsp; <a href="2024-02-04.html">The linear sampling method for small random scatterers</a></p>
-                 <p>2023 &nbsp; <a href="2023-10-02.html">Strongly singular integrals over curved elements</a></p>
-                 <p>2023 &nbsp; <a href="2023-02-12.html">Finite-boundary element coupling in MATLAB</a></p>
-                 <p>2022 &nbsp; <a href="2022-12-30.html">Image matting with examples in Python</a></p>
-                 <p>2022 &nbsp; <a href="2022-11-04.html">The linear sampling method for random sources</a></p>
-                 <p>2021 &nbsp; <a href="2021-11-25.html">Weakly singular integrals over curved elements</a></p>
-                 <p>2020 &nbsp; <a href="2020-12-06.html">Quantum computing 4</a></p>
-                 <p>2020 &nbsp; <a href="2020-11-28.html">Quantum computing 3</a></p>
-                 <p>2020 &nbsp; <a href="2020-11-17.html">Quantum computing 2</a></p>
-                 <p>2020 &nbsp; <a href="2020-11-11.html">Quantum computing 1</a></p>
-                 <p>2020 &nbsp; <a href="2020-10-25.html">Chloroquine & COVID-19 (in French)</a></p>
-                 <p>2020 &nbsp; <a href="2020-05-19.html">Exponential integrators for stiff PDEs</a></p>
-                 <p>2020 &nbsp; <a href="2020-03-19.html">The U.K. government's controversial plan of action</a></p>
-                 <p>2019 &nbsp; <a href="2019-06-25.html">Deep networks and the Kolmogorov&ndash;Arnold theorem</a></p>
-                 <p>2019 &nbsp; <a href="2019-03-02.html">Deep networks and bandlimited functions</a></p>
-                 <p>2018 &nbsp; <a href="2018-12-05.html">Computer-assisted proofs for PDEs</a></p>
-                 <p>2018 &nbsp; <a href="2018-02-27.html">Spherical caps in cell polarization</a></p>
-                 <p>2018 &nbsp; <a href="2018-01-25.html">Solving nonlocal equations on the sphere</a></p>
-                 <p>2018 &nbsp; <a href="2018-01-04.html">Gibbs phenomenon and Cesàro mean</a></p>
-                 <p>2017 &nbsp; <a href="2017-12-22.html">Deep networks and the curse of dimensionality</a></p>
-                 <p>2017 &nbsp; <a href="2017-10-26.html">Solving PDEs on the sphere</a></p>
-      		  <p>2017 &nbsp; <a href="2017-10-09.html">When planets dance</a></p>
+                 <h4>Filter by tag:</h4>
+                 <div id="tagList">
+                     <span class="tag active" data-tag="all">All</span>
+                     <span class="tag" data-tag="boundary element methods">BEMs</span>
+                     <span class="tag" data-tag="COVID-19">COVID-19</span>
+                      <span class="tag" data-tag="image matting">Image Matting</span>
+                     <span class="tag" data-tag="inverse problems">Inverse Problems</span>
+                     <span class="tag" data-tag="quantum computing">Quantum Computing</span>
+                     <span class="tag" data-tag="research life">Research Life</span>
+                     <span class="tag" data-tag="scientific machine learning">SciML</span>
+                     <span class="tag" data-tag="spectral methods">Spectral Methods</span>
+                 </div>
 
-      		</div>
-          
+                 <hr class="solid">
+
+                 <h3>Blog Posts</h3>
+
+                 <div id="postsList">
+                   {% assign sorted_posts = site.blog | sort: 'date' | reverse %}
+                   {% for post in sorted_posts %}
+                     {% assign post_year = post.date | date: "%Y" %}
+                     <p class="post" data-tags="{{ post.tags | join: ',' }}">
+                       {{ post_year }} &nbsp; <a href="{{ post.permalink }}">{{ post.title }}</a>
+                     </p>
+                   {% endfor %}
+                 </div>
+
         </div>
     </div>
 </section>

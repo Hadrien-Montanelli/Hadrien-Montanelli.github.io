@@ -1,3 +1,10 @@
+---
+layout: null
+title: Quantum computing 2
+date: 2020-11-17
+tags: [quantum computing]
+permalink: 2020-11-17.html
+---
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -255,12 +262,22 @@ http://www.tooplate.com/view/2085-neuron
                 	<p>In the next post, I will talk about using quantum computing for solving nonlinear <a href='https://en.wikipedia.org/wiki/Ordinary_differential_equation'>ordinary differential equations</a>.</p>
 
                     <hr>
-                    <h4>Blog posts about quantum computing</h4>
-                    
-                    <p>2020 &nbsp; <a href="2020-12-06.html">Quantum computing 4</a></p>
-                    <p>2020 &nbsp; <a href="2020-11-28.html">Quantum computing 3</a></p>
-                    <p>2020 &nbsp; <a href="2020-11-17.html">Quantum computing 2</a></p>
-                    <p>2020 &nbsp; <a href="2020-11-11.html">Quantum computing 1</a></p>
+                    {% if page.tags %}
+                      <h4>Blog posts about {{ page.tags }}</h4>
+                      <ul>
+                        {% assign related_posts = site.blog %}
+                        {% assign related = "" | split: "" %}
+                        {% for tag in page.tags %}
+                          {% assign tagged_posts = related_posts | where_exp: "post", "post.tags contains tag" %}
+                          {% assign related = related | concat: tagged_posts %}
+                        {% endfor %}
+                        {% assign related = related | uniq | sort: "date" | reverse %}
+                        {% for post in related limit: 5 %}
+                          {% assign post_year = post.date | date: "%Y" %}
+                          <li>{{ post_year }} &nbsp; <a href="{{ post.permalink }}">{{ post.title }}</a></li>
+                        {% endfor %}
+                      </ul>
+                    {% endif %}
 
                </div>
 

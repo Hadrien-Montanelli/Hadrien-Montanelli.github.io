@@ -1,3 +1,10 @@
+---
+layout: null
+title: Writing research memos
+date: 2025-05-23
+tags: [research life]
+permalink: 2025-05-23.html
+---
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -173,11 +180,25 @@ http://www.tooplate.com/view/2085-neuron
                     <p>When I’m doing pen-and-paper research, I keep all relevant memos printed on my desk or displayed on my screens. This way, if I need a specific result, I don’t waste mental energy recalling it&mdash;I just glance at the memo.</p>
 
                     <p>Was it \(i\pi\) or \(-i\pi\)? Did the result require a compact operator or just a bounded one? I don’t need to remember&mdash;I just look it up. And that frees up my mind to focus on creating new ideas and making deeper connections.</p>
-                    <hr>     
-                    <h4>Blog posts about research life</h4>
-                    
-                    <p>2025 &nbsp; <a href="2025-05-23.html">Writing research memos</a></p>
-                    
+
+                    <hr>
+                    {% if page.tags %}
+                      <h4>Blog posts about {{ page.tags }}</h4>
+                      <ul>
+                        {% assign related_posts = site.blog %}
+                        {% assign related = "" | split: "" %}
+                        {% for tag in page.tags %}
+                          {% assign tagged_posts = related_posts | where_exp: "post", "post.tags contains tag" %}
+                          {% assign related = related | concat: tagged_posts %}
+                        {% endfor %}
+                        {% assign related = related | uniq | sort: "date" | reverse %}
+                        {% for post in related limit: 5 %}
+                          {% assign post_year = post.date | date: "%Y" %}
+                          <li>{{ post_year }} &nbsp; <a href="{{ post.permalink }}">{{ post.title }}</a></li>
+                        {% endfor %}
+                      </ul>
+                    {% endif %}
+
                </div>
           </div>
      </div>

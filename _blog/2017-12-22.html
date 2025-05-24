@@ -1,3 +1,10 @@
+---
+layout: null
+title: Deep networks and the curse of dimensionality
+date: 2017-12-22
+tags: [scientific machine learning]
+permalink: 2017-12-22.html
+---
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -161,11 +168,22 @@ http://www.tooplate.com/view/2085-neuron
                     The curse of dimensionality is not totally overcome but is lessened since \(d\) only affects logarithmic factors \(\vert\log_2\epsilon\vert\).</p>
 
                     <hr>
-                    <h4>Blog posts about neural network approximation theory</h4>
-                    
-                    <p>2019 &nbsp; <a href="2019-06-25.html">Deep networks and the Kolmogorov&ndash;Arnold theorem</a></p>
-                    <p>2019 &nbsp; <a href="2019-03-02.html">Deep networks and bandlimited functions</a></p>
-                    <p>2017 &nbsp; <a href="2017-12-22.html">Deep networks and the curse of dimensionality</a></p>
+                    {% if page.tags %}
+                      <h4>Blog posts about {{ page.tags }}</h4>
+                      <ul>
+                        {% assign related_posts = site.blog %}
+                        {% assign related = "" | split: "" %}
+                        {% for tag in page.tags %}
+                          {% assign tagged_posts = related_posts | where_exp: "post", "post.tags contains tag" %}
+                          {% assign related = related | concat: tagged_posts %}
+                        {% endfor %}
+                        {% assign related = related | uniq | sort: "date" | reverse %}
+                        {% for post in related limit: 5 %}
+                          {% assign post_year = post.date | date: "%Y" %}
+                          <li>{{ post_year }} &nbsp; <a href="{{ post.permalink }}">{{ post.title }}</a></li>
+                        {% endfor %}
+                      </ul>
+                    {% endif %}
 
                </div>
 
