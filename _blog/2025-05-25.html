@@ -1,9 +1,9 @@
 ---
 layout: null
-title: Deep networks and the curse of dimensionality
-date: 2017-12-22
-tags: [scientific machine learning]
-permalink: 2017-12-22.html
+title: When theory meets practice&mdash;and they argue productively
+date: 2025-05-25
+tags: [research life]
+permalink: 2025-05-25.html
 ---
 <!DOCTYPE html>
 <html lang="en">
@@ -16,7 +16,7 @@ permalink: 2017-12-22.html
 <meta name="author" content="">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-<title>Deep networks and the curse of dimensionality</title>
+<title>{{ page.title }}</title>
 <!--
 
 Template 2085 Neuron
@@ -74,8 +74,8 @@ http://www.tooplate.com/view/2085-neuron
           <div class="collapse navbar-collapse">
                <ul class="nav navbar-nav navbar-right">
                     <li><a href="about.html">About</a></li>
-                    <li><a href="blog.html">Blog</a></li><li>
-                    <a href="publications.html">Publications</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="publications.html">Publications</a></li>
                     <li><a href="research.html">Research</a></li>
                     <li><a href="students.html">Students</a></li>
                     <li><a href="talks.html">Talks</a></li>
@@ -94,7 +94,7 @@ http://www.tooplate.com/view/2085-neuron
           <div class="row">
 
                <div class="col-md-12 col-sm-12">
-                    <h1>Deep networks and the curse of dimensionality</h1>
+                    <h1>{{page.title}}</h1>
                </div>
 
           </div>
@@ -106,66 +106,61 @@ http://www.tooplate.com/view/2085-neuron
 <section id="about">
      <div class="container">
           <div class="row">
-
                <div class="col-md-offset-1 col-md-10 col-sm-12">     
 
-                    <p><i>December 22, 2017</i></p>
+                    <p><i>May 25, 2025</i></p>
 
-                    <p>I started working on <a href="http://en.wikipedia.org/wiki/Deep_learning">deep learning</a> 
-                    models when I began my research at <a href="http//www.columbia.edu">Columbia University</a> in September 2017. 
-                    Coming from the <a href="http://en.wikipedia.org/wiki/Approximation_theory">approximation theory</a>
-                    world, I wanted to learn about their approximation properties.
-                    A few months down the road <a href="https://www.columbia.edu/~qd2125/">Qiang Du</a> and I have proven a <a href="http://arxiv.org/pdf/1712.08688.pdf">new theorem</a> concerning the approximation of 
-                    <a href="http://en.wikipedia.org/wiki/Function_of_several_real_variables">multivariate functions</a> by deep ReLU networks.</p>
+                    <p>Welcome to the second entry in my <i>Holiday in Sicily</i> series. Today, I reflect on the interplay between algorithms and theory&mdash;how practice often leads, theory follows, and how the two shape each other in a dynamic loop that drives much of applied math progress.</p>
 
-                    <p>Deep learning has been successfully applied to many fields including 
-                    <a href="https://en.wikipedia.org/wiki/Computer_vision">computer vision</a>, 
-                    <a href="https://en.wikipedia.org/wiki/Speech_recognition">speech recognition</a>, 
-                    and <a href="http://en.wikipedia.org/wiki/Natural_language_processing">natural language processing</a>.
-                    It is based on approximations by <i>deep networks</i>, as opposed to <i>shallow networks</i>.
-                    The latter are neural networks with a single <i>hidden layer</i> and correspond to approximations \(f_N\) of multivariate functions \(f:\mathbb{R}^d\rightarrow\mathbb{R}\) of the form
-                    $$
-                    f_N(\boldsymbol{x}) = \sum_{i=1}^N \alpha_i \sigma(\boldsymbol{w}_i^T\boldsymbol{x} + \theta_i),
-                    $$
-                    with \(\alpha_i,\theta_i\in\mathbb{R},\, \boldsymbol{x},\boldsymbol{w}_i\in\mathbb{R}^d\), and for some <i>activation function</i> \(\sigma:\mathbb{R}\rightarrow\mathbb{R}\).
-                    The former are neural networks with one or more hidden layers, where each unit of each layer 
-                    performs an operation of the form \(\sigma(\boldsymbol{w}\cdot\boldsymbol{x} + \theta)\).
-                    The <i>depth</i> of a network is the number of hidden layers, and the <i>size</i> 
-                    is the total number of units.
-                    Shallow networks have depth \(1\) and their size is the number \(N\) in the expansion above,
-                    while deep networks usually have depth \(\gg 1\).
-                    Deep <i>ReLU</i> networks use the activation function \(\sigma(x) = \max(0,x)\).</p>
+                    <h2>Introduction</h2>
 
-                    <p>One of the most important theoretical problems is to determine why and when deep (but not shallow) networks
-                    can lessen or break the <a href="https://en.wikipedia.org/wiki/Curse_of_dimensionality">curse of dimensionality</a>.
-                    A possible way of addressing this problem is to focus on a particular set of functions that have a very
-                    special (<a href="http://en.wikipedia.org/wiki/Function_composition">compositional</a> or 
-                    <a href="https://en.wikipedia.org/wiki/Polynomial">polynomial</a>) structure and to show that for this particular set deep networks perform extremely well.
-                    We have followed a different route. 
-                    We have considered a generic set of functions and proved new error estimates 
-                    for which the curse of dimensionality is lessened by establishing a connection with 
-                    <a href="http://en.wikipedia.org/wiki/Sparse_grid">sparse grids</a>.</p>
+                    <p>In many fields of applied mathematics and engineering, the relationship between theory and practice isn’t a one-way street. It’s a conversation. At its best, it’s a lively argument.</p>
 
-                    <p>For a real-valued function \(f\) in \(\mathbb{R}^d\) whose 
-                    <a href="http://en.wikipedia.org/wiki/Smoothness">smoothness</a> is characterized by some integer \(m\)
-                    (typically the order of <a href="https://en.wikipedia.org/wiki/Locally_integrable_function">integrable</a> derivatives), and for some prescribed error \(\epsilon>0\), 
-                    one tries to show that there exists a neural network \(f_N\) of size \(N\) that satisfies
-                    $$
-                    \Vert f - f_N \Vert \leq \epsilon \;\; \text{with} \;\; N=\mathcal{O}(\epsilon^{-\frac{d}{m}}),
-                    $$
-                    for some norm \(\Vert\cdot\Vert\). 
-                    For deep networks, one also wants to find the asymptotic behavior of the depth as a function of \(\epsilon\).
-                    Results of this form are standard approximation results that suffer from the curse of dimensionality.
-                    For small dimensions \(d\), the size \(N\) of the network increases at a reasonable rate as \(\epsilon\) goes to zero.
-                    However, \(N\) grows <i>geometrically</i> with \(d\).</p>
+                    <p>Often, the most exciting developments come from this back-and-forth—a dynamic feedback loop between algorithms and theory. Practice speaks first: a new method appears, driven by need or intuition. Then theory replies, asking tough questions. Does it work? When? Why?</p>
 
-                    <p>The picture is different for deep networks.
-                    My theorem shows that functions in the so-called Korobov spaces \(X^{2,p}(\Omega)\) of mixed derivatives of order two can be represented with error \(\epsilon\) by deep networks of depth 
-                    \(\mathcal{O}(\vert\log_2\epsilon\vert\log_2d)\) and size
-                    $$
-                    N=\mathcal{O}(\epsilon^{-\frac{1}{2}}\vert\log_2\epsilon\vert^{\frac{3}{2}(d-1)+1}(d-1)).
-                    $$
-                    The curse of dimensionality is not totally overcome but is lessened since \(d\) only affects logarithmic factors \(\vert\log_2\epsilon\vert\).</p>
+                    <p>Sometimes, theory pushes back, exposing flaws or failure modes. Practice listens, adjusts, and counters with a better design. And so the exchange continues—design, analysis, failure, improvement. A real dialogue. Each side learning, challenging, shaping the other.</p>
+
+                    <h2>The pattern</h2>
+
+                    <p>This pattern can be broken down into five stages:</p>
+
+                    <ul>
+                      <li><b>It starts with an algorithm.</b><br>Someone proposes a new method. Maybe it’s computationally efficient, maybe it’s inspired by physics, maybe it’s a neural network architecture copied from another domain. The key point: it’s motivated by what works, not necessarily by what can be proved.</li>
+                      <li><b>Then comes theory.</b><br>After initial empirical validation, theoretical work seeks to rigorously understand the algorithm: Does it converge? Under what conditions? How stable is it? Is it optimal? These proofs don’t just validate the method&mdash;they clarify its domain of applicability and often reveal surprising subtleties.</li>
+                      <li><b>Theory explains failure modes.</b><br>Theory doesn’t just confirm what works. It explains why it fails under certain conditions. It identifies the edge cases: when the matrix is ill-conditioned, when the PDE becomes singular, when the neural network can’t generalize. These insights often reveal flaws in the original method&mdash;and point the way forward.</li>
+                      <li><b>Failures lead to new designs.</b><br>Armed with new theoretical insight, practitioners redesign the algorithm. They regularize it. They precondition it. They add skip connections, or stabilize the discretization, or adjust the loss function. Now there’s a new method&mdash;a fix, a patch, or sometimes a breakthrough.</li>
+                      <li><b>Theory circles back.</b><br>The cycle completes as theory re-engages: proving convergence, analyzing instability, developing new error estimates. The feedback loop spins again&mdash;and the field takes another step forward. The cycle completes as the community begins to rigorously analyze these new approaches, proving convergence, stability, or optimality. The theoretical framework grows richer&mdash;and more predictive.</li>
+                    </ul>
+
+                    <p>This cycle is more than just a historical curiosity. It reflects a healthy research ecosystem where algorithms and theory co-evolve, each pushing the other forward.</p>
+
+                    <h2>Classic example: the finite element method</h2>
+
+                    <p>In the 1960s and 1970s, engineers began using the finite element method (FEM) for solving PDEs in structural mechanics. Early algorithms were developed based on physical intuition and computational feasibility, often with minimal theoretical backing.</p>
+
+                    <p>As usage spread, mathematicians stepped in to analyze convergence, consistency, and error bounds. This theoretical work revealed the importance of mesh quality, element choice, and function spaces—leading to remedies such as adaptive mesh refinement and stabilized formulations. These in turn became subjects of rigorous mathematical analysis, culminating in the powerful FEM theory we now rely on.</p>
+
+                    <h3>Modern example: neural networks</h3>
+
+                    <p>The past decade has seen a similar cycle in machine learning. Deep neural networks first exploded in popularity due to empirical success in computer vision and natural language processing. The original architectures—like AlexNet—worked well, but few could explain why.</p>
+
+                    <p>Soon after, theoretical work began to address generalization, expressivity, and training dynamics. Researchers identified failure modes: vanishing gradients, overfitting, sensitivity to initialization. Each insight led to remedies like residual connections, batch normalization, and dropout.</p>
+
+                    <p>These new components became standard architecture elements, and new theoretical frameworks arose to understand them—such as neural tangent kernels, overparameterization theory, and mean-field limits.</p>
+
+                    <h2>Why it matters</h2>
+
+                    <p>Understanding this pattern helps us better appreciate the non-linear path of scientific progress. It reminds us that:</p>
+
+                    <ul>
+                      <li><b>Empirical success can precede theory.</b><br>Not every good idea starts with a theorem.</li>
+                      <li><b>Failures are fertile ground.</b><br>When algorithms fail, it often sparks the most productive theoretical advances.</li>
+                      <li><b>Theory isn’t just for validation.</b><br>It can actively shape new methods, sometimes in surprising ways.</li>
+                    </ul>
+
+                    <p>If you’re a theorist, don’t wait for the perfect question. Look at what practitioners are doing—it’s full of open problems.</p>
+
+                    <p>If you’re a practitioner, don’t be afraid to work with unproven methods. The theory might catch up—and when it does, it’ll make your work even better.</p>
 
                     <hr>
                     {% if page.tags %}
@@ -186,7 +181,6 @@ http://www.tooplate.com/view/2085-neuron
                     {% endif %}
 
                </div>
-
           </div>
      </div>
 </section>

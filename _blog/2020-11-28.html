@@ -179,7 +179,7 @@ http://www.tooplate.com/view/2085-neuron
                     <hr>
                     {% if page.tags %}
                       <h4>Blog posts about {{ page.tags }}</h4>
-                      <ul>
+                      <ul style="list-style-type: none; padding-left: 0;">
                         {% assign related_posts = site.blog %}
                         {% assign related = "" | split: "" %}
                         {% for tag in page.tags %}
