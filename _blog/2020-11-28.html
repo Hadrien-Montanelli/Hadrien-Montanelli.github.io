@@ -1,254 +1,67 @@
 ---
-layout: null
+layout: post
 title: Quantum computing 3
 date: 2020-11-28
 tags: [quantum computing]
 permalink: 2020-11-28.html
 ---
-<!DOCTYPE html>
-<html lang="en">
-<head>
+<p>In this post, I talk about quantum computing for solving nonlinear <a href='https://en.wikipedia.org/wiki/Ordinary_differential_equation'>ordinary differential equations</a> (ODEs). In a recent <a href='https://arxiv.org/pdf/1907.09032.pdf'>paper</a>, Michael Lubasch and his colleagues proposed an algorithm to solve such equations using a combination of classical and quantum computers. The main ideas are:</p>
+<ul>
+<li>reformulate the problem as an <a href='https://en.wikipedia.org/wiki/Mathematical_optimization'>optimization</a> one;
+<li>use hybrid systems of quantum and classical computers to solve it.
+</ul>
+<p>The <a href='https://en.wikipedia.org/wiki/Loss_function'>cost function</a> and its <a href='https://en.wikipedia.org/wiki/Gradient'>gradient</a> are typically evaluated on a quantum computer, while the higher-level iterative algorithm is performed on a classical computer.</p>
 
-<meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=Edge">
-<meta name="description" content="">
-<meta name="keywords" content="">
-<meta name="author" content="">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<h2>Setup</h2>
 
-<title>Quantum computing 3</title>
-<!--
+<p>The authors consider, as an example, the following <a href='https://en.wikipedia.org/wiki/Nonlinear_Schr%C3%B6dinger_equation'>nonlinear Schr&ouml;dinger</a> ODE <a href='https://en.wikipedia.org/wiki/Eigenvalues_and_eigenvectors'>eigenvalue</a> problem,
+$$
+\left[-\frac{1}{2}\frac{d^2}{dx^2} + V(x) + g\vert f(x)\vert^2\right]f(x) = \lambda f(x),
+$$
+for \(x\in[a,b]\), and with \(f(a)=f(b)\) and \(\int_a^b\vert f(x)\vert^2dx=1\). They are only interested in the <a href='https://en.wikipedia.org/wiki/Ground_state'>ground state</a> of the problem, i.e., the function \(f\) that corresponds to the minimum eigenvalue \(\lambda_{\min}\). The nonlinear ODE eigenvalue problem reduces to a nonlinear ODE, which can be solved on a classical computer with an iterative method such as <a href='https://en.wikipedia.org/wiki/Newton%27s_method'>Newton's method</a>, combined with, e.g., <a href='https://en.wikipedia.org/wiki/Finite_difference#finite_difference_approximation'>finite differences</a> or a <a href='https://en.wikipedia.org/wiki/Spectral_method'>spectral method</a>.</p>
 
-Template 2085 Neuron
+<h2>Method</h2>
 
-https://www.tooplate.com/view/2085-neuron
+<p>The idea in the paper is to, instead, write the problem as an optimization one. They use the fact that the ground state minimizes the following cost function,
+<small>
+$$
+\begin{align}
+J(f) = \int_a^b\bigg[&\frac{1}{2}\vert f'(x)\vert^2+V(x)\vert f(x)\vert^2 +\frac{g}{2}\vert f(x)\vert^4\bigg]dx.
+\end{align}
+$$
+</small>
+They discretize \(J\) with the <a href='https://en.wikipedia.org/wiki/Trapezoidal_rule'>trapezoidal rule</a> and finite differences on a uniform grid \(x_k=a+k(b-a)/N\), \(0\leq k\leq N-1\). The cost function \(J\) becomes a function of the \(N\) scaled values \(\psi_k=\sqrt{(b-a)/N}f(x_k)\). Then, they encode the \(N=2^n\) amplitudes \(\psi_k\) in the normalized state
+$$
+\vert\psi\rangle = \sum_{k=0}^{N-1}\psi_k\vert\mathrm{binary}(k)\rangle,
+$$
+where \(\mathrm{binary}(k)\) denotes the binary representation of the integer \(k=\sum_{j=1}^nq_j2^{n-j}\). Note that the above representation uses \(n\) <a href='https://en.wikipedia.org/wiki/Qubit'>qubits</a> and basis states \(\vert\boldsymbol{q}\rangle=\vert q_1\ldots q_n\rangle\).</p>
 
--->
-<link rel="stylesheet" href="assets/css/bootstrap.min.css">
-<link rel="stylesheet" href="assets/css/all.css">
-<link rel="stylesheet" href="assets/css/magnific-popup.css">
+<p>Their hybrid algorithm goes like this. First, the quantum register is put in a given state \(\vert\psi(\boldsymbol{\theta})\rangle=U(\boldsymbol{\theta})\vert\boldsymbol{0}\rangle\) via a quantum circuit \(U(\boldsymbol{\theta})\) of depth \(d=\mathcal{O}(\mathrm{poly}(n))\), such that their quantum ansatz requires \(\mathcal{O}(nd)=\mathcal{O}(\mathrm{poly}(n))\) parameters, exponentially fewer parameters than classical schemes&mdash;this is an example of <a href='https://en.wikipedia.org/wiki/Quantum_supremacy'>quantum supremacy</a>.</p>
 
-<!-- Main css -->
-<link rel="stylesheet" href="assets/css/style.css">
-<link href="https://fonts.googleapis.com/css?family=Lora|Merriweather:300,400" rel="stylesheet">
+<p>Second, a <i>quantum nonlinear processing unit</i> (QNPU) transforms the state \(\vert\psi(\boldsymbol{\theta})\rangle\) into a state \(\vert\psi_J(\boldsymbol{\theta})\rangle\) for which it is possible to measure a quantity \(\langle M_J(\boldsymbol{\theta})\rangle\) that is directly proportional to the cost function \(J(\boldsymbol{\theta})\).</p>
 
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-108246943-1"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+<p>Third, the evaluation of \(J(\boldsymbol{\theta})\) and the optimization over the parameters \(\boldsymbol{\theta}\) are carried out on a classical computer.</p>
 
-  gtag('config', 'UA-108246943-1');
-</script>
+<center>
+<img src="assets/images/blog/hybrid.jpg" class="img-responsive">
+</center>
 
-<!-- Google AdSense -->
-<!--<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8299683413193339" crossorigin="anonymous"></script>-->
-<!--<script async src="https://fundingchoicesmessages.google.com/i/pub-8299683413193339?ers=1" nonce="AuY4vKpDElA9N7YwmFfMjg"></script>
-<script nonce="AuY4vKpDElA9N7YwmFfMjg">(function() {function signalGooglefcPresent() {if (!window.frames['googlefcPresent']) {if (document.body) {const iframe = document.createElement('iframe'); iframe.style = 'width: 0; height: 0; border: none; z-index: -1000; left: -1000px; top: -1000px;'; iframe.style.display = 'none'; iframe.name = 'googlefcPresent'; document.body.appendChild(iframe);} else {setTimeout(signalGooglefcPresent, 0);}}}signalGooglefcPresent();})();</script>-->
+<h2>Theoretical justification</h2>
 
-</head>
-<body>
+<p>The quantum ansatz is based on <a href='https://en.wikipedia.org/wiki/Matrix_product_state'>matrix product states</a> (MPS); for details, see, e.g., <a href='https://arxiv.org/pdf/quant-ph/0608197.pdf'>this</a>. The key feature is that any state \(\psi\) can be written as
+$$
+\vert\psi\rangle = \sum_{q_1,\ldots,q_n\in\{0,1\}}\mathrm{tr}\left[A^{(1)}_{q_1}\ldots A^{(n)}_{q_n}\right]\vert q_1\ldots q_n\rangle,
+$$
+where \(A^{(k)}_0\) and \(A^{(k)}_1\) are \(D_k\times D_{k+1}\) matrices, for sufficiently large \(D_1,\ldots,D_{n+1}\). The bond dimension of such a representation is \(\chi=\max_{1\leq k\leq n+1} D_k\) and, in general, \(\chi=\mathcal{O}(\mathrm{exp}(n))\). States are referred to as MPS when \(\chi\) is not too big, typically when \(\chi=\mathcal{O}(\mathrm{poly}(n))\). Note that MPS require \(\mathcal{O}(n\chi^2)=\mathcal{O}(\mathrm{poly}(n))\) parameters (\(n\) matrices of size at most \(\chi\)).</p>
 
-<!-- Tikz for mathjax -->
-<link rel="stylesheet" type="text/css" href="https://tikzjax.com/v1/fonts.css">
-<script src="https://tikzjax.com/v1/tikzjax.js"></script>
+<p>The power of their quantum ansatz is that it contains all MPS with bond dimension \(\chi=\mathcal{O}(\mathrm{poly}(n))\). Since <a hreff='https://en.wikipedia.org/wiki/Chebyshev_polynomials'>Chebyshev polynomials</a> can be approximated exponentially well by MPS, MPS with such a \(\chi\) contain all polynomials of degree up to \(\mathcal{O}(\mathrm{exp}(\chi))=\mathcal{O}(N)\), as shown by Khoromskij <a href='https://www.mis.mpg.de/preprints/2009/preprint2009_55.pdf'>here</a>.</p>
 
-<!-- PRE LOADER -->
+<h2>Classical MPS versus quantum ansatz</h2>
 
-<div class="preloader">
-     <div class="sk-spinner sk-spinner-wordpress">
-          <span class="sk-inner-circle"></span>
-     </div>
-</div>
+<p>One could use a classical MPS-based method for a fairer comparison. To show the advantage of their quantum ansatz over classical MPS, they consider potentials of the form
+$$
+V(x) = s_1\sin(\kappa_1 x) + s_2\sin(\kappa_2 x), 
+$$
+with \(\kappa_2=2\kappa_1/(1+\sqrt{5})\), and for various values of \(s_1/s_2\) and \(\kappa_1\). They show, both theoretically and numerically, that, in the \(s_1/s_2\approx1\) regime, the number of parameters for classical MPS scales like \(\mathcal{O}(\mathrm{poly}(\kappa_1))\), while it scales like \(\mathcal{O}(\log\kappa_1)\) for their quantum ansatz&mdash;quantum supremacy is achieved once again.</p>
 
-<!-- Navigation section  -->
-
-<div class="navbar navbar-default navbar-static-top" role="navigation">
-     <div class="container">
-
-          <div class="navbar-header">
-               <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon icon-bar"></span>
-                    <span class="icon icon-bar"></span>
-                    <span class="icon icon-bar"></span>
-               </button>
-               <a href="index.html" class="navbar-brand">H. Montanelli</a>
-          </div>
-          <div class="collapse navbar-collapse">
-               <ul class="nav navbar-nav navbar-right">
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="blog.html">Blog</a></li>
-                    <li><a href="publications.html">Publications</a></li>
-                    <li><a href="research.html">Research</a></li>
-                    <li><a href="students.html">Students</a></li>
-                    <li><a href="talks.html">Talks</a></li>
-                    <li><a href="teaching.html">Teaching</a></li>
-               </ul>
-          </div>
-
-  </div>
-</div>
-
-<!-- Home Section -->
-
-<section id="home" class="main-about parallax-section">
-     <div class="overlay"></div>
-     <div class="container">
-          <div class="row">
-
-               <div class="col-md-12 col-sm-12">
-                    <h1>Quantum computing 3</h1>
-               </div>
-
-          </div>
-     </div>
-</section>
-
-<!-- Blog Single Post Section -->
-
-<section id="about">
-     <div class="container">
-          <div class="row">
-
-               <div class="col-md-offset-1 col-md-10 col-sm-12">     
-
-                    <p><i>November 28, 2020</i></p>
-
-                    <p>In this post, I talk about quantum computing for solving nonlinear <a href='https://en.wikipedia.org/wiki/Ordinary_differential_equation'>ordinary differential equations</a> (ODEs). In a recent <a href='https://arxiv.org/pdf/1907.09032.pdf'>paper</a>, Michael Lubasch and his colleagues proposed an algorithm to solve such equations using a combination of classical and quantum computers. The main ideas are:</p>
-                    <ul>
-                    <li>reformulate the problem as an <a href='https://en.wikipedia.org/wiki/Mathematical_optimization'>optimization</a> one;
-                    <li>use hybrid systems of quantum and classical computers to solve it.
-                    </ul>
-                    <p>The <a href='https://en.wikipedia.org/wiki/Loss_function'>cost function</a> and its <a href='https://en.wikipedia.org/wiki/Gradient'>gradient</a> are typically evaluated on a quantum computer, while the higher-level iterative algorithm is performed on a classical computer.</p>
-
-                    <h2>Setup</h2>
-
-                    <p>The authors consider, as an example, the following <a href='https://en.wikipedia.org/wiki/Nonlinear_Schr%C3%B6dinger_equation'>nonlinear Schr&ouml;dinger</a> ODE <a href='https://en.wikipedia.org/wiki/Eigenvalues_and_eigenvectors'>eigenvalue</a> problem,
-                    $$
-                    \left[-\frac{1}{2}\frac{d^2}{dx^2} + V(x) + g\vert f(x)\vert^2\right]f(x) = \lambda f(x),
-                    $$
-                    for \(x\in[a,b]\), and with \(f(a)=f(b)\) and \(\int_a^b\vert f(x)\vert^2dx=1\). They are only interested in the <a href='https://en.wikipedia.org/wiki/Ground_state'>ground state</a> of the problem, i.e., the function \(f\) that corresponds to the minimum eigenvalue \(\lambda_{\min}\). The nonlinear ODE eigenvalue problem reduces to a nonlinear ODE, which can be solved on a classical computer with an iterative method such as <a href='https://en.wikipedia.org/wiki/Newton%27s_method'>Newton's method</a>, combined with, e.g., <a href='https://en.wikipedia.org/wiki/Finite_difference#finite_difference_approximation'>finite differences</a> or a <a href='https://en.wikipedia.org/wiki/Spectral_method'>spectral method</a>.</p>
-
-                    <h2>Method</h2>
-
-                    <p>The idea in the paper is to, instead, write the problem as an optimization one. They use the fact that the ground state minimizes the following cost function,
-                    <small>
-                    $$
-                    \begin{align}
-                    J(f) = \int_a^b\bigg[&\frac{1}{2}\vert f'(x)\vert^2+V(x)\vert f(x)\vert^2 +\frac{g}{2}\vert f(x)\vert^4\bigg]dx.
-                    \end{align}
-                    $$
-                    </small>
-                    They discretize \(J\) with the <a href='https://en.wikipedia.org/wiki/Trapezoidal_rule'>trapezoidal rule</a> and finite differences on a uniform grid \(x_k=a+k(b-a)/N\), \(0\leq k\leq N-1\). The cost function \(J\) becomes a function of the \(N\) scaled values \(\psi_k=\sqrt{(b-a)/N}f(x_k)\). Then, they encode the \(N=2^n\) amplitudes \(\psi_k\) in the normalized state
-                    $$
-                    \vert\psi\rangle = \sum_{k=0}^{N-1}\psi_k\vert\mathrm{binary}(k)\rangle,
-                    $$
-                    where \(\mathrm{binary}(k)\) denotes the binary representation of the integer \(k=\sum_{j=1}^nq_j2^{n-j}\). Note that the above representation uses \(n\) <a href='https://en.wikipedia.org/wiki/Qubit'>qubits</a> and basis states \(\vert\boldsymbol{q}\rangle=\vert q_1\ldots q_n\rangle\).</p>
-
-                    <p>Their hybrid algorithm goes like this. First, the quantum register is put in a given state \(\vert\psi(\boldsymbol{\theta})\rangle=U(\boldsymbol{\theta})\vert\boldsymbol{0}\rangle\) via a quantum circuit \(U(\boldsymbol{\theta})\) of depth \(d=\mathcal{O}(\mathrm{poly}(n))\), such that their quantum ansatz requires \(\mathcal{O}(nd)=\mathcal{O}(\mathrm{poly}(n))\) parameters, exponentially fewer parameters than classical schemes&mdash;this is an example of <a href='https://en.wikipedia.org/wiki/Quantum_supremacy'>quantum supremacy</a>.</p>
-
-                    <p>Second, a <i>quantum nonlinear processing unit</i> (QNPU) transforms the state \(\vert\psi(\boldsymbol{\theta})\rangle\) into a state \(\vert\psi_J(\boldsymbol{\theta})\rangle\) for which it is possible to measure a quantity \(\langle M_J(\boldsymbol{\theta})\rangle\) that is directly proportional to the cost function \(J(\boldsymbol{\theta})\).</p>
-
-                    <p>Third, the evaluation of \(J(\boldsymbol{\theta})\) and the optimization over the parameters \(\boldsymbol{\theta}\) are carried out on a classical computer.</p>
-
-                    <center>
-                    <img src="assets/images/blog/hybrid.jpg" class="img-responsive">
-                    </center>
-
-                    <h2>Theoretical justification</h2>
-
-                    <p>The quantum ansatz is based on <a href='https://en.wikipedia.org/wiki/Matrix_product_state'>matrix product states</a> (MPS); for details, see, e.g., <a href='https://arxiv.org/pdf/quant-ph/0608197.pdf'>this</a>. The key feature is that any state \(\psi\) can be written as
-                    $$
-                    \vert\psi\rangle = \sum_{q_1,\ldots,q_n\in\{0,1\}}\mathrm{tr}\left[A^{(1)}_{q_1}\ldots A^{(n)}_{q_n}\right]\vert q_1\ldots q_n\rangle,
-                    $$
-                    where \(A^{(k)}_0\) and \(A^{(k)}_1\) are \(D_k\times D_{k+1}\) matrices, for sufficiently large \(D_1,\ldots,D_{n+1}\). The bond dimension of such a representation is \(\chi=\max_{1\leq k\leq n+1} D_k\) and, in general, \(\chi=\mathcal{O}(\mathrm{exp}(n))\). States are referred to as MPS when \(\chi\) is not too big, typically when \(\chi=\mathcal{O}(\mathrm{poly}(n))\). Note that MPS require \(\mathcal{O}(n\chi^2)=\mathcal{O}(\mathrm{poly}(n))\) parameters (\(n\) matrices of size at most \(\chi\)).</p>
-
-                    <p>The power of their quantum ansatz is that it contains all MPS with bond dimension \(\chi=\mathcal{O}(\mathrm{poly}(n))\). Since <a hreff='https://en.wikipedia.org/wiki/Chebyshev_polynomials'>Chebyshev polynomials</a> can be approximated exponentially well by MPS, MPS with such a \(\chi\) contain all polynomials of degree up to \(\mathcal{O}(\mathrm{exp}(\chi))=\mathcal{O}(N)\), as shown by Khoromskij <a href='https://www.mis.mpg.de/preprints/2009/preprint2009_55.pdf'>here</a>.</p>
-
-                    <h2>Classical MPS versus quantum ansatz</h2>
-
-                    <p>One could use a classical MPS-based method for a fairer comparison. To show the advantage of their quantum ansatz over classical MPS, they consider potentials of the form
-                    $$
-                    V(x) = s_1\sin(\kappa_1 x) + s_2\sin(\kappa_2 x), 
-                    $$
-                    with \(\kappa_2=2\kappa_1/(1+\sqrt{5})\), and for various values of \(s_1/s_2\) and \(\kappa_1\). They show, both theoretically and numerically, that, in the \(s_1/s_2\approx1\) regime, the number of parameters for classical MPS scales like \(\mathcal{O}(\mathrm{poly}(\kappa_1))\), while it scales like \(\mathcal{O}(\log\kappa_1)\) for their quantum ansatz&mdash;quantum supremacy is achieved once again.</p>
-
-                    <p>In the next and final episode of my series on quantum computing, I will talk about quantum computing for <a href='https://en.wikipedia.org/wiki/Supervised_learning'>supervised learning</a>.</p>
-
-                    <hr>
-                    {% if page.tags %}
-                      <h4>Blog posts about {{ page.tags }}</h4>
-                      <ul style="list-style-type: none; padding-left: 0;">
-                        {% assign related_posts = site.blog %}
-                        {% assign related = "" | split: "" %}
-                        {% for tag in page.tags %}
-                          {% assign tagged_posts = related_posts | where_exp: "post", "post.tags contains tag" %}
-                          {% assign related = related | concat: tagged_posts %}
-                        {% endfor %}
-                        {% assign related = related | uniq | sort: "date" | reverse %}
-                        {% for post in related limit: 5 %}
-                          {% assign post_year = post.date | date: "%Y" %}
-                          <li>{{ post_year }} &nbsp; <a href="{{ post.permalink }}">{{ post.title }}</a></li>
-                        {% endfor %}
-                      </ul>
-                    {% endif %}
-
-               </div>
-
-          </div>
-     </div>
-</section>
-
-<!-- Footer Section -->
-
-<footer>
-     <div class="container">
-          <div class="row">
-
-               <div class="col-md-4 col-md-offset-1 col-sm-6">
-                    <h3>Contact</h3>
-                    <p style="color:white"><i class="fa fa-send-o"></i>hadrien.montanelli@inria.fr</p><br>
-                    <a href="https://www.inria.fr/en"><img src="assets/images/inria.png" class="img-responsive"></a>
-               </div>
-
-               <div class="col-md-4 col-md-offset-1 col-sm-6">
-                    <h3 style="opacity:0;">Contact</h3>
-                    <p style="color:white">Copyright &copy; 2025 Hadrien Montanelli</p><br>
-                    <a href="https://www.ip-paris.fr/en"><img src="assets/images/polytechnique.png" class="img-responsive"></a>
-               </div>
-
-               <div class="clearfix col-md-12 col-sm-12">
-                    <hr style="color:white;">
-               </div>
-               
-               <div class="col-md-12 col-sm-12">
-                    <ul class="social-icon">
-                         <li><a href="https://github.com/Hadrien-Montanelli" class="fa-brands fa-github" style="font-size:30px;color:white"></a></li>
-                         <li><a href="https://scholar.google.com/citations?user=Bjmkfe8AAAAJ&hl=en&oi=sra/" class="fa-brands fa-google" style="font-size:30px;color:white"></a></li>
-                         <li><a href="https://www.linkedin.com/in/hadrien-montanelli/" class="fa-brands fa-linkedin" style="font-size:30px;color:white"></a></li>
-                         <li><a href="https://orcid.org/0009-0005-1742-9828" class="fa-brands fa-orcid" style="font-size:30px;color:white"></a></li>
-                         <li><a href="https://twitter.com/drmontanelli" class="fa-brands fa-x-twitter" style="font-size:30px;color:white;"></a></li>
-                    </ul>
-               </div>
-               
-          </div>
-     </div>
-</footer>
-
-<!-- Back top -->
-<a href="#back-top" class="go-top"><i class="fa fa-angle-up"></i></a>
-
-<!-- SCRIPTS -->
-<script src="assets/js/jquery.js"></script>
-<script src="assets/js/bootstrap.min.js"></script>
-<script src="assets/js/particles.min.js"></script>
-<script src="assets/js/app.js"></script>
-<script src="assets/js/jquery.parallax.js"></script>
-<script src="assets/js/smoothscroll.js"></script>
-<script src="assets/js/custom.js"></script>
-<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-
-</body>
-</html>
+<p>In the next and final episode of my series on quantum computing, I will talk about quantum computing for <a href='https://en.wikipedia.org/wiki/Supervised_learning'>supervised learning</a>.</p>

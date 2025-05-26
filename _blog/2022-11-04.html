@@ -1,320 +1,133 @@
 ---
-layout: null
+layout: post
 title: The linear sampling method for random sources
 date: 2022-11-04
 tags: [inverse problems]
 permalink: 2022-11-04.html
 ---
-<!DOCTYPE html>
-<html lang="en">
-<head>
+<p>In this post, I talk about an extension of the linear sampling method (LSM) for solving the sound-soft <a href="https://en.wikipedia.org/wiki/Inverse_scattering_problem">inverse acoustic scattering</a> problem with randomly distributed point sources. For details, check out my <a href="https://arxiv.org/pdf/2210.15560.pdf">paper</a> with <a href="https://perso.ensta-paris.fr/~haddar/">Houssem Haddar</a> and <a href="https://josselin-garnier.org/">Josselin Garnier</a>!</p>
 
-<meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=Edge">
-<meta name="description" content="">
-<meta name="keywords" content="">
-<meta name="author" content="">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<h2>Introduction</h2>
 
-<title>The linear sampling method for random sources</title>
-<!--
+<p>A typical <a href="https://en.wikipedia.org/wiki/Inverse_scattering_problem">inverse scattering problem</a> is the identification of the shape of a defect inside a medium by sending waves that propagate within. In the data acquisition step, several receivers record the medium's response that forms the data of the inverse problem; in the data processing step, numerical algorithms are used to recover an approximation of the shape from the measurements. What we have just described is an example of <i>active</i> imaging, where both the sources and the receivers are controlled. In <i>passive</i> imaging, only receivers are employed and the illumination comes from uncontrolled, random sources. In this setup, it is the cross-correlations between the recorded signals that convey information about the medium through which the waves propagate.</p>
 
-Template 2085 Neuron
+<h2>The Helmholtz&ndash;Kirchoff identity</h2>
 
-https://www.tooplate.com/view/2085-neuron
+<p>Acoustic scattering is governed by the <a href="https://en.wikipedia.org/wiki/Helmholtz_equation">Helmholtz equation</a> \(\Delta u+k^2u=0\), whose <a href="https://en.wikipedia.org/wiki/Green%27s_function">Green's function</a> is
+$$
+\phi(\boldsymbol{x},\boldsymbol{y}) = \frac{i}{4}H_0^{(1)}(k\vert\boldsymbol{x}-\boldsymbol{y}\vert)
+$$
+in dimension two and
+$$
+\quad \phi(\boldsymbol{x},\boldsymbol{y}) = \frac{e^{ik\vert\boldsymbol{x}-\boldsymbol{y}\vert}}{4\pi \vert\boldsymbol{x}-\boldsymbol{y}\vert}
+$$
+in dimension three. The number \(k>0\) is the <a href="https://en.wikipedia.org/wiki/Wavenumber">wavenumber</a> (the <a href="https://en.wikipedia.org/wiki/Wavelength">wavelength</a> is \(\lambda=2\pi/k\)), and \(i\) denotes the <a href="https://en.wikipedia.org/wiki/Imaginary_unit">imaginary unit</a>. The Helmholtz&ndash;Kirchhoff identity for the Green's function reads
+$$
+\phi(\boldsymbol{x},\boldsymbol{y}) - \overline{\phi(\boldsymbol{x},\boldsymbol{y})} = 2ik\int_{\Sigma}\overline{\phi(\boldsymbol{x},\boldsymbol{z})}\phi(\boldsymbol{y},\boldsymbol{z})dS(\boldsymbol{z}),
+$$
+where the surface \(\Sigma\) encloses \(\boldsymbol{x}\) and \(\boldsymbol{y}\). The identity above connects the imaginary part of the measurements at \(\boldsymbol{x}\) of point sources located at \(\boldsymbol{y}\) (left) to the <a href="https://en.wikipedia.org/wiki/Cross-correlation">cross-correlation</a> between the measurements at \(\boldsymbol{x}\) and \(\boldsymbol{y}\) of point sources on \(\Sigma\) (right).</p>
 
--->
-<link rel="stylesheet" href="assets/css/bootstrap.min.css">
-<link rel="stylesheet" href="assets/css/all.css">
-<link rel="stylesheet" href="assets/css/magnific-popup.css">
+<p>The Helmholtz&ndash;Kirchhoff identity applies to total fields, too. Let \(D\subset\mathbb{R}^d\) (for \(d=2\) or 3) be a bounded domain whose complement is <a href="https://en.wikipedia.org/wiki/Connected_space">connected</a> and \(\boldsymbol{y}\in\mathbb{R}^d\). A <a href="https://en.wikipedia.org/wiki/Point_source">point source</a> located at \(\boldsymbol{y}\in\mathbb{R}^d\setminus\overline{D}\) transmits a time-harmonic signal that generates the incident field \(\phi(\cdot,\boldsymbol{y})\). The scattered field \(u^s(\cdot,\boldsymbol{y})\) for a sound-soft defect \(D\) is the solution to
+$$
+\left\{
+\begin{array}{ll}
+\Delta u^s(\cdot,\boldsymbol{y}) + k^2 u^s(\cdot,\boldsymbol{y}) = 0 \quad \text{in $\mathbb{R}^d\setminus\overline{D}$}, \\[0.4em]
+\phi(\cdot,\boldsymbol{y}) + u^s(\cdot,\boldsymbol{y}) = 0 \quad \text{on $\partial D$}, \\[0.4em]
+\text{$u^s(\cdot,\boldsymbol{y})$ is radiating}.
+\end{array}
+\right.
+$$
+The total field is then defined as \(u(\boldsymbol{x},\boldsymbol{y})=\phi(\boldsymbol{x},\boldsymbol{y})+u^s(\boldsymbol{x},\boldsymbol{y})\). The Helmholtz&ndash;Kirchhoff identity for total fields is:
+$$
+u(\boldsymbol{x},\boldsymbol{y}) - \overline{u(\boldsymbol{x},\boldsymbol{y})} = 2ik\int_{\Sigma}\overline{u(\boldsymbol{x},\boldsymbol{z})}u(\boldsymbol{y},\boldsymbol{z})dS(\boldsymbol{z}).
+$$
+This immediately implies the following relationship for the scattered fields,
+$$
+\begin{align}
+u^s(\boldsymbol{x},\boldsymbol{y}) - \overline{u^s(\boldsymbol{x},\boldsymbol{y})} = 2ik\int_{\Sigma}\overline{u(\boldsymbol{x},\boldsymbol{z})}u(\boldsymbol{y},\boldsymbol{z})dS(\boldsymbol{z}) - \left[\phi(\boldsymbol{x},\boldsymbol{y}) - \overline{\phi(\boldsymbol{x},\boldsymbol{y})}\right].
+\end{align}
+$$
+</p>
 
-<!-- Main css -->
-<link rel="stylesheet" href="assets/css/style.css">
-<link href="https://fonts.googleapis.com/css?family=Lora|Merriweather:300,400" rel="stylesheet">
+<h2>The standard LSM in active imaging</h2>
 
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-108246943-1"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+<p>Let \(\boldsymbol{x}_j\), \(1\leq j\leq J\), and \(\boldsymbol{y}_m\), \(1\leq m\leq M\), be measurement points and point sources located on a surface \(\partial B\) that encloses \(D\). The standard LSM for near-field measurements, in active imaging, relies on the construction of the near-field matrix \(N^\mathrm{ac}\) with entries
+$$
+N^\mathrm{ac}_{jm} = u^s(\boldsymbol{x}_j,\boldsymbol{y}_m).
+$$
+The matrix \(N^\mathrm{ac}\) corresponds to the medium's response, measured at \(\boldsymbol{x}_j\), to the illumination by point sources located at \(\boldsymbol{y}_m\). Here, the positions of both measurement points and point sources are known and controlled. This matrix is filled out in the data acquisition step, which entails the solution of the PDE for each \(\boldsymbol{y}_m\). In the processing step, we numerically probe the medium by solving the linear system \(N^\mathrm{ac}g_{\boldsymbol{z}}=\phi_{\boldsymbol{z}}\) for various \(\boldsymbol{z}\in\mathbb{R}^d\). (The right-hand side is defined by \((\phi_{\boldsymbol{z}})_j = \phi(\boldsymbol{x}_j, \boldsymbol{z})\), \(1\leq j\leq J\).) The boundary \(\partial D\) of the defect \(D\) coincides with those points \(\boldsymbol{z}\) for which the value of \(\Vert g_{\boldsymbol{z}}\Vert_2\) is large. The setup we have described is shown below.</p>
 
-  gtag('config', 'UA-108246943-1');
-</script>
+<center>
+<img src="assets/images/blog/lsm-N.jpg" class="img-responsive">
+</center>
 
-<!-- Google AdSense -->
-<!--<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8299683413193339" crossorigin="anonymous"></script>-->
-<!--<script async src="https://fundingchoicesmessages.google.com/i/pub-8299683413193339?ers=1" nonce="AuY4vKpDElA9N7YwmFfMjg"></script>
-<script nonce="AuY4vKpDElA9N7YwmFfMjg">(function() {function signalGooglefcPresent() {if (!window.frames['googlefcPresent']) {if (document.body) {const iframe = document.createElement('iframe'); iframe.style = 'width: 0; height: 0; border: none; z-index: -1000; left: -1000px; top: -1000px;'; iframe.style.display = 'none'; iframe.name = 'googlefcPresent'; document.body.appendChild(iframe);} else {setTimeout(signalGooglefcPresent, 0);}}}signalGooglefcPresent();})();</script>-->
+<h2>The new LSM for passive imaging</h2>
 
-</head>
-<body>
+<p>In passive imaging, we assume that the measurement points \(\boldsymbol{x}_j\) are located in some bounded volume \(B\subset\mathbb{R}^d\setminus\overline{D}\). Let \(\Sigma\) be a surface that encloses \(B\) and \(D\), and let us assume that there are \(L>0\) point sources \(\boldsymbol{z}_\ell\) randomly distributed on \(\Sigma\). These sources can transmit a unit-amplitude time-harmonic signal, one by one, so that it is possible to measure the total fields \(u(\boldsymbol{x}_j,\boldsymbol{z}_\ell)\). Moreover, it is possible to compute \(\phi(\boldsymbol{x}_j,\boldsymbol{x}_m)\), so we can evaluate the cross-correlation matrix \(C\) with entries
+$$
+\begin{align}
+C_{jm} = \frac{2ik\vert\Sigma\vert}{L}\sum_{\ell=1}^L\overline{u(\boldsymbol{x}_j,\boldsymbol{z}_\ell)}u(\boldsymbol{x}_m,\boldsymbol{z}_\ell) - \left[\phi(\boldsymbol{x}_j,\boldsymbol{x}_m) - \overline{\phi(\boldsymbol{x}_j,\boldsymbol{x}_m)}\right],
+\end{align}
+$$
+where \(\vert\Sigma\vert\) is the area of \(\Sigma\). The matrix \(C\) corresponds to the discretization of the right-hand side of the Helmholtz&ndash;Kirchhoff identity (for scattered fields) at points \(\boldsymbol{z}_\ell\) with uniform weights and evaluted at \(\boldsymbol{x}_j\) and \(\boldsymbol{x}_m\), i.e.,
+$$
+\begin{align}
+C_{jm} \approx 2ik\int_{\Sigma}\overline{u(\boldsymbol{x}_j,\boldsymbol{z})}u(\boldsymbol{x}_m,\boldsymbol{z})dS(\boldsymbol{z}) - \left[\phi(\boldsymbol{x}_j,\boldsymbol{x}_m) - \overline{\phi(\boldsymbol{x}_j,\boldsymbol{x}_m)}\right].
+\end{align}
+$$
+Therefore, it satisfies
+$$
+C_{jm} \approx N_{jm} - \overline{N_{jm}},
+$$
+where the matrix \(N\) is the standard near-field matrix for co-located receivers and sources:
+$$
+N_{jm} = u^s(\boldsymbol{x}_j,\boldsymbol{x}_m).
+$$
+This motivates the introduction of the imaginary near-field matrix \(I\),
+$$
+I_{jm} = N_{jm} - \overline{N_{jm}} = u^s(\boldsymbol{x}_j,\boldsymbol{x}_m) - \overline{u^s(\boldsymbol{x}_j,\boldsymbol{x}_m)}.
+$$
+In our paper, we justified the utilization of the matrix \(I\) for the LSM in active imaging. If the LSM works for \(I\) in active imaging, then, via the Helmholtz&ndash;Kirchhoff identity \(C_{jm} \approx I_{jm}\), it works for \(C\) in passive imaging. The setup we have described is shown below.</p>
 
-<!-- Tikz for mathjax -->
-<link rel="stylesheet" type="text/css" href="https://tikzjax.com/v1/fonts.css">
-<script src="https://tikzjax.com/v1/tikzjax.js"></script>
+<center>
+<img src="assets/images/blog/lsm-C.jpg" class="img-responsive">
+</center>
 
-<!-- PRE LOADER -->
+<h2>Numerical experiments</h2>
 
-<div class="preloader">
-     <div class="sk-spinner sk-spinner-wordpress">
-          <span class="sk-inner-circle"></span>
-     </div>
+<p>We consider the scattering of points sources by a kite of size \(\lambda/2\) centered at \(2\lambda + 2\lambda i\) for \(k=2\pi\) (wavelength \(\lambda =1\)). We compare the results obtained for the near-field matrix \(N\), the imaginary near-field matrix \(I\), and the cross-correlation matrix \(C\). For \(N\) and \(I\), we take \(J=80\) equispaced co-located sources and receivers on the circle of radius \(5\lambda\), 
+$$
+\boldsymbol{x}_j = 5\lambda e^{i\theta_j},  \quad \theta_j = \frac{2\pi}{J}(j - 1).
+$$
+For the matrix \(C\), the \(L=80\) random sources are located on the circle of radius \(50\lambda\),
+$$
+\boldsymbol{z}_\ell = 50\lambda e^{i\theta_\ell}, \quad \theta_\ell = \frac{2\pi}{L}(\ell -1+ \beta_\ell),
+$$
+where \(\beta_\ell\) is drawn from the uniform distribution on \([0,\beta]\) with \(\beta=0.1\), and we measure at the points \(\boldsymbol{x}_j\). To simulate noisy measurements, we add some white noise of amplitude \(5\times 10^{-2}\) to each matrix; we call the noisy matrices \(N_\delta\), \(I_\delta\), and \(C_\delta\). Finally, we probe the medium on a \(100\times100\) uniform grid on \([-6\lambda,6\lambda]\times[-6\lambda,6\lambda]\). Here are the results.</p>
+
+<div class="row">
+  <div class="column">
+    <img src="assets/images/blog/matrix-N-kite.jpg" class="img-responsive">
+  </div>
+  <div class="column">
+    <img src="assets/images/blog/lsm-N-kite.jpg" class="img-responsive">
+  </div>
 </div>
-
-<!-- Navigation section  -->
-
-<div class="navbar navbar-default navbar-static-top" role="navigation">
-     <div class="container">
-
-          <div class="navbar-header">
-               <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon icon-bar"></span>
-                    <span class="icon icon-bar"></span>
-                    <span class="icon icon-bar"></span>
-               </button>
-               <a href="index.html" class="navbar-brand">H. Montanelli</a>
-          </div>
-          <div class="collapse navbar-collapse">
-               <ul class="nav navbar-nav navbar-right">
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="blog.html">Blog</a></li>
-                    <li><a href="publications.html">Publications</a></li>
-                    <li><a href="research.html">Research</a></li>
-                    <li><a href="students.html">Students</a></li>
-                    <li><a href="talks.html">Talks</a></li>
-                    <li><a href="teaching.html">Teaching</a></li>
-               </ul>
-          </div>
-
+<div class="row">
+  <div class="column">
+    <img src="assets/images/blog/matrix-I-kite.jpg" class="img-responsive">
+  </div>
+  <div class="column">
+    <img src="assets/images/blog/lsm-I-kite.jpg" class="img-responsive">
+  </div>
+</div>
+<div class="row">
+  <div class="column">
+    <img src="assets/images/blog/matrix-C-kite.jpg" class="img-responsive">
+  </div>
+  <div class="column">
+    <img src="assets/images/blog/lsm-C-kite.jpg" class="img-responsive">
   </div>
 </div>
 
-<!-- Home Section -->
-
-<section id="home" class="main-about parallax-section">
-     <div class="overlay"></div>
-     <div class="container">
-          <div class="row">
-
-               <div class="col-md-12 col-sm-12">
-                    <h1>The linear sampling method for random sources</h1>
-               </div>
-
-          </div>
-     </div>
-</section>
-
-<!-- Blog Single Post Section -->
-
-<section id="about">
-     <div class="container">
-          <div class="row">
-
-               <div class="col-md-offset-1 col-md-10 col-sm-12">     
-
-                    <p><i>November 4, 2022</i></p>
-
-                    <p>In this post, I talk about an extension of the linear sampling method (LSM) for solving the sound-soft <a href="https://en.wikipedia.org/wiki/Inverse_scattering_problem">inverse acoustic scattering</a> problem with randomly distributed point sources. For details, check out my <a href="https://arxiv.org/pdf/2210.15560.pdf">paper</a> with <a href="https://perso.ensta-paris.fr/~haddar/">Houssem Haddar</a> and <a href="https://josselin-garnier.org/">Josselin Garnier</a>!</p>
-
-                    <h2>Introduction</h2>
-
-                    <p>A typical <a href="https://en.wikipedia.org/wiki/Inverse_scattering_problem">inverse scattering problem</a> is the identification of the shape of a defect inside a medium by sending waves that propagate within. In the data acquisition step, several receivers record the medium's response that forms the data of the inverse problem; in the data processing step, numerical algorithms are used to recover an approximation of the shape from the measurements. What we have just described is an example of <i>active</i> imaging, where both the sources and the receivers are controlled. In <i>passive</i> imaging, only receivers are employed and the illumination comes from uncontrolled, random sources. In this setup, it is the cross-correlations between the recorded signals that convey information about the medium through which the waves propagate.</p>
-
-                    <h2>The Helmholtz&ndash;Kirchoff identity</h2>
-
-                    <p>Acoustic scattering is governed by the <a href="https://en.wikipedia.org/wiki/Helmholtz_equation">Helmholtz equation</a> \(\Delta u+k^2u=0\), whose <a href="https://en.wikipedia.org/wiki/Green%27s_function">Green's function</a> is
-                    $$
-                    \phi(\boldsymbol{x},\boldsymbol{y}) = \frac{i}{4}H_0^{(1)}(k\vert\boldsymbol{x}-\boldsymbol{y}\vert)
-                    $$
-                    in dimension two and
-                    $$
-                    \quad \phi(\boldsymbol{x},\boldsymbol{y}) = \frac{e^{ik\vert\boldsymbol{x}-\boldsymbol{y}\vert}}{4\pi \vert\boldsymbol{x}-\boldsymbol{y}\vert}
-                    $$
-                    in dimension three. The number \(k>0\) is the <a href="https://en.wikipedia.org/wiki/Wavenumber">wavenumber</a> (the <a href="https://en.wikipedia.org/wiki/Wavelength">wavelength</a> is \(\lambda=2\pi/k\)), and \(i\) denotes the <a href="https://en.wikipedia.org/wiki/Imaginary_unit">imaginary unit</a>. The Helmholtz&ndash;Kirchhoff identity for the Green's function reads
-                    $$
-                    \phi(\boldsymbol{x},\boldsymbol{y}) - \overline{\phi(\boldsymbol{x},\boldsymbol{y})} = 2ik\int_{\Sigma}\overline{\phi(\boldsymbol{x},\boldsymbol{z})}\phi(\boldsymbol{y},\boldsymbol{z})dS(\boldsymbol{z}),
-                    $$
-                    where the surface \(\Sigma\) encloses \(\boldsymbol{x}\) and \(\boldsymbol{y}\). The identity above connects the imaginary part of the measurements at \(\boldsymbol{x}\) of point sources located at \(\boldsymbol{y}\) (left) to the <a href="https://en.wikipedia.org/wiki/Cross-correlation">cross-correlation</a> between the measurements at \(\boldsymbol{x}\) and \(\boldsymbol{y}\) of point sources on \(\Sigma\) (right).</p>
-
-                    <p>The Helmholtz&ndash;Kirchhoff identity applies to total fields, too. Let \(D\subset\mathbb{R}^d\) (for \(d=2\) or 3) be a bounded domain whose complement is <a href="https://en.wikipedia.org/wiki/Connected_space">connected</a> and \(\boldsymbol{y}\in\mathbb{R}^d\). A <a href="https://en.wikipedia.org/wiki/Point_source">point source</a> located at \(\boldsymbol{y}\in\mathbb{R}^d\setminus\overline{D}\) transmits a time-harmonic signal that generates the incident field \(\phi(\cdot,\boldsymbol{y})\). The scattered field \(u^s(\cdot,\boldsymbol{y})\) for a sound-soft defect \(D\) is the solution to
-                    $$
-                    \left\{
-                    \begin{array}{ll}
-                    \Delta u^s(\cdot,\boldsymbol{y}) + k^2 u^s(\cdot,\boldsymbol{y}) = 0 \quad \text{in $\mathbb{R}^d\setminus\overline{D}$}, \\[0.4em]
-                    \phi(\cdot,\boldsymbol{y}) + u^s(\cdot,\boldsymbol{y}) = 0 \quad \text{on $\partial D$}, \\[0.4em]
-                    \text{$u^s(\cdot,\boldsymbol{y})$ is radiating}.
-                    \end{array}
-                    \right.
-                    $$
-                    The total field is then defined as \(u(\boldsymbol{x},\boldsymbol{y})=\phi(\boldsymbol{x},\boldsymbol{y})+u^s(\boldsymbol{x},\boldsymbol{y})\). The Helmholtz&ndash;Kirchhoff identity for total fields is:
-                    $$
-                    u(\boldsymbol{x},\boldsymbol{y}) - \overline{u(\boldsymbol{x},\boldsymbol{y})} = 2ik\int_{\Sigma}\overline{u(\boldsymbol{x},\boldsymbol{z})}u(\boldsymbol{y},\boldsymbol{z})dS(\boldsymbol{z}).
-                    $$
-                    This immediately implies the following relationship for the scattered fields,
-                    $$
-                    \begin{align}
-                    u^s(\boldsymbol{x},\boldsymbol{y}) - \overline{u^s(\boldsymbol{x},\boldsymbol{y})} = 2ik\int_{\Sigma}\overline{u(\boldsymbol{x},\boldsymbol{z})}u(\boldsymbol{y},\boldsymbol{z})dS(\boldsymbol{z}) - \left[\phi(\boldsymbol{x},\boldsymbol{y}) - \overline{\phi(\boldsymbol{x},\boldsymbol{y})}\right].
-                    \end{align}
-                    $$
-                    </p>
-
-                    <h2>The standard LSM in active imaging</h2>
-
-                    <p>Let \(\boldsymbol{x}_j\), \(1\leq j\leq J\), and \(\boldsymbol{y}_m\), \(1\leq m\leq M\), be measurement points and point sources located on a surface \(\partial B\) that encloses \(D\). The standard LSM for near-field measurements, in active imaging, relies on the construction of the near-field matrix \(N^\mathrm{ac}\) with entries
-                    $$
-                    N^\mathrm{ac}_{jm} = u^s(\boldsymbol{x}_j,\boldsymbol{y}_m).
-                    $$
-                    The matrix \(N^\mathrm{ac}\) corresponds to the medium's response, measured at \(\boldsymbol{x}_j\), to the illumination by point sources located at \(\boldsymbol{y}_m\). Here, the positions of both measurement points and point sources are known and controlled. This matrix is filled out in the data acquisition step, which entails the solution of the PDE for each \(\boldsymbol{y}_m\). In the processing step, we numerically probe the medium by solving the linear system \(N^\mathrm{ac}g_{\boldsymbol{z}}=\phi_{\boldsymbol{z}}\) for various \(\boldsymbol{z}\in\mathbb{R}^d\). (The right-hand side is defined by \((\phi_{\boldsymbol{z}})_j = \phi(\boldsymbol{x}_j, \boldsymbol{z})\), \(1\leq j\leq J\).) The boundary \(\partial D\) of the defect \(D\) coincides with those points \(\boldsymbol{z}\) for which the value of \(\Vert g_{\boldsymbol{z}}\Vert_2\) is large. The setup we have described is shown below.</p>
-
-                    <center>
-                    <img src="assets/images/blog/lsm-N.jpg" class="img-responsive">
-                    </center>
-
-                    <h2>The new LSM for passive imaging</h2>
-
-                    <p>In passive imaging, we assume that the measurement points \(\boldsymbol{x}_j\) are located in some bounded volume \(B\subset\mathbb{R}^d\setminus\overline{D}\). Let \(\Sigma\) be a surface that encloses \(B\) and \(D\), and let us assume that there are \(L>0\) point sources \(\boldsymbol{z}_\ell\) randomly distributed on \(\Sigma\). These sources can transmit a unit-amplitude time-harmonic signal, one by one, so that it is possible to measure the total fields \(u(\boldsymbol{x}_j,\boldsymbol{z}_\ell)\). Moreover, it is possible to compute \(\phi(\boldsymbol{x}_j,\boldsymbol{x}_m)\), so we can evaluate the cross-correlation matrix \(C\) with entries
-                    $$
-                    \begin{align}
-                    C_{jm} = \frac{2ik\vert\Sigma\vert}{L}\sum_{\ell=1}^L\overline{u(\boldsymbol{x}_j,\boldsymbol{z}_\ell)}u(\boldsymbol{x}_m,\boldsymbol{z}_\ell) - \left[\phi(\boldsymbol{x}_j,\boldsymbol{x}_m) - \overline{\phi(\boldsymbol{x}_j,\boldsymbol{x}_m)}\right],
-                    \end{align}
-                    $$
-                    where \(\vert\Sigma\vert\) is the area of \(\Sigma\). The matrix \(C\) corresponds to the discretization of the right-hand side of the Helmholtz&ndash;Kirchhoff identity (for scattered fields) at points \(\boldsymbol{z}_\ell\) with uniform weights and evaluted at \(\boldsymbol{x}_j\) and \(\boldsymbol{x}_m\), i.e.,
-                    $$
-                    \begin{align}
-                    C_{jm} \approx 2ik\int_{\Sigma}\overline{u(\boldsymbol{x}_j,\boldsymbol{z})}u(\boldsymbol{x}_m,\boldsymbol{z})dS(\boldsymbol{z}) - \left[\phi(\boldsymbol{x}_j,\boldsymbol{x}_m) - \overline{\phi(\boldsymbol{x}_j,\boldsymbol{x}_m)}\right].
-                    \end{align}
-                    $$
-                    Therefore, it satisfies
-                    $$
-                    C_{jm} \approx N_{jm} - \overline{N_{jm}},
-                    $$
-                    where the matrix \(N\) is the standard near-field matrix for co-located receivers and sources:
-                    $$
-                    N_{jm} = u^s(\boldsymbol{x}_j,\boldsymbol{x}_m).
-                    $$
-                    This motivates the introduction of the imaginary near-field matrix \(I\),
-                    $$
-                    I_{jm} = N_{jm} - \overline{N_{jm}} = u^s(\boldsymbol{x}_j,\boldsymbol{x}_m) - \overline{u^s(\boldsymbol{x}_j,\boldsymbol{x}_m)}.
-                    $$
-                    In our paper, we justified the utilization of the matrix \(I\) for the LSM in active imaging. If the LSM works for \(I\) in active imaging, then, via the Helmholtz&ndash;Kirchhoff identity \(C_{jm} \approx I_{jm}\), it works for \(C\) in passive imaging. The setup we have described is shown below.</p>
-
-                    <center>
-                    <img src="assets/images/blog/lsm-C.jpg" class="img-responsive">
-                    </center>
-
-                    <h2>Numerical experiments</h2>
-
-                    <p>We consider the scattering of points sources by a kite of size \(\lambda/2\) centered at \(2\lambda + 2\lambda i\) for \(k=2\pi\) (wavelength \(\lambda =1\)). We compare the results obtained for the near-field matrix \(N\), the imaginary near-field matrix \(I\), and the cross-correlation matrix \(C\). For \(N\) and \(I\), we take \(J=80\) equispaced co-located sources and receivers on the circle of radius \(5\lambda\), 
-                    $$
-                    \boldsymbol{x}_j = 5\lambda e^{i\theta_j},  \quad \theta_j = \frac{2\pi}{J}(j - 1).
-                    $$
-                    For the matrix \(C\), the \(L=80\) random sources are located on the circle of radius \(50\lambda\),
-                    $$
-                    \boldsymbol{z}_\ell = 50\lambda e^{i\theta_\ell}, \quad \theta_\ell = \frac{2\pi}{L}(\ell -1+ \beta_\ell),
-                    $$
-                    where \(\beta_\ell\) is drawn from the uniform distribution on \([0,\beta]\) with \(\beta=0.1\), and we measure at the points \(\boldsymbol{x}_j\). To simulate noisy measurements, we add some white noise of amplitude \(5\times 10^{-2}\) to each matrix; we call the noisy matrices \(N_\delta\), \(I_\delta\), and \(C_\delta\). Finally, we probe the medium on a \(100\times100\) uniform grid on \([-6\lambda,6\lambda]\times[-6\lambda,6\lambda]\). Here are the results.</p>
-
-                    <div class="row">
-                      <div class="column">
-                        <img src="assets/images/blog/matrix-N-kite.jpg" class="img-responsive">
-                      </div>
-                      <div class="column">
-                        <img src="assets/images/blog/lsm-N-kite.jpg" class="img-responsive">
-                      </div>
-                    </div>
-                    <div class="row">
-                      <div class="column">
-                        <img src="assets/images/blog/matrix-I-kite.jpg" class="img-responsive">
-                      </div>
-                      <div class="column">
-                        <img src="assets/images/blog/lsm-I-kite.jpg" class="img-responsive">
-                      </div>
-                    </div>
-                    <div class="row">
-                      <div class="column">
-                        <img src="assets/images/blog/matrix-C-kite.jpg" class="img-responsive">
-                      </div>
-                      <div class="column">
-                        <img src="assets/images/blog/lsm-C-kite.jpg" class="img-responsive">
-                      </div>
-                    </div>
-
-                    <p>The first column displays the matrices and the second column the indicator function (values outside of the circle of radius \(5\lambda\) were zeroed out). The sources are represented by dots, and the measurement points by crosses. For \(N\) and \(I\), we plotted every other source/measurement point; for \(C\), the random sources are outside of the plot. Our novel LSM (third row), based on cross-correlations and random sources, shows similar results to the LSM with deterministic sources (first row). The LSM can be utilized in passive imaging!</p>
-
-                    <hr>
-                    {% if page.tags %}
-                      <h4>Blog posts about {{ page.tags }}</h4>
-                      <ul style="list-style-type: none; padding-left: 0;">
-                        {% assign related_posts = site.blog %}
-                        {% assign related = "" | split: "" %}
-                        {% for tag in page.tags %}
-                          {% assign tagged_posts = related_posts | where_exp: "post", "post.tags contains tag" %}
-                          {% assign related = related | concat: tagged_posts %}
-                        {% endfor %}
-                        {% assign related = related | uniq | sort: "date" | reverse %}
-                        {% for post in related limit: 5 %}
-                          {% assign post_year = post.date | date: "%Y" %}
-                          <li>{{ post_year }} &nbsp; <a href="{{ post.permalink }}">{{ post.title }}</a></li>
-                        {% endfor %}
-                      </ul>
-                    {% endif %}
-
-               </div>
-
-          </div>
-     </div>
-</section>
-
-<!-- Footer Section -->
-
-<footer>
-     <div class="container">
-          <div class="row">
-
-               <div class="col-md-4 col-md-offset-1 col-sm-6">
-                    <h3>Contact</h3>
-                    <p style="color:white"><i class="fa fa-send-o"></i>hadrien.montanelli@inria.fr</p><br>
-                    <a href="https://www.inria.fr/en"><img src="assets/images/inria.png" class="img-responsive"></a>
-               </div>
-
-               <div class="col-md-4 col-md-offset-1 col-sm-6">
-                    <h3 style="opacity:0;">Contact</h3>
-                    <p style="color:white">Copyright &copy; 2025 Hadrien Montanelli</p><br>
-                    <a href="https://www.ip-paris.fr/en"><img src="assets/images/polytechnique.png" class="img-responsive"></a>
-               </div>
-
-               <div class="clearfix col-md-12 col-sm-12">
-                    <hr style="color:white;">
-               </div>
-
-               <div class="col-md-12 col-sm-12">
-                    <ul class="social-icon">
-                         <li><a href="https://github.com/Hadrien-Montanelli" class="fa-brands fa-github" style="font-size:30px;color:white"></a></li>
-                         <li><a href="https://scholar.google.com/citations?user=Bjmkfe8AAAAJ&hl=en&oi=sra/" class="fa-brands fa-google" style="font-size:30px;color:white"></a></li>
-                         <li><a href="https://www.linkedin.com/in/hadrien-montanelli/" class="fa-brands fa-linkedin" style="font-size:30px;color:white"></a></li>
-                         <li><a href="https://orcid.org/0009-0005-1742-9828" class="fa-brands fa-orcid" style="font-size:30px;color:white"></a></li>
-                         <li><a href="https://twitter.com/drmontanelli" class="fa-brands fa-x-twitter" style="font-size:30px;color:white;"></a></li>
-                    </ul>
-               </div>
-               
-          </div>
-     </div>
-</footer>
-
-<!-- Back top -->
-<a href="#back-top" class="go-top"><i class="fa fa-angle-up"></i></a>
-
-<!-- SCRIPTS -->
-<script src="assets/js/jquery.js"></script>
-<script src="assets/js/bootstrap.min.js"></script>
-<script src="assets/js/particles.min.js"></script>
-<script src="assets/js/app.js"></script>
-<script src="assets/js/jquery.parallax.js"></script>
-<script src="assets/js/smoothscroll.js"></script>
-<script src="assets/js/custom.js"></script>
-<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-
-</body>
-</html>
+<p>The first column displays the matrices and the second column the indicator function (values outside of the circle of radius \(5\lambda\) were zeroed out). The sources are represented by dots, and the measurement points by crosses. For \(N\) and \(I\), we plotted every other source/measurement point; for \(C\), the random sources are outside of the plot. Our novel LSM (third row), based on cross-correlations and random sources, shows similar results to the LSM with deterministic sources (first row). The LSM can be utilized in passive imaging!</p>

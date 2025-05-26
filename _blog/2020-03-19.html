@@ -1,275 +1,92 @@
 ---
-layout: null
+layout: post
 title: The U.K. government's controversial plan of action
 date: 2020-03-19
 tags: [COVID-19]
 permalink: 2020-03-19.html
 ---
-<!DOCTYPE html>
-<html lang="en">
-<head>
+<h2>The U.K. government's controversial plan of action</h2>
 
-<meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=Edge">
-<meta name="description" content="">
-<meta name="keywords" content="">
-<meta name="author" content="">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<p>I've been paying careful attention to the various government policies implemented in response to the <a href='https://en.wikipedia.org/wiki/2019%E2%80%9320_coronavirus_pandemic'>coronavirus pandemic</a>. Having many friends and colleagues in the U.K., I am particularly concerned with the <a href='https://www.gov.uk/government/publications/coronavirus-action-plan'>British government's plan of action</a>. 
+At first, the U.K.'s plan differed from other countries' plans&mdash;the government imposing merely a few restrictions on the population, relying on so-called <a href='https://en.wikipedia.org/wiki/Herd_immunity'>herd immunity</a>. This was a terrible plan; for more information, see <a href='https://www.theatlantic.com/health/archive/2020/03/coronavirus-pandemic-herd-immunity-uk-boris-johnson/608065/'>this article</a>.</p>
 
-<title>The U.K. government's controversial plan of action</title>
-<!--
+<p>Luckily, the government has now recognized the situation's alarming nature and <a href='https://www.washingtonpost.com/world/europe/a-chilling-scientific-paper-helped-upend-us-and-uk-coronavirus-strategies/2020/03/17/aaa84116-6851-11ea-b199-3a9799c54512_story.html'>has changed its approach</a>, based on <a href='https://www.imperial.ac.uk/media/imperial-college/medicine/sph/ide/gida-fellowships/Imperial-College-COVID19-NPI-modelling-16-03-2020.pdf'>this report</a> from <a href='https://www.imperial.ac.uk/'>Imperial College London</a>. The current plan implements a strategy of social distancing, which is essential for avoiding the overload of the healthcare system.</p>
 
-Template 2085 Neuron
+<p>Following the presentation of the original plan based on herd immunity, I spoke to my friend who works for the U.K. government in London. She strongly believed that her government "knew better" and that its decisions were "based on science." Well, as a mathematician and scientist, this <i>really</i> puzzled me for three main reasons.</p>
 
-https://www.tooplate.com/view/2085-neuron
+<p>First, the relevant science in this context (e.g., applied mathematics and applied epidemiology) cannot model the spread of the disease in an exact, foolproof way. 
+Pure mathematics <i>is</i> an exact science, in the sense that everything can be either true or false.
+Here, what we have are <a href='https://en.wikipedia.org/wiki/Scientific_modelling'>scientific models</a>, which utilize simple assumptions to try to represent reality. 
+Those models often use <a href='https://en.wikipedia.org/wiki/Statistics'>data</a> combined with <a href='https://en.wikipedia.org/wiki/Computer_simulation'>numerical simulations</a> to give us a snapshot of the future&mdash;i.e., a prediction.
+This process of modelling introduces many sources of error, such as: modelling errors (i.e., the model is a simplified version of the phenomenon we're describing, thereby potentially omitting significant factors), <a href='https://en.wikipedia.org/wiki/Bias_(statistics)'>sample selection bias</a> (i.e., the data is not representative of the population), <a href='https://en.wikipedia.org/wiki/Numerical_error'>numerical errors</a> (i.e., the problem solved on the computer is de facto itself an approximation of the model), and <a href='https://en.wikipedia.org/wiki/Software_bug'>software bugs</a>.
+My point is that modelling gives us <i>some</i> indication of what the future <i>may</i> be, but yields far from perfect results.</p>
 
--->
-<link rel="stylesheet" href="assets/css/bootstrap.min.css">
-<link rel="stylesheet" href="assets/css/all.css">
-<link rel="stylesheet" href="assets/css/magnific-popup.css">
+<p>Second, <a href='https://en.wikipedia.org/wiki/Research'>research</a> in <a href='https://en.wikipedia.org/wiki/Academy'>Academia</a> heavily relies on <a href='https://en.wikipedia.org/wiki/Peer_review'>peer review</a>. 
+Once researchers believe they've come up with a new model and have obtained interesting results, they send their work to a <a href='https://en.wikipedia.org/wiki/Scientific_journal'>scientific journal</a>.
+This is the crucial step&mdash;where experts chosen by the journal validate or invalidate the model, check the data and verify the algorithms, comment on the results, make suggestions, ask questions, and ultimately decide whether the paper should or should not be published.
+The model and the numerical simulations that the U.K. government's original plan relied on were <i>never</i> published, even though <a href='https://en.wikipedia.org/wiki/Chris_Whitty'>Prof. Chris Witty</a> said that <a href='https://www.bbc.com/news/science-environment-51892402'>they intended to publish</a>. More than 500 academics criticized the plan in <a href='http://maths.qmul.ac.uk/~vnicosia/UK_scientists_statement_on_coronavirus_measures.pdf'>an open letter</a>.
+To bypass peer review for one's model and simulations in this pressing time suggests complacency. And to withhold the paper itself from the public is arguably inconsiderate and irresponsible. 
+A politician or an individual blindly believing in science is dangerous, particularly if those beliefs have policy-making implications&mdash;as in the current context. In essence, science should not be a <a href='https://en.wikipedia.org/wiki/Dogma'>dogma</a>.</p>
 
-<!-- Main css -->
-<link rel="stylesheet" href="assets/css/style.css">
-<link href="https://fonts.googleapis.com/css?family=Lora|Merriweather:300,400" rel="stylesheet">
+<p>Third, when the lives of a considerable part of the population are at risk (the worst-case scenario predicted by Imperial College approximates 500,000 deaths in the U.K.), shouldn't a government be especially cautious to protect its citizens? I would rather have a government that potentially overreacts in order to safeguard the health of its most vulnerable people.</p>
 
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-108246943-1"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+<h2>A simple model for the exponential spread of diseases</h2>
 
-  gtag('config', 'UA-108246943-1');
-</script>
+<p>I present in this section a very simple model for the spread of a disease and illustrate how social distancing helps to <i>flatten the curve</i>.
+This was inspired by <a href='https://www.washingtonpost.com/graphics/2020/world/corona-simulator/'>this excellent article</a> from the <a href='https://www.washingtonpost.com/'>Washington Post</a>.</p>
 
-<!-- Google AdSense -->
-<!--<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8299683413193339" crossorigin="anonymous"></script>-->
-<!--<script async src="https://fundingchoicesmessages.google.com/i/pub-8299683413193339?ers=1" nonce="AuY4vKpDElA9N7YwmFfMjg"></script>
-<script nonce="AuY4vKpDElA9N7YwmFfMjg">(function() {function signalGooglefcPresent() {if (!window.frames['googlefcPresent']) {if (document.body) {const iframe = document.createElement('iframe'); iframe.style = 'width: 0; height: 0; border: none; z-index: -1000; left: -1000px; top: -1000px;'; iframe.style.display = 'none'; iframe.name = 'googlefcPresent'; document.body.appendChild(iframe);} else {setTimeout(signalGooglefcPresent, 0);}}}signalGooglefcPresent();})();</script>-->
+<p>Here are the assumptions of my toy model:</p>
+<ul>
+  <li>individuals are represented by points on a rectangular 2D domain;</li>
+  <li>at regular time intervals, they move in a (normally distributed) random direction;</li>
+  <li>healthy individuals become sick if they get close enough to sick individuals;</li>
+  <li>once they're sick, they'll recover after some time;</li>
+  <li>once they've recovered, they cannot get sick again or carry the disease.</li>
+</ul>
+<p>Following the Washington Post's article, social distancing is modelled by some random individuals being frozen, i.e., not moving around.</p>
 
-</head>
-<body>
+<p>These assumptions are indeed overly simplistic, but I guarantee you that even papers like Imperial College's report use relatively simple models. 
+It's impossible to realistically represent all the interactions between people in a city/country. 
+Of course, it'd be possible to get a more realistic model by, e.g., dividing the domain into subdomains with different densities of population or adding a probability of spreading/contracting the disease.</p>
 
-<!-- PRE LOADER -->
+<h2>Numerical experiments</h2>
 
-<div class="preloader">
-     <div class="sk-spinner sk-spinner-wordpress">
-          <span class="sk-inner-circle"></span>
-     </div>
+<p>For my first experiment I use the following parameters:</p>
+<ul>
+  <li>100 individuals freely moving on a 10x10 2D domain;</li>
+  <li>healthy individuals will contract the disease if within a 0.5 radius from a sick individual;</li>
+  <li>they move at speed 5 in a random direction every 0.1 unit of time;</li>
+  <li>they recover after 5 units of time;</li>
+  <li>there is initially one sick individual.</li>
+</ul>
+
+<p>I plot below the number of cases versus time, illustrating the exponential growth of the spread of disease without social distancing.</p>
+
+<center>
+<img src="assets/images/blog/free.png" class="img-responsive">
+</center>
+
+<p>The following pictures show simulations ran with the same parameters as above but with 25 (top left), 50 (top right), 75 (bottom left), and 90 (bottom right) individuals adopting a strategy of social distancing.</p>
+
+<div class="row">
+  <div class="column">
+    <img src="assets/images/blog/confined25.png" class="img-responsive">
+  </div>
+  <div class="column">
+    <img src="assets/images/blog/confined50.png" class="img-responsive">
+  </div>
 </div>
-
-<!-- Navigation section  -->
-
-<div class="navbar navbar-default navbar-static-top" role="navigation">
-     <div class="container">
-
-          <div class="navbar-header">
-               <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon icon-bar"></span>
-                    <span class="icon icon-bar"></span>
-                    <span class="icon icon-bar"></span>
-               </button>
-               <a href="index.html" class="navbar-brand">H. Montanelli</a>
-          </div>
-          <div class="collapse navbar-collapse">
-               <ul class="nav navbar-nav navbar-right">
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="blog.html">Blog</a></li>
-                    <li><a href="publications.html">Publications</a></li>
-                    <li><a href="research.html">Research</a></li>
-                    <li><a href="students.html">Students</a></li>
-                    <li><a href="talks.html">Talks</a></li>
-                    <li><a href="teaching.html">Teaching</a></li>
-               </ul>
-          </div>
-
+<div class="row">
+  <div class="column">
+    <img src="assets/images/blog/confined75.png" class="img-responsive">
+  </div>
+  <div class="column">
+    <img src="assets/images/blog/confined90.png" class="img-responsive">
   </div>
 </div>
 
-<!-- Home Section -->
+<p>The graphs show how social distancing helps to flatten the curve, which is crucial for preventing the overload of the healthcare system. Spread the word, not the disease!</p>
 
-<section id="home" class="main-about parallax-section">
-     <div class="overlay"></div>
-     <div class="container">
-          <div class="row">
+<h2> Python code</h2>
 
-               <div class="col-md-12 col-sm-12">
-                    <h1>The U.K. government's controversial plan of action</h1>
-               </div>
-
-          </div>
-     </div>
-</section>
-
-<!-- Blog Single Post Section -->
-
-<section id="about">
-     <div class="container">
-          <div class="row">
-
-               <div class="col-md-offset-1 col-md-10 col-sm-12">    
-
-                    <p><i>March 19, 2020</i></p>
-
-                    <h2>The U.K. government's controversial plan of action</h2>
-
-                    <p>I've been paying careful attention to the various government policies implemented in response to the <a href='https://en.wikipedia.org/wiki/2019%E2%80%9320_coronavirus_pandemic'>coronavirus pandemic</a>. Having many friends and colleagues in the U.K., I am particularly concerned with the <a href='https://www.gov.uk/government/publications/coronavirus-action-plan'>British government's plan of action</a>. 
-                    At first, the U.K.'s plan differed from other countries' plans&mdash;the government imposing merely a few restrictions on the population, relying on so-called <a href='https://en.wikipedia.org/wiki/Herd_immunity'>herd immunity</a>. This was a terrible plan; for more information, see <a href='https://www.theatlantic.com/health/archive/2020/03/coronavirus-pandemic-herd-immunity-uk-boris-johnson/608065/'>this article</a>.</p>
-
-                    <p>Luckily, the government has now recognized the situation's alarming nature and <a href='https://www.washingtonpost.com/world/europe/a-chilling-scientific-paper-helped-upend-us-and-uk-coronavirus-strategies/2020/03/17/aaa84116-6851-11ea-b199-3a9799c54512_story.html'>has changed its approach</a>, based on <a href='https://www.imperial.ac.uk/media/imperial-college/medicine/sph/ide/gida-fellowships/Imperial-College-COVID19-NPI-modelling-16-03-2020.pdf'>this report</a> from <a href='https://www.imperial.ac.uk/'>Imperial College London</a>. The current plan implements a strategy of social distancing, which is essential for avoiding the overload of the healthcare system.</p>
-
-                    <p>Following the presentation of the original plan based on herd immunity, I spoke to my friend who works for the U.K. government in London. She strongly believed that her government "knew better" and that its decisions were "based on science." Well, as a mathematician and scientist, this <i>really</i> puzzled me for three main reasons.</p>
-
-                    <p>First, the relevant science in this context (e.g., applied mathematics and applied epidemiology) cannot model the spread of the disease in an exact, foolproof way. 
-                    Pure mathematics <i>is</i> an exact science, in the sense that everything can be either true or false.
-                    Here, what we have are <a href='https://en.wikipedia.org/wiki/Scientific_modelling'>scientific models</a>, which utilize simple assumptions to try to represent reality. 
-                    Those models often use <a href='https://en.wikipedia.org/wiki/Statistics'>data</a> combined with <a href='https://en.wikipedia.org/wiki/Computer_simulation'>numerical simulations</a> to give us a snapshot of the future&mdash;i.e., a prediction.
-                    This process of modelling introduces many sources of error, such as: modelling errors (i.e., the model is a simplified version of the phenomenon we're describing, thereby potentially omitting significant factors), <a href='https://en.wikipedia.org/wiki/Bias_(statistics)'>sample selection bias</a> (i.e., the data is not representative of the population), <a href='https://en.wikipedia.org/wiki/Numerical_error'>numerical errors</a> (i.e., the problem solved on the computer is de facto itself an approximation of the model), and <a href='https://en.wikipedia.org/wiki/Software_bug'>software bugs</a>.
-                    My point is that modelling gives us <i>some</i> indication of what the future <i>may</i> be, but yields far from perfect results.</p>
-
-                    <p>Second, <a href='https://en.wikipedia.org/wiki/Research'>research</a> in <a href='https://en.wikipedia.org/wiki/Academy'>Academia</a> heavily relies on <a href='https://en.wikipedia.org/wiki/Peer_review'>peer review</a>. 
-                    Once researchers believe they've come up with a new model and have obtained interesting results, they send their work to a <a href='https://en.wikipedia.org/wiki/Scientific_journal'>scientific journal</a>.
-                    This is the crucial step&mdash;where experts chosen by the journal validate or invalidate the model, check the data and verify the algorithms, comment on the results, make suggestions, ask questions, and ultimately decide whether the paper should or should not be published.
-                    The model and the numerical simulations that the U.K. government's original plan relied on were <i>never</i> published, even though <a href='https://en.wikipedia.org/wiki/Chris_Whitty'>Prof. Chris Witty</a> said that <a href='https://www.bbc.com/news/science-environment-51892402'>they intended to publish</a>. More than 500 academics criticized the plan in <a href='http://maths.qmul.ac.uk/~vnicosia/UK_scientists_statement_on_coronavirus_measures.pdf'>an open letter</a>.
-                    To bypass peer review for one's model and simulations in this pressing time suggests complacency. And to withhold the paper itself from the public is arguably inconsiderate and irresponsible. 
-                    A politician or an individual blindly believing in science is dangerous, particularly if those beliefs have policy-making implications&mdash;as in the current context. In essence, science should not be a <a href='https://en.wikipedia.org/wiki/Dogma'>dogma</a>.</p>
-
-                    <p>Third, when the lives of a considerable part of the population are at risk (the worst-case scenario predicted by Imperial College approximates 500,000 deaths in the U.K.), shouldn't a government be especially cautious to protect its citizens? I would rather have a government that potentially overreacts in order to safeguard the health of its most vulnerable people.</p>
-
-                    <h2>A simple model for the exponential spread of diseases</h2>
-
-                    <p>I present in this section a very simple model for the spread of a disease and illustrate how social distancing helps to <i>flatten the curve</i>.
-                    This was inspired by <a href='https://www.washingtonpost.com/graphics/2020/world/corona-simulator/'>this excellent article</a> from the <a href='https://www.washingtonpost.com/'>Washington Post</a>.</p>
-
-                    <p>Here are the assumptions of my toy model:</p>
-                    <ul>
-                      <li>individuals are represented by points on a rectangular 2D domain;</li>
-                      <li>at regular time intervals, they move in a (normally distributed) random direction;</li>
-                      <li>healthy individuals become sick if they get close enough to sick individuals;</li>
-                      <li>once they're sick, they'll recover after some time;</li>
-                      <li>once they've recovered, they cannot get sick again or carry the disease.</li>
-                    </ul>
-                    <p>Following the Washington Post's article, social distancing is modelled by some random individuals being frozen, i.e., not moving around.</p>
-
-                    <p>These assumptions are indeed overly simplistic, but I guarantee you that even papers like Imperial College's report use relatively simple models. 
-                    It's impossible to realistically represent all the interactions between people in a city/country. 
-                    Of course, it'd be possible to get a more realistic model by, e.g., dividing the domain into subdomains with different densities of population or adding a probability of spreading/contracting the disease.</p>
-
-                    <h2>Numerical experiments</h2>
-
-                    <p>For my first experiment I use the following parameters:</p>
-                    <ul>
-                      <li>100 individuals freely moving on a 10x10 2D domain;</li>
-                      <li>healthy individuals will contract the disease if within a 0.5 radius from a sick individual;</li>
-                      <li>they move at speed 5 in a random direction every 0.1 unit of time;</li>
-                      <li>they recover after 5 units of time;</li>
-                      <li>there is initially one sick individual.</li>
-                    </ul>
-
-                    <p>I plot below the number of cases versus time, illustrating the exponential growth of the spread of disease without social distancing.</p>
-
-                    <center>
-                    <img src="assets/images/blog/free.png" class="img-responsive">
-                    </center>
-
-                    <p>The following pictures show simulations ran with the same parameters as above but with 25 (top left), 50 (top right), 75 (bottom left), and 90 (bottom right) individuals adopting a strategy of social distancing.</p>
-
-                    <div class="row">
-                      <div class="column">
-                        <img src="assets/images/blog/confined25.png" class="img-responsive">
-                      </div>
-                      <div class="column">
-                        <img src="assets/images/blog/confined50.png" class="img-responsive">
-                      </div>
-                    </div>
-                    <div class="row">
-                      <div class="column">
-                        <img src="assets/images/blog/confined75.png" class="img-responsive">
-                      </div>
-                      <div class="column">
-                        <img src="assets/images/blog/confined90.png" class="img-responsive">
-                      </div>
-                    </div>
-
-                    <p>The graphs show how social distancing helps to flatten the curve, which is crucial for preventing the overload of the healthcare system. Spread the word, not the disease!</p>
-
-                    <h2> Python code</h2>
-
-                    <p>Finally, to be as transparent as possible&mdash;<a href='https://github.com/Hadrien-Montanelli/covid19'>here</a> is the code.</p>
-
-                    <hr>
-                    {% if page.tags %}
-                      <h4>Blog posts about {{ page.tags }}</h4>
-                      <ul style="list-style-type: none; padding-left: 0;">
-                        {% assign related_posts = site.blog %}
-                        {% assign related = "" | split: "" %}
-                        {% for tag in page.tags %}
-                          {% assign tagged_posts = related_posts | where_exp: "post", "post.tags contains tag" %}
-                          {% assign related = related | concat: tagged_posts %}
-                        {% endfor %}
-                        {% assign related = related | uniq | sort: "date" | reverse %}
-                        {% for post in related limit: 5 %}
-                          {% assign post_year = post.date | date: "%Y" %}
-                          <li>{{ post_year }} &nbsp; <a href="{{ post.permalink }}">{{ post.title }}</a></li>
-                        {% endfor %}
-                      </ul>
-                    {% endif %}
-
-               </div>
-
-          </div>
-     </div>
-</section>
-
-<!-- Footer Section -->
-
-<footer>
-     <div class="container">
-          <div class="row">
-               
-               <div class="col-md-4 col-md-offset-1 col-sm-6">
-                    <h3>Contact</h3>
-                    <p style="color:white"><i class="fa fa-send-o"></i>hadrien.montanelli@inria.fr</p><br>
-                    <a href="https://www.inria.fr/en"><img src="assets/images/inria.png" class="img-responsive"></a>
-               </div>
-
-               <div class="col-md-4 col-md-offset-1 col-sm-6">
-                    <h3 style="opacity:0;">Contact</h3>
-                    <p style="color:white">Copyright &copy; 2025 Hadrien Montanelli</p><br>
-                    <a href="https://www.ip-paris.fr/en"><img src="assets/images/polytechnique.png" class="img-responsive"></a>
-               </div>
-
-               <div class="clearfix col-md-12 col-sm-12">
-                    <hr style="color:white;">
-               </div>
-
-               <div class="col-md-12 col-sm-12">
-                    <ul class="social-icon">
-                         <li><a href="https://github.com/Hadrien-Montanelli" class="fa-brands fa-github" style="font-size:30px;color:white"></a></li>
-                         <li><a href="https://scholar.google.com/citations?user=Bjmkfe8AAAAJ&hl=en&oi=sra/" class="fa-brands fa-google" style="font-size:30px;color:white"></a></li>
-                         <li><a href="https://www.linkedin.com/in/hadrien-montanelli/" class="fa-brands fa-linkedin" style="font-size:30px;color:white"></a></li>
-                         <li><a href="https://orcid.org/0009-0005-1742-9828" class="fa-brands fa-orcid" style="font-size:30px;color:white"></a></li>
-                         <li><a href="https://twitter.com/drmontanelli" class="fa-brands fa-x-twitter" style="font-size:30px;color:white;"></a></li>
-                    </ul>
-               </div>
-               
-          </div>
-     </div>
-</footer>
-
-<!-- Back top -->
-<a href="#back-top" class="go-top"><i class="fa fa-angle-up"></i></a>
-
-<!-- SCRIPTS -->
-<script src="assets/js/jquery.js"></script>
-<script src="assets/js/bootstrap.min.js"></script>
-<script src="assets/js/particles.min.js"></script>
-<script src="assets/js/app.js"></script>
-<script src="assets/js/jquery.parallax.js"></script>
-<script src="assets/js/smoothscroll.js"></script>
-<script src="assets/js/custom.js"></script>
-<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-
-</body>
-</html>
+<p>Finally, to be as transparent as possible&mdash;<a href='https://github.com/Hadrien-Montanelli/covid19'>here</a> is the code.</p>

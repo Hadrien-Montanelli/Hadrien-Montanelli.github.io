@@ -1,47 +1,7 @@
 ---
-layout: null
-title: blog
+layout: default
+title: Blog
 ---
-<!DOCTYPE html>
-<html lang="en">
-<head>
-
-<meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=Edge">
-<meta name="description" content="">
-<meta name="keywords" content="">
-<meta name="author" content="">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-
-<title>Blog - H. Montanelli</title>
-<!--
-
-Template 2085 Neuron
-
-https://www.tooplate.com/view/2085-neuron
-
--->
-<link rel="stylesheet" href="assets/css/bootstrap.min.css">
-<link rel="stylesheet" href="assets/css/all.css">
-<link rel="stylesheet" href="assets/css/magnific-popup.css">
-
-<!-- Main css -->
-<link rel="stylesheet" href="assets/css/style.css">
-<link href="https://fonts.googleapis.com/css?family=Lora|Merriweather:300,400" rel="stylesheet">
-
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-108246943-1"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'UA-108246943-1');
-</script>
-
-</head>
-<body>
-
 <!-- Script for tags -->
  <script>
   document.addEventListener("DOMContentLoaded", function() {
@@ -73,144 +33,31 @@ https://www.tooplate.com/view/2085-neuron
   });
 </script>
 
-<!-- PRE LOADER -->
+<div class="col-md-offset-1 col-md-12 col-sm-12"> 
 
-<div class="preloader">
-     <div class="sk-spinner sk-spinner-wordpress">
-          <span class="sk-inner-circle"></span>
-     </div>
-</div>
-
-<!-- Navigation section  -->
-
-<div class="navbar navbar-default navbar-static-top" role="navigation">
-     <div class="container">
-
-          <div class="navbar-header">
-               <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon icon-bar"></span>
-                    <span class="icon icon-bar"></span>
-                    <span class="icon icon-bar"></span>
-               </button>
-               <a href="index.html" class="navbar-brand">H. Montanelli</a>
-          </div>
-          <div class="collapse navbar-collapse">
-               <ul class="nav navbar-nav navbar-right">
-                    <li><a href="about.html">About</a></li>
-                    <li class="active"><a href="blog.html">Blog</a></li>
-                    <li><a href="publications.html">Publications</a></li>
-                    <li><a href="research.html">Research</a></li>
-                    <li><a href="students.html">Students</a></li>
-                    <li><a href="talks.html">Talks</a></li>
-                    <li><a href="teaching.html">Teaching</a></li>
-               </ul>
-          </div>
-
+  <h4>Filter by tag:</h4>
+  <div id="tagList">
+      <span class="tag active" data-tag="all">All</span>
+      <span class="tag" data-tag="boundary element methods">BEMs</span>
+      <span class="tag" data-tag="COVID-19">COVID-19</span>
+       <span class="tag" data-tag="image matting">Image Matting</span>
+      <span class="tag" data-tag="inverse problems">Inverse Problems</span>
+      <span class="tag" data-tag="quantum computing">Quantum Computing</span>
+      <span class="tag" data-tag="research life">Research Life</span>
+      <span class="tag" data-tag="scientific machine learning">SciML</span>
+      <span class="tag" data-tag="spectral methods">Spectral Methods</span>
   </div>
-</div>
 
-<!-- Home Section -->
+  <hr class="solid">
 
-<section id="home" class="main-about parallax-section">
-     <div class="overlay"></div>
-     <div class="container">
-          <div class="row">
+  <h3>Blog Posts</h3>
 
-               <div class="col-md-12 col-sm-12">
-                    <h1>Blog</h1>
-               </div>
-
-          </div>
-     </div>
-</section>
-
-<!-- About Section -->
-<section id="about">
-     <div class="container">
-          <div class="row">
-
-               <div class="col-md-offset-1 col-md-12 col-sm-12"> 
-
-                 <h4>Filter by tag:</h4>
-                 <div id="tagList">
-                     <span class="tag active" data-tag="all">All</span>
-                     <span class="tag" data-tag="boundary element methods">BEMs</span>
-                     <span class="tag" data-tag="COVID-19">COVID-19</span>
-                      <span class="tag" data-tag="image matting">Image Matting</span>
-                     <span class="tag" data-tag="inverse problems">Inverse Problems</span>
-                     <span class="tag" data-tag="quantum computing">Quantum Computing</span>
-                     <span class="tag" data-tag="research life">Research Life</span>
-                     <span class="tag" data-tag="scientific machine learning">SciML</span>
-                     <span class="tag" data-tag="spectral methods">Spectral Methods</span>
-                 </div>
-
-                 <hr class="solid">
-
-                 <h3>Blog Posts</h3>
-
-                 <div id="postsList">
-                   {% assign sorted_posts = site.blog | sort: 'date' | reverse %}
-                   {% for post in sorted_posts %}
-                     {% assign post_year = post.date | date: "%Y" %}
-                     <p class="post" data-tags="{{ post.tags | join: ',' }}">
-                       {{ post_year }} &nbsp; <a href="{{ post.permalink }}">{{ post.title }}</a>
-                     </p>
-                   {% endfor %}
-                 </div>
-
-        </div>
-    </div>
-</section>
-
-<!-- Footer Section -->
-
-<footer>
-     <div class="container">
-          <div class="row">
-
-               <div class="col-md-4 col-md-offset-1 col-sm-6">
-                    <h3>Contact</h3>
-                    <p style="color:white"><i class="fa fa-send-o"></i>hadrien.montanelli@inria.fr</p><br>
-                    <a href="https://www.inria.fr/en"><img src="assets/images/inria.png" class="img-responsive"></a>
-               </div>
-
-               <div class="col-md-4 col-md-offset-1 col-sm-6">
-                    <h3 style="opacity:0;">Contact</h3>
-                    <p style="color:white">Copyright &copy; 2025 Hadrien Montanelli</p><br>
-                    <a href="https://www.ip-paris.fr/en"><img src="assets/images/polytechnique.png" class="img-responsive"></a>
-               </div>
-
-               <div class="clearfix col-md-12 col-sm-12">
-                    <hr style="color:white;">
-               </div>
-
-               <div class="col-md-12 col-sm-12">
-                    <ul class="social-icon">
-                         <li><a href="https://github.com/Hadrien-Montanelli" class="fa-brands fa-github" style="font-size:30px;color:white"></a></li>
-                         <li><a href="https://scholar.google.com/citations?user=Bjmkfe8AAAAJ&hl=en&oi=sra/" class="fa-brands fa-google" style="font-size:30px;color:white"></a></li>
-                         <li><a href="https://www.linkedin.com/in/hadrien-montanelli/" class="fa-brands fa-linkedin" style="font-size:30px;color:white"></a></li>
-                         <li><a href="https://orcid.org/0009-0005-1742-9828" class="fa-brands fa-orcid" style="font-size:30px;color:white"></a></li>
-                         <li><a href="https://twitter.com/drmontanelli" class="fa-brands fa-x-twitter" style="font-size:30px;color:white;"></a></li>
-                    </ul>
-               </div>
-               
-          </div>
-     </div>
-</footer>
-
-<!-- Back top -->
-<a href="#back-top" class="go-top"><i class="fa fa-angle-up"></i></a>
-
-<!-- SCRIPTS -->
-<script src="assets/js/jquery.js"></script>
-<script src="assets/js/bootstrap.min.js"></script>
-<script src="assets/js/particles.min.js"></script>
-<script src="assets/js/app.js"></script>
-<script src="assets/js/jquery.parallax.js"></script>
-<script src="assets/js/smoothscroll.js"></script>
-<script src="assets/js/custom.js"></script>
-<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-
-</body>
-</html>
+  <div id="postsList">
+    {% assign sorted_posts = site.blog | sort: 'date' | reverse %}
+    {% for post in sorted_posts %}
+      {% assign post_year = post.date | date: "%Y" %}
+      <p class="post" data-tags="{{ post.tags | join: ',' }}">
+        {{ post_year }} &nbsp; <a href="{{ post.permalink }}">{{ post.title }}</a>
+      </p>
+    {% endfor %}
+  </div>

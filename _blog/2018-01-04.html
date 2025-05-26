@@ -1,268 +1,85 @@
 ---
-layout: null
+layout: post
 title: Gibbs phenomenon and Cesàro mean
 date: 2018-01-04
 tags: [spectral methods]
 permalink: 2018-01-04.html
 ---
-<!DOCTYPE html>
-<html lang="en">
-<head>
+<center>
+<img src="assets/images/blog/gibbs1.jpg" class="img-responsive">
+</center>
 
-<meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=Edge">
-<meta name="description" content="">
-<meta name="keywords" content="">
-<meta name="author" content="">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<p>In this post, I talk about a fascinating subject: the
+<a href="http://en.wikipedia.org/wiki/Convergence_of_Fourier_series#Uniform_convergence">convergence of 
+Fourier series</a> and the 
+<a href="http://en.wikipedia.org/wiki/Gibbs_phenomenon">Gibbs phenomenon</a>.</p>
 
-<title>Gibbs phenomenon and Cesàro mean</title>
-<!--
+<p><a href="http://en.wikipedia.org/wiki/Periodic_function">Periodic</a> 
+<a href="http://en.wikipedia.org/wiki/Continuous_function">continuous</a>
+functions \(f\)
+of <a href="http://en.wikipedia.org/wiki/Bounded_variation">bounded variation</a> 
+have a unique and 
+<a href="http://en.wikipedia.org/wiki/Uniform_convergence">uniformly convergent</a>
+<a href="http://en.wikipedia.org/wiki/Fourier_series">Fourier series</a>, 
+that is, the <i>partial sums</i>
+$$
+f_n(\theta) = \sum_{k=0}^{n}a_k\cos(k\theta) + \sum_{k=1}^{n}b_k\sin(k\theta),
+$$
+with <i>Fourier coefficients</i>
+$$
+a_k = \frac{1}{\pi}\int_0^{2\pi}f(\theta)\cos(k\theta)d\theta,
+$$
+and
+$$
+b_k = \frac{1}{\pi}\int_0^{2\pi} f(\theta) \sin(k\theta)d\theta,
+$$
+converge uniformly to \(f\). (Note that \(1/\pi\) is changed to \(1/(2\pi)\) for \(a_0\).) We write
+$$
+f(\theta) = \sum_{k=0}^{\infty}a_k\cos(k\theta) + \sum_{k=1}^{\infty}b_k\sin(k\theta).
+$$
+</p>
 
-Template 2085 Neuron
+<p>For functions \(f\) that are merely of bounded variation, the convergence is only 
+<a href="http://en.wikipedia.org/wiki/Pointwise_convergence">pointwise</a>:
+at every point \(\theta\), the partial sums converge to \(\frac{1}{2}[f(\theta^-) + f(\theta^+)]\); 
+in particular, these converge to \(f(\theta)\) at every point of continuity. What happens at points of 
+<a href="http://en.wikipedia.org/wiki/Classification_of_discontinuities">discontinuity</a>?</p>
 
-https://www.tooplate.com/view/2085-neuron
+<p>A classical example is the square wave 
+$$
+f(\theta) = \frac{\pi}{4}\mathrm{sign}(\pi - \theta), \quad \theta\in[0,2\pi].
+$$
+This function is of bounded variation and discontinuous at \(0\), \(\pi\) and \(2\pi\).
+Its Fourier coefficients can be computed analytically and are given by
+$$
+a_k = 0, \quad b_{2k} = 0, \quad b_{2k+1} = \frac{1}{2k+1}.
+$$
+When we compute the partial sums for \(n=16,32,64,128\) we obtain the picture at the top.
+This is the so-called <i>Gibbs phenomenon</i>, which involves both the fact that the partial sums <i>overshoot</i> at a discontinuity and that this overshoot does not disappear as more terms are added to the sums. The overshoot at \(0\), \(\pi\) and \(2\pi\) is known exactly and is given by
+$$
+\frac{1}{2}\int_0^{\pi}\frac{\sin(\theta)}{\theta}d\theta - \frac{\pi}{4} = \frac{\pi}{2}\times(0.0895\ldots),
+$$
+or about \(9\%\) of the jump. Note that, as \(n\) increases, the position of the overshoot moves closer 
+to the discontinuity. The Gibbs phenomenon is a very standard result that most (applied) mathematicians know.</p>
 
--->
-<link rel="stylesheet" href="assets/css/bootstrap.min.css">
-<link rel="stylesheet" href="assets/css/all.css">
-<link rel="stylesheet" href="assets/css/magnific-popup.css">
+<p>What is perhaps less known is a simple cure using the \((C,1)\)
+<a href="http://en.wikipedia.org/wiki/Ces%C3%A0ro_summation">Cesàro mean</a> of the partial sums, which is simply the
+<a href="http://en.wikipedia.org/wiki/Arithmetic_mean">arithmetic mean</a>,
+$$
+\sigma_n(\theta) = \frac{1}{n+1}\sum_{k=0}^{n}f_k(\theta).
+$$
+For integrable functions \(f\), one can show that \(\sigma_n(\theta)\) 
+converges to \(\frac{1}{2}[f(\theta^-) + f(\theta^+)]\); in particular, 
+this converges to \(f(\theta)\) at every point of continuity, 
+and for continuous functions the convergence is uniform&mdash;this is 
+<a href="http://en.wikipedia.org/wiki/Fej%C3%A9r%27s_theorem">Fejér's thereom</a>. Moreover, if \(m\leq f(\theta)\leq M\) then \(m\leq \sigma_n(\theta)\leq M\). 
+Therefore, the \((C,1)\) Cesàro mean does not show the Gibbs phenomenon, as the following figure illustrates:</p>
 
-<!-- Main css -->
-<link rel="stylesheet" href="assets/css/style.css">
-<link href="https://fonts.googleapis.com/css?family=Lora|Merriweather:300,400" rel="stylesheet">
+<center>
+<img src="assets/images/blog/gibbs2.jpg" class="img-responsive">
+</center>
 
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-108246943-1"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'UA-108246943-1');
-</script>
-
-<!-- Google AdSense -->
-<!--<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8299683413193339" crossorigin="anonymous"></script>-->
-<!--<script async src="https://fundingchoicesmessages.google.com/i/pub-8299683413193339?ers=1" nonce="AuY4vKpDElA9N7YwmFfMjg"></script>
-<script nonce="AuY4vKpDElA9N7YwmFfMjg">(function() {function signalGooglefcPresent() {if (!window.frames['googlefcPresent']) {if (document.body) {const iframe = document.createElement('iframe'); iframe.style = 'width: 0; height: 0; border: none; z-index: -1000; left: -1000px; top: -1000px;'; iframe.style.display = 'none'; iframe.name = 'googlefcPresent'; document.body.appendChild(iframe);} else {setTimeout(signalGooglefcPresent, 0);}}}signalGooglefcPresent();})();</script>-->
-
-</head>
-<body>
-
-<!-- PRE LOADER -->
-
-<div class="preloader">
-     <div class="sk-spinner sk-spinner-wordpress">
-          <span class="sk-inner-circle"></span>
-     </div>
-</div>
-
-<!-- Navigation section  -->
-
-<div class="navbar navbar-default navbar-static-top" role="navigation">
-     <div class="container">
-
-          <div class="navbar-header">
-               <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon icon-bar"></span>
-                    <span class="icon icon-bar"></span>
-                    <span class="icon icon-bar"></span>
-               </button>
-               <a href="index.html" class="navbar-brand">H. Montanelli</a>
-          </div>
-          <div class="collapse navbar-collapse">
-               <ul class="nav navbar-nav navbar-right">
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="blog.html">Blog</a></li>
-                    <li><a href="publications.html">Publications</a></li>
-                    <li><a href="research.html">Research</a></li>
-                    <li><a href="students.html">Students</a></li>
-                    <li><a href="talks.html">Talks</a></li>
-                    <li><a href="teaching.html">Teaching</a></li>
-               </ul>
-          </div>
-
-  </div>
-</div>
-
-<!-- Home Section -->
-
-<section id="home" class="main-about parallax-section">
-     <div class="overlay"></div>
-     <div class="container">
-          <div class="row">
-
-               <div class="col-md-12 col-sm-12">
-                    <h1>Gibbs phenomenon and Cesàro mean</h1>
-               </div>
-
-          </div>
-     </div>
-</section>
-
-<!-- Blog Single Post Section -->
-
-<section id="about">
-     <div class="container">
-          <div class="row">
-
-               <div class="col-md-offset-1 col-md-10 col-sm-12">   
-
-                    <p><i>January 4, 2018</i></p>
-
-                    <center>  
-                    <img src="assets/images/blog/gibbs1.jpg" class="img-responsive">
-                    </center>
-
-                    <p>In this post, I talk about a fascinating subject: the
-                    <a href="http://en.wikipedia.org/wiki/Convergence_of_Fourier_series#Uniform_convergence">convergence of 
-                    Fourier series</a> and the 
-                    <a href="http://en.wikipedia.org/wiki/Gibbs_phenomenon">Gibbs phenomenon</a>.</p>
-
-                    <p><a href="http://en.wikipedia.org/wiki/Periodic_function">Periodic</a> 
-                    <a href="http://en.wikipedia.org/wiki/Continuous_function">continuous</a>
-                    functions \(f\)
-                    of <a href="http://en.wikipedia.org/wiki/Bounded_variation">bounded variation</a> 
-                    have a unique and 
-                    <a href="http://en.wikipedia.org/wiki/Uniform_convergence">uniformly convergent</a>
-                    <a href="http://en.wikipedia.org/wiki/Fourier_series">Fourier series</a>, 
-                    that is, the <i>partial sums</i>
-                    $$
-                    f_n(\theta) = \sum_{k=0}^{n}a_k\cos(k\theta) + \sum_{k=1}^{n}b_k\sin(k\theta),
-                    $$
-                    with <i>Fourier coefficients</i>
-                    $$
-                    a_k = \frac{1}{\pi}\int_0^{2\pi}f(\theta)\cos(k\theta)d\theta,
-                    $$
-                    and
-                    $$
-                    b_k = \frac{1}{\pi}\int_0^{2\pi} f(\theta) \sin(k\theta)d\theta,
-                    $$
-                    converge uniformly to \(f\). (Note that \(1/\pi\) is changed to \(1/(2\pi)\) for \(a_0\).) We write
-                    $$
-                    f(\theta) = \sum_{k=0}^{\infty}a_k\cos(k\theta) + \sum_{k=1}^{\infty}b_k\sin(k\theta).
-                    $$
-                    </p>
-
-                    <p>For functions \(f\) that are merely of bounded variation, the convergence is only 
-                    <a href="http://en.wikipedia.org/wiki/Pointwise_convergence">pointwise</a>:
-                    at every point \(\theta\), the partial sums converge to \(\frac{1}{2}[f(\theta^-) + f(\theta^+)]\); 
-                    in particular, these converge to \(f(\theta)\) at every point of continuity. What happens at points of 
-                    <a href="http://en.wikipedia.org/wiki/Classification_of_discontinuities">discontinuity</a>?</p>
-
-                    <p>A classical example is the square wave 
-                    $$
-                    f(\theta) = \frac{\pi}{4}\mathrm{sign}(\pi - \theta), \quad \theta\in[0,2\pi].
-                    $$
-                    This function is of bounded variation and discontinuous at \(0\), \(\pi\) and \(2\pi\).
-                    Its Fourier coefficients can be computed analytically and are given by
-                    $$
-                    a_k = 0, \quad b_{2k} = 0, \quad b_{2k+1} = \frac{1}{2k+1}.
-                    $$
-                    When we compute the partial sums for \(n=16,32,64,128\) we obtain the picture at the top.
-                    This is the so-called <i>Gibbs phenomenon</i>, which involves both the fact that the partial sums <i>overshoot</i> at a discontinuity and that this overshoot does not disappear as more terms are added to the sums. The overshoot at \(0\), \(\pi\) and \(2\pi\) is known exactly and is given by
-                    $$
-                    \frac{1}{2}\int_0^{\pi}\frac{\sin(\theta)}{\theta}d\theta - \frac{\pi}{4} = \frac{\pi}{2}\times(0.0895\ldots),
-                    $$
-                    or about \(9\%\) of the jump. Note that, as \(n\) increases, the position of the overshoot moves closer 
-                    to the discontinuity. The Gibbs phenomenon is a very standard result that most (applied) mathematicians know.</p>
-
-                    <p>What is perhaps less known is a simple cure using the \((C,1)\)
-                    <a href="http://en.wikipedia.org/wiki/Ces%C3%A0ro_summation">Cesàro mean</a> of the partial sums, which is simply the
-                    <a href="http://en.wikipedia.org/wiki/Arithmetic_mean">arithmetic mean</a>,
-                    $$
-                    \sigma_n(\theta) = \frac{1}{n+1}\sum_{k=0}^{n}f_k(\theta).
-                    $$
-                    For integrable functions \(f\), one can show that \(\sigma_n(\theta)\) 
-                    converges to \(\frac{1}{2}[f(\theta^-) + f(\theta^+)]\); in particular, 
-                    this converges to \(f(\theta)\) at every point of continuity, 
-                    and for continuous functions the convergence is uniform&mdash;this is 
-                    <a href="http://en.wikipedia.org/wiki/Fej%C3%A9r%27s_theorem">Fejér's thereom</a>. Moreover, if \(m\leq f(\theta)\leq M\) then \(m\leq \sigma_n(\theta)\leq M\). 
-                    Therefore, the \((C,1)\) Cesàro mean does not show the Gibbs phenomenon, as the following figure illustrates:</p>
-
-                    <center>
-                    <img src="assets/images/blog/gibbs2.jpg" class="img-responsive">
-                    </center>
-
-                    <p>With <a href="http://home.cc.umanitoba.ca/~slevinrm/">Mikael Slevinsky</a>, 
-                    we are using the \((C,2)\) Cesàro mean for 
-                    <a href="http://en.wikipedia.org/wiki/Spherical_harmonics">spherical harmonic</a> expansions on the sphere to post-process numerical solutions of nonlocal 
-                    <a href="http://en.wikipedia.org/wiki/Partial_differential_equation">PDEs</a>&mdash;the paper is coming soon!</p>
-
-                    <hr>
-                    {% if page.tags %}
-                      <h4>Blog posts about {{ page.tags }}</h4>
-                      <ul style="list-style-type: none; padding-left: 0;">
-                        {% assign related_posts = site.blog %}
-                        {% assign related = "" | split: "" %}
-                        {% for tag in page.tags %}
-                          {% assign tagged_posts = related_posts | where_exp: "post", "post.tags contains tag" %}
-                          {% assign related = related | concat: tagged_posts %}
-                        {% endfor %}
-                        {% assign related = related | uniq | sort: "date" | reverse %}
-                        {% for post in related limit: 5 %}
-                          {% assign post_year = post.date | date: "%Y" %}
-                          <li>{{ post_year }} &nbsp; <a href="{{ post.permalink }}">{{ post.title }}</a></li>
-                        {% endfor %}
-                      </ul>
-                    {% endif %}
-
-               </div>
-
-          </div>
-     </div>
-</section>
-
-<!-- Footer Section -->
-
-<footer>
-     <div class="container">
-          <div class="row">
-
-               <div class="col-md-4 col-md-offset-1 col-sm-6">
-                    <h3>Contact</h3>
-                    <p style="color:white"><i class="fa fa-send-o"></i>hadrien.montanelli@inria.fr</p><br>
-                    <a href="https://www.inria.fr/en"><img src="assets/images/inria.png" class="img-responsive"></a>
-               </div>
-
-               <div class="col-md-4 col-md-offset-1 col-sm-6">
-                    <h3 style="opacity:0;">Contact</h3>
-                    <p style="color:white">Copyright &copy; 2025 Hadrien Montanelli</p><br>
-                    <a href="https://www.ip-paris.fr/en"><img src="assets/images/polytechnique.png" class="img-responsive"></a>
-               </div>
-
-               <div class="clearfix col-md-12 col-sm-12">
-                    <hr style="color:white;">
-               </div>
-
-               <div class="col-md-12 col-sm-12">
-                    <ul class="social-icon">
-                         <li><a href="https://github.com/Hadrien-Montanelli" class="fa-brands fa-github" style="font-size:30px;color:white"></a></li>
-                         <li><a href="https://scholar.google.com/citations?user=Bjmkfe8AAAAJ&hl=en&oi=sra/" class="fa-brands fa-google" style="font-size:30px;color:white"></a></li>
-                         <li><a href="https://www.linkedin.com/in/hadrien-montanelli/" class="fa-brands fa-linkedin" style="font-size:30px;color:white"></a></li>
-                         <li><a href="https://orcid.org/0009-0005-1742-9828" class="fa-brands fa-orcid" style="font-size:30px;color:white"></a></li>
-                         <li><a href="https://twitter.com/drmontanelli" class="fa-brands fa-x-twitter" style="font-size:30px;color:white;"></a></li>
-                    </ul>
-               </div>
-               
-          </div>
-     </div>
-</footer>
-
-<!-- Back top -->
-<a href="#back-top" class="go-top"><i class="fa fa-angle-up"></i></a>
-
-<!-- SCRIPTS -->
-<script src="assets/js/jquery.js"></script>
-<script src="assets/js/bootstrap.min.js"></script>
-<script src="assets/js/particles.min.js"></script>
-<script src="assets/js/app.js"></script>
-<script src="assets/js/jquery.parallax.js"></script>
-<script src="assets/js/smoothscroll.js"></script>
-<script src="assets/js/custom.js"></script>
-<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-
-</body>
-</html>
+<p>With <a href="http://home.cc.umanitoba.ca/~slevinrm/">Mikael Slevinsky</a>, 
+we are using the \((C,2)\) Cesàro mean for 
+<a href="http://en.wikipedia.org/wiki/Spherical_harmonics">spherical harmonic</a> expansions on the sphere to post-process numerical solutions of nonlocal 
+<a href="http://en.wikipedia.org/wiki/Partial_differential_equation">PDEs</a>&mdash;the paper is coming soon!</p>

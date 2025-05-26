@@ -1,309 +1,126 @@
 ---
-layout: null
+layout: post
 title: Computer-assisted proofs for PDEs
 date: 2018-12-05
 tags: [spectral methods]
 permalink: 2018-12-05.html
 ---
-<!DOCTYPE html>
-<html lang="en">
-<head>
+<p>A couple of weeks ago, I spent a few days at <a href="https://mcgill.ca/">McGill University</a> with <a href="http://www.math.mcgill.ca/jplessard/Home.html">Jean-Philippe Lessard</a>.
+He introduced me to the world of <a href="https://en.wikipedia.org/wiki/Computer-assisted_proof">computer-assisted proofs</a>, which I briefly describe in this post.</p>
 
-<meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=Edge">
-<meta name="description" content="">
-<meta name="keywords" content="">
-<meta name="author" content="">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<h2>Theory</h2>
 
-<title>Computer-assisted proofs for PDEs</title>
-<!--
+<p>Suppose we want to find steady-state solutions of <a href="https://en.wikipedia.org/wiki/Partial_differential_equation">nonlinear time-dependent PDEs</a> of the form
+$$
+u_t = F(u),
+$$
+for some smooth <a href="https://en.wikipedia.org/wiki/Differential_operator">operator</a> 
+\(F:U\mapsto U'\) between two
+<a href="https://en.wikipedia.org/wiki/Banach_space">Banach spaces</a> \(U\) and \(U'\). 
+This amounts to solve the nonlinear equation \(F(u) = 0\).
+We typically use a <a href="https://en.wikipedia.org/wiki/Spectral_method">spectral method</a> 
+and interpret \(u\) as an infinite vector of spectral 
+coefficients and \(F\) as an operator acting on those coefficients.</p>
 
-Template 2085 Neuron
+<p>For finite \(N\)-dimensional problems \(F_N(u_N)=0\) one would typically use 
+<a href="https://en.wikipedia.org/wiki/Newton%27s_method">Newton's method</a> 
+where one iterates the map
+$$
+T_N(u_N) = u_N - DF_N^{-1}(u_N)F_N(u_N).
+$$
+When the <a href="https://en.wikipedia.org/wiki/Jacobian_matrix_and_determinant">Jacobian</a> 
+\(DF_N^{-1}(u_N)\) is invertible, \(T_N\) is a 
+<a href="https://en.wikipedia.org/wiki/Contraction_mapping">contraction</a> and 
+it allows us to prove that the numerical solution \(\bar{u}_N\) 
+is close to the true solution \(u_N\). 
+(Typically, \(u_N\) would be the vector of coefficients in a spectral expansion.)</p>
 
-https://www.tooplate.com/view/2085-neuron
+<p>In an infinite-dimensional setting, Newton's method reads
+$$
+T(u) = u - DF^{-1}(u)F(u).
+$$
+However, working with the inverse \(DF^{-1}(u)\) of the 
+<a href="https://en.wikipedia.org/wiki/Fr%C3%A9chet_derivative">Fr&eacute;chet derivative</a> might be hard. 
+Instead, one typically considers an approximation \(A\) (independent of \(u\)) of \(DF^{-1}(u)\) 
+and looks at the <a href="https://en.wikipedia.org/wiki/Banach_fixed-point_theorem">fixed point</a> problem
+$$
+T(u) = u - AF(u).
+$$
+The main challenge is to choose \(A\) such that \(T\) is a contraction on some neighborhood 
+of the unknown true solution.</p>
 
--->
-<link rel="stylesheet" href="assets/css/bootstrap.min.css">
-<link rel="stylesheet" href="assets/css/all.css">
-<link rel="stylesheet" href="assets/css/magnific-popup.css">
+<p>The idea behind computer-assisted proofs goes like this. 
+First, compute a numerical solution \(\bar{u}_N\) of the discretized problem \(F_N(u_N)=0\) in \(N\) dimensions.
+Second, reinterpret \(\bar{u}_N\) as an element \(\bar{u}\) of the infinite-dimensional space by 
+padding the vector of coefficients with an infinite number of zero.
+We expect the true solution \(u\) to be close to \(\bar{u}\) so we will choose \(A\) 
+to be an approximation of \(DF^{-1}(\bar{u})\). 
+The following theorem justifies this approach.</p>
 
-<!-- Main css -->
-<link rel="stylesheet" href="assets/css/style.css">
-<link href="https://fonts.googleapis.com/css?family=Lora|Merriweather:300,400" rel="stylesheet">
+<p><b>Theorem (Radii polynomial approach in Banach spaces).</b>
+<i>Let \(U\) and \(U'\) be Banach spaces. Denote the norm on \(U\) by \(\Vert\cdot\Vert_U\).
+Consider bounded linear operators \(A^{\dagger}\in L(U,U')\) and \(A\in L(U',U)\).
+Assume that \(F:U\mapsto U'\) is \(C^1\), \(A\) is injective and \(AF:U\mapsto U\).
+Consider an approximate solution \(\bar{u}\) of \(F(u)=0\) (usually obtained using Newton's method on a finite-dimensional discretization).
+Let \(Y_0\), \(Z_0\), \(Z_1\) and \(Z_2\) be positive constants satisfying</i>
+$$
+\begin{align*}
+\Vert AF(\bar{u})\Vert_U & \leq Y_0, \\[1.5pt]
+\Vert I - AA^\dagger\Vert_{B(U)} & \leq Z_0, \\[1.5pt]
+\Vert A[DF(\bar{u})-A^\dagger]\Vert_{B(U)} & \leq Z_1, \\[1.5pt]
+\Vert A[DF(u)-DF(\bar{u})]\Vert_{B(U)}& \leq Z_2r,
+\end{align*}
+$$
+<i>for all \(\Vert u - \bar{u}\Vert_U\leq r\), where \(\Vert\cdot\Vert_{B(U)}\) is the induced operator norm for bounded linear operators
+from \(U\) to itself. Define the radii polynomial</i>
+$$
+p(r) = Z_2 r^2 - (1-Z_1-Z_0)r + Y_0.
+$$
+<i>If there exists \(r_0>0\) such that \(p(r_0)<0\), then there exists \(u\in B_{r_0}(\bar{u})\)
+satisfying \(F(u)=0\).</i></p>
 
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-108246943-1"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'UA-108246943-1');
-</script>
-
-<!-- Google AdSense -->
-<!--<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8299683413193339" crossorigin="anonymous"></script>-->
-<!--<script async src="https://fundingchoicesmessages.google.com/i/pub-8299683413193339?ers=1" nonce="AuY4vKpDElA9N7YwmFfMjg"></script>
-<script nonce="AuY4vKpDElA9N7YwmFfMjg">(function() {function signalGooglefcPresent() {if (!window.frames['googlefcPresent']) {if (document.body) {const iframe = document.createElement('iframe'); iframe.style = 'width: 0; height: 0; border: none; z-index: -1000; left: -1000px; top: -1000px;'; iframe.style.display = 'none'; iframe.name = 'googlefcPresent'; document.body.appendChild(iframe);} else {setTimeout(signalGooglefcPresent, 0);}}}signalGooglefcPresent();})();</script>-->
-
-</head>
-<body>
-
-<!-- PRE LOADER -->
-
-<div class="preloader">
-     <div class="sk-spinner sk-spinner-wordpress">
-          <span class="sk-inner-circle"></span>
-     </div>
-</div>
-
-<!-- Navigation section  -->
-
-<div class="navbar navbar-default navbar-static-top" role="navigation">
-     <div class="container">
-
-          <div class="navbar-header">
-               <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon icon-bar"></span>
-                    <span class="icon icon-bar"></span>
-                    <span class="icon icon-bar"></span>
-               </button>
-               <a href="index.html" class="navbar-brand">H. Montanelli</a>
-          </div>
-          <div class="collapse navbar-collapse">
-               <ul class="nav navbar-nav navbar-right">
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="blog.html">Blog</a></li>
-                    <li><a href="publications.html">Publications</a></li>
-                    <li><a href="research.html">Research</a></li>
-                    <li><a href="students.html">Students</a></li>
-                    <li><a href="talks.html">Talks</a></li>
-                    <li><a href="teaching.html">Teaching</a></li>
-               </ul>
-          </div>
-
-  </div>
-</div>
-
-<!-- Home Section -->
-
-<section id="home" class="main-about parallax-section">
-     <div class="overlay"></div>
-     <div class="container">
-          <div class="row">
-
-               <div class="col-md-12 col-sm-12">
-                    <h1>Computer-assisted proofs for PDEs</h1>
-               </div>
-
-          </div>
-     </div>
-</section>
-
-<!-- Blog Single Post Section -->
-
-<section id="about">
-     <div class="container">
-          <div class="row">
-
-               <div class="col-md-offset-1 col-md-10 col-sm-12">  
-
-                    <p><i>December 5, 2018</i></p>
-
-                    <p>A couple of weeks ago, I spent a few days at <a href="https://mcgill.ca/">McGill University</a> with <a href="http://www.math.mcgill.ca/jplessard/Home.html">Jean-Philippe Lessard</a>.
-                    He introduced me to the world of <a href="https://en.wikipedia.org/wiki/Computer-assisted_proof">computer-assisted proofs</a>, which I briefly describe in this post.</p>
-
-                    <h2>Theory</h2>
-
-                    <p>Suppose we want to find steady-state solutions of <a href="https://en.wikipedia.org/wiki/Partial_differential_equation">nonlinear time-dependent PDEs</a> of the form
-                    $$
-                    u_t = F(u),
-                    $$
-                    for some smooth <a href="https://en.wikipedia.org/wiki/Differential_operator">operator</a> 
-                    \(F:U\mapsto U'\) between two
-                    <a href="https://en.wikipedia.org/wiki/Banach_space">Banach spaces</a> \(U\) and \(U'\). 
-                    This amounts to solve the nonlinear equation \(F(u) = 0\).
-                    We typically use a <a href="https://en.wikipedia.org/wiki/Spectral_method">spectral method</a> 
-                    and interpret \(u\) as an infinite vector of spectral 
-                    coefficients and \(F\) as an operator acting on those coefficients.</p>
-
-                    <p>For finite \(N\)-dimensional problems \(F_N(u_N)=0\) one would typically use 
-                    <a href="https://en.wikipedia.org/wiki/Newton%27s_method">Newton's method</a> 
-                    where one iterates the map
-                    $$
-                    T_N(u_N) = u_N - DF_N^{-1}(u_N)F_N(u_N).
-                    $$
-                    When the <a href="https://en.wikipedia.org/wiki/Jacobian_matrix_and_determinant">Jacobian</a> 
-                    \(DF_N^{-1}(u_N)\) is invertible, \(T_N\) is a 
-                    <a href="https://en.wikipedia.org/wiki/Contraction_mapping">contraction</a> and 
-                    it allows us to prove that the numerical solution \(\bar{u}_N\) 
-                    is close to the true solution \(u_N\). 
-                    (Typically, \(u_N\) would be the vector of coefficients in a spectral expansion.)</p>
-
-                    <p>In an infinite-dimensional setting, Newton's method reads
-                    $$
-                    T(u) = u - DF^{-1}(u)F(u).
-                    $$
-                    However, working with the inverse \(DF^{-1}(u)\) of the 
-                    <a href="https://en.wikipedia.org/wiki/Fr%C3%A9chet_derivative">Fr&eacute;chet derivative</a> might be hard. 
-                    Instead, one typically considers an approximation \(A\) (independent of \(u\)) of \(DF^{-1}(u)\) 
-                    and looks at the <a href="https://en.wikipedia.org/wiki/Banach_fixed-point_theorem">fixed point</a> problem
-                    $$
-                    T(u) = u - AF(u).
-                    $$
-                    The main challenge is to choose \(A\) such that \(T\) is a contraction on some neighborhood 
-                    of the unknown true solution.</p>
-
-                    <p>The idea behind computer-assisted proofs goes like this. 
-                    First, compute a numerical solution \(\bar{u}_N\) of the discretized problem \(F_N(u_N)=0\) in \(N\) dimensions.
-                    Second, reinterpret \(\bar{u}_N\) as an element \(\bar{u}\) of the infinite-dimensional space by 
-                    padding the vector of coefficients with an infinite number of zero.
-                    We expect the true solution \(u\) to be close to \(\bar{u}\) so we will choose \(A\) 
-                    to be an approximation of \(DF^{-1}(\bar{u})\). 
-                    The following theorem justifies this approach.</p>
-
-                    <p><b>Theorem (Radii polynomial approach in Banach spaces).</b>
-                    <i>Let \(U\) and \(U'\) be Banach spaces. Denote the norm on \(U\) by \(\Vert\cdot\Vert_U\).
-                    Consider bounded linear operators \(A^{\dagger}\in L(U,U')\) and \(A\in L(U',U)\).
-                    Assume that \(F:U\mapsto U'\) is \(C^1\), \(A\) is injective and \(AF:U\mapsto U\).
-                    Consider an approximate solution \(\bar{u}\) of \(F(u)=0\) (usually obtained using Newton's method on a finite-dimensional discretization).
-                    Let \(Y_0\), \(Z_0\), \(Z_1\) and \(Z_2\) be positive constants satisfying</i>
-                    $$
-                    \begin{align*}
-                    \Vert AF(\bar{u})\Vert_U & \leq Y_0, \\[1.5pt]
-                    \Vert I - AA^\dagger\Vert_{B(U)} & \leq Z_0, \\[1.5pt]
-                    \Vert A[DF(\bar{u})-A^\dagger]\Vert_{B(U)} & \leq Z_1, \\[1.5pt]
-                    \Vert A[DF(u)-DF(\bar{u})]\Vert_{B(U)}& \leq Z_2r,
-                    \end{align*}
-                    $$
-                    <i>for all \(\Vert u - \bar{u}\Vert_U\leq r\), where \(\Vert\cdot\Vert_{B(U)}\) is the induced operator norm for bounded linear operators
-                    from \(U\) to itself. Define the radii polynomial</i>
-                    $$
-                    p(r) = Z_2 r^2 - (1-Z_1-Z_0)r + Y_0.
-                    $$
-                    <i>If there exists \(r_0>0\) such that \(p(r_0)<0\), then there exists \(u\in B_{r_0}(\bar{u})\)
-                    satisfying \(F(u)=0\).</i></p>
-
-                    <p>One of the main challenges in this framework is to construct such an operator \(A\). 
-                    (Note that \(A^\dagger\) is an approximation of the Fr&eacute;chet derivative \(DF(\bar{u})\). 
-                    In practice we often start by selecting a good \(A^\dagger\).)</p>
+<p>One of the main challenges in this framework is to construct such an operator \(A\). 
+(Note that \(A^\dagger\) is an approximation of the Fr&eacute;chet derivative \(DF(\bar{u})\). 
+In practice we often start by selecting a good \(A^\dagger\).)</p>
 
 
-                    <h2>An example in 1D</h2>
+<h2>An example in 1D</h2>
 
-                    <p>Consider the <a href="http://en.wikipedia.org/wiki/Allen%E2%80%93Cahn_equation">Allen&ndash;Cahn equation</a> with periodic boundary conditions,
-                    $$
-                    u_t = F(u) = \epsilon^2 u_{xx} + u^3 - u.
-                    $$
-                    In <a href="http://en.wikipedia.org/wiki/Fourier_transform">Fourier space</a>, the linear part \(Lu=\epsilon^2 u_{xx}-u\) is diagonal with entries 
-                    \(-\epsilon^2k^2 - 1\), \(k\in\mathbb{Z}\).</p>
+<p>Consider the <a href="http://en.wikipedia.org/wiki/Allen%E2%80%93Cahn_equation">Allen&ndash;Cahn equation</a> with periodic boundary conditions,
+$$
+u_t = F(u) = \epsilon^2 u_{xx} + u^3 - u.
+$$
+In <a href="http://en.wikipedia.org/wiki/Fourier_transform">Fourier space</a>, the linear part \(Lu=\epsilon^2 u_{xx}-u\) is diagonal with entries 
+\(-\epsilon^2k^2 - 1\), \(k\in\mathbb{Z}\).</p>
 
-                    <p>Let us denote by \(\bar{u}_{N}\) the numerical solution obtained using
-                    <a href="http://en.wikipedia.org/wiki/Wavenumber">wavenumbers</a> \(k\) 
-                    between \(-N\) and \(N\) (\(2N+1\) grid points)
-                    and by \(DF_N(\bar{u}_N)\) the \((2N+1) \times (2N+1)\) Jacobian matrix at \(\bar{u}_N\), which we can compute.
-                    In this case, a good choice for \(A^\dagger\) is
-                    <small>
-                    $$
-                    A^\dagger =
-                    \begin{pmatrix}
-                    \scriptsize{DF_N(\bar{u}_N)} & 0 & 0 & \ldots \\
-                    0 & \scriptsize{-\epsilon^2(N+1)^2 -1} & 0 & \ldots \\
-                    0 & 0 & \scriptsize{-\epsilon^2(N+2)^2 -1} & \ldots \\
-                    \vdots & \vdots & \vdots & \ddots
-                    \end{pmatrix}.
-                    $$
-                    </small>
-                    The idea is that for large enough \(N\) the Fr&eacute;chet derivative of \(L\) 
-                    will dominate the Fr&eacute;chet derivative of \(F\). (Note that \(DL(u)=L\).)
-                    Therefore we can choose
-                    <small>
-                    $$
-                    A =
-                    \begin{pmatrix}
-                    \scriptsize{DF_N^{-1}(\bar{u}_N)} & 0 & 0 & \ldots \\
-                    0 & \frac{1}{-\epsilon^2(N+1)^2-1} & 0 & \ldots \\
-                    0 & 0 & \frac{1}{-\epsilon^2(N+2)^2-1} & \ldots \\
-                    \vdots & \vdots & \vdots & \ddots
-                    \end{pmatrix}.
-                    $$
-                    </small>
-                    </p>
-
-                    <hr>
-                    {% if page.tags %}
-                      <h4>Blog posts about {{ page.tags }}</h4>
-                      <ul style="list-style-type: none; padding-left: 0;">
-                        {% assign related_posts = site.blog %}
-                        {% assign related = "" | split: "" %}
-                        {% for tag in page.tags %}
-                          {% assign tagged_posts = related_posts | where_exp: "post", "post.tags contains tag" %}
-                          {% assign related = related | concat: tagged_posts %}
-                        {% endfor %}
-                        {% assign related = related | uniq | sort: "date" | reverse %}
-                        {% for post in related limit: 5 %}
-                          {% assign post_year = post.date | date: "%Y" %}
-                          <li>{{ post_year }} &nbsp; <a href="{{ post.permalink }}">{{ post.title }}</a></li>
-                        {% endfor %}
-                      </ul>
-                    {% endif %}
-
-               </div>
-
-          </div>
-     </div>
-</section>
-
-<!-- Footer Section -->
-
-<footer>
-     <div class="container">
-          <div class="row">
-
-               <div class="col-md-4 col-md-offset-1 col-sm-6">
-                    <h3>Contact</h3>
-                    <p style="color:white"><i class="fa fa-send-o"></i>hadrien.montanelli@inria.fr</p><br>
-                    <a href="https://www.inria.fr/en"><img src="assets/images/inria.png" class="img-responsive"></a>
-               </div>
-
-               <div class="col-md-4 col-md-offset-1 col-sm-6">
-                    <h3 style="opacity:0;">Contact</h3>
-                    <p style="color:white">Copyright &copy; 2025 Hadrien Montanelli</p><br>
-                    <a href="https://www.ip-paris.fr/en"><img src="assets/images/polytechnique.png" class="img-responsive"></a>
-               </div>
-
-               <div class="clearfix col-md-12 col-sm-12">
-                    <hr style="color:white;">
-               </div>
-               
-               <div class="col-md-12 col-sm-12">
-                    <ul class="social-icon">
-                         <li><a href="https://github.com/Hadrien-Montanelli" class="fa-brands fa-github" style="font-size:30px;color:white"></a></li>
-                         <li><a href="https://scholar.google.com/citations?user=Bjmkfe8AAAAJ&hl=en&oi=sra/" class="fa-brands fa-google" style="font-size:30px;color:white"></a></li>
-                         <li><a href="https://www.linkedin.com/in/hadrien-montanelli/" class="fa-brands fa-linkedin" style="font-size:30px;color:white"></a></li>
-                         <li><a href="https://orcid.org/0009-0005-1742-9828" class="fa-brands fa-orcid" style="font-size:30px;color:white"></a></li>
-                         <li><a href="https://twitter.com/drmontanelli" class="fa-brands fa-x-twitter" style="font-size:30px;color:white;"></a></li>
-                    </ul>
-               </div>
-               
-          </div>
-     </div>
-</footer>
-
-<!-- Back top -->
-<a href="#back-top" class="go-top"><i class="fa fa-angle-up"></i></a>
-
-<!-- SCRIPTS -->
-<script src="assets/js/jquery.js"></script>
-<script src="assets/js/bootstrap.min.js"></script>
-<script src="assets/js/particles.min.js"></script>
-<script src="assets/js/app.js"></script>
-<script src="assets/js/jquery.parallax.js"></script>
-<script src="assets/js/smoothscroll.js"></script>
-<script src="assets/js/custom.js"></script>
-<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-
-</body>
-</html>
+<p>Let us denote by \(\bar{u}_{N}\) the numerical solution obtained using
+<a href="http://en.wikipedia.org/wiki/Wavenumber">wavenumbers</a> \(k\) 
+between \(-N\) and \(N\) (\(2N+1\) grid points)
+and by \(DF_N(\bar{u}_N)\) the \((2N+1) \times (2N+1)\) Jacobian matrix at \(\bar{u}_N\), which we can compute.
+In this case, a good choice for \(A^\dagger\) is
+<small>
+$$
+A^\dagger =
+\begin{pmatrix}
+\scriptsize{DF_N(\bar{u}_N)} & 0 & 0 & \ldots \\
+0 & \scriptsize{-\epsilon^2(N+1)^2 -1} & 0 & \ldots \\
+0 & 0 & \scriptsize{-\epsilon^2(N+2)^2 -1} & \ldots \\
+\vdots & \vdots & \vdots & \ddots
+\end{pmatrix}.
+$$
+</small>
+The idea is that for large enough \(N\) the Fr&eacute;chet derivative of \(L\) 
+will dominate the Fr&eacute;chet derivative of \(F\). (Note that \(DL(u)=L\).)
+Therefore we can choose
+<small>
+$$
+A =
+\begin{pmatrix}
+\scriptsize{DF_N^{-1}(\bar{u}_N)} & 0 & 0 & \ldots \\
+0 & \frac{1}{-\epsilon^2(N+1)^2-1} & 0 & \ldots \\
+0 & 0 & \frac{1}{-\epsilon^2(N+2)^2-1} & \ldots \\
+\vdots & \vdots & \vdots & \ddots
+\end{pmatrix}.
+$$
+</small>
+</p>

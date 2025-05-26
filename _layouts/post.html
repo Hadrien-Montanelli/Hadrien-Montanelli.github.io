@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>{{ page.title }}</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/assets/css/all.css">
+  <link rel="stylesheet" href="/assets/css/magnific-popup.css">
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <link href="https://fonts.googleapis.com/css?family=Lora|Merriweather:300,400" rel="stylesheet">
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-108246943-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-108246943-1');
+  </script>
+</head>
+<body>
+
+{% include header.html %}
+
+<section id="home" class="main-about parallax-section">
+  <div class="overlay"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 col-sm-12">
+        <h1>{{ page.title }}</h1>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-offset-1 col-md-10 col-sm-12">     
+        <p><i>{{ page.date | date: "%B %-d, %Y" }}</i></p>
+        {{ content }}
+        {% if page.tags %}
+          <hr>
+          <h4>Blog posts about {{ page.tags }}</h4>
+          <ul style="list-style-type: none; padding-left: 0;">
+            {% assign related_posts = site.blog %}
+            {% assign related = "" | split: "" %}
+            {% for tag in page.tags %}
+              {% assign tagged_posts = related_posts | where_exp: "post", "post.tags contains tag" %}
+              {% assign related = related | concat: tagged_posts %}
+            {% endfor %}
+            {% assign related = related | uniq | sort: "date" | reverse %}
+            {% for post in related limit: 5 %}
+              <li>{{ post.date | date: "%Y" }} &nbsp; <a href="{{ post.url }}">{{ post.title }}</a></li>
+            {% endfor %}
+          </ul>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% include footer.html %}
+
+</body>
+</html>

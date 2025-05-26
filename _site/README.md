@@ -1,19 +1,18 @@
 # Hadrien Montanelli — Personal Website
 
-This is the source code for my personal academic website, built with HTML, CSS, and static assets.  
-It includes pages on my research, teaching, publications, blog posts, and more.
+- This is the source code for my personal academic website, built with HTML, CSS, JavaScript, and static assets. 
+- It includes pages on my research, teaching, publications, blog posts, and more.
 
 ## Structure
 
 - `index.html` — Homepage  
-- `about.html`, `research.html`, `teaching.html`, `students.html`, `publications.html`, `talks.html` — Individual pages  
-- `blog.html` — Blog landing page  
-- `blog/` — Images and media for blog posts  
+- `about.html`, `publications.html`, `research.html`, `students.html`, `talks.html`, `teaching.html` — Individual pages  
+- `blog.html` — Blog landing page 
 - `assets/` — All static files:
   - `css/` — Stylesheets  
-  - `js/` — JavaScript  
   - `images/` — General images  
-  - `pdfs/` — Publications or lecture notes  
+  - `js/` — JavaScript  
+  - `pdfs/` — Publications or lecture notes
   - `webfonts/` — Custom fonts  
 
 ## Notes

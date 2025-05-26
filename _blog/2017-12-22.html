@@ -1,245 +1,61 @@
 ---
-layout: null
+layout: post
 title: Deep networks and the curse of dimensionality
 date: 2017-12-22
 tags: [scientific machine learning]
 permalink: 2017-12-22.html
 ---
-<!DOCTYPE html>
-<html lang="en">
-<head>
+<p>I started working on <a href="http://en.wikipedia.org/wiki/Deep_learning">deep learning</a> 
+models when I began my research at <a href="http//www.columbia.edu">Columbia University</a> in September 2017. 
+Coming from the <a href="http://en.wikipedia.org/wiki/Approximation_theory">approximation theory</a>
+world, I wanted to learn about their approximation properties.
+A few months down the road <a href="https://www.columbia.edu/~qd2125/">Qiang Du</a> and I have proven a <a href="http://arxiv.org/pdf/1712.08688.pdf">new theorem</a> concerning the approximation of 
+<a href="http://en.wikipedia.org/wiki/Function_of_several_real_variables">multivariate functions</a> by deep ReLU networks.</p>
 
-<meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=Edge">
-<meta name="description" content="">
-<meta name="keywords" content="">
-<meta name="author" content="">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<p>Deep learning has been successfully applied to many fields including 
+<a href="https://en.wikipedia.org/wiki/Computer_vision">computer vision</a>, 
+<a href="https://en.wikipedia.org/wiki/Speech_recognition">speech recognition</a>, 
+and <a href="http://en.wikipedia.org/wiki/Natural_language_processing">natural language processing</a>.
+It is based on approximations by <i>deep networks</i>, as opposed to <i>shallow networks</i>.
+The latter are neural networks with a single <i>hidden layer</i> and correspond to approximations \(f_N\) of multivariate functions \(f:\mathbb{R}^d\rightarrow\mathbb{R}\) of the form
+$$
+f_N(\boldsymbol{x}) = \sum_{i=1}^N \alpha_i \sigma(\boldsymbol{w}_i^T\boldsymbol{x} + \theta_i),
+$$
+with \(\alpha_i,\theta_i\in\mathbb{R},\, \boldsymbol{x},\boldsymbol{w}_i\in\mathbb{R}^d\), and for some <i>activation function</i> \(\sigma:\mathbb{R}\rightarrow\mathbb{R}\).
+The former are neural networks with one or more hidden layers, where each unit of each layer 
+performs an operation of the form \(\sigma(\boldsymbol{w}\cdot\boldsymbol{x} + \theta)\).
+The <i>depth</i> of a network is the number of hidden layers, and the <i>size</i> 
+is the total number of units.
+Shallow networks have depth \(1\) and their size is the number \(N\) in the expansion above,
+while deep networks usually have depth \(\gg 1\).
+Deep <i>ReLU</i> networks use the activation function \(\sigma(x) = \max(0,x)\).</p>
 
-<title>Deep networks and the curse of dimensionality</title>
-<!--
+<p>One of the most important theoretical problems is to determine why and when deep (but not shallow) networks
+can lessen or break the <a href="https://en.wikipedia.org/wiki/Curse_of_dimensionality">curse of dimensionality</a>.
+A possible way of addressing this problem is to focus on a particular set of functions that have a very
+special (<a href="http://en.wikipedia.org/wiki/Function_composition">compositional</a> or 
+<a href="https://en.wikipedia.org/wiki/Polynomial">polynomial</a>) structure and to show that for this particular set deep networks perform extremely well.
+We have followed a different route. 
+We have considered a generic set of functions and proved new error estimates 
+for which the curse of dimensionality is lessened by establishing a connection with 
+<a href="http://en.wikipedia.org/wiki/Sparse_grid">sparse grids</a>.</p>
 
-Template 2085 Neuron
+<p>For a real-valued function \(f\) in \(\mathbb{R}^d\) whose <a href="http://en.wikipedia.org/wiki/Smoothness">smoothness</a> is characterized by some integer \(m\)
+(typically the order of <a href="https://en.wikipedia.org/wiki/Locally_integrable_function">integrable</a> derivatives), and for some prescribed error \(\epsilon>0\), 
+one tries to show that there exists a neural network \(f_N\) of size \(N\) that satisfies
+$$
+\Vert f - f_N \Vert \leq \epsilon \;\; \text{with} \;\; N=\mathcal{O}(\epsilon^{-\frac{d}{m}}),
+$$
+for some norm \(\Vert\cdot\Vert\). 
+For deep networks, one also wants to find the asymptotic behavior of the depth as a function of \(\epsilon\).
+Results of this form are standard approximation results that suffer from the curse of dimensionality.
+For small dimensions \(d\), the size \(N\) of the network increases at a reasonable rate as \(\epsilon\) goes to zero.
+However, \(N\) grows <i>geometrically</i> with \(d\).</p>
 
-https://www.tooplate.com/view/2085-neuron
-
--->
-<link rel="stylesheet" href="assets/css/bootstrap.min.css">
-<link rel="stylesheet" href="assets/css/all.css">
-<link rel="stylesheet" href="assets/css/magnific-popup.css">
-
-<!-- Main css -->
-<link rel="stylesheet" href="assets/css/style.css">
-<link href="https://fonts.googleapis.com/css?family=Lora|Merriweather:300,400" rel="stylesheet">
-
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-108246943-1"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'UA-108246943-1');
-</script>
-
-<!-- Google AdSense -->
-<!--<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8299683413193339" crossorigin="anonymous"></script>-->
-<!--<script async src="https://fundingchoicesmessages.google.com/i/pub-8299683413193339?ers=1" nonce="AuY4vKpDElA9N7YwmFfMjg"></script>
-<script nonce="AuY4vKpDElA9N7YwmFfMjg">(function() {function signalGooglefcPresent() {if (!window.frames['googlefcPresent']) {if (document.body) {const iframe = document.createElement('iframe'); iframe.style = 'width: 0; height: 0; border: none; z-index: -1000; left: -1000px; top: -1000px;'; iframe.style.display = 'none'; iframe.name = 'googlefcPresent'; document.body.appendChild(iframe);} else {setTimeout(signalGooglefcPresent, 0);}}}signalGooglefcPresent();})();</script>-->
-
-</head>
-<body>
-
-<!-- PRE LOADER -->
-
-<div class="preloader">
-     <div class="sk-spinner sk-spinner-wordpress">
-          <span class="sk-inner-circle"></span>
-     </div>
-</div>
-
-<!-- Navigation section  -->
-
-<div class="navbar navbar-default navbar-static-top" role="navigation">
-     <div class="container">
-
-          <div class="navbar-header">
-               <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon icon-bar"></span>
-                    <span class="icon icon-bar"></span>
-                    <span class="icon icon-bar"></span>
-               </button>
-               <a href="index.html" class="navbar-brand">H. Montanelli</a>
-          </div>
-          <div class="collapse navbar-collapse">
-               <ul class="nav navbar-nav navbar-right">
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="blog.html">Blog</a></li><li>
-                    <a href="publications.html">Publications</a></li>
-                    <li><a href="research.html">Research</a></li>
-                    <li><a href="students.html">Students</a></li>
-                    <li><a href="talks.html">Talks</a></li>
-                    <li><a href="teaching.html">Teaching</a></li>
-               </ul>
-          </div>
-
-  </div>
-</div>
-
-<!-- Home Section -->
-
-<section id="home" class="main-about parallax-section">
-     <div class="overlay"></div>
-     <div class="container">
-          <div class="row">
-
-               <div class="col-md-12 col-sm-12">
-                    <h1>Deep networks and the curse of dimensionality</h1>
-               </div>
-
-          </div>
-     </div>
-</section>
-
-<!-- Blog Single Post Section -->
-
-<section id="about">
-     <div class="container">
-          <div class="row">
-
-               <div class="col-md-offset-1 col-md-10 col-sm-12">     
-
-                    <p><i>December 22, 2017</i></p>
-
-                    <p>I started working on <a href="http://en.wikipedia.org/wiki/Deep_learning">deep learning</a> 
-                    models when I began my research at <a href="http//www.columbia.edu">Columbia University</a> in September 2017. 
-                    Coming from the <a href="http://en.wikipedia.org/wiki/Approximation_theory">approximation theory</a>
-                    world, I wanted to learn about their approximation properties.
-                    A few months down the road <a href="https://www.columbia.edu/~qd2125/">Qiang Du</a> and I have proven a <a href="http://arxiv.org/pdf/1712.08688.pdf">new theorem</a> concerning the approximation of 
-                    <a href="http://en.wikipedia.org/wiki/Function_of_several_real_variables">multivariate functions</a> by deep ReLU networks.</p>
-
-                    <p>Deep learning has been successfully applied to many fields including 
-                    <a href="https://en.wikipedia.org/wiki/Computer_vision">computer vision</a>, 
-                    <a href="https://en.wikipedia.org/wiki/Speech_recognition">speech recognition</a>, 
-                    and <a href="http://en.wikipedia.org/wiki/Natural_language_processing">natural language processing</a>.
-                    It is based on approximations by <i>deep networks</i>, as opposed to <i>shallow networks</i>.
-                    The latter are neural networks with a single <i>hidden layer</i> and correspond to approximations \(f_N\) of multivariate functions \(f:\mathbb{R}^d\rightarrow\mathbb{R}\) of the form
-                    $$
-                    f_N(\boldsymbol{x}) = \sum_{i=1}^N \alpha_i \sigma(\boldsymbol{w}_i^T\boldsymbol{x} + \theta_i),
-                    $$
-                    with \(\alpha_i,\theta_i\in\mathbb{R},\, \boldsymbol{x},\boldsymbol{w}_i\in\mathbb{R}^d\), and for some <i>activation function</i> \(\sigma:\mathbb{R}\rightarrow\mathbb{R}\).
-                    The former are neural networks with one or more hidden layers, where each unit of each layer 
-                    performs an operation of the form \(\sigma(\boldsymbol{w}\cdot\boldsymbol{x} + \theta)\).
-                    The <i>depth</i> of a network is the number of hidden layers, and the <i>size</i> 
-                    is the total number of units.
-                    Shallow networks have depth \(1\) and their size is the number \(N\) in the expansion above,
-                    while deep networks usually have depth \(\gg 1\).
-                    Deep <i>ReLU</i> networks use the activation function \(\sigma(x) = \max(0,x)\).</p>
-
-                    <p>One of the most important theoretical problems is to determine why and when deep (but not shallow) networks
-                    can lessen or break the <a href="https://en.wikipedia.org/wiki/Curse_of_dimensionality">curse of dimensionality</a>.
-                    A possible way of addressing this problem is to focus on a particular set of functions that have a very
-                    special (<a href="http://en.wikipedia.org/wiki/Function_composition">compositional</a> or 
-                    <a href="https://en.wikipedia.org/wiki/Polynomial">polynomial</a>) structure and to show that for this particular set deep networks perform extremely well.
-                    We have followed a different route. 
-                    We have considered a generic set of functions and proved new error estimates 
-                    for which the curse of dimensionality is lessened by establishing a connection with 
-                    <a href="http://en.wikipedia.org/wiki/Sparse_grid">sparse grids</a>.</p>
-
-                    <p>For a real-valued function \(f\) in \(\mathbb{R}^d\) whose 
-                    <a href="http://en.wikipedia.org/wiki/Smoothness">smoothness</a> is characterized by some integer \(m\)
-                    (typically the order of <a href="https://en.wikipedia.org/wiki/Locally_integrable_function">integrable</a> derivatives), and for some prescribed error \(\epsilon>0\), 
-                    one tries to show that there exists a neural network \(f_N\) of size \(N\) that satisfies
-                    $$
-                    \Vert f - f_N \Vert \leq \epsilon \;\; \text{with} \;\; N=\mathcal{O}(\epsilon^{-\frac{d}{m}}),
-                    $$
-                    for some norm \(\Vert\cdot\Vert\). 
-                    For deep networks, one also wants to find the asymptotic behavior of the depth as a function of \(\epsilon\).
-                    Results of this form are standard approximation results that suffer from the curse of dimensionality.
-                    For small dimensions \(d\), the size \(N\) of the network increases at a reasonable rate as \(\epsilon\) goes to zero.
-                    However, \(N\) grows <i>geometrically</i> with \(d\).</p>
-
-                    <p>The picture is different for deep networks.
-                    My theorem shows that functions in the so-called Korobov spaces \(X^{2,p}(\Omega)\) of mixed derivatives of order two can be represented with error \(\epsilon\) by deep networks of depth 
-                    \(\mathcal{O}(\vert\log_2\epsilon\vert\log_2d)\) and size
-                    $$
-                    N=\mathcal{O}(\epsilon^{-\frac{1}{2}}\vert\log_2\epsilon\vert^{\frac{3}{2}(d-1)+1}(d-1)).
-                    $$
-                    The curse of dimensionality is not totally overcome but is lessened since \(d\) only affects logarithmic factors \(\vert\log_2\epsilon\vert\).</p>
-
-                    <hr>
-                    {% if page.tags %}
-                      <h4>Blog posts about {{ page.tags }}</h4>
-                      <ul style="list-style-type: none; padding-left: 0;">
-                        {% assign related_posts = site.blog %}
-                        {% assign related = "" | split: "" %}
-                        {% for tag in page.tags %}
-                          {% assign tagged_posts = related_posts | where_exp: "post", "post.tags contains tag" %}
-                          {% assign related = related | concat: tagged_posts %}
-                        {% endfor %}
-                        {% assign related = related | uniq | sort: "date" | reverse %}
-                        {% for post in related limit: 5 %}
-                          {% assign post_year = post.date | date: "%Y" %}
-                          <li>{{ post_year }} &nbsp; <a href="{{ post.permalink }}">{{ post.title }}</a></li>
-                        {% endfor %}
-                      </ul>
-                    {% endif %}
-
-               </div>
-
-          </div>
-     </div>
-</section>
-
-<!-- Footer Section -->
-
-<footer>
-     <div class="container">
-          <div class="row">
-
-               <div class="col-md-4 col-md-offset-1 col-sm-6">
-                    <h3>Contact</h3>
-                    <p style="color:white"><i class="fa fa-send-o"></i>hadrien.montanelli@inria.fr</p><br>
-                    <a href="https://www.inria.fr/en"><img src="assets/images/inria.png" class="img-responsive"></a>
-               </div>
-
-               <div class="col-md-4 col-md-offset-1 col-sm-6">
-                    <h3 style="opacity:0;">Contact</h3>
-                    <p style="color:white">Copyright &copy; 2025 Hadrien Montanelli</p><br>
-                    <a href="https://www.ip-paris.fr/en"><img src="assets/images/polytechnique.png" class="img-responsive"></a>
-               </div>
-
-               <div class="clearfix col-md-12 col-sm-12">
-                    <hr style="color:white;">
-               </div>
-
-               <div class="col-md-12 col-sm-12">
-                    <ul class="social-icon">
-                         <li><a href="https://github.com/Hadrien-Montanelli" class="fa-brands fa-github" style="font-size:30px;color:white"></a></li>
-                         <li><a href="https://scholar.google.com/citations?user=Bjmkfe8AAAAJ&hl=en&oi=sra/" class="fa-brands fa-google" style="font-size:30px;color:white"></a></li>
-                         <li><a href="https://www.linkedin.com/in/hadrien-montanelli/" class="fa-brands fa-linkedin" style="font-size:30px;color:white"></a></li>
-                         <li><a href="https://orcid.org/0009-0005-1742-9828" class="fa-brands fa-orcid" style="font-size:30px;color:white"></a></li>
-                         <li><a href="https://twitter.com/drmontanelli" class="fa-brands fa-x-twitter" style="font-size:30px;color:white;"></a></li>
-                    </ul>
-               </div>
-               
-          </div>
-     </div>
-</footer>
-
-<!-- Back top -->
-<a href="#back-top" class="go-top"><i class="fa fa-angle-up"></i></a>
-
-<!-- SCRIPTS -->
-<script src="assets/js/jquery.js"></script>
-<script src="assets/js/bootstrap.min.js"></script>
-<script src="assets/js/particles.min.js"></script>
-<script src="assets/js/app.js"></script>
-<script src="assets/js/jquery.parallax.js"></script>
-<script src="assets/js/smoothscroll.js"></script>
-<script src="assets/js/custom.js"></script>
-<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-
-</body>
-</html>
+<p>The picture is different for deep networks.
+My theorem shows that functions in the so-called Korobov spaces \(X^{2,p}(\Omega)\) of mixed derivatives of order two can be represented with error \(\epsilon\) by deep networks of depth 
+\(\mathcal{O}(\vert\log_2\epsilon\vert\log_2d)\) and size
+$$
+N=\mathcal{O}(\epsilon^{-\frac{1}{2}}\vert\log_2\epsilon\vert^{\frac{3}{2}(d-1)+1}(d-1)).
+$$
+The curse of dimensionality is not totally overcome but is lessened since \(d\) only affects logarithmic factors \(\vert\log_2\epsilon\vert\).</p>

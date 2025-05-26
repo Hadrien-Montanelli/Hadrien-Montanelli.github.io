@@ -1,229 +1,46 @@
 ---
-layout: null
+layout: post
 title: Deep networks and bandlimited functions
 date: 2019-03-02
 tags: [scientific machine learning]
 permalink: 2019-03-02.html
 ---
-<!DOCTYPE html>
-<html lang="en">
-<head>
+<p>In a recent <a href="http://arxiv.org/pdf/1903.00735.pdf">paper</a>, my colleagues and I considered the <a href='http://en.wikipedia.org/wiki/Deep_learning'>deep</a> <a href='http://en.wikipedia.org/wiki/Rectifier_(neural_networks)'>ReLU</a> network approximation of generalized <a href='http://en.wikipedia.org/wiki/Bandlimiting'>bandlimited</a> functions \(f:B=[0,1]^d\rightarrow\mathbb{R}\) of the form
+$$
+f(\boldsymbol{x}) = \int_{\mathbb{R}^d}F(\boldsymbol{w})K(\boldsymbol{w}\cdot\boldsymbol{x})d\boldsymbol{w},
+$$
+with \(\mathrm{supp}\,F\subset[-M,M]^d\), \(M\geq1\), and for some <a href='http://en.wikipedia.org/wiki/Square-integrable_function'>square-integrable</a> function \(F:[-M,M]^d\rightarrow\mathbb{C}\) and <a href='http://en.wikipedia.org/wiki/Analytic_function'>analytic</a> \(K:\mathbb{R}\rightarrow\mathbb{C}\).
+We showed that, for any <a href='http://en.wikipedia.org/wiki/Measure_(mathematics)'>measure</a> \(\mu\), such functions can be approximated with error \(\epsilon\) in the \(L^2(B,\mu)\)-norm by deep ReLU networks of depth \(L=\mathcal{O}\left(\log_2^2\frac{1}{\epsilon}\right)\) and size \(W=\mathcal{O}\left(\frac{1}{\epsilon^2}\log_2^2\frac{1}{\epsilon}\right)\), up to some constants that depend on \(F\), \(K\), \(\mu\) and \(B\).</p>
 
-<meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=Edge">
-<meta name="description" content="">
-<meta name="keywords" content="">
-<meta name="author" content="">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<p>Our theorem is based on a result by Maurey, and on the ability of deep ReLU networks to approximate <a href='https://en.wikipedia.org/wiki/Chebyshev_polynomials'>Chebyshev polynomials</a> and <a href='http://en.wikipedia.org/wiki/Analytic_function'>analytic</a> functions efficiently.</p>
 
-<title>Deep networks and bandlimited functions</title>
-<!--
+<h2>Maurey's theorem</h2>
 
-Template 2085 Neuron
+<p>A famous <a href='http://en.wikipedia.org/wiki/Carath%C3%A9odory%27s_theorem_(convex_hull)'>theorem</a> of <a href='http://en.wikipedia.org/wiki/Constantin_Carath%C3%A9odory'>Carath&eacute;odory</a> states that if a point \(x\in\mathbb{R}^d\) lies in the <a href='http://en.wikipedia.org/wiki/Convex_hull'>convex hull</a> of a set \(P\) then \(x\) can be written as the <a href='https://en.wikipedia.org/wiki/Convex_combination'>convex combination</a> of at most \(d+1\) points in \(P\).
+Maurey's theorem is an extension of Carath&eacute;odory's result to the infinite-dimensional case of <a href='http://en.wikipedia.org/wiki/Hilbert_space'>Hilbert spaces</a>.</p>
 
-https://www.tooplate.com/view/2085-neuron
+<p><b>Theorem (Maurey).</b>
+<i>Let \(H\) be a Hilbert space with norm \(\Vert\cdot\Vert\). 
+Suppose there exists \(G\subset H\) such that for every \(g\in G\), \(\Vert g\Vert\leq b\) for some \(b>0\). 
+Then, for every \(f\) in the convex hull of \(G\) and every integer \(n\geq 1\), there is a \(f_n\) in the convex hull of \(n\) points in \(G\) and a constant \(c>b^2-\Vert f\Vert^2\) such that \(\Vert f - f_n\Vert^2\leq \frac{c}{n}\).</i></p>
 
--->
-<link rel="stylesheet" href="assets/css/bootstrap.min.css">
-<link rel="stylesheet" href="assets/css/all.css">
-<link rel="stylesheet" href="assets/css/magnific-popup.css">
+<p>In practice, we used Maurey's theorem to show that there exists
+$$
+\begin{align}
+f_{\epsilon}(\boldsymbol{x}) = \sum_{j=1}^{\lceil 1/\epsilon^2\rceil}b_j\big[\cos(\beta_j)\mathrm{Re}(K(\boldsymbol{w}_j\cdot\boldsymbol{x})) - \sin(\beta_j)\mathrm{Im}(K(\boldsymbol{w}_j\cdot\boldsymbol{x}))\big],
+\end{align}
+$$
+with \(\sum_{j=1}^{\lceil 1/\epsilon^2\rceil}\vert b_j\vert \leq C_F\) and \(\beta_j\in\mathbb{R}\), such that
+$$
+\Vert f_{\epsilon}(\boldsymbol{x}) - f(\boldsymbol{x})\Vert_{L^2(\mu, B)}
+\leq 2C_F\sqrt{\mu(B)}\epsilon.
+$$
+In other words, the function \(f\) is approximated by a linear combination of analytic functions with error \(2C_F\sqrt{\mu(B)}\epsilon\) in the \(L^2(B,\mu)\)-norm. The task of approximating \(f\) by deep ReLU networks has been reduced to approximating analytic functions by deep networks.</p>
 
-<!-- Main css -->
-<link rel="stylesheet" href="assets/css/style.css">
-<link href="https://fonts.googleapis.com/css?family=Lora|Merriweather:300,400" rel="stylesheet">
+<h2>Chebyshev polynomials and deep ReLU networks</h2>
 
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-108246943-1"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'UA-108246943-1');
-</script>
-
-<!-- Google AdSense -->
-<!--<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8299683413193339" crossorigin="anonymous"></script>-->
-<!--<script async src="https://fundingchoicesmessages.google.com/i/pub-8299683413193339?ers=1" nonce="AuY4vKpDElA9N7YwmFfMjg"></script>
-<script nonce="AuY4vKpDElA9N7YwmFfMjg">(function() {function signalGooglefcPresent() {if (!window.frames['googlefcPresent']) {if (document.body) {const iframe = document.createElement('iframe'); iframe.style = 'width: 0; height: 0; border: none; z-index: -1000; left: -1000px; top: -1000px;'; iframe.style.display = 'none'; iframe.name = 'googlefcPresent'; document.body.appendChild(iframe);} else {setTimeout(signalGooglefcPresent, 0);}}}signalGooglefcPresent();})();</script>-->
-
-</head>
-<body>
-
-<!-- PRE LOADER -->
-
-<div class="preloader">
-     <div class="sk-spinner sk-spinner-wordpress">
-          <span class="sk-inner-circle"></span>
-     </div>
-</div>
-
-<!-- Navigation section  -->
-
-<div class="navbar navbar-default navbar-static-top" role="navigation">
-     <div class="container">
-
-          <div class="navbar-header">
-               <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon icon-bar"></span>
-                    <span class="icon icon-bar"></span>
-                    <span class="icon icon-bar"></span>
-               </button>
-               <a href="index.html" class="navbar-brand">H. Montanelli</a>
-          </div>
-          <div class="collapse navbar-collapse">
-               <ul class="nav navbar-nav navbar-right">
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="blog.html">Blog</a></li>
-                    <li><a href="publications.html">Publications</a></li>
-                    <li><a href="research.html">Research</a></li>
-                    <li><a href="students.html">Students</a></li>
-                    <li><a href="talks.html">Talks</a></li>
-                    <li><a href="teaching.html">Teaching</a></li>
-               </ul>
-          </div>
-
-  </div>
-</div>
-
-<!-- Home Section -->
-
-<section id="home" class="main-about parallax-section">
-     <div class="overlay"></div>
-     <div class="container">
-          <div class="row">
-
-               <div class="col-md-12 col-sm-12">
-                    <h1>Deep networks and bandlimited functions</h1>
-               </div>
-
-          </div>
-     </div>
-</section>
-
-<!-- Blog Single Post Section -->
-
-<section id="about">
-     <div class="container">
-          <div class="row">
-
-               <div class="col-md-offset-1 col-md-10 col-sm-12">     
-
-                    <p><i>March 2, 2019</i></p>
-
-                    <p>In a recent <a href="http://arxiv.org/pdf/1903.00735.pdf">paper</a>, my colleagues and I considered the <a href='http://en.wikipedia.org/wiki/Deep_learning'>deep</a> <a href='http://en.wikipedia.org/wiki/Rectifier_(neural_networks)'>ReLU</a> network approximation of generalized <a href='http://en.wikipedia.org/wiki/Bandlimiting'>bandlimited</a> functions \(f:B=[0,1]^d\rightarrow\mathbb{R}\) of the form
-                    $$
-                    f(\boldsymbol{x}) = \int_{\mathbb{R}^d}F(\boldsymbol{w})K(\boldsymbol{w}\cdot\boldsymbol{x})d\boldsymbol{w},
-                    $$
-                    with \(\mathrm{supp}\,F\subset[-M,M]^d\), \(M\geq1\), and for some <a href='http://en.wikipedia.org/wiki/Square-integrable_function'>square-integrable</a> function \(F:[-M,M]^d\rightarrow\mathbb{C}\) and <a href='http://en.wikipedia.org/wiki/Analytic_function'>analytic</a> \(K:\mathbb{R}\rightarrow\mathbb{C}\).
-                    We showed that, for any <a href='http://en.wikipedia.org/wiki/Measure_(mathematics)'>measure</a> \(\mu\), such functions can be approximated with error \(\epsilon\) in the \(L^2(B,\mu)\)-norm by deep ReLU networks of depth \(L=\mathcal{O}\left(\log_2^2\frac{1}{\epsilon}\right)\) and size \(W=\mathcal{O}\left(\frac{1}{\epsilon^2}\log_2^2\frac{1}{\epsilon}\right)\), up to some constants that depend on \(F\), \(K\), \(\mu\) and \(B\).</p>
-
-                    <p>Our theorem is based on a result by Maurey, and on the ability of deep ReLU networks to approximate <a href='https://en.wikipedia.org/wiki/Chebyshev_polynomials'>Chebyshev polynomials</a> and <a href='http://en.wikipedia.org/wiki/Analytic_function'>analytic</a> functions efficiently.</p>
-
-                    <h2>Maurey's theorem</h2>
-
-                    <p>A famous <a href='http://en.wikipedia.org/wiki/Carath%C3%A9odory%27s_theorem_(convex_hull)'>theorem</a> of <a href='http://en.wikipedia.org/wiki/Constantin_Carath%C3%A9odory'>Carath&eacute;odory</a> states that if a point \(x\in\mathbb{R}^d\) lies in the <a href='http://en.wikipedia.org/wiki/Convex_hull'>convex hull</a> of a set \(P\) then \(x\) can be written as the <a href='https://en.wikipedia.org/wiki/Convex_combination'>convex combination</a> of at most \(d+1\) points in \(P\).
-                    Maurey's theorem is an extension of Carath&eacute;odory's result to the infinite-dimensional case of <a href='http://en.wikipedia.org/wiki/Hilbert_space'>Hilbert spaces</a>.</p>
-
-                    <p><b>Theorem (Maurey).</b>
-                    <i>Let \(H\) be a Hilbert space with norm \(\Vert\cdot\Vert\). 
-                    Suppose there exists \(G\subset H\) such that for every \(g\in G\), \(\Vert g\Vert\leq b\) for some \(b>0\). 
-                    Then, for every \(f\) in the convex hull of \(G\) and every integer \(n\geq 1\), there is a \(f_n\) in the convex hull of \(n\) points in \(G\) and a constant \(c>b^2-\Vert f\Vert^2\) such that \(\Vert f - f_n\Vert^2\leq \frac{c}{n}\).</i></p>
-
-                    <p>In practice, we used Maurey's theorem to show that there exists
-                    $$
-                    \begin{align}
-                    f_{\epsilon}(\boldsymbol{x}) = \sum_{j=1}^{\lceil 1/\epsilon^2\rceil}b_j\big[\cos(\beta_j)\mathrm{Re}(K(\boldsymbol{w}_j\cdot\boldsymbol{x})) - \sin(\beta_j)\mathrm{Im}(K(\boldsymbol{w}_j\cdot\boldsymbol{x}))\big],
-                    \end{align}
-                    $$
-                    with \(\sum_{j=1}^{\lceil 1/\epsilon^2\rceil}\vert b_j\vert \leq C_F\) and \(\beta_j\in\mathbb{R}\), such that
-                    $$
-                    \Vert f_{\epsilon}(\boldsymbol{x}) - f(\boldsymbol{x})\Vert_{L^2(\mu, B)}
-                    \leq 2C_F\sqrt{\mu(B)}\epsilon.
-                    $$
-                    In other words, the function \(f\) is approximated by a linear combination of analytic functions with error \(2C_F\sqrt{\mu(B)}\epsilon\) in the \(L^2(B,\mu)\)-norm. The task of approximating \(f\) by deep ReLU networks has been reduced to approximating analytic functions by deep networks.</p>
-
-                    <h2>Chebyshev polynomials and deep ReLU networks</h2>
-
-                    <p>The <a href='http://en.wikipedia.org/wiki/Chebyshev_polynomials'>Chebyshev polynomials</a> of the first kind play a central role in <a href='http://en.wikipedia.org/wiki/Approximation_theory'>approximation theory</a>. They are defined on \([-1,1]\) via the three-term <a href='http://en.wikipedia.org/wiki/Recurrence_relation'>recurrence relation</a>
-                    $$
-                    T_n(x) = 2xT_{n-1}(x) - T_{n-2}(x), \;\; n\geq 2,
-                    $$
-                    with \(T_0=1\) and \(T_1(x) = x\). We showed that deep ReLU networks can implement the recurrence relation efficiently. Since truncated Chebyshev series can approximate analytic functions exponentially well, so can deep networks.</p>
-
-                    <hr>
-                    {% if page.tags %}
-                      <h4>Blog posts about {{ page.tags }}</h4>
-                      <ul style="list-style-type: none; padding-left: 0;">
-                        {% assign related_posts = site.blog %}
-                        {% assign related = "" | split: "" %}
-                        {% for tag in page.tags %}
-                          {% assign tagged_posts = related_posts | where_exp: "post", "post.tags contains tag" %}
-                          {% assign related = related | concat: tagged_posts %}
-                        {% endfor %}
-                        {% assign related = related | uniq | sort: "date" | reverse %}
-                        {% for post in related limit: 5 %}
-                          {% assign post_year = post.date | date: "%Y" %}
-                          <li>{{ post_year }} &nbsp; <a href="{{ post.permalink }}">{{ post.title }}</a></li>
-                        {% endfor %}
-                      </ul>
-                    {% endif %}
-
-               </div>
-
-          </div>
-     </div>
-</section>
-
-<!-- Footer Section -->
-
-<footer>
-     <div class="container">
-          <div class="row">
-
-               <div class="col-md-4 col-md-offset-1 col-sm-6">
-                    <h3>Contact</h3>
-                    <p style="color:white"><i class="fa fa-send-o"></i>hadrien.montanelli@inria.fr</p><br>
-                    <a href="https://www.inria.fr/en"><img src="assets/images/inria.png" class="img-responsive"></a>
-               </div>
-
-               <div class="col-md-4 col-md-offset-1 col-sm-6">
-                    <h3 style="opacity:0;">Contact</h3>
-                    <p style="color:white">Copyright &copy; 2025 Hadrien Montanelli</p><br>
-                    <a href="https://www.ip-paris.fr/en"><img src="assets/images/polytechnique.png" class="img-responsive"></a>
-               </div>
-
-               <div class="clearfix col-md-12 col-sm-12">
-                    <hr style="color:white;">
-               </div>
-
-               <div class="col-md-12 col-sm-12">
-                    <ul class="social-icon">
-                         <li><a href="https://github.com/Hadrien-Montanelli" class="fa-brands fa-github" style="font-size:30px;color:white"></a></li>
-                         <li><a href="https://scholar.google.com/citations?user=Bjmkfe8AAAAJ&hl=en&oi=sra/" class="fa-brands fa-google" style="font-size:30px;color:white"></a></li>
-                         <li><a href="https://www.linkedin.com/in/hadrien-montanelli/" class="fa-brands fa-linkedin" style="font-size:30px;color:white"></a></li>
-                         <li><a href="https://orcid.org/0009-0005-1742-9828" class="fa-brands fa-orcid" style="font-size:30px;color:white"></a></li>
-                         <li><a href="https://twitter.com/drmontanelli" class="fa-brands fa-x-twitter" style="font-size:30px;color:white;"></a></li>
-                    </ul>
-               </div>
-               
-          </div>
-     </div>
-</footer>
-
-<!-- Back top -->
-<a href="#back-top" class="go-top"><i class="fa fa-angle-up"></i></a>
-
-<!-- SCRIPTS -->
-<script src="assets/js/jquery.js"></script>
-<script src="assets/js/bootstrap.min.js"></script>
-<script src="assets/js/particles.min.js"></script>
-<script src="assets/js/app.js"></script>
-<script src="assets/js/jquery.parallax.js"></script>
-<script src="assets/js/smoothscroll.js"></script>
-<script src="assets/js/custom.js"></script>
-<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-
-</body>
-</html>
+<p>The <a href='http://en.wikipedia.org/wiki/Chebyshev_polynomials'>Chebyshev polynomials</a> of the first kind play a central role in <a href='http://en.wikipedia.org/wiki/Approximation_theory'>approximation theory</a>. They are defined on \([-1,1]\) via the three-term <a href='http://en.wikipedia.org/wiki/Recurrence_relation'>recurrence relation</a>
+$$
+T_n(x) = 2xT_{n-1}(x) - T_{n-2}(x), \;\; n\geq 2,
+$$
+with \(T_0=1\) and \(T_1(x) = x\). We showed that deep ReLU networks can implement the recurrence relation efficiently. Since truncated Chebyshev series can approximate analytic functions exponentially well, so can deep networks.</p>
