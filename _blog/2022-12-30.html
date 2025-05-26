@@ -21,15 +21,15 @@ permalink: 2022-12-30.html
 
 Template 2085 Neuron
 
-http://www.tooplate.com/view/2085-neuron
+https://www.tooplate.com/view/2085-neuron
 
 -->
-<link rel="stylesheet" href="css/bootstrap.min.css">
-<link rel="stylesheet" href="css/all.css">
-<link rel="stylesheet" href="css/magnific-popup.css">
+<link rel="stylesheet" href="assets/css/bootstrap.min.css">
+<link rel="stylesheet" href="assets/css/all.css">
+<link rel="stylesheet" href="assets/css/magnific-popup.css">
 
 <!-- Main css -->
-<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="assets/css/style.css">
 <link href="https://fonts.googleapis.com/css?family=Lora|Merriweather:300,400" rel="stylesheet">
 
 <!-- Global site tag (gtag.js) - Google Analytics -->
@@ -202,8 +202,8 @@ alpha_ex = cv2.imread('GT04_alpha.png', cv2.IMREAD_GRAYSCALE)/255  # load exact 
 plt.imshow(alpha_ex, cmap='gray'), plt.axis('off')                 # plot alpha
 plt.show();
 </pre>
-<img src="/blog/matting1.jpg" class="img-responsive">
-<img src="/blog/matting2.jpg" class="img-responsive">
+<img src="assets/images/blog/matting1.jpg" class="img-responsive">
+<img src="assets/images/blog/matting2.jpg" class="img-responsive">
 <!------- Code ------->
 
                     <p>We create a gray version of the image with a green background as follows:</p>
@@ -223,7 +223,7 @@ I = np.reshape(I, (n_rows, n_cols, 3))
 plt.imshow(I), plt.axis('off')                   # plot I
 plt.show(); 
 </pre>
-<img src="/blog/matting3.jpg" class="img-responsive">
+<img src="assets/images/blog/matting3.jpg" class="img-responsive">
 <!------- Code ------->
 
                     <p>Let's extract the RGB components of \(I\):</p>
@@ -244,7 +244,7 @@ alpha = (R_I - (G_I - G_B))/G_B                  # compute alpha with formula
 plt.imshow(alpha, cmap='gray'), plt.axis('off')  # plot alpha
 plt.show();
 </pre>
-<img src="/blog/matting4.jpg" class="img-responsive">
+<img src="assets/images/blog/matting4.jpg" class="img-responsive">
 <!------- Code ------->
 
                     <p>The relative error between our matte and the "exact" one is around machine precision:</p>
@@ -271,7 +271,7 @@ plt.imshow(K), plt.axis('off')               # plot K
 plt.show();
 K = np.reshape(K, (n_pixels, 3))
 </pre>
-<img src="/blog/matting5.jpg" class="img-responsive">
+<img src="assets/images/blog/matting5.jpg" class="img-responsive">
 <!------- Code ------->
 
                     <p>Let's now replace the green screen with the image \(K\):</p>
@@ -284,7 +284,7 @@ J = np.reshape(J, (n_rows, n_cols, 3))
 plt.imshow(J), plt.axis('off')          # plot J 
 plt.show();
 </pre>
-<img src="/blog/matting6.jpg" class="img-responsive">
+<img src="assets/images/blog/matting6.jpg" class="img-responsive">
 <!------- Code ------->
                     
                     <p>The result is flawless&mdash;it is not surprising that <a href="https://en.wikipedia.org/wiki/Science_fiction_film">science fiction movies</a> use green screens particularly well since many foreground objects are neutrally colored <a href="https://en.wikipedia.org/wiki/Spacecraft">spacecraft</a>.</p>
@@ -350,7 +350,7 @@ I = np.reshape(I, (n_rows, n_cols, 3))
 plt.imshow(I), plt.axis('off')                   # plot I
 plt.show();
 </pre>
-<img src="/blog/matting7.jpg" class="img-responsive">
+<img src="assets/images/blog/matting7.jpg" class="img-responsive">
 <!------- Code ------->
 
                     <p>Let's extract the RGB components of \(I\):</p>
@@ -371,7 +371,7 @@ alpha = (B_I - a_1*(G_I - G_B) - a_2*R_I)/(a_0 + a_1*G_B)  # compute alpha with 
 plt.imshow(alpha, cmap='gray'), plt.axis('off')            # plot alpha
 plt.show();
 </pre>
-<img src="/blog/matting8.jpg" class="img-responsive">
+<img src="assets/images/blog/matting8.jpg" class="img-responsive">
 <!------- Code ------->
 
                     <p>Once again, the error is around machine precision:</p>
@@ -400,7 +400,7 @@ J = np.reshape(J, (n_rows, n_cols, 3))
 plt.imshow(J), plt.axis('off')                                           # plot J
 plt.show();
 </pre>
-<img src="/blog/matting9.jpg" class="img-responsive">
+<img src="assets/images/blog/matting9.jpg" class="img-responsive">
 <!------- Code ------->
 
                     <h2>Extension and connection to Vlahos' formula</h2>
@@ -468,12 +468,12 @@ J[J > 1] = 1
 J = np.reshape(J, (n_rows, n_cols, 3))
 plt.imshow(J), plt.axis('off'), plt.show();  
 </pre>
-<img src="/blog/matting10.jpg" class="img-responsive">
-<img src="/blog/matting11.jpg" class="img-responsive">
+<img src="assets/images/blog/matting10.jpg" class="img-responsive">
+<img src="assets/images/blog/matting11.jpg" class="img-responsive">
 <pre>
 Error (alpha): 7.58e-02
 </pre>
-<img src="/blog/matting12.jpg" class="img-responsive">
+<img src="assets/images/blog/matting12.jpg" class="img-responsive">
 <!------- Code ------->
 
                     <p>Let's make a few comments about the code. First, because the formula for the matte \(\alpha\) isn't exact here&mdash;it is merely an approximation&mdash;it may lead to values below \(0\) and above \(1\) for both \(\alpha\) and \(J\)&mdash;therefore, we clamped the values of \(\alpha\) and \(J\).</p>
@@ -566,13 +566,13 @@ Error (alpha): 7.58e-02
                <div class="col-md-4 col-md-offset-1 col-sm-6">
                     <h3>Contact</h3>
                     <p style="color:white"><i class="fa fa-send-o"></i>hadrien.montanelli@inria.fr</p><br>
-                    <a href="https://www.inria.fr/en"><img src="/images/inria.png" class="img-responsive"></a>
+                    <a href="https://www.inria.fr/en"><img src="assets/images/inria.png" class="img-responsive"></a>
                </div>
 
                <div class="col-md-4 col-md-offset-1 col-sm-6">
                     <h3 style="opacity:0;">Contact</h3>
                     <p style="color:white">Copyright &copy; 2025 Hadrien Montanelli</p><br>
-                    <a href="https://www.ip-paris.fr/en"><img src="/images/polytechnique.png" class="img-responsive"></a>
+                    <a href="https://www.ip-paris.fr/en"><img src="assets/images/polytechnique.png" class="img-responsive"></a>
                </div>
 
                <div class="clearfix col-md-12 col-sm-12">
@@ -597,13 +597,13 @@ Error (alpha): 7.58e-02
 <a href="#back-top" class="go-top"><i class="fa fa-angle-up"></i></a>
 
 <!-- SCRIPTS -->
-<script src="js/jquery.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script src="js/particles.min.js"></script>
-<script src="js/app.js"></script>
-<script src="js/jquery.parallax.js"></script>
-<script src="js/smoothscroll.js"></script>
-<script src="js/custom.js"></script>
+<script src="assets/js/jquery.js"></script>
+<script src="assets/js/bootstrap.min.js"></script>
+<script src="assets/js/particles.min.js"></script>
+<script src="assets/js/app.js"></script>
+<script src="assets/js/jquery.parallax.js"></script>
+<script src="assets/js/smoothscroll.js"></script>
+<script src="assets/js/custom.js"></script>
 <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 

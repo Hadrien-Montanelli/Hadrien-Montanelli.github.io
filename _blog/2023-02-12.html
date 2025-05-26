@@ -21,15 +21,15 @@ permalink: 2023-02-12.html
 
 Template 2085 Neuron
 
-http://www.tooplate.com/view/2085-neuron
+https://www.tooplate.com/view/2085-neuron
 
 -->
-<link rel="stylesheet" href="css/bootstrap.min.css">
-<link rel="stylesheet" href="css/all.css">
-<link rel="stylesheet" href="css/magnific-popup.css">
+<link rel="stylesheet" href="assets/css/bootstrap.min.css">
+<link rel="stylesheet" href="assets/css/all.css">
+<link rel="stylesheet" href="assets/css/magnific-popup.css">
 
 <!-- Main css -->
-<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="assets/css/style.css">
 <link href="https://fonts.googleapis.com/css?family=Lora|Merriweather:300,400" rel="stylesheet">
 
 <!-- Global site tag (gtag.js) - Google Analytics -->
@@ -120,7 +120,7 @@ http://www.tooplate.com/view/2085-neuron
                     <h2>Acoustic waves in an inhomogeneous medium</h2>
 
                     <center>
-                    <img src="/blog/fembem-tik1.png" class="img-responsive">
+                    <img src="assets/images/blog/fembem-tik1.png" class="img-responsive">
                     </center>
 
                     <p>We consider the following model with a total field \(u\) coupled with a scattered field \(w^s\):
@@ -158,7 +158,7 @@ http://www.tooplate.com/view/2085-neuron
                     <h4>Theory (disk)</h4>
 
                     <center>
-                    <img src="/blog/fembem-tik2.png" class="img-responsive">
+                    <img src="assets/images/blog/fembem-tik2.png" class="img-responsive">
                     </center>
 
                     <p>Let \(D=\mathcal{D}(0,R)\), the disk of radius \(R>0\) centered at the origin, and consider
@@ -209,7 +209,7 @@ L = -integral(D, grad(V), grad(V)) ...
 F = integral(D, V, @(X) f(X) - k^2*n(X).*g(X));
 u = L\F;
 </pre>
-<img src="/blog/fembem1.jpg" class="img-responsive">
+<img src="assets/images/blog/fembem1.jpg" class="img-responsive">
 <!------- Code ------->
 
                     <p>In <a href="https://www.chebfun.org/">Chebfun</a>, we may use the <code>diskfun.helmholtz</code> code.</p>
@@ -220,13 +220,13 @@ F = diskfun(@(x,y) f([x, y]) - k^2*g([x, y]));
 BC = @(theta) 0*theta;
 u = diskfun.helmholtz(F, k, BC, N);
 </pre>
-<img src="/blog/fembem2.jpg" class="img-responsive">
+<img src="assets/images/blog/fembem2.jpg" class="img-responsive">
 <!------- Code ------->
 
                     <h4>Theory (annulus)</h4>
 
                     <center>
-                    <img src="/blog/fembem-tik3.png" class="img-responsive">
+                    <img src="assets/images/blog/fembem-tik3.png" class="img-responsive">
                     </center>
 
                     <p>Let us now consider a harder problem. Let \(D=\mathcal{D}(0, R_1)\) and \(B=\mathcal{D}(0,R_2)\) for some \(R_2>R_1>0\). Define \(C=B\setminus\overline{D}\) and consider
@@ -286,7 +286,7 @@ F = integral(C, V, @(X) f(X) - k^2*n(X).*g(X)) ...
     - integral(dB, V, h);
 u = L\F;
 </pre>
-<img src="/blog/fembem3.jpg" class="img-responsive">
+<img src="assets/images/blog/fembem3.jpg" class="img-responsive">
 <!------- Code ------->
 
                     <h2>Exterior problems & boundary elements</h2>
@@ -294,7 +294,7 @@ u = L\F;
                     <h4>Theory</h4>
 
                     <center>
-                    <img src="/blog/fembem-tik4.png" class="img-responsive">
+                    <img src="assets/images/blog/fembem-tik4.png" class="img-responsive">
                     </center>
 
                     <p>Let \(B=\mathcal{D}(0,R)\) and consider
@@ -338,7 +338,7 @@ S = S - 1/(2*pi)*regularize(dB, dB, W, ...
 F = integral(dB, W, g);
 phi = S\F;
 </pre>
-<img src="/blog/fembem4.jpg" class="img-responsive">
+<img src="assets/images/blog/fembem4.jpg" class="img-responsive">
 <!------- Code ------->
 
                     <h2>Finite-boundary element coupling</h2>
@@ -346,7 +346,7 @@ phi = S\F;
                     <h4>Theory</h4>
 
                     <center>
-                    <img src="/blog/fembem-tik1.png" class="img-responsive">
+                    <img src="assets/images/blog/fembem-tik1.png" class="img-responsive">
                     </center>
 
                     <p>We now come back to the initial problem:
@@ -468,8 +468,8 @@ fun = @(V) -A21*(A11\(A12*V)) + A22*V;
 u = mgcr(fun, F2 - A21*(A11\F1), [], 1e-3, 1000);
 phi = A11\(F1 - A12*u);
 </pre>
-<img src="/blog/fembem5.jpg" class="img-responsive">
-<img src="/blog/fembem6.jpg" class="img-responsive">
+<img src="assets/images/blog/fembem5.jpg" class="img-responsive">
+<img src="assets/images/blog/fembem6.jpg" class="img-responsive">
 <!------- Code ------->
 
                     <hr>
@@ -506,13 +506,13 @@ phi = A11\(F1 - A12*u);
                <div class="col-md-4 col-md-offset-1 col-sm-6">
                     <h3>Contact</h3>
                     <p style="color:white"><i class="fa fa-send-o"></i>hadrien.montanelli@inria.fr</p><br>
-                    <a href="https://www.inria.fr/en"><img src="/images/inria.png" class="img-responsive"></a>
+                    <a href="https://www.inria.fr/en"><img src="assets/images/inria.png" class="img-responsive"></a>
                </div>
 
                <div class="col-md-4 col-md-offset-1 col-sm-6">
                     <h3 style="opacity:0;">Contact</h3>
                     <p style="color:white">Copyright &copy; 2025 Hadrien Montanelli</p><br>
-                    <a href="https://www.ip-paris.fr/en"><img src="/images/polytechnique.png" class="img-responsive"></a>
+                    <a href="https://www.ip-paris.fr/en"><img src="assets/images/polytechnique.png" class="img-responsive"></a>
                </div>
 
                <div class="clearfix col-md-12 col-sm-12">
@@ -537,13 +537,13 @@ phi = A11\(F1 - A12*u);
 <a href="#back-top" class="go-top"><i class="fa fa-angle-up"></i></a>
 
 <!-- SCRIPTS -->
-<script src="js/jquery.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script src="js/particles.min.js"></script>
-<script src="js/app.js"></script>
-<script src="js/jquery.parallax.js"></script>
-<script src="js/smoothscroll.js"></script>
-<script src="js/custom.js"></script>
+<script src="assets/js/jquery.js"></script>
+<script src="assets/js/bootstrap.min.js"></script>
+<script src="assets/js/particles.min.js"></script>
+<script src="assets/js/app.js"></script>
+<script src="assets/js/jquery.parallax.js"></script>
+<script src="assets/js/smoothscroll.js"></script>
+<script src="assets/js/custom.js"></script>
 <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
