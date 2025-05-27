@@ -47,9 +47,9 @@
 <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 <script>
-    const tags = document.querySelectorAll('.tag');
-    const pubs = document.querySelectorAll('.publication');
-    tags.forEach(tag => {
+     const tags = document.querySelectorAll('.tag');
+     const pubs = document.querySelectorAll('.publication');
+     tags.forEach(tag => {
       tag.addEventListener('click', () => {
         tags.forEach(t => t.classList.remove('active'));
         tag.classList.add('active');
@@ -63,5 +63,5 @@
           }
         });
       });
-    });
-  </script>
+     });
+</script>
