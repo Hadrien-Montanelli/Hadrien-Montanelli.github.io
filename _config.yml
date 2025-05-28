@@ -2,4 +2,4 @@ name: Hadrien Montanelli
 markdown: kramdown
 collections:
   blog:
-    output: true
+    output: true  
