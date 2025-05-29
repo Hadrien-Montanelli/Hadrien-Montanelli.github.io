@@ -21,27 +21,20 @@ body {
 
 .subscribe-container {
   display: flex;
-  justify-content: center;
-  margin-top: 1rem;
-}
-
-.subscribe-form {
-  display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
   align-items: center;
+  margin-top: 1rem;
 }
 
-.subscribe-form input[type="email"] {
+.embeddable-buttondown-form input[type="email"] {
   padding: 6px 10px;
   font-size: 14px;
   border: 1px solid #ccc;
   border-radius: 4px;
-  flex: 1 1 200px;
 }
 
-.subscribe-form input[type="submit"],
-.subscribe-form .rss-button {
+.subscribe-button {
   background-color: #eee;
   border: 1px solid #ccc;
   padding: 6px 12px;
@@ -52,12 +45,12 @@ body {
   color: black;
   display: inline-block;
   white-space: nowrap;
-  transition: background-color 0.2s ease;
+  transition: background-color 0.2s ease, color 0.2s ease;
 }
 
-.subscribe-form input[type="submit"]:hover,
-.subscribe-form .rss-button:hover {
-  background-color: #ddd;
+.subscribe-button:hover {
+  background-color: #ccc;
+  color: black;
 }
 
 /*---------------------------------------
@@ -175,20 +168,20 @@ body {
 
 mark {
   font-family: 'Roboto', sans-serif;
-  color: #fef9e7; /* soft white */
-  background-color: #bfae4f; /* same golden tone but less saturated */
+  color: #fef9e7;
+  background-color: #bfae4f;
   padding: 0.15em 0.3em;
   border-radius: 4px;
   border: none;
   transition: all 0.2s ease;
-  box-shadow: 0 0 2px rgba(0, 0, 0, 0.1); /* subtle depth */
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.1);
 }
 
 mark:hover,
 mark:focus,
 mark:active {
-  background-color: #d8c750; /* brighter golden tone */
-  color: #ffffff; /* more contrast */
+  background-color: #d8c750;
+  color: #ffffff;
   box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
 }
 
@@ -208,7 +201,6 @@ mark:active {
   margin-right: 5px;
 }
 
-/* Rotate arrow when open */
 .collapse.in + h3 .toggle-arrow,
 .toggle-header[aria-expanded="true"] .toggle-arrow {
   transform: rotate(90deg);
@@ -274,7 +266,6 @@ ul {
 -----------------------------------------*/
 
 .solid {
-    /*border-color: #f5f5f5;*/
     border-color: #dddddd;
     border-width: 1px;      
     height: 0px;
@@ -294,7 +285,6 @@ a {
   text-decoration: none !important;
 }
 a:hover, a:active, a:focus {
-  /*color: #2d6da6;*/
   color: #bfba55;
   outline: none;
 }
@@ -427,8 +417,8 @@ pre {
 }
 
 .navbar-default .navbar-brand:hover {
-    color: #bfba55; /* same hover color as your nav links */
-    text-decoration: none; /* optional, to match link behavior */
+    color: #bfba55;
+    text-decoration: none;
 }
 
 .navbar-default .navbar-nav li a {
