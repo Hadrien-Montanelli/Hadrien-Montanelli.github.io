@@ -3,3 +3,5 @@ markdown: kramdown
 collections:
   blog:
     output: true  
+plugins:
+  - jekyll-feed
