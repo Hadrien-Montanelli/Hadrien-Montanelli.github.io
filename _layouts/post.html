@@ -70,18 +70,18 @@
           data-lang="en"
           crossorigin="anonymous"
           async>
-      </script>
-      <form
-        action="https://buttondown.com/api/emails/embed-subscribe/hadrien-montanelli"
-        method="post"
-        target="popupwindow"
-        onsubmit="window.open('https://buttondown.com/hadrien-montanelli', 'popupwindow')"
-        class="embeddable-buttondown-form"
-      >
-        <label for="bd-email">Enter your email</label>
-        <input type="email" name="email" id="bd-email" />
-        <input type="submit" value="Subscribe" />
-      </form>
+        </script>
+        <div class="subscribe-container" style="display: flex; gap: 0rem; align-items: center;">
+          <form action="https://buttondown.com/api/emails/embed-subscribe/hadrien-montanelli" method="post" target="popupwindow"
+                onsubmit="window.open('https://buttondown.com/hadrien-montanelli', 'popupwindow')"
+                class="embeddable-buttondown-form" style="display: flex; gap: 0.5rem;">
+            <input type="email" name="email" id="bd-email" placeholder="Enter your email" required />
+            <input type="submit" value="Subscribe" />
+          </form>
+          <form action="{{ '/feed.xml' | relative_url }}">
+            <button type="submit" class="rss-button">Subscribe via RSS</button>
+          </form>
+        </div>
       </div>
     </div>
   </div>
