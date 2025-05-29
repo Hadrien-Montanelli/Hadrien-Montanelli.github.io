@@ -1,8 +1,97 @@
 ---
 layout: post
-title: TBD
+title: Mathematics near the volcano&mdash;rigor, intuition, and Bourbaki
 date: 2025-05-29
 tags: [research life]
 permalink: 2025-05-29.html
 ---
-<p>Welcome to the fourth entry in my <i>Holiday in Sicily</i> series.</p>
+<p>Welcome to the fourth entry in my <i>Holiday in Sicily</i> series. From this post onward&mdash;and especially through to post seven&mdash;my opinions will become progressively more controversial. Call it the mathematical equivalent of hiking closer to Mount Etna: things might get heated, and by blog seven, expect a full eruption. Today, I reflect on the influence of Bourbaki on French mathematics, and the tension between rigor and intuition in how we learn, teach, and research.</p>
+
+<h2>Who is Bourbaki?</h2>
+
+<p>The legacy of Nicolas Bourbaki&mdash;an anonymous collective of mostly French mathematicians formed in the 1930s&mdash;still looms large over the teaching and practice of mathematics in France. Whether celebrated or criticized, Bourbaki’s influence has shaped not just what French mathematicians learn, but how they think about mathematics at its deepest levels.</p>
+
+<p>At the heart of Bourbaki’s project was a radical vision: to rebuild all of mathematics on a rigorous, axiomatic foundation. The result was a monumental, multi-volume treatise covering much of pure mathematics in a uniform and abstract style. The language was formal, the structure logical, and the aesthetic minimalist. Proofs were king; diagrams, figures, and concrete examples were largely ignored.</p>
+
+<p>The Bourbaki approach elevated rigor to a central virtue. This had undeniable merits: it clarified definitions, unified disparate fields under common frameworks, and inoculated generations of French students against sloppiness in reasoning. It also helped establish France as a powerhouse of pure mathematics in the 20th century.</p>
+
+<p>But this rigor came at a cost. In many French curricula, particularly in the post-war decades, intuition and visual understanding were often treated with suspicion. Concrete examples were rare. Applied mathematics was sidelined. A generation of students learned “New Math” and abstract algebra in high school&mdash;where even addition was defined via group theory&mdash;while numerics and algorithms remained sidelined in much of French mathematical culture and seen as less elegant than theory.</p>
+
+<h2>Rigor in mathematical statements</h2>
+
+<p>A mathematical statement can often be expressed in more than one language&mdash;plain English, formal logic, or a blend of both.</p>
+
+<p>Take the definition of a limit, for example. In plain English:</p>
+
+<blockquote><p>As \(x\) gets close to \(a\), \(f(x)\) gets close to \(L\).</p></blockquote>
+
+<p>In formal mathematical language:</p>
+
+<blockquote><p>\(\forall\epsilon>0,\,\exists\delta>0,\,\vert x − a\vert\leq\delta\,\Longrightarrow\,\vert f(x) − L\vert\leq\epsilon\).</blockquote></p>
+
+
+<p>And in practice, most mathematicians use a mix of both when thinking or teaching:</p>
+
+<blockquote><p>For any small error \(\epsilon\), we can find a range \(\delta\) so that whenever \(x\) is within \(\delta\) of \(a\), \(f(x)\) stays within \(\epsilon\) of \(L\).</p></blockquote>
+
+<p>Each version captures the same core idea, but they speak to different audiences and serve different purposes&mdash;intuition, rigor, or communication. The Bourbaki style favored the most formal, symbolic version, where ambiguity is impossible but accessibility can suffer.</p>
+
+<p>In high school, we usually encounter the plain English version. We talk about “getting close” or “approaching a value,” and that’s often enough to grasp the core idea.</p>
+
+<p>By the time we reach the first years of university, we learn how to rewrite those ideas using the precise machinery of logic and quantifiers. It can feel like learning a new language&mdash;one with no room for vagueness, but also less space for intuition.</p>
+
+<p>Then, in graduate school, something surprising happens: we start mixing the two. A well-trained mathematician will switch fluidly between rigor and intuition, between formal statements and verbal sketches. A proof might begin with a diagram and a few sentences in English, dive into a page of symbols, and end with a sentence like “and so we’re done.”</p>
+
+<p>This blend isn’t a failure of rigor&mdash;it’s a mark of fluency. And yet, the Bourbaki tradition often treats only the formal register as truly mathematical.</p>
+
+<h2>Rigor in mathematical writing</h2>
+
+<p>That mindset has consequences&mdash;not just in how mathematics is taught in France, but also in how it’s written. Both French textbooks and research papers tend to adopt an extremely terse, notation-heavy style, with minimal exposition or story-telling. The result is dense, compact, and often impenetrable to the uninitiated.</p>
+
+<p>It’s not just a question of clarity&mdash;it’s a question of style, culture, and what we think mathematical writing should do. In the French tradition, if a paragraph contains more words than symbols, it starts to feel suspiciously verbose. In contrast, Anglo-American papers often aim for a balance between notation and narrative, guiding the reader through the logic rather than expecting them to reconstruct it from raw expressions.</p>
+
+<p>Of course, compactness has its virtues&mdash;it can be elegant, efficient, and precise. But when it comes at the expense of accessibility, communication suffers. Mathematics is already hard. We don’t need to make it harder with a style that hides ideas behind walls of notation.</p>
+
+<h2>The cult of definitions</h2>
+
+<p>Beyond the obsession with formal logic, there’s another hallmark of the French mathematical style: a deep, almost compulsive need to define everything.</p>
+
+<p>In a typical French undergraduate program, we start from scratch. Week one: propositional logic, quantifiers, truth tables. Week two and three: elementary group theory. Then we painstakingly construct the real numbers from the rationals, which themselves were constructed from the integers, which came from the naturals. Only after all that groundwork, do we get to start analysis or algebra.</p>
+
+<p>Compare that to <i>Baby Rudin</i>&mdash;the classic American textbook. (Its real title is <i>Principles of Mathematical Analysis</i>. Pun very much intended.) Rudin opens with a refreshingly honest sentence: “We shall not enter into any discussion of the axioms that govern the arithmetic of integers, but assume familiarity with the rational numbers.” No apologies, no constructions, no set theory detours. The point isn’t that the construction of \(\mathbb{R}\) is unimportant&mdash;it’s that analysis is the main story.</p>
+
+<p>It’s a small example, but it reveals a broader cultural difference. In the French style, you don’t touch a theorem until you’ve built the entire scaffold beneath it. In the Anglo-American style, you’re allowed to see the landscape before learning how to pave the road.</p>
+
+<h2>Rigor vs. reality</h2>
+
+<p>This difference in approach isn’t just pedagogical&mdash;it reflects a deeper philosophy about what mathematics <i>is</i>. In the French tradition, there’s a sense that we must define every object, justify every step, and rebuild every tower from its foundations. No shortcuts, no assumptions, no room for ambiguity.</p>
+
+<p>But in practice&mdash;especially in research&mdash;we don’t always work that way. We write for a community that shares a common background, a shared mathematical culture. We assume our readers know what a Banach space is, or what “compactly supported” means. We don’t re-define continuity every time we use it.</p>
+
+<p>As a recent <a href="https://www.quantamagazine.org/why-mathematical-proof-is-a-social-compact-20230831/" target="_blank">Quanta Magazine article</a> puts it, <i>“You can think of a proof as a social compact &mdash; a sort of mutual agreement between the author and their mathematical community.”</i> That compact means I don’t need to define every term or prove every lemma from scratch&mdash;because I trust that you, the reader, already speak the same language.</p>
+
+<p>Sometimes, mathematical rigor isn’t about saying everything&mdash;it’s about knowing what doesn’t need to be said.</p>
+
+<p>This philosophical split extends beyond how we teach and write&mdash;it shapes how we do research. In the French tradition, a typical approach might start from a known theorem and attempt to generalize it. You begin with theory and formal rigor, and only later explore algorithms, numerical experiments, and applications. In contrast, the Anglo-American style tends to lead with intuition. You try an idea, run a numerical experiment, play with your code. If the algorithm works&mdash;great. The priority is pragmatic: do something first, and only then figure out why it works. Theory can come later. (I touched on this in a <a href="https://hadrien-montanelli.github.io/2025-05-25.html">previous</a> blog post on theory vs practice.)</p>
+
+<p>An extreme example of this intuition-first mindset is Srinivasa Ramanujan. Working largely in isolation and with no formal training, he produced thousands of formulas, identities, and conjectures&mdash;many of which were years ahead of their time. His notebooks were filled with stunning results, often stated without proofs. Some were later proved by others; a few remain mysterious.</p>
+
+<p>Of course, most of us live somewhere between the two extremes. But it’s worth recognizing that there are multiple valid paths through mathematics. One begins with formalism and builds upward. The other starts with a feeling, an idea, a sketch&mdash;and only afterward puts the house in order. Both can lead to beauty. Both can lead to truth.</p>
+
+<h2>Anecdotes from the front lines</h2>
+
+<p>Over the years, I’ve had countless reminders&mdash;sometimes funny, sometimes frustrating&mdash;of just how deep these cultural patterns run.</p>
+
+<p>One that sticks with me happened during an informal conversation with some colleagues. I was describing an idea&mdash;nothing too technical, just sketching out the motivation and rough structure of a problem. After a few minutes of me talking about the setup, one of them looked impatient and finally said, “Yes, but what are the equations?” He literally could not process or engage with the idea until it was expressed in symbolic form. The story, the context, the motivation&mdash;all were just noise until the math appeared.</p>
+
+<p>I also remember my first-year undergraduate professor, who refused to draw a diagram of an orthogonal projection. “It’s in <i>n</i> dimensions,” he said. “There’s no point trying to visualize it.” That response has always stayed with me. It wasn’t just a personal quirk&mdash;it was a pedagogical stance, born of a tradition that treats geometry and visual intuition as dangerously imprecise.</p>
+
+<p>And then there was the time I was giving a talk&mdash;aimed at a general audience of applied mathematicians&mdash;and someone interrupted me mid-slide. “You haven’t listed all your assumptions!” they said. But it was a warm-up slide, and the assumptions were entirely standard for the context. Still, the expectation was that every detail be written explicitly, even at the cost of disrupting the flow or obscuring the main idea.</p>
+
+<h2>Why diversity matters</h2>
+
+<p>These moments can be annoying in the moment, but they also reflect a deeper truth: we are shaped by the mathematical cultures we grow up in. That’s why it’s so important to travel&mdash;to work in different countries, to listen to different voices, to be humbled by different ways of doing things. It’s one of the most important things I’ve learned. It opens your eyes to different mathematical cultures, different teaching styles, different assumptions about what needs to be said and what can go unsaid. It teaches humility&mdash;the ability to recognize that there are other ways of doing mathematics, and that yours isn’t necessarily the best or only one.</p>
+
+<p>A <i>France 2</i> video about Oxford captures this beautifully: a researcher explains that in her lab, there are about 15 to 20 researchers and nearly as many nationalities. This diversity isn’t just cosmetic&mdash;it brings a diversity of ideas, habits, and intuitions. You can watch it <a href="https://www.youtube.com/watch?v=E7V3e9inopE&ab_channel=FranceTVLondres" target="_blank">here</a>.</p>
+
+<p>It’s valuable for French students and researchers to spend time abroad, to gain new perspectives and experience different ways of doing mathematics. But just as important is the need for French labs to be more open and welcoming to researchers trained elsewhere. Diversity of background brings diversity of thought&mdash;and that can only enrich the mathematical community. More on this in post seven, when Mount Etna finally erupts.</p>

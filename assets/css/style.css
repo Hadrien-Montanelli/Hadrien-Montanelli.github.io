@@ -15,38 +15,40 @@ body {
     font-size: 16px;
 }
 
-<style>
-  .subscribe-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    align-items: center;
-    margin-top: 1rem;
-  }
+/*---------------------------------------
+    Subscriptions     
+-----------------------------------------*/
 
-  .embeddable-buttondown-form input[type="email"] {
-    padding: 6px 10px;
-    font-size: 14px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-  }
+.subscribe-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: center;
+  margin-top: 1rem;
+}
 
-  .embeddable-buttondown-form input[type="submit"],
-  .rss-button {
-    background-color: #eee;
-    border: 1px solid #ccc;
-    padding: 6px 12px;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 14px;
-    transition: background-color 0.2s;
-  }
+.embeddable-buttondown-form input[type="email"] {
+  padding: 6px 10px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
 
-  .embeddable-buttondown-form input[type="submit"]:hover,
-  .rss-button:hover {
-    background-color: #ddd;
-  }
-</style>
+.embeddable-buttondown-form input[type="submit"],
+.rss-button {
+  background-color: #eee;
+  border: 1px solid #ccc;
+  padding: 6px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.2s;
+}
+
+.embeddable-buttondown-form input[type="submit"]:hover,
+.rss-button:hover {
+  background-color: #ddd;
+}
 
 /*---------------------------------------
     Tags in publications        
