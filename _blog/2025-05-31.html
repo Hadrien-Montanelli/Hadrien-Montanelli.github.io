@@ -1,0 +1,82 @@
+---
+layout: post
+title: The unrational rise of SciML and PINNs
+date: 2025-05-31
+tags: [research life]
+permalink: 2025-05-31.html
+---
+<p>Welcome to the fifth entry in my <i>Holiday in Sicily</i> series. As I sip a strong espresso under the Etna sun, I can’t help but feel it: the eruption is getting closer. Not just from Etna&mdash;though it’s rumbling again&mdash;but from the growing volcano in computational science. I’m talking about Scientific Machine Learning (SciML) and its most explosive crater: Physics-Informed Neural Networks (PINNs).</p>
+
+<h2>What are SciML and PINNs?</h2>
+
+<p>At its core, SciML is the blend of traditional scientific computing (think numerical linear algebra, differential equations, optimization) with machine learning techniques. The goal? Learn from data and physics. It’s a natural step forward for computational scientists in the era of data-driven models.</p>
+
+<p>Among its many algorithms, PINNs are arguably the flashiest. Introduced by <a href="https://www.sciencedirect.com/science/article/abs/pii/S0021999118307125">Raissi et al.</a> in 2019, PINNs solve PDEs by turning them into loss functions for neural networks. Instead of assembling a stiffness matrix or computing fluxes across volumes, you just minimize a loss that penalizes deviation from the PDE&mdash;using automatic differentiation and PyTorch or TensorFlow.</p>
+
+<h2>Explosive popularity</h2>
+
+<p>How hot is it? PINNs are scorching. They’ve already surpassed the Fast Multipole Method (FMM) in citations and are catching up to the Fast Fourier Transform (FFT)&mdash;two of the most celebrated algorithms of the 20th century, and personal favorites of mine:</p>
+<ul>
+	<li>Cooley and Tukey’s FFT (1965): ~21,000.</li>
+	<li>Raissi’s original PINNs paper (2019): ~16,000.</li>
+	<li>Greengard and Rokhlin’s FMM (1987): ~7,000.</li>
+</ul>
+
+<p>But it’s not just citations. On LinkedIn, debates over PINNs are as passionate as they are polarizing. You’ll find postdocs promoting “PINN 2.0” architectures, industry labs claiming real-world applications, and grumpy seniors complaining about their instability.</p>
+
+<h2>Why are they so popular?</h2>
+
+<p>Let’s try to be rational. Here’s my take:</p>
+<ul>
+	<li><b>Generic over specialized.</b><br>Classical methods&mdash;<a href="https://en.wikipedia.org/wiki/Finite_element_method">FEM</a>, <a href="https://en.wikipedia.org/wiki/Finite_volume_method">FVM</a>, <a href="https://en.wikipedia.org/wiki/Finite_difference">FD</a>&mdash;are tailored to specific PDEs and geometries, and they require careful discretization. PINNs promise a one-size-fits-all approach. Just rewrite the PDE loss&mdash;Laplace, Helmholtz, Navier&ndash;Stokes&mdash;same codebase.</li>
+	<li><b>Simple math over advanced math.</b><br>Classical methods rely on advanced tools from PDEs, functional analysis, and numerical approximation. PINNs can be taught after a basic calculus and Python course. (It doesn’t help that FEM&mdash;especially in France, under the <a href="https://hadrien-montanelli.github.io/2025-05-29.html">long shadow of Bourbarki</a>&mdash;is still taught abstractly, starting with distributions and Sobolev spaces, with little focus on implementation.)</li>
+	<li><b>Accessible tooling.</b><br>With PyTorch and TensorFlow, it’s easier than ever to experiment.</li>
+	<li><b>Funding and fame.</b><br>Let’s be honest&mdash;it’s the first time numerical analysts get this much attention. The buzz brings grants, citations, and job offers.</li>
+</ul>
+
+<p>In a world where success is often measured by adoption and citations, PINNs seem to be a win. But that brings us to a deeper question: what is science for? Is it about writing technically correct, Bourbaki-style papers that no one reads? Or is it for spreading ideas, teaching, and energizing the community? PINNs undeniably brought people in. That matters.</p>
+
+<h2>But… they struggle</h2>
+
+<p>The reality is more complex. Despite the buzz, PINNs often fail to deliver on benchmarks. A recent <a href="https://arxiv.org/pdf/2407.07218">methodical benchmarking study</a> highlighted serious issues: weak baselines, inconsistent reporting, and disappointing performance compared to traditional solvers. Or consider <a href="https://www.understandingai.org/p/i-got-fooled-by-ai-for-science-hypeheres" target="_blank">this honest blog post</a> by a grad student in astrophysics who fell for the hype&mdash;then ran into a wall. Following that post, things got especially heated on LinkedIn, with people <a href="https://www.linkedin.com/posts/tammy-kolda-a82b6b1_i-got-fooled-by-ai-for-science-hypeheres-activity-7330242428655886336-UCl_/">openly clashing</a>.</p>
+
+<p>And yet, the papers keep piling up&mdash;like villagers reinforcing old walls, hoping they’ll hold when the eruption comes. One patch after another on an architecture many suspect is fundamentally unstable.</p>
+
+<h2>PINNs are still great for teaching</h2>
+
+<p>Let’s not throw everything away. PINNs shine in the classroom. We still teach FD methods for space discretization&mdash;even though few people actually use them in practice. Why not teach PINNs? They offer:</p>
+<ul>
+	<li>A clear link between applied math, physics, and ML.</li>
+	<li>A way to get students fluent in Python and PyTorch, and in thinking about PDEs and differential operators.</li>
+	<li>Motivation for studying consistency, stability, and convergence&mdash;albeit in new contexts.</li>
+</ul>
+
+<h2>My personal journey with SciML</h2>
+
+<p>I came to SciML not via PDEs but through approximation theory. It <a href="https://hadrien-montanelli.github.io/2017-12-22.html">started</a> with approximations in Korobov spaces, inspired by Yarotsky’s work in Sobolev spaces. Later, I <a href="https://hadrien-montanelli.github.io/2019-06-25.html">explored</a> the Kolmogorov&ndash;Arnold superposition theorem.
+
+<p>These works felt theoretical at the time&mdash;but they later inspired practical architectures like <a href="https://arxiv.org/abs/2404.19756">KAN</a>, which like PINNs, exploded in popularity almost overnight and generated <a href="https://www.linkedin.com/posts/george-karniadakis-9b499853_kan-are-the-claims-true-we-asked-one-of-activity-7196684191479070721-dqWq/">heated debates</a>. (This is an example where theory precedes practice, and <a href="https://hadrien-montanelli.github.io/2025-05-25.html">talk to each other</a>.) I missed the practical trick that made implementation efficient: stacking multiple layers and iterating. As a numerical analyst, I should’ve guessed&mdash;iteration is the heart of so many methods.</p>
+
+<p>Then, this year, I launched a <a href="https://hadrien-montanelli.github.io/2025-03-24.html">SciML course</a> at École Polytechnique. It was a rewarding experience. Today, I’m working with a brilliant PhD student, Victor, on regularizing the Linear Sampling Method using neural operators. It works surprisingly well. Victor’s writing up his first paper now.
+
+<h2>Rational optimism, not dogma</h2>
+
+<p>In science, we must remain rational, not emotional. Some people are irrationally for PINNs&mdash;hyped beyond evidence. Others are irrationally against&mdash;rejecting anything AI-flavored on principle.</p>
+
+<p>At work, I often hear: “AI consumes too much electricity! ChatGPT is catastrophic!” But let’s put things in context.</p>
+
+<p>Say a single ChatGPT query gives you the answer you need. It consumes about <strong>1.5 Wh</strong> on the server side. (This is a very conservative estimate&mdash;GPT-4o appears to be significantly more efficient.) If it takes 10 seconds to read and process on your laptop (drawing <strong>50 Wh</strong>), that adds around <strong>0.14 Wh</strong>. Total: <strong>~1.64 Wh</strong>.</p>
+
+<p>Now compare that with Google. Each search uses about <strong>0.3 Wh</strong> server-side. Suppose you need 3 queries and spend 3 minutes browsing—totaling <strong>0.9 Wh</strong> server-side, plus <strong>2.5 Wh</strong> from your laptop. Total: <strong>~3.4 Wh</strong>.</p>
+
+<p>Used efficiently, ChatGPT can be up to <em>twice</em> as energy-efficient for certain tasks. The real issue isn’t the tool&mdash;it’s the usage. If you fire off 10 prompts a minute, yes, it adds up. But thoughtful use can save both time and energy.</p>
+
+<p>More broadly, let’s consider history. The printing press democratized access to information. The Industrial Revolution increased productivity through mechanization. The telegraph and telephone collapsed distances and accelerated communication. The Internet transformed how we share and retrieve knowledge. Now, AI is speeding up technical workflows—from writing code and analyzing data to formulating and testing scientific models. It’s not an anomaly; it’s a natural continuation.</p>
+
+<p>Yes, AI must be efficient and responsible&mdash;but we shouldn’t dismiss progress just because it’s imperfect. For example, I do believe neural operators can make a real impact. That said, too many papers and talks still avoid fair comparisons: they often benchmark against single-instance solvers like FEM, rather than their true competitor&mdash;<a href="https://en.wikipedia.org/wiki/Model_order_reduction">Model Order Reduction</a>.</p>
+
+<h2>Watching the volcanos</h2>
+
+<p>So, here I am in Sicily, watching both Etna and SciML rumble. Both are beautiful, unstable, and sometimes dangerous. Both inspire awe and fear. And both may shape the future&mdash;even if we don’t know how.</p>
+
+<p>Let’s stay curious, critical, and open. Not irrationally for, not irrationally against. Just rationally engaged.</p>
