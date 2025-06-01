@@ -29,7 +29,7 @@ permalink: 2025-05-31.html
 <p>Let’s try to be rational. Here’s my take:</p>
 <ul>
 	<li><b>Generic over specialized.</b><br>Classical methods&mdash;<a href="https://en.wikipedia.org/wiki/Finite_element_method">FEM</a>, <a href="https://en.wikipedia.org/wiki/Finite_volume_method">FVM</a>, <a href="https://en.wikipedia.org/wiki/Finite_difference">FD</a>&mdash;are tailored to specific PDEs and geometries, and they require careful discretization each time. PINNs promise a one-size-fits-all approach. Just rewrite the PDE loss&mdash;Laplace, Helmholtz, Navier&ndash;Stokes&mdash;same codebase.</li>
-	<li><b>Simple math over advanced math.</b><br>Classical methods rely on advanced tools from PDEs, functional analysis, and numerical approximation. PINNs can be taught after a basic calculus and Python course. (It doesn’t help that FEM&mdash;especially in France, under the <a href="https://hadrien-montanelli.github.io/2025-05-29.html">long shadow of Bourbarki</a>&mdash;is still taught abstractly, starting with distributions and Sobolev spaces, with little focus on implementation.)</li>
+	<li><b>Simple math over advanced math.</b><br>Classical methods rely on advanced tools from PDEs, functional analysis, and numerical approximation. PINNs can be taught after a basic calculus and Python course. (It doesn’t help that FEM&mdash;especially in France, under the <a href="https://hadrien-montanelli.github.io/2025-05-29.html">long shadow of Bourbaki</a>&mdash;is still taught abstractly, starting with distributions and Sobolev spaces, with little focus on implementation.)</li>
 	<li><b>Accessible tooling.</b><br>With PyTorch and TensorFlow, it’s easier than ever to experiment.</li>
 	<li><b>Funding and fame.</b><br>Let’s be honest&mdash;it’s the first time numerical analysts get this much attention. The buzz brings grants, citations, and job offers.</li>
 </ul>
@@ -53,7 +53,7 @@ permalink: 2025-05-31.html
 
 <h2>My personal journey with SciML</h2>
 
-<p>I came to SciML not via PDEs but through approximation theory. It <a href="https://hadrien-montanelli.github.io/2017-12-22.html">started</a> with approximations in Korobov spaces, inspired by Yarotsky’s work in Sobolev spaces. Later, I <a href="https://hadrien-montanelli.github.io/2019-06-25.html">explored</a> the Kolmogorov&ndash;Arnold superposition theorem.
+<p>I came to SciML not via PDEs but through approximation theory. It <a href="https://hadrien-montanelli.github.io/2017-12-22.html">started</a> with approximations in Korobov spaces, inspired by Yarotsky’s work in Sobolev spaces. Later, I <a href="https://hadrien-montanelli.github.io/2019-06-25.html">explored</a> the Kolmogorov&ndash;Arnold superposition theorem.</p>
 
 <p>These works felt theoretical at the time&mdash;but they later inspired practical architectures like <a href="https://arxiv.org/abs/2404.19756">KAN</a>, which like PINNs, exploded in popularity almost overnight and generated <a href="https://www.linkedin.com/posts/george-karniadakis-9b499853_kan-are-the-claims-true-we-asked-one-of-activity-7196684191479070721-dqWq/">heated debates</a>. (This is an example where theory precedes practice, and <a href="https://hadrien-montanelli.github.io/2025-05-25.html">talk to each other</a>.) I missed the practical trick that made implementation efficient: stacking multiple layers and iterating. As a numerical analyst, I should’ve guessed&mdash;iteration is the heart of so many methods.</p>
 
