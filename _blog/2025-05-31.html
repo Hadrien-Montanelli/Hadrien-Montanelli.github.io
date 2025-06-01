@@ -38,7 +38,7 @@ permalink: 2025-05-31.html
 
 <h2>But… they struggle</h2>
 
-<p>The reality is more complex. Despite the buzz, PINNs often fail to deliver on benchmarks. A recent <a href="https://arxiv.org/pdf/2407.07218">methodical benchmarking study</a> highlighted serious issues: weak baselines, inconsistent reporting, and disappointing performance compared to traditional solvers. Or consider <a href="https://www.understandingai.org/p/i-got-fooled-by-ai-for-science-hypeheres" target="_blank">this honest blog post</a> by a grad student in astrophysics who fell for the hype&mdash;then ran into a wall. Following that post, things got especially heated on LinkedIn, with people <a href="https://www.linkedin.com/posts/tammy-kolda-a82b6b1_i-got-fooled-by-ai-for-science-hypeheres-activity-7330242428655886336-UCl_/">openly clashing</a>.</p>
+<p>The reality is more complex. Despite the buzz, PINNs often fail to deliver on benchmarks. A recent <a href="https://arxiv.org/abs/2407.07218">methodical benchmarking study</a> highlighted serious issues: weak baselines, inconsistent reporting, and disappointing performance compared to traditional solvers. Or consider <a href="https://www.understandingai.org/p/i-got-fooled-by-ai-for-science-hypeheres" target="_blank">this honest blog post</a> by a grad student in astrophysics who fell for the hype&mdash;then ran into a wall. Following that post, things got especially heated on LinkedIn, with people <a href="https://www.linkedin.com/posts/tammy-kolda-a82b6b1_i-got-fooled-by-ai-for-science-hypeheres-activity-7330242428655886336-UCl_/">openly clashing</a>.</p>
 
 <p>And yet, the papers keep piling up&mdash;like villagers reinforcing old walls, hoping they’ll hold when the eruption comes. One patch after another on an architecture many suspect is fundamentally unstable.</p>
 
@@ -57,7 +57,7 @@ permalink: 2025-05-31.html
 
 <p>These works felt theoretical at the time&mdash;but they later inspired practical architectures like <a href="https://arxiv.org/abs/2404.19756">KAN</a>, which like PINNs, exploded in popularity almost overnight and generated <a href="https://www.linkedin.com/posts/george-karniadakis-9b499853_kan-are-the-claims-true-we-asked-one-of-activity-7196684191479070721-dqWq/">heated debates</a>. (This is an example where theory precedes practice, and <a href="https://hadrien-montanelli.github.io/2025-05-25.html">talk to each other</a>.) I missed the practical trick that made implementation efficient: stacking multiple layers and iterating. As a numerical analyst, I should’ve guessed&mdash;iteration is the heart of so many methods.</p>
 
-<p>Then, this year, I launched a <a href="https://hadrien-montanelli.github.io/2025-03-24.html">SciML course</a> at École Polytechnique. It was a rewarding experience. Today, I’m working with a brilliant PhD student, Victor, on regularizing the Linear Sampling Method using neural operators. It works surprisingly well. Victor’s writing up his first paper now.
+<p>Then, this year, I launched a <a href="https://hadrien-montanelli.github.io/2025-03-24.html">SciML course</a> at École Polytechnique. It was a rewarding experience. Today, I’m working with a brilliant PhD student, Victor, on regularizing the Linear Sampling Method using neural operators, a class of SciML algorithms designed to learn mappings between function spaces. It works surprisingly well. Victor’s writing up his first paper now.</p>
 
 <h2>Rational optimism, not dogma</h2>
 
@@ -65,15 +65,15 @@ permalink: 2025-05-31.html
 
 <p>At work, I often hear: “AI consumes too much electricity! ChatGPT is catastrophic!” But let’s put things in context.</p>
 
-<p>Say a single ChatGPT query gives you the answer you need. It consumes about <strong>1.5 Wh</strong> on the server side. (This is a very conservative estimate&mdash;GPT-4o appears to be significantly more efficient.) If it takes 10 seconds to read and process on your laptop (drawing <strong>50 Wh</strong>), that adds around <strong>0.14 Wh</strong>. Total: <strong>~1.64 Wh</strong>.</p>
+<p>Say a single ChatGPT query gives you the answer you need. It consumes about <strong>1.5 Wh</strong> on the server side. (This is a very conservative estimate&mdash;GPT-4o appears to be significantly more efficient.) If it takes 10 seconds to read and process on your laptop (drawing <strong>50 W</strong>), that adds around <strong>0.14 Wh</strong>. Total: <strong>~1.64 Wh</strong>.</p>
 
-<p>Now compare that with Google. Each search uses about <strong>0.3 Wh</strong> server-side. Suppose you need 3 queries and spend 3 minutes browsing—totaling <strong>0.9 Wh</strong> server-side, plus <strong>2.5 Wh</strong> from your laptop. Total: <strong>~3.4 Wh</strong>.</p>
+<p>Now compare that with Google. Each search uses about <strong>0.3 Wh</strong> server-side. Suppose you need 3 queries and spend 3 minutes browsing&mdash;totaling <strong>0.9 Wh</strong> server-side, plus <strong>2.5 Wh</strong> from your laptop. Total: <strong>~3.4 Wh</strong>.</p>
 
 <p>Used efficiently, ChatGPT can be up to <em>twice</em> as energy-efficient for certain tasks. The real issue isn’t the tool&mdash;it’s the usage. If you fire off 10 prompts a minute, yes, it adds up. But thoughtful use can save both time and energy.</p>
 
 <p>More broadly, let’s consider history. The printing press democratized access to information. The Industrial Revolution increased productivity through mechanization. The telegraph and telephone collapsed distances and accelerated communication. The Internet transformed how we share and retrieve knowledge. Now, AI is speeding up technical workflows—from writing code and analyzing data to formulating and testing scientific models. It’s not an anomaly; it’s a natural continuation.</p>
 
-<p>Yes, AI must be efficient and responsible&mdash;but we shouldn’t dismiss progress just because it’s imperfect. For example, I do believe neural operators can make a real impact. That said, too many papers and talks still avoid fair comparisons: they often benchmark against single-instance solvers like FEM, rather than their true competitor&mdash;<a href="https://en.wikipedia.org/wiki/Model_order_reduction">Model Order Reduction</a>.</p>
+<p>Yes, AI must be efficient and responsible&mdash;but we shouldn’t dismiss progress just because it’s imperfect. Going back to SciML, I do believe that neural operators can make a real impact. That said, too many papers and talks still avoid fair comparisons: they often benchmark against single-instance solvers like FEM, rather than their true competitor&mdash;<a href="https://en.wikipedia.org/wiki/Model_order_reduction">Model Order Reduction</a>.</p>
 
 <h2>Watching the volcanos</h2>
 
