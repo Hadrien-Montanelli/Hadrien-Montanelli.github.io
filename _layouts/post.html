@@ -51,7 +51,7 @@
               {% assign related = related | concat: tagged_posts %}
             {% endfor %}
             {% assign related = related | uniq | sort: "date" | reverse %}
-            {% for post in related limit: 5 %}
+            {% for post in related limit: 10 %}
               <li>{{ post.date | date: "%Y" }} &nbsp; <a href="{{ post.url }}">{{ post.title }}</a></li>
             {% endfor %}
           </ul>
