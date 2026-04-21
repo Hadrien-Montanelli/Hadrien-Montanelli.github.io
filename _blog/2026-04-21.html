@@ -1,0 +1,132 @@
+---
+layout: post
+title: A nonlocal Stokes theorem
+date: 2026-04-21
+tags: [spectral methods]
+permalink: 2026-04-21.html
+---
+
+<p>Some good news: our paper <em>“Nonlocal vector calculus on the sphere</em>,” joint with <a href="https://home.cc.umanitoba.ca/~slevinrm/" target="_blank">Richard Mikaël Slevinsky</a> and <a href="https://www.columbia.edu/~qd2125/" target="_blank">Qiang Du</a>, has just been accepted for publication in <a href="https://www.worldscientific.com/worldscinet/m3as" target="_blank">M3AS</a>.</p>
+
+<p>This post is a short attempt to explain what we did, and in particular what I think is the most interesting result: a nonlocal version of Stokes’ theorem on the sphere.</p>
+
+<h2>Why nonlocal?</h2>
+
+<p>Classical vector calculus is local. <a href="https://en.wikipedia.org/wiki/Gradient" target="_blank">Gradients</a>, <a href="https://en.wikipedia.org/wiki/Divergence" target="_blank">divergences</a>, <a href="https://en.wikipedia.org/wiki/Curl_(mathematics)" target="_blank">curls</a>—they all depend on <a href="https://en.wikipedia.org/wiki/Derivative" target="_blank">derivatives</a>, and therefore on what happens <em>infinitesimally</em> close to a point. This works beautifully when functions are smooth and the geometry is simple.</p>
+
+<p>But in many applications—materials science, peridynamics, data analysis—you don’t want locality. You want interactions over a finite distance. Points “talk” to each other across a neighborhood, not just through derivatives.</p>
+
+<p>This leads to nonlocal operators: instead of derivatives, you integrate differences over a region. The price you pay is that the clean structure of vector calculus starts to break down. The gain is that you can model much richer phenomena.</p>
+
+<p>The question is then: can we rebuild a consistent vector calculus in this nonlocal setting?</p>
+
+<h2>Doing this on the sphere</h2>
+
+<p>Doing nonlocal calculus in flat space is already nontrivial. Doing it on a curved surface like the sphere adds another layer of difficulty.</p>
+
+<p>On the sphere, everything is constrained to the tangent plane. Even defining something as simple as a “difference between two points” requires care, because vectors live in different tangent spaces.</p>
+
+<p>What we do in the paper is to define nonlocal analogues of the classical operators—gradient, divergence, curl—using carefully constructed integral kernels that respect the geometry of the sphere.</p>
+
+<p>The key idea is that these operators can still be analyzed using <a href="https://en.wikipedia.org/wiki/Spherical_harmonics" target="_blank">spherical harmonics</a>. In fact, one of the main technical results is that they are diagonal in that basis. This makes the analysis much cleaner than one might expect.</p>
+
+<h2>A nonlocal Stokes theorem</h2>
+
+<p>The highlight of the paper, at least to me, is the following: we prove a nonlocal Stokes theorem on the sphere.</p>
+
+<p>In the classical setting, <a href="https://en.wikipedia.org/wiki/Stokes%27_theorem" target="_blank">Stokes’ theorem</a> relates the circulation of a vector field along a boundary to the curl of the field inside the surface. It is one of the cornerstones of vector calculus.</p>
+
+<p>In the nonlocal setting, there is no obvious reason why such a theorem should exist. The operators are defined by integrals, not derivatives, and the usual geometric identities do not carry over directly.</p>
+
+<h2>The mathematics of the nonlocal Stokes theorem</h2>
+
+<p>Let \(\Sigma \subset S^2\) be a spherical patch with boundary \(\partial \Sigma\), and let \(\boldsymbol{s}\) denote the unit tangent vector along \(\partial \Sigma\). In the classical setting, Stokes’ theorem reads</p>
+
+<p>\[
+\int_{\Sigma} (\nabla \times \boldsymbol{V}) \cdot \boldsymbol{x}\, d\Omega
+=
+\int_{\partial \Sigma} \boldsymbol{V}\cdot \boldsymbol{s}\, d\omega.
+\]</p>
+
+<p>In our paper, the nonlocal operators are built from kernels adapted to the geometry of the sphere. We restrict attention to antisymmetric kernels of the form</p>
+
+<p>\[
+\boldsymbol{\beta}(\boldsymbol{x},\boldsymbol{y})
+=
+\nabla_{\boldsymbol{x}} \gamma(\boldsymbol{x}\cdot \boldsymbol{y})
+-
+\nabla_{\boldsymbol{y}} \gamma(\boldsymbol{x}\cdot \boldsymbol{y})
+=
+\gamma'(\boldsymbol{x}\cdot \boldsymbol{y})\,(\boldsymbol{y}-\boldsymbol{x}),
+\]</p>
+
+<p>where \(\gamma\) is a scalar kernel depending only on the dot product \(\boldsymbol{x}\cdot \boldsymbol{y}\).</p>
+
+<p>To localize interactions to a finite horizon \(\delta>0\), we choose</p>
+
+<p>\[
+\omega_\delta(\boldsymbol{x},\boldsymbol{y})=\chi_{[0,\delta]}(|\boldsymbol{x}-\boldsymbol{y}|),
+\qquad
+\gamma_\delta(\boldsymbol{x}\cdot \boldsymbol{y})
+=
+\gamma(\boldsymbol{x}\cdot \boldsymbol{y})\,\omega_\delta(\boldsymbol{x},\boldsymbol{y}),
+\]</p>
+
+<p>and then set</p>
+
+<p>\[
+\boldsymbol{\beta}_\delta(\boldsymbol{x},\boldsymbol{y})
+=
+\gamma_\delta'(\boldsymbol{x}\cdot \boldsymbol{y})\,(\boldsymbol{y}-\boldsymbol{x}).
+\]</p>
+
+<p>With this notation, the weighted nonlocal curl of a vector field \(\boldsymbol{V}\) is</p>
+
+<p>\[
+C^\delta\{\boldsymbol{V}\}(\boldsymbol{x})
+=
+\int_{S^2}
+\boldsymbol{\beta}_\delta(\boldsymbol{x},\boldsymbol{y})
+\times
+\bigl[\boldsymbol{V}(\boldsymbol{y})-\boldsymbol{V}(\boldsymbol{x})\bigr]\,
+d\Omega(\boldsymbol{y}).
+\]</p>
+
+<p>The remarkable fact is that this nonlocal curl satisfies a Stokes-type identity. More precisely, if we define the averaging operator</p>
+
+<p>\[
+A^\delta\{\boldsymbol{V}\}(\boldsymbol{x})
+=
+\int_{S^2}
+\gamma_\delta(\boldsymbol{x}\cdot \boldsymbol{y})\,
+\boldsymbol{V}(\boldsymbol{y})\,
+d\Omega(\boldsymbol{y}),
+\]</p>
+
+<p>then one proves that</p>
+
+<p>\[
+\int_{\Sigma} C^\delta\{\boldsymbol{V}\}\cdot \boldsymbol{x}\,d\Omega
+=
+\int_{\partial\Sigma} A^\delta\{\boldsymbol{V}\}\cdot \boldsymbol{s}\,d\omega.
+\]</p>
+
+<p>The structure is very close to the classical theorem, but with an important difference: the boundary term involves the averaged field \(A^\delta\{\boldsymbol{V}\}\) rather than \(\boldsymbol{V}\) itself. This reflects the nonlocal nature of the model.</p>
+
+<p>The key mechanism behind this result is that the nonlocal operators are diagonal in the basis of vector spherical harmonics. This makes it possible to prove the identity</p>
+
+<p>\[
+C^\delta\{\boldsymbol{V}\}\cdot \boldsymbol{x}
+=
+(\nabla\times A^\delta\{\boldsymbol{V}\})\cdot \boldsymbol{x},
+\]</p>
+
+<p>and once this is established, the nonlocal Stokes theorem follows by applying the usual local Stokes theorem to the averaged field \(A^\delta\{\boldsymbol{V}\}\).</p>
+
+<p>Finally, as \(\delta\to 0\), the interaction range shrinks, the averaging disappears, and the nonlocal operators converge to the classical ones. In that limit, the nonlocal Stokes theorem becomes the usual Stokes theorem on the sphere.</p>
+
+<h2>Final thoughts</h2>
+
+<p>This project was a nice mix of geometry, analysis, and spectral methods. It also reinforced something I’ve come to appreciate more and more: many classical structures in mathematics are surprisingly robust. Even when you move to very different settings—nonlocal, curved—they often reappear in unexpected ways.</p>
+
+<p>And of course, it’s always nice when a paper finds a home. Thanks to my coauthors for a great collaboration, and to the editors for handling the submission.</p>
