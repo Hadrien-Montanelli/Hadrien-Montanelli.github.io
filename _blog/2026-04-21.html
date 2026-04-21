@@ -1,10 +1,11 @@
 ---
 layout: post
-title: A nonlocal Stokes theorem
+title: A nonlocal Stokes theorem on the sphere
 date: 2026-04-21
 tags: [spectral methods]
 permalink: 2026-04-21.html
 ---
+
 <p>Some good news: our paper <em>“Nonlocal vector calculus on the sphere</em>,” joint with <a href="https://home.cc.umanitoba.ca/~slevinrm/" target="_blank">Mikaël Slevinsky</a> and <a href="https://www.columbia.edu/~qd2125/" target="_blank">Qiang Du</a>, has just been accepted for publication in <a href="https://www.worldscientific.com/worldscinet/m3as" target="_blank">M3AS</a>. I’m particularly happy about this one—it’s a project where the mathematics turned out cleaner than expected, and the main idea is quite satisfying.</p>
 
 <p>This post is a short attempt to explain what we did, and in particular what I think is the most interesting result: a nonlocal version of Stokes’ theorem on the sphere.</p>
@@ -17,13 +18,17 @@ permalink: 2026-04-21.html
 
 <p>This leads to nonlocal operators: instead of derivatives, you integrate differences over a region. The price you pay is that the clean structure of vector calculus starts to break down. The gain is that you can model much richer phenomena.</p>
 
-<p>The question is then: can we rebuild a consistent vector calculus in this nonlocal setting?</p>
+<p>In flat space, this nonlocal framework is by now relatively well understood, and analogues of classical identities—including Stokes-type theorems—have already been developed.</p>
+
+<p>The question we ask here is slightly different: what happens when you try to do the same thing on a curved surface?</p>
 
 <h2>Doing this on the sphere</h2>
 
-<p>Doing nonlocal calculus in flat space is already nontrivial. Doing it on a curved surface like the sphere adds another layer of difficulty.</p>
+<p>Extending nonlocal calculus from flat space to a curved surface like the sphere is not just a technical step—it fundamentally changes the problem.</p>
 
-<p>On the sphere, everything is constrained to the tangent plane. Even defining something as simple as a “difference between two points” requires care, because vectors live in different tangent spaces.</p>
+<p>On the sphere, everything is constrained to the tangent plane. Vectors at different points live in different spaces, and there is no canonical way of comparing them. Even defining something as simple as a “difference between two points” requires care.</p>
+
+<p>This is where most of the difficulty lies. In flat space, geometry is invisible; on the sphere, it is everywhere.</p>
 
 <p>What we do in the paper is to define nonlocal analogues of the classical operators—gradient, divergence, curl—using carefully constructed integral kernels that respect the geometry of the sphere.</p>
 
@@ -35,7 +40,9 @@ permalink: 2026-04-21.html
 
 <p>In the classical setting, <a href="https://en.wikipedia.org/wiki/Stokes%27_theorem" target="_blank">Stokes’ theorem</a> relates the circulation of a vector field along a boundary to the curl of the field inside the surface. It is one of the cornerstones of vector calculus.</p>
 
-<p>In the nonlocal setting, there is no obvious reason why such a theorem should exist. The operators are defined by integrals, not derivatives, and the usual geometric identities do not carry over directly.</p>
+<p>Nonlocal versions of this theorem already exist in Euclidean space. The novelty here is to establish such a result on a curved surface. There is no a priori reason why the same structure should survive: curvature introduces additional geometric constraints.</p>
+
+<p>What we show is that, with the right definitions, a nonlocal Stokes-type identity still holds on the sphere.</p>
 
 <h2>The mathematics of the nonlocal Stokes theorem</h2>
 
@@ -91,7 +98,7 @@ C^\delta\{\boldsymbol{V}\}(\boldsymbol{x})
 d\Omega(\boldsymbol{y}).
 \]</p>
 
-<p>The remarkable fact is that this nonlocal curl satisfies a Stokes-type identity. More precisely, if we define the averaging operator</p>
+<p>The key result is that this nonlocal curl satisfies a Stokes-type identity on the sphere. More precisely, if we define the averaging operator</p>
 
 <p>\[
 A^\delta\{\boldsymbol{V}\}(\boldsymbol{x})
@@ -110,7 +117,7 @@ d\Omega(\boldsymbol{y}),
 \int_{\partial\Sigma} A^\delta\{\boldsymbol{V}\}\cdot \boldsymbol{s}\,d\omega.
 \]</p>
 
-<p>The structure is very close to the classical theorem, but with an important difference: the boundary term involves the averaged field \(A^\delta\{\boldsymbol{V}\}\) rather than \(\boldsymbol{V}\) itself. This reflects the nonlocal nature of the model.</p>
+<p>This can be seen as the curved analogue of nonlocal Stokes formulas in flat space. The structure is very similar, but with an important difference: the boundary term involves the averaged field \(A^\delta\{\boldsymbol{V}\}\), reflecting the nonlocal nature of the model.</p>
 
 <p>The key mechanism behind this result is that the nonlocal operators are diagonal in the basis of vector spherical harmonics. This makes it possible to prove the identity</p>
 
@@ -120,12 +127,14 @@ C^\delta\{\boldsymbol{V}\}\cdot \boldsymbol{x}
 (\nabla\times A^\delta\{\boldsymbol{V}\})\cdot \boldsymbol{x},
 \]</p>
 
-<p>and once this is established, the nonlocal Stokes theorem follows by applying the usual local Stokes theorem to the averaged field \(A^\delta\{\boldsymbol{V}\}\).</p>
+<p>and once this is established, the result follows by applying the usual local Stokes theorem to the averaged field.</p>
 
-<p>Finally, as \(\delta\to 0\), the interaction range shrinks, the averaging disappears, and the nonlocal operators converge to the classical ones. In that limit, the nonlocal Stokes theorem becomes the usual Stokes theorem on the sphere.</p>
+<p>Finally, as \(\delta\to 0\), the interaction range shrinks, the averaging disappears, and the nonlocal operators converge to the classical ones. In that limit, we recover the usual Stokes theorem on the sphere.</p>
 
 <h2>Final thoughts</h2>
 
-<p>This project was a nice mix of geometry, analysis, and spectral methods. It also reinforced something I’ve come to appreciate more and more: many classical structures in mathematics are surprisingly robust. Even when you move to very different settings—nonlocal, curved—they often reappear in unexpected ways.</p>
+<p>This project was a nice mix of geometry, analysis, and spectral methods. What I find most interesting is that the main difficulty is not the nonlocality itself—this is by now well understood in flat space—but the interaction between nonlocality and curvature.</p>
+
+<p>Many classical structures in mathematics are surprisingly robust. But they are not automatic: on a curved space, you have to work to make them reappear.</p>
 
 <p>And of course, it’s always nice when a paper finds a home. Thanks to my coauthors for a great collaboration, and to the editors for handling the submission.</p>
