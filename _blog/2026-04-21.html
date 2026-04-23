@@ -6,15 +6,15 @@ tags: [spectral methods]
 permalink: 2026-04-21.html
 ---
 
-<p>Some good news: our paper <em>“Nonlocal vector calculus on the sphere</em>,” joint with <a href="https://home.cc.umanitoba.ca/~slevinrm/" target="_blank">Mikaël Slevinsky</a> and <a href="https://www.columbia.edu/~qd2125/" target="_blank">Qiang Du</a>, has just been accepted for publication in <a href="https://www.worldscientific.com/worldscinet/m3as" target="_blank">M3AS</a>. I’m particularly happy about this one—it’s a project where the mathematics turned out cleaner than expected, and the main idea is quite satisfying.</p>
+<p>Some good news: our paper <em>“Nonlocal vector calculus on the sphere</em>,” joint with <a href="https://home.cc.umanitoba.ca/~slevinrm/">Mikaël Slevinsky</a> and <a href="https://www.columbia.edu/~qd2125/">Qiang Du</a>, has just been accepted for publication in <a href="https://www.worldscientific.com/worldscinet/m3as">M3AS</a>. I’m particularly happy about this one—it’s a project where the mathematics turned out cleaner than expected, and the main idea is quite satisfying. Check it out <a href="https://arxiv.org/pdf/2505.12372.pdf">here</a>!</p>
 
 <p>This post is a short attempt to explain what we did, and in particular what I think is the most interesting result: a nonlocal version of Stokes’ theorem on the sphere.</p>
 
 <h2>Why nonlocal?</h2>
 
-<p>Classical vector calculus is local. <a href="https://en.wikipedia.org/wiki/Gradient" target="_blank">Gradients</a>, <a href="https://en.wikipedia.org/wiki/Divergence" target="_blank">divergences</a>, <a href="https://en.wikipedia.org/wiki/Curl_(mathematics)" target="_blank">curls</a>—they all depend on <a href="https://en.wikipedia.org/wiki/Derivative" target="_blank">derivatives</a>, and therefore on what happens <em>infinitesimally</em> close to a point. This works beautifully when functions are smooth and the geometry is simple.</p>
+<p>Classical vector calculus is local. <a href="https://en.wikipedia.org/wiki/Gradient">Gradients</a>, <a href="https://en.wikipedia.org/wiki/Divergence">divergences</a>, <a href="https://en.wikipedia.org/wiki/Curl_(mathematics)">curls</a>—they all depend on <a href="https://en.wikipedia.org/wiki/Derivative">derivatives</a>, and therefore on what happens <em>infinitesimally</em> close to a point. This works beautifully when functions are smooth and the geometry is simple.</p>
 
-<p>But in many applications—materials science, peridynamics, data analysis—you don’t want locality. You want interactions over a finite distance. Points “talk” to each other across a neighborhood, not just through derivatives.</p>
+<p>But in many applications—<a href="https://en.wikipedia.org/wiki/Materials_science">materials science</a>, <a href="https://en.wikipedia.org/wiki/Peridynamics">peridynamics</a>, <a href="https://en.wikipedia.org/wiki/Data_analysis">data analysis</a>—you don’t want locality. You want interactions over a finite distance. Points “talk” to each other across a neighborhood, not just through derivatives.</p>
 
 <p>This leads to nonlocal operators: instead of derivatives, you integrate differences over a region. The price you pay is that the clean structure of vector calculus starts to break down. The gain is that you can model much richer phenomena.</p>
 
@@ -32,13 +32,13 @@ permalink: 2026-04-21.html
 
 <p>What we do in the paper is to define nonlocal analogues of the classical operators—gradient, divergence, curl—using carefully constructed integral kernels that respect the geometry of the sphere.</p>
 
-<p>The key idea is that these operators can still be analyzed using <a href="https://en.wikipedia.org/wiki/Spherical_harmonics" target="_blank">spherical harmonics</a>. In fact, one of the main technical results is that they are diagonal in that basis. This makes the analysis much cleaner than one might expect.</p>
+<p>The key idea is that these operators can still be analyzed using <a href="https://en.wikipedia.org/wiki/Spherical_harmonics">scalar</a> and <a href="https://en.wikipedia.org/wiki/Vector_spherical_harmonics">vector spherical harmonics</a>. In fact, one of the main technical results is that they are diagonal in that basis. This makes the analysis much cleaner than one might expect.</p>
 
 <h2>A nonlocal Stokes theorem</h2>
 
-<p>The highlight of the paper, at least to me, is the following: we prove a nonlocal Stokes theorem on the sphere.</p>
+<p>The highlight of the paper is the following: we prove a nonlocal Stokes theorem on the sphere.</p>
 
-<p>In the classical setting, <a href="https://en.wikipedia.org/wiki/Stokes%27_theorem" target="_blank">Stokes’ theorem</a> relates the circulation of a vector field along a boundary to the curl of the field inside the surface. It is one of the cornerstones of vector calculus.</p>
+<p>In the classical setting, <a href="https://en.wikipedia.org/wiki/Stokes%27_theorem">Stokes’ theorem</a> relates the circulation of a vector field along a boundary to the curl of the field inside the surface. It is one of the cornerstones of vector calculus.</p>
 
 <p>Nonlocal versions of this theorem already exist in Euclidean space. The novelty here is to establish such a result on a curved surface. There is no a priori reason why the same structure should survive: curvature introduces additional geometric constraints.</p>
 
@@ -46,7 +46,7 @@ permalink: 2026-04-21.html
 
 <h2>The mathematics of the nonlocal Stokes theorem</h2>
 
-<p>Let \(\Sigma \subset S^2\) be a spherical patch with boundary \(\partial \Sigma\), and let \(\boldsymbol{s}\) denote the unit tangent vector along \(\partial \Sigma\). In the classical setting, Stokes’ theorem reads</p>
+<p>Let \(\Sigma \subset S^2\) be a <a href="https://en.wikipedia.org/wiki/Spherical_cap">spherical cap</a> with boundary \(\partial \Sigma\), and let \(\boldsymbol{s}\) denote the unit <a href="https://en.wikipedia.org/wiki/Tangent_vector">tangent vector</a> along \(\partial \Sigma\). In the classical setting, Stokes’ theorem reads</p>
 
 <p>\[
 \int_{\Sigma} (\nabla \times \boldsymbol{V}) \cdot \boldsymbol{x}\, d\Omega
@@ -58,10 +58,6 @@ permalink: 2026-04-21.html
 
 <p>\[
 \boldsymbol{\beta}(\boldsymbol{x},\boldsymbol{y})
-=
-\nabla_{\boldsymbol{x}} \gamma(\boldsymbol{x}\cdot \boldsymbol{y})
--
-\nabla_{\boldsymbol{y}} \gamma(\boldsymbol{x}\cdot \boldsymbol{y})
 =
 \gamma'(\boldsymbol{x}\cdot \boldsymbol{y})\,(\boldsymbol{y}-\boldsymbol{x}),
 \]</p>
@@ -117,7 +113,7 @@ d\Omega(\boldsymbol{y}),
 \int_{\partial\Sigma} A^\delta\{\boldsymbol{V}\}\cdot \boldsymbol{s}\,d\omega.
 \]</p>
 
-<p>This can be seen as the curved analogue of nonlocal Stokes formulas in flat space. The structure is very similar, but with an important difference: the boundary term involves the averaged field \(A^\delta\{\boldsymbol{V}\}\), reflecting the nonlocal nature of the model.</p>
+<p>This result can be viewed as a nonlocal analogue of Stokes’ theorem on the sphere. The structure is very similar to the classical case, but with an important difference: the boundary term involves the averaged field \(A^\delta\{\boldsymbol{V}\}\), reflecting the nonlocal nature of the model.</p>
 
 <p>The key mechanism behind this result is that the nonlocal operators are diagonal in the basis of vector spherical harmonics. This makes it possible to prove the identity</p>
 
