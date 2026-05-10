@@ -1,0 +1,180 @@
+---
+layout: post
+title: Learning only what needs to be learned
+date: 2026-05-10
+tags: [scientific machine learning, inverse problems]
+permalink: 2026-05-10.html
+---
+
+<p>Our paper <em>“A neural operator framework for solving inverse scattering problems”</em>, joint with Victor Chenu and <a href="https://perso.ensta-paris.fr/~haddar/">Houssem Haddar</a>, has been available on <a href="https://arxiv.org/pdf/2602.24147">arXiv</a> for a couple months.</p>
+
+<p>This post is a short attempt to explain what we did, but also why I find this direction interesting. The paper is about inverse acoustic scattering, neural operators, and the linear sampling method. More broadly, it is about a philosophy of scientific machine learning that I care about: machine learning should not replace reliable numerical algorithms when good mathematical methods already exist. It should help them.</p>
+
+<h2>Two extremes</h2>
+
+<p>There are two extreme ways of thinking about numerical algorithms in the age of machine learning.</p>
+
+<p>The first extreme is to keep using standard methods exactly as before. This is the safe option. The algorithms are interpretable, connected to the theory, and often come with rigorous mathematical justification. In inverse scattering, the <a href="https://en.wikipedia.org/wiki/Linear_sampling_method">linear sampling method</a> belongs to this world. It is a beautiful and robust method, but it can be computationally expensive in practice.</p>
+
+<p>The second extreme is to replace the whole inverse problem by a neural network. The input is the measured data, the output is an image of the obstacle, and the intermediate mathematics disappears. Once trained, such a model can be very fast. But the training itself may be expensive, the method may require a lot of data, and it is often difficult to say precisely what has been preserved from the original inverse problem.</p>
+
+<p>Our position is in between these two extremes.</p>
+
+<p>We do not want to replace the linear sampling method. We want to keep it. But we also do not want to ignore the fact that some parts of the numerical pipeline are expensive and repetitive. The question is therefore: can we use a neural network only for one carefully chosen part of the algorithm?</p>
+
+<p>The guiding principle is simple: learn only where learning is useful, and only where imperfection is acceptable.</p>
+
+<h2>The inverse scattering problem</h2>
+
+<p>The setting is acoustic scattering. One sends waves toward an unknown object and measures the waves scattered back. The direct problem is: given the obstacle, compute the scattered wave. The inverse problem is the opposite: given measurements of the scattered wave, recover information about the obstacle.</p>
+
+<p>This is difficult for two reasons. First, the inverse problem is nonlinear. The relation between the shape of the obstacle and the measurements is not simple. Second, it is severely ill-posed. Small perturbations in the data, such as measurement noise, can lead to large changes in the reconstruction.</p>
+
+<p>This is why classical inverse problem methods are valuable. They are not just numerical recipes; they are built around the structure of the equations. They encode mathematical information about the problem.</p>
+
+<p>But they also have bottlenecks. In the linear sampling method, one of the main practical issues is regularization.</p>
+
+<h2>The linear sampling method</h2>
+
+<p>The linear sampling method is a classical method for reconstructing obstacles from far-field measurements.</p>
+
+<p>Very roughly, the method probes the domain point by point. For each sampling point \(z\), one solves a regularized linear problem involving the far-field operator. The result is an indicator function: its values tell us whether \(z\) is likely to be inside or outside the scatterer.</p>
+
+<p>This is attractive because the method does not require a parametrization of the obstacle. One does not need to assume in advance that the scatterer is a disk, an ellipse, or a polygon. The method produces a qualitative reconstruction directly from the data.</p>
+
+<p>However, the regularization parameter matters. In the standard approach, one often uses Tikhonov regularization together with Morozov’s discrepancy principle. This is robust and mathematically meaningful, but it requires knowledge of the noise level and can be computationally expensive.</p>
+
+<p>This is the point where we insert learning.</p>
+
+<h2>Learning only the regularization</h2>
+
+<p>The key idea of the paper is to use a neural operator to help regularize the linear sampling method.</p>
+
+<p>This is not the same as training a neural network to solve the full inverse problem. The neural network does not produce the final reconstruction by itself. Instead, it produces information that is used inside the classical method.</p>
+
+<p>This distinction is important.</p>
+
+<p>Regularization does not need to be perfect. Its role is to guide the inversion process, not to solve the entire problem alone. If the true obstacle is a kite or an ellipse, the learned regularization does not need to be a perfect kite or a perfect ellipse. It only needs to provide useful spatial information about where the obstacle is likely to be.</p>
+
+<p>This is why the approach can be frugal. We train using simple shapes, in particular circles. Circles are easy to generate, the corresponding scattering data can be computed accurately, and the training set can remain small and high-quality. The network learns a useful regularization pattern, not a complete inverse solver.</p>
+
+<p>Then this learned regularization is injected into the linear sampling method. The final reconstruction still comes from the classical algorithm. The neural network helps with one part of the pipeline, but the mathematical backbone remains the LSM.</p>
+
+<p>This is perhaps the main message of the paper:</p>
+
+<p><em>We train the network not to solve the inverse problem, but to help regularize a method that already knows how to solve it.</em></p>
+
+<h2>The hybrid method</h2>
+
+<p>More concretely, the input of the learned model is the noisy far-field matrix. From this data, we learn two quantities.</p>
+
+<p>First, a neural operator produces a preliminary indicator function. This indicator gives a rough estimate of the location and shape of the obstacle. Again, it does not need to be perfect. It is only used as a guide.</p>
+
+<p>Second, another neural network estimates the noise level in the data. This is important because classical regularization strategies often require information about the noise level.</p>
+
+<p>The two learned outputs are then combined to define a regularization function for the linear sampling method. In simplified notation, one may think of it as</p>
+
+<p>\[
+\alpha_\theta[F^\delta](z)
+=
+\delta_\theta[F^\delta]\,
+I_\theta[F^\delta](z),
+\]</p>
+
+<p>where \(F^\delta\) is the noisy far-field matrix, \(I_\theta\) is the learned indicator, and \(\delta_\theta\) is the learned noise estimate.</p>
+
+<p>This regularization function is then used in the LSM. The final reconstruction is therefore not just the output of a neural network. It is the output of a classical inverse scattering method whose regularization has been informed by learning.</p>
+
+<h2>A deliberately simple neural operator</h2>
+
+<p>The neural operator we use is a DeepONet with a fixed radial-basis-function trunk.</p>
+
+<p>The branch network reads the far-field matrix and produces coefficients. The trunk gives a fixed spatial basis, made of radial basis functions, in which the indicator function is represented.</p>
+
+<p>This design is intentionally simple. We are not trying to build the largest possible architecture. We want a model that is expressive enough to be useful, but structured enough to remain understandable.</p>
+
+<p>A nice feature of the construction is that the network is essentially determined by the wavelength. Once the wavelength has been chosen, we choose a spatial discretization scale, for instance \(h=\lambda/2\) or \(h=\lambda/4\), and the rest of the architecture follows from this choice: the number of basis functions, the dimension of the output, and the relevant scale of the network.</p>
+
+<p>This is quite different from the usual trial-and-error approach to neural network design. We are not tuning a large architecture by hand until it works. The geometry and physics of the scattering problem determine the scale at which the network should operate.</p>
+
+<p>There remains essentially one important architectural parameter: the width of the radial basis functions in the trunk. This controls how much neighboring basis functions overlap. If the width is too small, the basis is too localized; if it is too large, the representation becomes too smooth.</p>
+
+<p>In the paper, we use an NTK analysis to guide this choice.</p>
+
+<h2>Why the NTK appears</h2>
+
+<p>The neural tangent kernel, or NTK, is one way of analyzing the training dynamics of neural networks. Very roughly, it describes how the network changes during training in a regime where the dynamics can be approximated by a kernel method.</p>
+
+<p>For us, the NTK is not used as an abstract theoretical decoration. It has a practical purpose: it helps understand the effect of the radial-basis-function width in the trunk.</p>
+
+<p>This is exactly the kind of analysis I would like to see more often in scientific machine learning. If a neural component is inserted into a numerical method, its design should not be arbitrary. The architecture should be constrained by the mathematical problem, and the remaining parameters should be chosen using analysis whenever possible.</p>
+
+<p>This connects with a broader direction I am currently developing: using spectral criteria to understand trainability and reliability in hybrid scientific machine learning.</p>
+
+<h2>Noise estimation</h2>
+
+<p>The second learned ingredient is the noise level.</p>
+
+<p>Instead of feeding the full far-field matrix to the noise-estimation network, we feed it singular values. This is natural for two reasons.</p>
+
+<p>First, the singular values contain useful information about the noise level. In ill-posed inverse problems, noise often appears as a plateau in the singular spectrum. Second, singular values are invariant under translations of the obstacle, which makes them a more stable input for this task.</p>
+
+<p>Again, the point is not to use a neural network blindly. The input representation is chosen because it matches the structure of the inverse problem.</p>
+
+<h2>What the numerical experiments show</h2>
+
+<p>The numerical experiments are in two dimensions.</p>
+
+<p>The main observation is that the learned regularization can significantly accelerate the linear sampling method workflow while producing accurate reconstructions. After training, the neural networks provide the regularization information quickly, avoiding the repeated parameter search associated with Morozov’s discrepancy principle.</p>
+
+<p>For single obstacles, the method gives good reconstructions. For multiple obstacles, the learned indicator alone can be less precise, which is not surprising since the training data are deliberately simple. But once this imperfect indicator is used inside the LSM, the final reconstruction improves substantially.</p>
+
+<p>This is an important point. The neural network output by itself is not the final product. It is allowed to be imperfect because the classical method corrects and refines it.</p>
+
+<p>That is the advantage of the hybrid approach.</p>
+
+<h2>A modest role for theory</h2>
+
+<p>Of course, inserting a neural network into a numerical method should not be done blindly. Even in a hybrid approach, one still has to understand what the learned component is doing and how it interacts with the rest of the algorithm.</p>
+
+<p>In this work, this appears in a concrete way through the architecture. Once the wavelength is fixed, the spatial scale of the network is essentially fixed as well. The discretization parameter determines the number of radial basis functions, and therefore much of the structure of the DeepONet.</p>
+
+<p>There remains one important parameter: the width of the radial basis functions in the trunk. This width controls the spatial scale of the learned indicator. If it is too small, the representation becomes too localized; if it is too large, it becomes too smooth.</p>
+
+<p>We use an NTK-based analysis to guide this choice. I like this aspect of the work because the network is not treated as a mysterious object to be tuned endlessly. Its architecture is tied to the wavelength, and its remaining parameter is studied through analysis.</p>
+
+<p>This is the kind of scientific machine learning I find most promising: not a replacement for numerical analysis, but a disciplined way of making numerical methods faster, more flexible, and easier to use.</p>
+
+<h2>Interactive scientific machine learning</h2>
+
+<p>There is also a practical aspect that matters a lot to me.</p>
+
+<p>I am not especially interested in methods that require enormous datasets, huge networks, and specialized hardware just to reproduce a result. Of course, large models have their place. But in computational mathematics, there is a lot of value in methods that are small enough to understand, fast enough to experiment with, and simple enough to modify.</p>
+
+<p>This is close in spirit to Nick Trefethen’s idea of <a href="https://people.maths.ox.ac.uk/trefethen/tda05.pdf">“ten digit algorithms”</a>: numerical programs that aim for “ten digits, five seconds, and just one page.” The exact numbers are not the point. The point is the attitude. A good computational idea should be accurate, fast enough to be explored interactively, and simple enough to be read, modified, and understood.</p>
+
+<p>I like to think of this as <em>interactive scientific machine learning</em>: models that are accurate enough to be scientifically useful, fast enough to be experimented with in real time, simple enough to be understood and modified by the person using them, and small enough to remain, at least potentially, amenable to mathematical analysis.</p>
+
+<p>This last point is important. Small models are not automatically understandable, and large models are not automatically mysterious. But if the learned component is modest in size and has a clear role inside a numerical pipeline, then one has a better chance of analyzing it. One can ask what it represents, how it trains, how errors propagate, and how it interacts with the rest of the algorithm.</p>
+
+<p>Trefethen emphasizes that when a program runs in a few seconds, one can adjust it, improve it, and experiment with it almost effortlessly. Scientific exploration becomes interactive. The one-page constraint plays a similar role: a short program can be studied, communicated, and refined. This is a philosophy of computation that I find very appealing. It keeps humans in the loop.</p>
+
+<p>I think scientific machine learning should learn something from this. A good hybrid method should not require a gigantic model and a massive dataset whenever the underlying numerical problem already contains structure. Ideally, a student should be able to run experiments on a laptop, change a parameter, see what happens, and develop intuition.</p>
+
+<p>This is not just a matter of convenience. It changes the way research is done. Fast and lightweight tools allow interactive scientific exploration. You can test an idea, see it fail, adjust it, and try again.</p>
+
+<p>In this sense, interactivity is not only a computational convenience. It is part of the scientific method.</p>
+
+<h2>Final thoughts</h2>
+
+<p>What I like about this project is that it sits in a middle ground.</p>
+
+<p>It is not classical inverse problems as usual, because learning genuinely enters the algorithm. But it is not black-box AI either, because the learned components are embedded into a mathematical method with a clear purpose.</p>
+
+<p>The neural network is not asked to solve the whole problem. It is asked to do something more modest, and more useful: provide a regularization function for the linear sampling method.</p>
+
+<p>This is the kind of scientific machine learning I find most compelling: modest in architecture, ambitious in principle.</p>
+
+<p>Learn the bottleneck. Keep the structure. Preserve the mathematics.</p>
+
+<p>Thanks to Victor and Houssem for a very enjoyable collaboration. I am especially happy that this project connects naturally with the broader research direction I hope to develop in the coming years: making hybrid scientific machine learning more predictable, more trustworthy, and more useful for computational science.</p>
