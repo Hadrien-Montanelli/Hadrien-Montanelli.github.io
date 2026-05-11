@@ -93,7 +93,7 @@ I_\theta[F^\delta](z),
 
 <p>This design is intentionally simple. We are not trying to build the largest possible architecture. We want a model that is expressive enough to be useful, but structured enough to remain understandable.</p>
 
-<p>A nice feature of the construction is that the network is essentially determined by the <a href="https://en.wikipedia.org/wiki/Wavelength">wavelength</a>. Once the wavelength has been chosen, we choose a spatial discretization scale, for instance \(h=\lambda/2\) or \(h=\lambda/4\), and the rest of the architecture follows from this choice: the number of basis functions, the dimension of the output, and the relevant scale of the network.</p>
+<p>A nice feature of the construction is that the network is essentially determined by the <a href="https://en.wikipedia.org/wiki/Wavelength">wavelength</a>. Once the wavelength is fixed, we choose a spatial discretization scale, for instance \(h=\lambda/2\) or \(h=\lambda/4\). This then determines much of the architecture and training setup: the number of radial basis functions, the number of training samples, and the <a href="https://en.wikipedia.org/wiki/Numerical_integration">quadrature size</a>.</p>
 
 <p>This is quite different from the usual trial-and-error approach to neural network design. We are not tuning a large architecture by hand until it works. The geometry and physics of the scattering problem determine the scale at which the network should operate.</p>
 
@@ -109,15 +109,13 @@ I_\theta[F^\delta](z),
 
 <p>This is exactly the kind of analysis I would like to see more often in scientific machine learning. If a neural component is inserted into a numerical method, its design should not be arbitrary. The architecture should be constrained by the mathematical problem, and the remaining parameters should be chosen using analysis whenever possible.</p>
 
-<p>This connects with a broader direction I am currently developing: using spectral criteria to understand trainability and reliability in hybrid scientific machine learning.</p>
-
 <h2>Noise estimation</h2>
 
 <p>The second learned ingredient is the noise level.</p>
 
 <p>Instead of feeding the full far-field matrix to the noise-estimation network, we feed it <a href="https://en.wikipedia.org/wiki/Singular_value">singular values</a>. This is natural for two reasons.</p>
 
-<p>First, the singular values contain useful information about the noise level. In ill-posed inverse problems, noise often appears as a plateau in the singular spectrum. Second, singular values are invariant under translations of the obstacle, which makes them a more stable input for this task.</p>
+<p>First, the singular values contain useful information about the noise level. In ill-posed inverse problems, noise often appears as a plateau in the singular spectrum. Second, they are invariant under translations of the obstacle. This is a very useful feature: the noise-estimation network can be trained only on disks of varying radius centered at the origin, and still generalize to translated obstacles.</p>
 
 <p>Again, the point is not to use a neural network blindly. The input representation is chosen because it matches the structure of the inverse problem.</p>
 
@@ -132,18 +130,6 @@ I_\theta[F^\delta](z),
 <p>This is an important point. The neural network output by itself is not the final product. It is allowed to be imperfect because the classical method corrects and refines it.</p>
 
 <p>That is the advantage of the hybrid approach.</p>
-
-<h2>A modest role for theory</h2>
-
-<p>Of course, inserting a neural network into a numerical method should not be done blindly. Even in a hybrid approach, one still has to understand what the learned component is doing and how it interacts with the rest of the algorithm.</p>
-
-<p>In this work, this appears in a concrete way through the architecture. Once the wavelength is fixed, the spatial scale of the network is essentially fixed as well. The discretization parameter determines the number of radial basis functions, and therefore much of the structure of the DeepONet.</p>
-
-<p>There remains one important parameter: the width of the radial basis functions in the trunk. This width controls the spatial scale of the learned indicator. If it is too small, the representation becomes too localized; if it is too large, it becomes too smooth.</p>
-
-<p>We use an NTK-based analysis to guide this choice. I like this aspect of the work because the network is not treated as a mysterious object to be tuned endlessly. Its architecture is tied to the wavelength, and its remaining parameter is studied through analysis.</p>
-
-<p>This is the kind of scientific machine learning I find most promising: not a replacement for numerical analysis, but a disciplined way of making numerical methods faster, more flexible, and easier to use.</p>
 
 <h2>Interactive scientific machine learning</h2>
 
@@ -173,8 +159,4 @@ I_\theta[F^\delta](z),
 
 <p>The neural network is not asked to solve the whole problem. It is asked to do something more modest, and more useful: provide a regularization function for the linear sampling method.</p>
 
-<p>This is the kind of scientific machine learning I find most compelling: modest in architecture, ambitious in principle.</p>
-
-<p>Learn the bottleneck. Keep the structure. Preserve the mathematics.</p>
-
-<p>Thanks to Victor and Houssem for a very enjoyable collaboration. I am especially happy that this project connects naturally with the broader research direction I hope to develop in the coming years: making hybrid scientific machine learning more predictable, more trustworthy, and more useful for computational science.</p>
+<p>Thanks to Victor and Houssem for a very enjoyable collaboration. I am especially happy that this project connects naturally with the broader research direction I hope to develop in the coming years: making hybrid scientific machine learning more predictable, more interactive, and more useful for computational science.</p>
