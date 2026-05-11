@@ -93,7 +93,7 @@ I_\theta[F^\delta](z),
 
 <p>This design is intentionally simple. We are not trying to build the largest possible architecture. We want a model that is expressive enough to be useful, but structured enough to remain understandable.</p>
 
-<p>A nice feature of the construction is that the network is essentially determined by the <a href="https://en.wikipedia.org/wiki/Wavelength">wavelength</a>. Once the wavelength is fixed, we choose a spatial discretization scale, for instance \(h=\lambda/2\) or \(h=\lambda/4\). This then determines much of the architecture and training setup: the number of radial basis functions, the number of training samples, and the <a href="https://en.wikipedia.org/wiki/Numerical_integration">quadrature</a> size.</p>
+<p>A nice feature of the construction is that the network is essentially determined by the <a href="https://en.wikipedia.org/wiki/Wavelength">wavelength</a>. Once the wavelength is fixed, we choose a spatial discretization scale, for instance \(h=\lambda/2\) or \(h=\lambda/4\). This in turn determines much of the architecture and training setup: the number of radial basis functions in the trunk (and hence the output dimension of the branch network), the branch network's width, the number of training samples, and the <a href="https://en.wikipedia.org/wiki/Numerical_integration">quadrature</a> size.</p>
 
 <p>This is quite different from the usual trial-and-error approach to neural network design. We are not tuning a large architecture by hand until it works. The geometry and physics of the scattering problem determine the scale at which the network should operate.</p>
 
@@ -135,21 +135,17 @@ I_\theta[F^\delta](z),
 
 <p>There is also a practical aspect that matters a lot to me.</p>
 
-<p>I am not especially interested in methods that require enormous datasets, huge networks, and specialized hardware just to reproduce a result. Of course, large models have their place. But in computational mathematics, there is a lot of value in methods that are small enough to understand, fast enough to experiment with, and simple enough to modify.</p>
+<p>I am not especially interested in methods that require enormous datasets, huge networks, and specialized hardware just to reproduce a result. Large models have their place, but in computational mathematics there is great value in methods that are small enough to understand, fast enough to experiment with, and simple enough to modify.</p>
 
-<p>This is close in spirit to <a href="https://en.wikipedia.org/wiki/Nick_Trefethen">Nick Trefethen’s</a> idea of <a href="https://people.maths.ox.ac.uk/trefethen/tda05.pdf">“ten digit algorithms”</a>: numerical programs that aim for “ten digits, five seconds, and just one page.” The exact numbers are not the point. The point is the attitude. A good computational idea should be accurate, fast enough to be explored interactively, and simple enough to be read, modified, and understood.</p>
+<p>This is close in spirit to <a href="https://en.wikipedia.org/wiki/Nick_Trefethen">Nick Trefethen’s</a> idea of <a href="https://people.maths.ox.ac.uk/trefethen/tda05.pdf">“ten digit algorithms”</a>: programs that aim for “ten digits, five seconds, and just one page.” The exact numbers are not the point. The point is the attitude: a good computational idea should be accurate, fast enough to explore interactively, and simple enough to be read, modified, and understood.</p>
 
-<p>I like to think of this as <em>interactive scientific machine learning</em>: models that are accurate enough to be scientifically useful, fast enough to be experimented with in real time, simple enough to be understood and modified by the person using them, and small enough to remain, at least potentially, amenable to mathematical analysis.</p>
+<p>I like to think of this as <em>interactive scientific machine learning</em>: models that are scientifically useful, fast enough for real-time experimentation, simple enough to be understood and modified, and small enough to remain at least potentially amenable to mathematical analysis.</p>
 
-<p>This last point is important. Small models are not automatically understandable, and large models are not automatically mysterious. But if the learned component is modest in size and has a clear role inside a numerical pipeline, then one has a better chance of analyzing it. One can ask what it represents, how it trains, how errors propagate, and how it interacts with the rest of the algorithm.</p>
-
-<p>Trefethen emphasizes that when a program runs in a few seconds, one can adjust it, improve it, and experiment with it almost effortlessly. Scientific exploration becomes interactive. The one-page constraint plays a similar role: a short program can be studied, communicated, and refined. This is a philosophy of computation that I find very appealing. It keeps humans in the loop.</p>
+<p>This matters scientifically, not just practically. If a learned component is modest in size and has a clear role inside a numerical pipeline, one has a better chance of understanding what it represents, how it trains, how errors propagate, and how it interacts with the rest of the algorithm.</p>
 
 <p>I think scientific machine learning should learn something from this. A good hybrid method should not require a gigantic model and a massive dataset whenever the underlying numerical problem already contains structure. Ideally, a student should be able to run experiments on a laptop, change a parameter, see what happens, and develop intuition.</p>
 
-<p>This is not just a matter of convenience. It changes the way research is done. Fast and lightweight tools allow interactive scientific exploration. You can test an idea, see it fail, adjust it, and try again.</p>
-
-<p>In this sense, interactivity is not only a computational convenience. It is part of the scientific method.</p>
+<p>Interactivity is not only a computational convenience. It is part of the scientific method.</p>
 
 <h2>Final thoughts</h2>
 
