@@ -28,7 +28,7 @@ permalink: 2026-05-10.html
 
 <p>The setting is acoustic scattering. One sends waves toward an unknown object and measures the waves <a href="https://en.wikipedia.org/wiki/Scattering">scattered</a> back. The direct problem is: given the obstacle, compute the scattered wave. The inverse problem is the opposite: given measurements of the scattered wave, recover information about the obstacle.</p>
 
-<p>This is difficult for two reasons. First, the inverse problem is <a href="https://en.wikipedia.org/wiki/Nonlinear_system">nonlinear</a>. The relation between the shape of the obstacle and the measurements is not simple. Second, it is severely <a href="https://en.wikipedia.org/wiki/Well-posed_problem">ill-posed</a>. Small perturbations in the data, such as measurement noise, can lead to large changes in the reconstruction.</p>
+<p>This is difficult for two reasons. First, the inverse problem is <a href="https://en.wikipedia.org/wiki/Nonlinear_system">nonlinear</a>. The relation between the shape of the obstacle and the measurements is not simple. Second, it is severely <a href="https://en.wikipedia.org/wiki/Well-posed_problem">ill-posed</a>. Small perturbations in the data, such as measurement <a href="https://en.wikipedia.org/wiki/Noise_(signal_processing)">noise</a>, can lead to large changes in the reconstruction.</p>
 
 <p>This is why classical inverse problem methods are valuable. They are not just numerical recipes; they are built around the structure of the equations. They encode mathematical information about the problem.</p>
 
@@ -38,7 +38,7 @@ permalink: 2026-05-10.html
 
 <p>The linear sampling method is a classical method for reconstructing obstacles from <a href="https://en.wikipedia.org/wiki/Near_and_far_field">far-field</a> measurements.</p>
 
-<p>Very roughly, the method probes the domain point by point. For each sampling point \(z\), one solves a regularized linear problem involving the far-field operator. The result is an indicator function: its values tell us whether \(z\) is likely to be inside or outside the scatterer.</p>
+<p>Very roughly, the method probes the domain point by point. For each sampling point \(z\), one solves a regularized linear problem involving the far-field <a href="https://en.wikipedia.org/wiki/Operator_(mathematics)">operator</a>. The result is an <a href="https://en.wikipedia.org/wiki/Indicator_function">indicator</a> function: its values tell us whether \(z\) is likely to be inside or outside the scatterer.</p>
 
 <p>This is attractive because the method does not require a parametrization of the obstacle. One does not need to assume in advance that the scatterer is a disk, an ellipse, or a polygon. The method produces a qualitative reconstruction directly from the data.</p>
 
@@ -93,7 +93,7 @@ I_\theta[F^\delta](z),
 
 <p>This design is intentionally simple. We are not trying to build the largest possible architecture. We want a model that is expressive enough to be useful, but structured enough to remain understandable.</p>
 
-<p>A nice feature of the construction is that the network is essentially determined by the <a href="https://en.wikipedia.org/wiki/Wavelength">wavelength</a>. Once the wavelength is fixed, we choose a spatial discretization scale, for instance \(h=\lambda/2\) or \(h=\lambda/4\). This then determines much of the architecture and training setup: the number of radial basis functions, the number of training samples, and the <a href="https://en.wikipedia.org/wiki/Numerical_integration">quadrature size</a>.</p>
+<p>A nice feature of the construction is that the network is essentially determined by the <a href="https://en.wikipedia.org/wiki/Wavelength">wavelength</a>. Once the wavelength is fixed, we choose a spatial discretization scale, for instance \(h=\lambda/2\) or \(h=\lambda/4\). This then determines much of the architecture and training setup: the number of radial basis functions, the number of training samples, and the <a href="https://en.wikipedia.org/wiki/Numerical_integration">quadrature</a> size.</p>
 
 <p>This is quite different from the usual trial-and-error approach to neural network design. We are not tuning a large architecture by hand until it works. The geometry and physics of the scattering problem determine the scale at which the network should operate.</p>
 
@@ -115,7 +115,7 @@ I_\theta[F^\delta](z),
 
 <p>Instead of feeding the full far-field matrix to the noise-estimation network, we feed it <a href="https://en.wikipedia.org/wiki/Singular_value">singular values</a>. This is natural for two reasons.</p>
 
-<p>First, the singular values contain useful information about the noise level. In ill-posed inverse problems, noise often appears as a plateau in the singular spectrum. Second, they are invariant under translations of the obstacle. This is a very useful feature: the noise-estimation network can be trained only on disks of varying radius centered at the origin, and still generalize to translated obstacles.</p>
+<p>First, the singular values contain useful information about the noise level. In ill-posed inverse problems, noise often appears as a plateau in the singular spectrum. Second, they are invariant under <a href="https://en.wikipedia.org/wiki/Translation_(geometry)">translations</a> of the obstacle. This is a very useful feature: the noise-estimation network can be trained only on disks of varying radius centered at the origin, and still generalize to translated obstacles.</p>
 
 <p>Again, the point is not to use a neural network blindly. The input representation is chosen because it matches the structure of the inverse problem.</p>
 
