@@ -1,0 +1,136 @@
+---
+layout: post
+title: Hybrid SciML, in hybrid mode
+date: 2026-05-13
+tags: [scientific machine learning]
+permalink: 2026-05-13.html
+---
+<p>This year was the second edition of my SciML course at <a href="https://www.polytechnique.edu/en/">École Polytechnique</a>, and the first time in a hybrid <a href="https://euroteq.eurotech-universities.eu/">EuroTeQ</a> format.</p>
+
+<p>The course itself is about hybrid SciML: methods that combine classical numerical models with data-driven components. This year, the teaching format was hybrid as well: students followed the course both in the classroom and remotely through EuroTeQ.</p>
+
+<p>The course was organized with <a href="https://www.tue.nl/en/research/researchers/victorita-dolean-maini">Victorita Dolean</a> and <a href="https://rehoss.github.io/">Rémy Hosseinkhan</a>. The audience was a mixture of third-year Polytechnique students, EuroTeQ Master students, and <a href="https://www.ip-paris.fr/en">IP Paris</a> Master and PhD students. The format was simple on paper: one two-hour lecture and one two-hour tutorial every week, from January to March. The reality, of course, was slightly more complicated.</p>
+
+<p>The course notes are available <a href="https://hal.science/hal-04976856">on HAL</a>.</p>
+
+<p>This post is a short reflection on what worked, what did not, and what I learned from teaching SciML in a hybrid setting.</p>
+
+<h2>Why hybrid?</h2>
+
+<p>SciML is a natural topic for this kind of experiment.</p>
+
+<p>It sits at the intersection of <a href="https://en.wikipedia.org/wiki/Numerical_analysis">numerical analysis</a>, <a href="https://en.wikipedia.org/wiki/Computational_science">scientific computing</a>, and <a href="https://en.wikipedia.org/wiki/Machine_learning">machine learning</a>. No single institution has all the expertise, all the students, and all the viewpoints. A collaborative course makes sense because the field itself is collaborative by nature.</p>
+
+<p>In that sense, EuroTeQ worked well. The course gave students access to expertise and teaching styles they might not have encountered locally. It also created mobility opportunities: for example, a couple of students went to <a href="https://www.tue.nl/en/">TU Eindhoven</a> afterwards. This is exactly the kind of concrete outcome one hopes for in a collaborative European teaching format.</p>
+
+<h2>The course itself</h2>
+
+<p>The course was designed as an introduction to SciML for students with a background in <a href="https://en.wikipedia.org/wiki/Applied_mathematics">applied mathematics</a>.</p>
+
+<p>The goal was not to teach machine learning in general. The goal was to explain how learning-based methods can be used for scientific computing: solving PDEs, learning operators, accelerating numerical methods, and thinking about the interaction between data-driven models and mathematical structure.</p>
+
+<p>As usual, I tried to keep the course close to computation. The lectures introduced the ideas, but the tutorials were essential. In SciML, one only really understands what is going on when one starts training models, changing parameters, plotting errors, and seeing what works and what fails.</p>
+
+<p>This is especially true because SciML can easily become too abstract. Terms like <a href="https://en.wikipedia.org/wiki/Physics-informed_neural_networks">physics-informed neural networks</a>, or <a href="https://en.wikipedia.org/wiki/Neural_operators">operator learning</a> sound impressive, but students need to see what these methods actually do on concrete examples.</p>
+
+<p>For this reason, the tutorials were not secondary. They were the place where the course became real.</p>
+
+<h2>What worked</h2>
+
+<p>The overall feedback was very positive: 98% of students gave positive feedback, which was of course encouraging.</p>
+
+<p>More importantly, the hybrid format broadened the audience. We had around thirty Polytechnique students, around ten EuroTeQ Master students, and a few IP Paris Master and PhD students. This made the course more diverse than a standard local elective.</p>
+
+<p>For students, the main benefit was exposure. They were exposed to different scientific cultures, different styles of teaching, different expectations, and complementary expertise. This is particularly valuable in an emerging field like SciML, where the boundaries are still moving and where different communities approach the same objects in different ways.</p>
+
+<p>For instructors, the benefits were also real. A collaborative course gives access to a broader student pool and creates interactions across institutions. In our case, the collaboration with Victorita Dolean also fed directly into a PhD project. She suggested including an <a href="https://en.wikipedia.org/wiki/Neural_tangent_kernel">Neural Tangent Kernel</a> analysis in one chapter, and this later became part of a PhD paper, improving the paper itself. This was a nice example of teaching and research feeding into each other.</p>
+
+<p>This is something I like about teaching advanced courses. If the topic is alive enough, teaching is not just dissemination. It becomes a way of testing ideas, finding students, starting collaborations, and clarifying what one really thinks.</p>
+
+<h2>What was difficult</h2>
+
+<p>The difficult part was not the mathematics.</p>
+
+<p>The difficult part was the system around the course.</p>
+
+<p>A hybrid international course is a multi-actor system. It requires synchronization between instructors, administration, digital platforms, classrooms, and students across institutions. Everyone has to understand the framework, the constraints, and the deadlines. In practice, this is much harder than it sounds.</p>
+
+<p>The first issue was scheduling. Academic calendars do not align perfectly. Terms start and end at different times. A two-hour lecture plus two-hour tutorial format may be natural at Polytechnique, but not elsewhere. These differences look minor on paper, but they affect everything: registration, attendance, project deadlines, exams, and communication.</p>
+
+<p>The second issue was digital access. We used Zoom, Moodle, and the IP Paris Media Player. Access for external students was not immediate. Zoom took days, Moodle took weeks, and some Media Player access issues were not fully resolved.</p>
+
+<p>The third issue was the classroom itself. A good hybrid classroom is not just a room with a camera. The camera has to point to the right place. The microphone has to capture questions. The instructor needs a second screen to see remote students. The setup has to be reliable enough that the teacher is not thinking about it while teaching.</p>
+
+<p>In our case, the camera had to be adjusted each time by a technician. This is the kind of small technical detail that becomes large when repeated every week.</p>
+
+<h2>Passive hybrid does not work</h2>
+
+<p>The main pedagogical lesson is simple: passive hybrid does not work.</p>
+
+<p>By passive hybrid, I mean a format where one teaches almost as usual in the classroom, while remote students quietly follow the stream. This is easy to set up, but it is not enough.</p>
+
+<p>Remote engagement was hard. Remote students asked fewer questions, gave less feedback, and were harder to involve during tutorials. Interaction between Polytechnique and EuroTeQ students also remained limited. This was one of the main frustrations of the format.</p>
+
+<p>There was also a clear attendance issue. Once lecture videos were uploaded, attendance dropped. This is not surprising, and I do not blame students for it. If a course is available as a recording, and if no specific interaction is expected during the live session, then the rational decision for many students is to watch it later.</p>
+
+<p>But watching later is not the same as learning together.</p>
+
+<p>This is especially true for tutorials. A tutorial is not a video. It is a place where students try things, get stuck, ask questions, compare approaches, and slowly build intuition. If the format becomes purely passive, much of this disappears.</p>
+
+<p>So one lesson for next time is clear: engagement has to be designed.</p>
+
+<h2>Assessment in the age of remote teaching and LLMs</h2>
+
+<p>Assessment was another challenge.</p>
+
+<p>In a hybrid international format, in-class exams are impossible. Students are not all in the same room, under the same conditions, at the same time. This pushes the evaluation toward projects, reports, oral presentations, or take-home assignments.</p>
+
+<p>I actually think this is quite natural for SciML. A project is often a better assessment than a written exam. It shows whether students can implement an idea, test it, interpret results, and explain what happened.</p>
+
+<p>But projects also raise another issue: LLMs.</p>
+
+<p>In practice, remote monitoring is impossible, and LLM usage is effectively fully allowed. Again, I do not think this should be treated only as a problem. If students will use these tools anyway, then the assessment should be designed accordingly.</p>
+
+<p>There is also a real advantage to LLMs in this context. They allow students to attempt much more ambitious projects than would otherwise be realistic in a short course. In our case, the final project for all groups went beyond a standard implementation exercise: students had to read a research paper, reproduce part of it, test the method, and explain the results. In a traditional setting, this would often be considered a task for PhD students rather than master’s students.</p>
+
+<p>This does not mean that the LLM did the work for them. Rather, it changed the level at which the work took place. Students could use the tool to get past technical barriers faster, but they still had to understand the paper, make decisions, debug experiments, interpret outcomes, and present the ideas clearly.</p>
+
+<p>The question becomes: what do we want to evaluate?</p>
+
+<p>Not whether a student can produce boilerplate code. Not whether they can write a generic introduction to neural networks. But whether they understand the method, can make choices, can explain results, can identify failure modes, and can defend their work orally.</p>
+
+<p>In other words, assessment has to move upward. Less emphasis on producing text or code from scratch, more emphasis on understanding, judgment, and interpretation.</p>
+
+<h2>Level mismatch</h2>
+
+<p>Another predictable difficulty was the heterogeneity of backgrounds.</p>
+
+<p>Some students were comfortable with PDEs but less familiar with machine learning. Others knew neural networks but had less experience with numerical analysis. Some were strong programmers; others were not. In a local course, one can sometimes assume a shared curriculum. In a European hybrid course, this is much less true.</p>
+
+<p>This is not necessarily bad. In fact, it reflects the nature of SciML itself. The field requires people to cross boundaries. But it also means that one should not assume too much implicit common knowledge. In my case, I did not really write down formal prerequisites for the course. I mostly relied on what I thought would be shared background knowledge, and I should probably have made those expectations more explicit.</p>
+
+<p>One has to decide what is truly essential, provide bridges, and accept that not everyone will enter the course from the same direction.</p>
+
+<h2>What I would change</h2>
+
+<p>Next year, I will change a few things.</p>
+
+<p>First, I would coordinate digital access much earlier. External students should have access to Zoom, Moodle, recordings, and course material before the first lecture. This sounds obvious, but in a multi-institutional setting it requires much more anticipation than expected.</p>
+
+<p>Second, I would give remote students a clearer role during the live sessions. For example, they could work in small tutorial groups, answer short questions during the lecture, or give brief updates on their projects. The goal would not be to police attendance, but to make the live course feel less passive and more useful.</p>
+
+<p>Third, I would make the expected background more explicit and more modular. I would also look more carefully at the curricula of the different universities involved, so that the course better matches what students have actually studied before. Instead of listing a long set of formal prerequisites, I would provide short preliminary notebooks on Python, automatic differentiation, PDE discretization, and basic neural networks. This would help students identify what they already know and fill in gaps before or during the course.</p>
+
+<h2>Final thoughts</h2>
+
+<p>I am glad we taught the course in this format.</p>
+
+<p>It was not perfect, and hybrid teaching is clearly not just “put a camera in the room.” It requires design, coordination, and active engagement. It also requires accepting that the administrative and technical layers are part of the course, whether one likes it or not.</p>
+
+<p>But the benefits are real. Students get access to a broader scientific environment. Instructors interact with new students and colleagues. Courses in emerging fields can circulate more easily across institutions. And sometimes, concrete collaborations and mobility opportunities follow.</p>
+
+<p>For SciML, this feels particularly appropriate. The field itself is hybrid: between mathematics and computation, between models and data, between theory and experiments. Teaching it in a hybrid international format is therefore both natural and challenging.</p>
+
+<p>The main lesson I take from this year is simple: hybrid teaching can work, but only if it is not passive. A good hybrid course is not a recorded lecture with a chat window. It is a course where interaction has been deliberately designed.</p>
+
+<p>That is the challenge for next year.</p>

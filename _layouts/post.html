@@ -42,7 +42,7 @@
         {{ content }}
         {% if page.tags %}
           <hr>
-          <h4>Blog posts about {{ page.tags }}</h4>
+          <h4>Blog posts about {{ page.tags | join: " & " }}</h4>
           <ul style="list-style-type: none; padding-left: 0;">
             {% assign related_posts = site.blog %}
             {% assign related = "" | split: "" %}
