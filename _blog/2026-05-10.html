@@ -55,7 +55,7 @@ permalink: 2026-05-10.html
 
 <p>Regularization does not need to be perfect. Its role is to guide the inversion process, not to solve the entire problem alone. If the true obstacle is a kite or an ellipse, the learned regularization does not need to be a perfect kite or a perfect ellipse. It only needs to provide useful spatial information about where the obstacle is likely to be.</p>
 
-<p>This is why the approach can be frugal. We train using simple shapes, in particular circles. Circles are easy to generate, the corresponding scattering data can be computed analytically, and the training set can remain small and high-quality. The network learns a useful regularization pattern, not a complete inverse solver.</p>
+<p>This is why the approach can remain lightweight. We train using simple shapes, in particular circles. Circles are easy to generate, the corresponding scattering data can be computed analytically, and the training set can remain small and high-quality. The network learns a useful regularization pattern, not a complete inverse solver.</p>
 
 <p>Then this learned regularization is injected into the linear sampling method. The final reconstruction still comes from the classical algorithm. The neural network helps with one part of the pipeline, but the mathematical backbone remains the linear sampling method.</p>
 
