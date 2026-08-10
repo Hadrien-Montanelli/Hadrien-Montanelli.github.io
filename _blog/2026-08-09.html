@@ -10,7 +10,7 @@ permalink: 2026-08-09.html
 
 <p>My ERC project will be about hybrid scientific <a href="https://en.wikipedia.org/wiki/Machine_learning">machine learning</a> for forward and inverse <a href="https://en.wikipedia.org/wiki/Scattering">scattering</a>. Working on the proposal, I have been going again through some of my recent work on boundary <a href="https://en.wikipedia.org/wiki/Integral_equation">integral equations</a>.</p>
 
-<h2>Boundary elements and curved surfaces</h2>
+<h2>Curved boundary elements</h2>
 
 <p><a href="https://en.wikipedia.org/wiki/Boundary_element_method">Boundary element methods</a> are useful when solving the <a href="https://en.wikipedia.org/wiki/Laplace%27s_equation">Laplace</a> or <a href="https://en.wikipedia.org/wiki/Helmholtz_equation">Helmholtz</a> equation. Instead of solving the equation in the whole domain, one rewrites the problem as an integral equation on the boundary. This is very useful for scattering problems, where the domain outside the obstacle is unbounded.</p>
 
@@ -18,19 +18,18 @@ permalink: 2026-08-09.html
 
 <h2>Two sources of error</h2>
 
-<p>There are two main sources of error. First, the unknown density on the boundary is approximated by <a href="https://en.wikipedia.org/wiki/Polynomial">polynomials</a> of degree \(m\). Second, the geometry is approximated by curved elements of order \(\ell\).</p>
+<p>There are two main sources of <a href="https://en.wikipedia.org/wiki/Numerical_error">numerical error</a>. First, the unknown density on the boundary is approximated by <a href="https://en.wikipedia.org/wiki/Polynomial">polynomials</a> of degree \(m\geq0\). Second, the geometry is approximated by curved elements of order \(\ell\geq1\).</p>
 
 <p>The point of the paper is to understand how these two choices interact. If the geometry is too rough, the geometric error dominates. If the polynomial space is too small, the approximation error dominates. One should choose \(m\) and \(\ell\) in a balanced way.</p>
 
 <h2>Main result</h2>
 
-<p>In the <a href="https://arxiv.org/pdf/2507.13955">paper</a>, we prove convergence rates for curved boundary element methods for the 3D Laplace and Helmholtz equations.</p>
+<p>In the <a href="https://arxiv.org/pdf/2507.13955">paper</a>, we prove improved convergence rates for curved boundary elements for the 3D Laplace/Helmholtz <a href="https://en.wikipedia.org/wiki/Dirichlet_boundary_condition">Dirichlet</a> problems.</p>
 
 <p>For the single-layer formulation, the pointwise error away from the boundary behaves like
 $$
 |u(x)-u_h(x)| \leq c_x\left(h^{2m+3}+h^{\ell+1}\right).
 $$
-Here \(m\) is the degree used for the density, \(\ell\) is the order of the curved mesh, and \(c_x\) depends on the observation point \(x\).</p>
 
 <p>For the double-layer formulation and for the combined-field integral equation, the rate is
 $$
@@ -40,7 +39,7 @@ When using an interpolated normal instead of the element normal, the geometric p
 
 <h2>Numerical experiments</h2>
 
-<p>We also tested the rates numerically in 3D, using curved triangular elements up to order four. We considered both a sphere and a more complicated bean-shaped object.</p>
+<p>We also tested the rates numerically, using curved triangular elements up to order four. We considered both a sphere and a more complicated bean-shaped object.</p>
 
 <p>The experiments confirmed the theoretical rates. They also showed an interesting superconvergence effect: for even values of \(\ell\), namely \(\ell=2\) and \(\ell=4\), the geometric error often behaved like \(h^{\ell+2}\). This happened not only for the sphere, but also for the bean-shaped geometry, so it does not seem to be only due to symmetry.</p>
 
