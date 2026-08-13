@@ -7,64 +7,62 @@ permalink: 2026-08-12.html
 ---
 <p>Welcome to the second episode of my <i>Retreat in Lozère</i> series. Today I want to talk about a question that is becoming uncomfortable for us mathematicians: what will remain when AI becomes better than us at doing our job?</p>
 
+<div style="border-left: 4px solid #999; padding-left: 1em; margin-bottom: 1.5em; font-style: italic; color: #555;">
+  The views expressed in this post are entirely my own and do not represent the official position of any institution I am affiliated with. This is a personal reflection based on my individual experience across different academic systems. It is written in a deliberately informal and critical tone, with the intent to spark discussion, not to discredit or disrespect any person or institution.
+</div>
+
 <h2>What will remain?</h2>
 
-<p>This may have sounded strange a few years ago, when LLMs were sloppy and failed at high-school problems. But the line keeps moving&mdash;high-school problems, then undergraduate problems, then graduate problems, and now AI is starting to help prove conjectures that humans could not solve for decades. A recent example in my field of numerical analysis is the <a href="https://alextownsend.net/essays/SIAMNews_CrouzeixConjecture.pdf">proof of Crouzeix’s conjecture</a> by a neurosurgery resident, with help from GPT-5.6 Sol.</p>
+<p>This may have sounded strange a few years ago, when <a href="https://en.wikipedia.org/wiki/Large_language_model">LLMs</a> were sloppy and failed at high-school problems. But the line keeps moving&mdash;high-school problems, then undergraduate problems, then graduate problems, and now AI is starting to help prove conjectures that humans could not solve for decades. A recent example in my field of <a href="https://en.wikipedia.org/wiki/Numerical_analysis">numerical analysis</a> is the <a href="https://alextownsend.net/essays/SIAMNews_CrouzeixConjecture.pdf">proof of Crouzeix’s conjecture</a> by a neurosurgery resident a couple of days ago, with help from GPT-5.6 Sol.</p>
 
-<p>So what will be left for mathematicians? Before trying and answering this, let's take a step back. Us mathematicians, we <i>prove</i> things. But what is a proof?</p>
+<p>So what will be left for mathematicians? Us mathematicians, we <i>prove</i> things. But what is a proof?</p>
 
 <h2>What is a proof?</h2>
 
-<p>A proof is a sequence of logical steps. It is also a <a href="https://www.quantamagazine.org/why-mathematical-proof-is-a-social-compact-20230831/">social compact</a>. I discussed this in a previous blog post about <a href="https://hadrien-montanelli.github.io/2025-05-29.html">mathematical rigor</a>. When we write a proof, we do not define everything again from zero. We give enough details so that another mathematician can follow the argument. We also trust the reader to fill in standard gaps.</p>
+<p>A proof is a sequence of logical steps that starts with assumptions and proceeds to a conclusion. We mathematicians like to think of mathematics as the <i>noblest</i> of sciences&mdash;once the assumptions have been established, everything follows from logic. Things are either right or wrong. What we do is <i>pure</i> science. Or is it?</p>
 
-<p>This is normal. Without this compact, papers would be impossible to read. Every proof would have to start from the foundations of mathematics. Nobody wants that.</p>
+<p>A proof is also a <a href="https://www.quantamagazine.org/why-mathematical-proof-is-a-social-compact-20230831/">social compact</a>. I discussed this in a previous blog post about <a href="https://hadrien-montanelli.github.io/2025-05-29.html">mathematical rigor</a>. When we write a proof, we do not define everything again from zero. We give enough details so that another mathematician can follow the argument. We also trust the reader to fill in standard gaps. And this is normal! Without this compact, papers would be impossible to read. Every proof would have to start from the foundations of mathematics. Nobody wants that.</p>
 
-<p>But it also means that many proofs are not checked line by line. If the author or/and the institution is trusted, and if the paper looks correct at first sight, many people will believe it. This includes reviewers.</p>
+<p>This social compact also means that many proofs are not checked line by line. If the author and/or the institution is trusted, and if the paper looks correct at first sight, many people will believe it, including reviewers! Of course, this is different for a major theorem. A very important result will be checked carefully by experts. But most papers are incremental and reviewers will not check every line.</p>
 
-<p>Of course, this is different for a major theorem. A very important result will be checked carefully by experts. But most papers are more modest. Only a few people will read them in detail. Often, the reviewers will not check every line either.</p>
+<p>Let's be a little bit provocative. Sometimes I feel that academic mathematics works like an old gentlemen’s club. (And entering this club is hard; see my previous post on <a href="https://hadrien-montanelli.github.io/2025-06-04.html">The French Research Mafia</a>.) But once you have a seat at the table, people trust you almost blindly. Your papers look serious because your name is on them. You review your peers, your peers review you. In the end, everyone protects the same system. And I think AI is about to change this.</p>
 
-<p>Sometimes I feel that academic mathematics works like an old gentlemen’s club. Once you have a seat at the table, people trust you more. Your papers look serious because your name is on them. You review your peers, your peers review you. In the end, everyone protects the same system. And I think AI is about to change this.</p>
+<h2>Most proofs contain mistakes</h2>
 
-<h2>Most proofs probably contain mistakes</h2>
+<p>I would bet $100 that if you pick a math paper at random and run a strong model on it, it will find at least one mistake. Try me! Most mistakes will probably be small and can often be fixed. But sometimes the problem is more serious.</p>
 
-<p>I would bet $100 that if you pick a math paper at random and run a strong model on it, it will find at least one mistake. Try me!</p>
+<p>The more technical the paper is, the easier it is to make mistakes. If the writing is also hard to read, fewer people will check it carefully. The author gets less help and the mistakes stay hidden.</p>
 
-<p>Most mistakes will probably be small. They can often be fixed. But sometimes the problem is more serious.</p>
-
-<p>The more technical the paper is, the easier it is to make mistakes. If the writing is also hard to read, fewer people will check it carefully. So the author gets less help. The mistakes stay hidden.</p>
-
-<p>I also think that, in twenty or thirty years, people may be surprised by how we used to do mathematics. They may ask how we could publish so many formal arguments without automatic assistants. They may also discover that many published proofs contained small mistakes.</p>
+<p>I also think that, in 20 or 30 years, people may be surprised by how we used to do mathematics. They may ask how we could publish so many formal arguments without automatic assistants. They may look at us as artisans, much like we look at people who built the pyramids without cranes or any kind of machinery.</p>
 
 <h2>A small uncomfortable anecdote</h2>
 
-<p>Recently, I tried a small experiment. I took a very technical draft that I found almost impossible to read. To my surprise, some people around me had the opposite reaction. They said the draft was deep and impressive. But when I asked more questions, it became clear that almost nobody had really read it carefully.</p>
+<p>Recently, I took a very technical draft that I found almost impossible to read. To my surprise, some people around me had the opposite reaction. They said the draft was deep and impressive. But when I asked more questions, it became clear that almost nobody had really read it carefully. This is the kind of hypocrisy that is everywhere in mathematics.</p>
 
-<p>Complicated writing can create the impression of depth. A dense proof can make the writer look serious. It can also make the reader feel that the result must be important. And sometimes the reader also wants to sound smart by saying that they understood it.</p>
+<p>Complicated writing can create the impression of depth. A dense proof can make the writer look serious. It can also make the reader feel that the result must be important. And sometimes the reader also wants to sound smart by saying that they understood it!</p>
 
-<p>Then I ran a strong language model on the draft. It found many mathematical problems. Not only style issues. Some serious gaps. The main result may actually be wrong. I will not give more details, for obvious reasons. My provocative posts are not always appreciated by the community, and this one may hurt a bit. Sorry!</p>
+<p>Anyway, I ran a strong language model on the draft. Ouch. It found many mathematical problems: not only style issues, but also some very serious gaps. The main result may actually be wrong.</p>
 
-<p>In the future, it may become much harder to hide weak mathematics behind complicated writing. And I think this is a good thing.</p>
+<p>In the future, it may become much harder to hide weak mathematics behind complicated writing. And I think this is a <i>good</i> thing. My provocative posts are not always appreciated by the community, and this one may hurt a bit. Sorry!</p>
 
-<h2>Clear writing will matter more</h2>
+<h2>Clear writing and mathematicians as editors</h2>
 
-<p>If machines become very good at checking proofs, then clear mathematical writing will matter even more.</p>
+<p>Where does this leave us? If AI becomes better at producing and checking proofs, then one thing may become much cheaper: <i>correctness</i>. This sounds strange because correctness has always been at the center of mathematics. But now you can give a proof to an AI and get a detailed report in a few minutes. So writing a technically correct proof may no longer be enough to impress anyone. And I think this will make <i>clear writing</i> even more important!</p>
 
-<p>One possible answer is formalization. We can write proofs in Lean or another proof assistant. This is extremely useful because it checks whether a statement really follows from the previous ones.</p>
+<p>Suppose an AI gives you a 40-page proof of a conjecture. Great. But somebody still has to read those 40 pages and understand what really happened. Where is the main idea? Is there a simple example that explains what is going on? Going back to Crouzeix’s conjecture, only a few days later, a couple of mathematicians produced a five-page proof instead of the original 24-page one. Thanks, humans!</p>
 
-<p>But formalization is not the same thing as understanding. A Lean proof may certify that a result is true. It does not necessarily explain why the result is natural, where the idea comes from, or how one should remember it.</p>
+<p>I think part of our job may therefore move from <i>producing</i> arguments to <i>digesting</i> them. We may spend more time taking long AI-generated or AI-assisted proofs and turning them into mathematics that humans can understand. In other words, mathematicians may become a little more like editors. And I think I actually like this future. A good proof has never been only a certificate of correctness. A good proof shows you where the difficulty is and after reading it, the theorem feels less mysterious than before.</p>
 
-<p>This is why I think the human role may shift toward exposition. We may spend more time reading long AI-assisted proofs, understanding what they really say, and rewriting them in a form that humans can use.</p>
+<p>Let me say this one more time: clear writing will matter a lot. Mathematics can become more about ideas again, and less about putting complicated symbols everywhere. I have never been a big fan of the French Bourbaki style, or of the way mathematics is sometimes taught here. Bourbaki and I broke up. Let's make math fun again!</p>
 
-<p>A good proof is not only correct. It should also be readable. It should tell the reader where the difficulty is. It should explain the main idea before the technical details. It should make the result feel less mysterious after reading it.</p>
+<h2>So, what will remain?</h2>
 
-<h2>What is left to us?</h2>
+<p>Of course, there is another possibility: maybe humans will remain useful for coming up with strange questions and completely bold and unexpected ideas and connections. I hope so but I would not bet $100 on that one! Every time we draw a line and say, “AI will never do <i>this</i>,” then the line seems to move a few years (if not months!) later.</p>
 
-<p>Hopefully, there will still be room for completely unexpected ideas. Maybe humans will remain better at asking strange questions and making bold connections. Maybe not forever. I don't know.</p>
+<p>So perhaps the better question is what we still <i>want humans to do</i>. I still want to learn mathematics from another human being. I still want somebody to tell me why a theorem is beautiful. I still want a teacher who knows when I am confused, a colleague who gets excited by an idea and spends time finding the clearest way to explain it to me.</p>
 
-<p>But even if machines become better theorem provers, I think mathematicians will still have an important role.</p>
+<p>Mathematics is also a culture. It is about transmitting rigor and critical thinking, intuition, curiosity, and the joy of discovery. And maybe this is what will remain.</p>
 
-<p>We will need to digest complex proofs. We will need to shorten them, sharpen them, and explain them. We will need to find the right analogy, the right example, and the right picture.</p>
+<p>“The scientist does not study nature because it is useful to do so. He studies it because he takes pleasure in it, and he takes pleasure in it because it is beautiful.”</p>
 
-<p>We will also need to communicate mathematics to students and colleagues. This is not only about correctness. It is about transmitting the love of science, the taste for rigor and critical thinking, the joy of human discovery, and everything else we find beautiful in mathematical thinking.</p>
-
-<p>Let me end with a quote from one of my favorite mathematicians, Henri Poincaré: “The scientist does not study nature because it is useful to do so. He studies it because he takes pleasure in it, and he takes pleasure in it because it is beautiful.”</p>
+<p style="text-align: right;">&mdash; Henri Poincaré, <i>Science and Method</i></p>
